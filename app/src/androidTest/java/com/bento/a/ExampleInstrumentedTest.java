@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 /**
  * Instrumented test, which will execute on an Android device.
  *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * @see <login_activity href="http://d.android.com/tools/testing">Testing documentation</login_activity>
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.bento.a", appContext.getPackageName());
+        assertEquals("com.bento.login_activity", appContext.getPackageName());
     }
 }

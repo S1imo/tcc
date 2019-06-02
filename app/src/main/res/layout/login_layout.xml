@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/bg_1_pg" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:elevation="4dp"
+        android:background="@color/color_preto_bg_fundo"/>
+
+    <TextView
+        android:id="@+id/log_email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="340dp"
+        android:fontFamily="@font/montserrat"
+        android:shadowColor="#000000"
+        android:shadowDx="100dp"
+        android:shadowDy="100dp"
+        android:text="E-mail"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/log_email"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="365dp"
+        android:background="@color/color_brancofundo_log"
+        android:ems="10"
+        android:elevation="10dp"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/log_senha_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="400dp"
+        android:fontFamily="@font/montserrat"
+        android:elevation="10dp"
+        android:text="Senha"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/log_senha"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="425dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/log_ent_butt"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="460dp"
+        android:background="@drawable/button_log_gradient"
+        android:elevation="10dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Entrar"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+</RelativeLayout>
