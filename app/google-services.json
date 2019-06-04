@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "150795815342",
+    "firebase_url": "https://projecttcc-ab189.firebaseio.com",
+    "project_id": "projecttcc-ab189",
+    "storage_bucket": "projecttcc-ab189.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150795815342:android:aedde02a1d0b1c6a",
+        "android_client_info": {
+          "package_name": "com.bento.a"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150795815342-39btm6adr46u66i2qqqpgddti2vje6ls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bento.a",
+            "certificate_hash": "1b6d4cbc79e0eb432e53554b691fcf122599a901"
+          }
+        },
+        {
+          "client_id": "150795815342-3u40fkqb0cjmtaik5iks7jvqh4ri50fg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbUlM6Z0ltQsfpqInjlsa9IZulDLCYveQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150795815342-3u40fkqb0cjmtaik5iks7jvqh4ri50fg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

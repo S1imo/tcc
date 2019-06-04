@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/bg_1_pg" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="206dp"
+        android:layout_marginTop="-35dp"
+        android:src="@drawable/logo" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:background="@color/color_preto_bg_fundo"
+        android:elevation="4dp" />
+
+    <TextView
+        android:id="@+id/log_nome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="105dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Nome:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="176dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="E-mail:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_tel_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="247dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Telefone"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_cpf_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="247dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="CPF:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_rg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="318dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="RG:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_cep_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="318dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="CEP:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_tip_usu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="389dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Tipo de Usuário:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_nom_usu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="460dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Nome de usuário:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_senha_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="531dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Senha:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/cad_conf_senha_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="602dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Confirmar senha:"
+        android:textColor="@color/color_brancotext_log"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/log_email_inp"
+        android:layout_width="320dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="136dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_email_inp"
+        android:layout_width="320dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="207dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_tel_inp"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="278dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_cpf_inp"
+        android:layout_width="127dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="278dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_rg_inp"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="349dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_cep_inp"
+        android:layout_width="127dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="349dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_tip_usu_inp"
+        android:layout_width="320dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="420dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_nom_usu_inp"
+        android:layout_width="320dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="491dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_senha_inp"
+        android:layout_width="320dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="562dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/cad_conf_senha_inp"
+        android:layout_width="320dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="633dp"
+        android:background="@color/color_brancofundo_log"
+        android:elevation="10dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/cad_but"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="673dp"
+        android:background="@drawable/button_log_gradient"
+        android:elevation="10dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Cadastrar"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+</RelativeLayout>
