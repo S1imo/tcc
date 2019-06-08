@@ -588,6 +588,10 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\70325c0843ec4d2655bbf3f1be0fe3ca\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\A\\app\\build\\intermediates\\res\\merged\\debug\\layout_cad_s_layout.xml.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\A\\app\\src\\main\\res\\layout\\cad_s_layout.xml"
+    },
+    {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\A\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_focused_holo.9.png.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\70325c0843ec4d2655bbf3f1be0fe3ca\\res\\drawable-mdpi-v4\\abc_list_focused_holo.9.png"
     },
