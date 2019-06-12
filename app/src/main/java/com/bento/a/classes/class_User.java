@@ -1,11 +1,9 @@
 package com.bento.a.classes;
 
-public class login_class {
-
+public class class_User {
     private String nom_usu, tip_usu, email, senha, conf_senha, nome, cpf, cep, telefone, rg;
 
-
-    public void getCadastro(String nom_usu, String tip_usu, String email, String senha, String conf_senha)
+    public void setCadastro(String nom_usu, String tip_usu, String email, String senha, String conf_senha)
     {
         this.nom_usu = nom_usu;
         this.tip_usu = tip_usu;
@@ -14,7 +12,7 @@ public class login_class {
         this.conf_senha = conf_senha;
     }
 
-    public void getCadastroS(String nome, String cpf, String cep, String telefone, String rg)
+    public void setCadastroS(String nome, String cpf, String cep, String telefone, String rg)
     {
         this.nome = nome;
         this.cpf = cpf;
@@ -23,16 +21,12 @@ public class login_class {
         this.rg = rg;
     }
 
-    /*private void Cadastrar()
-    {
-
-
-
+    public String getEmail() {
+        return this.email;
     }
 
-    private void Logar()
-    {
-    }*/
-
+    public String getSenha() {
+        return this.senha;
+    }
 
 }

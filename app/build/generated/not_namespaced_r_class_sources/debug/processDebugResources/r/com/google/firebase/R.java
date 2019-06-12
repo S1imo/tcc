@@ -109,8 +109,8 @@ public final class R {
         public static final int status_bar_latest_event_content = 0x7f0a00d0;
         public static final int text = 0x7f0a00d8;
         public static final int text2 = 0x7f0a00d9;
-        public static final int time = 0x7f0a00e1;
-        public static final int title = 0x7f0a00e2;
+        public static final int time = 0x7f0a00e2;
+        public static final int title = 0x7f0a00e3;
     }
     public static final class integer {
         private integer() {}
@@ -142,7 +142,7 @@ public final class R {
         private string() {}
 
         public static final int common_google_play_services_unknown_issue = 0x7f0f0034;
-        public static final int status_bar_notification_info_overflow = 0x7f0f0050;
+        public static final int status_bar_notification_info_overflow = 0x7f0f0051;
     }
     public static final class style {
         private style() {}

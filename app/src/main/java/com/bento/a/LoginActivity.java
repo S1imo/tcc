@@ -7,10 +7,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class LoginActivity extends AppCompatActivity {
 
-    Button but_log_ent;
-    TextView log_cad, log_esq_senha;
+    protected void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        /*if(isLogged())
+        {
+            startActivity(Intent());
+        }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_layout);
 
         //Text cadastro e esqueceu_senha
-        log_cad = (TextView)findViewById(R.id.log_cad);
-        log_esq_senha = (TextView)findViewById(R.id.log_esq_senha);
+        TextView log_cad = (TextView) findViewById(R.id.log_cad);
+        TextView log_esq_senha = (TextView) findViewById(R.id.log_esq_senha);
 
         //Botão de login
-        but_log_ent = (Button)findViewById(R.id.log_ent_but);
+        Button but_log_ent = (Button) findViewById(R.id.log_ent_but);
 
         log_esq_senha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         log_cad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, CadActivity.class));
+                startActivity(new Intent(LoginActivity.this, CadSActivity.class));
             }
         });
 
@@ -45,4 +56,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    /*private boolean isLogged(FirebaseUser user)
+    {
+
+    }*/
 }

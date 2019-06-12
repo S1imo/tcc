@@ -1,21 +1,34 @@
 package com.bento.a;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.bento.a.classes.login_class;
+import android.widget.Toast;
+
+import com.bento.a.classes.class_User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
+
 
 public class CadActivity extends AppCompatActivity {
 
-    EditText inp_nom_usu, inp_tip_usu, inp_email, inp_senha, inp_conf_senha;
+    EditText inp_nom_usu, inp_tip_usu, inp_email;
+    android.support.design.widget.TextInputEditText inp_senha, inp_conf_senha;
     TextView alert_camps_text;
     private String nom_usu, tip_usu, email, senha, conf_senha;
     Button but_cad_prox, but_cad_volt;
-    private login_class cadastrar = new login_class();
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private class_User cadastrar = new class_User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +48,8 @@ public class CadActivity extends AppCompatActivity {
         //-
 
         //botao de voltar e proximo
-        but_cad_prox = (Button)findViewById(R.id.cad_but_prox);
-        but_cad_volt = (Button)findViewById(R.id.cad_but_vol);
+        but_cad_prox = findViewById(R.id.cad_but_prox);
+        but_cad_volt = findViewById(R.id.cad_but_vol);
 
         but_cad_prox.setOnClickListener(new View.OnClickListener()
         {
@@ -44,30 +57,51 @@ public class CadActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 //edittext para string
-                nom_usu = inp_nom_usu.getText().toString();
-                tip_usu = inp_tip_usu.getText().toString();
-                email = inp_email.getText().toString();
-                senha = inp_senha.getText().toString();
-                conf_senha = inp_conf_senha.getText().toString();
+                nom_usu = inp_nom_usu.getText().toString().trim();
+                tip_usu = inp_tip_usu.getText().toString().trim();
+                email = inp_email.getText().toString().trim();
+                senha = Objects.requireNonNull(inp_senha.getText()).toString().trim();
+                conf_senha = Objects.requireNonNull(inp_conf_senha.getText()).toString().trim();
 
                 if(nom_usu.isEmpty() || tip_usu.isEmpty() || email.isEmpty() || senha.isEmpty() || conf_senha.isEmpty())
                     {
-                            alert_camps_text.setText("Preencha os campos");
+                        Toast.makeText(CadActivity.this,"Preencha os campos",Toast.LENGTH_SHORT).show();
                     }
-                else if(!email.equals("firebase"))
+                else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
+                    Toast.makeText(CadActivity.this,"Email não válido",Toast.LENGTH_SHORT).show();
+                }
+                else if(senha.length() < 6 || conf_senha.length() <= 6)
                     {
-                        alert_camps_text.setText("Email já cadastrado");
+                        Toast.makeText(CadActivity.this,"Senhas precisam de mais de 6 letras",Toast.LENGTH_SHORT).show();
                     }
                 else if(!senha.equals(conf_senha))
                     {
-                        alert_camps_text.setText("Senhas não são iguais");
+                        Toast.makeText(CadActivity.this,"Senhas estão diferentes",Toast.LENGTH_SHORT).show();
                     }
                 else
                     {
                         //function cadastrar e ir para a próxima activity
-                        cadastrar.getCadastro(nom_usu, tip_usu, email, senha, conf_senha);
-                        startActivity(new Intent(CadActivity.this, CadSActivity.class));
+                        cadastrar.setCadastro(nom_usu, tip_usu, email, senha, conf_senha);
+                        //mandar para o db
                         //-
+
+                        mAuth.createUserWithEmailAndPassword(email, senha)
+                        .addOnCompleteListener(CadActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Toast.makeText(CadActivity.this, "Cadastro efetuado", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(CadActivity.this, LoginActivity.class));
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Toast.makeText(CadActivity.this, "Cadastro não efetuado", Toast.LENGTH_LONG).show();
+                                }
+
+                                // ...
+                            }
+                        });
                     }
             }
         });
@@ -76,7 +110,7 @@ public class CadActivity extends AppCompatActivity {
         but_cad_volt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CadActivity.this, LoginActivity.class));
+                startActivity(new Intent(CadActivity.this, CadSActivity.class));
             }
         });
         //-

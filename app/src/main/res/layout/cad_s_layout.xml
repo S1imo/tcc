@@ -293,7 +293,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_log_gradient"
         android:fontFamily="@font/montserrat"
-        android:text="Cadastrar"
+        android:text="Próximo"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
