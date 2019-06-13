@@ -59,15 +59,15 @@
         android:shadowDx="0"
         android:shadowDy="4"
         android:shadowRadius="6"
-        android:text="Nome:"
+        android:text="Nome completo:"
         android:textColor="@color/color_brancotext_log"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.178" />
 
     <TextView
         android:id="@+id/cad_cep_text"
@@ -181,7 +181,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.356" />
 
-    <EditText
+    <com.santalu.maskedittext.MaskEditText
         android:id="@+id/cad_cep_inp"
         android:layout_width="160dp"
         android:layout_height="35dp"
@@ -189,7 +189,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:autofillHints=""
         android:background="@color/color_brancofundo_log"
         android:elevation="3dp"
         android:ems="10"
@@ -200,9 +199,10 @@
         app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintVertical_bias="0.483"
+        app:met_mask="#####-###"/>
 
-    <EditText
+    <com.santalu.maskedittext.MaskEditText
         android:id="@+id/cad_cpf_inp"
         android:layout_width="150dp"
         android:layout_height="35dp"
@@ -210,7 +210,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:autofillHints=""
         android:background="@color/color_brancofundo_log"
         android:elevation="3dp"
         android:ems="10"
@@ -221,9 +220,10 @@
         app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintVertical_bias="0.483"
+        app:met_mask="###.###.###-##" />
 
-    <EditText
+    <com.santalu.maskedittext.MaskEditText
         android:id="@+id/cad_tel_inp"
         android:layout_width="350dp"
         android:layout_height="35dp"
@@ -235,15 +235,16 @@
         android:elevation="3dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:inputType="number"
+        android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="@+id/cad2_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.607" />
+        app:layout_constraintVertical_bias="0.607"
+        app:met_mask="(##)#####-####" />
 
-    <EditText
+    <com.santalu.maskedittext.MaskEditText
         android:id="@+id/cad_rg_inp"
         android:layout_width="350dp"
         android:layout_height="35dp"
@@ -261,7 +262,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintVertical_bias="0.729"
+        app:met_mask="##.###.###-#"/>
 
     <Button
         android:id="@+id/cad_voltar_but"

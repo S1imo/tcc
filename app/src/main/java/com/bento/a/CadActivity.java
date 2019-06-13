@@ -8,15 +8,16 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bento.a.classes.class_User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 
@@ -24,95 +25,152 @@ public class CadActivity extends AppCompatActivity {
 
     EditText inp_nom_usu, inp_tip_usu, inp_email;
     android.support.design.widget.TextInputEditText inp_senha, inp_conf_senha;
-    TextView alert_camps_text;
-    private String nom_usu, tip_usu, email, senha, conf_senha;
     Button but_cad_prox, but_cad_volt;
+
+    private String nom_usu, tip_usu, email, senha, conf_senha, nome_comp, cpf, cep, telefone, rg;
+
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private class_User cadastrar = new class_User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cad_layout);
 
-        //input dos textos
-            inp_nom_usu = findViewById(R.id.cad_nom_usu_inp);
-            inp_tip_usu = findViewById(R.id.cad_tip_usu_inp);
-            inp_email = findViewById(R.id.cad_email_inp);
-            inp_senha = findViewById(R.id.cad_senha_inp);
-            inp_conf_senha = findViewById(R.id.cad_conf_senha_inp);
-        //-
+        inp_nom_usu = findViewById(R.id.cad_nom_usu_inp);
+        inp_tip_usu = findViewById(R.id.cad_tip_usu_inp);
+        inp_email = findViewById(R.id.cad_email_inp);
+        inp_senha = findViewById(R.id.cad_senha_inp);
+        inp_conf_senha = findViewById(R.id.cad_conf_senha_inp);
 
-        //alertas
-            alert_camps_text = findViewById(R.id.cad_att_pr_camps_text);
-        //-
-
-        //botao de voltar e proximo
         but_cad_prox = findViewById(R.id.cad_but_prox);
         but_cad_volt = findViewById(R.id.cad_but_vol);
 
-        but_cad_prox.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                //edittext para string
-                nom_usu = inp_nom_usu.getText().toString().trim();
-                tip_usu = inp_tip_usu.getText().toString().trim();
-                email = inp_email.getText().toString().trim();
-                senha = Objects.requireNonNull(inp_senha.getText()).toString().trim();
-                conf_senha = Objects.requireNonNull(inp_conf_senha.getText()).toString().trim();
+        buttonBack(but_cad_volt);
+        buttonRegister(but_cad_prox);
 
-                if(nom_usu.isEmpty() || tip_usu.isEmpty() || email.isEmpty() || senha.isEmpty() || conf_senha.isEmpty())
-                    {
-                        Toast.makeText(CadActivity.this,"Preencha os campos",Toast.LENGTH_SHORT).show();
-                    }
-                else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-                {
-                    Toast.makeText(CadActivity.this,"Email não válido",Toast.LENGTH_SHORT).show();
-                }
-                else if(senha.length() < 6 || conf_senha.length() <= 6)
-                    {
-                        Toast.makeText(CadActivity.this,"Senhas precisam de mais de 6 letras",Toast.LENGTH_SHORT).show();
-                    }
-                else if(!senha.equals(conf_senha))
-                    {
-                        Toast.makeText(CadActivity.this,"Senhas estão diferentes",Toast.LENGTH_SHORT).show();
-                    }
-                else
-                    {
-                        //function cadastrar e ir para a próxima activity
-                        cadastrar.setCadastro(nom_usu, tip_usu, email, senha, conf_senha);
-                        //mandar para o db
-                        //-
+    }
 
-                        mAuth.createUserWithEmailAndPassword(email, senha)
-                        .addOnCompleteListener(CadActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(CadActivity.this, "Cadastro efetuado", Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(CadActivity.this, LoginActivity.class));
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(CadActivity.this, "Cadastro não efetuado", Toast.LENGTH_LONG).show();
-                                }
-
-                                // ...
-                            }
-                        });
-                    }
-            }
-        });
-
-
-        but_cad_volt.setOnClickListener(new View.OnClickListener() {
+    private void buttonBack(Button butt_vol)
+    {
+        butt_vol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CadActivity.this, CadSActivity.class));
             }
         });
-        //-
+    }
+
+    private void buttonRegister(Button butt_cad)
+    {
+        butt_cad.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                inputToString(inp_nom_usu, inp_tip_usu, inp_email, inp_senha, inp_conf_senha);
+
+                switch (verifyRegister(nom_usu, tip_usu, email, senha, conf_senha)){
+                    case 1:
+                        Toast.makeText(CadActivity.this,"Preencha os campos",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(CadActivity.this,"Email não válido",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3:
+                        Toast.makeText(CadActivity.this,"Senhas precisam de mais de 6 letras",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 4:
+                        Toast.makeText(CadActivity.this,"Senhas não são iguais",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 0:
+                        connectDB(email, senha);
+                        break;
+                    default:
+                        Toast.makeText(CadActivity.this,"Um erro inesperado aconteceu",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+    }
+
+    private void inputToString(EditText inp_nom_usu, EditText inp_tip_usu, EditText inp_email, android.support.design.widget.TextInputEditText inp_senha, android.support.design.widget.TextInputEditText inp_conf_senha)
+    {
+        this.nom_usu = inp_nom_usu.getText().toString().trim();
+        this.tip_usu = inp_tip_usu.getText().toString().trim();
+        this.email = inp_email.getText().toString().trim();
+        this.senha = Objects.requireNonNull(inp_senha.getText()).toString().trim();
+        this.conf_senha = Objects.requireNonNull(inp_conf_senha.getText()).toString().trim();
+    }
+
+    private int verifyRegister(String nom_usu, String tip_usu, String email, String senha, String conf_senha)
+    {
+        if(nom_usu.isEmpty() || tip_usu.isEmpty() || email.isEmpty() || senha.isEmpty() || conf_senha.isEmpty())
+        {
+            return 1;
+        }
+        else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+            return 2;
+        }
+        else if(senha.length() < 6 || conf_senha.length() <= 6)
+        {
+            return 3;
+        }
+        else if(!senha.equals(conf_senha))
+        {
+            return 4;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    private void connectDB(String email, String senha)
+    {
+        mAuth.createUserWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(CadActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(CadActivity.this, "Cadastro efetuado", Toast.LENGTH_LONG).show();
+                            dataDB();
+                            startActivity(new Intent(CadActivity.this, LoginActivity.class));
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(CadActivity.this, "Cadastro não efetuado", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+    }
+
+    private void intentGetVar()
+    {
+        Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
+        this.nome_comp = bundle.getString("nome_comp");
+        this.cpf = bundle.getString("cpf");
+        this.cep = bundle.getString("cep");
+        this.telefone = bundle.getString("telefone");
+        this.rg = bundle.getString("rg");
+    }
+
+    private void dataDB()
+    {
+        String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        intentGetVar();
+        HashMap<String, String> dataInfo = new HashMap<>();
+            dataInfo.put("nome_user",nom_usu);
+            dataInfo.put("tip_user",tip_usu);
+            dataInfo.put("nome_comp_user", nome_comp);
+            dataInfo.put("CPF", cpf);
+            dataInfo.put("CEP", cep);
+            dataInfo.put("Telefone", telefone);
+            dataInfo.put("RG", rg);
+
+        current_user_db.setValue(dataInfo);
     }
 }

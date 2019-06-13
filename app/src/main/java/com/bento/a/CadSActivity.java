@@ -1,29 +1,22 @@
 package com.bento.a;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.bento.a.classes.class_User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.santalu.maskedittext.MaskEditText;
+import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class CadSActivity extends AppCompatActivity {
 
-    private class_User cadastro = new class_User();
-    private EditText cad_nom_inp, cad_cpf_inp, cad_cep_inp, cad_tel_inp, cad_rg_inp;
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private EditText cad_nom_inp;
+    private MaskEditText cad_cpf_inp, cad_cep_inp, cad_rg_inp, cad_tel_inp;
     private String nome, cpf, cep, telefone, rg;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,60 +29,104 @@ public class CadSActivity extends AppCompatActivity {
         cad_tel_inp = findViewById(R.id.cad_tel_inp);
         cad_rg_inp = findViewById(R.id.cad_rg_inp);
 
-        //definição dos botoes
         Button but_cad = findViewById(R.id.cad_but_cads);
         Button but_vol = findViewById(R.id.cad_voltar_but);
-        //--
 
-        but_vol.setOnClickListener(new View.OnClickListener() {
+        buttonVoltar(but_vol);
+        buttonCadIr(but_cad);
+    }
+
+    private void buttonVoltar(Button butt_vol)
+    {
+        butt_vol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CadSActivity.this, LoginActivity.class));
             }
         });
+    }
 
-        but_cad.setOnClickListener(new View.OnClickListener() {
+    private void buttonCadIr(Button butt_cad)
+    {
+        butt_cad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //edit to string
-                nome = cad_nom_inp.getText().toString().trim();
-                cpf = cad_cpf_inp.getText().toString().trim();
-                cep = cad_cep_inp.getText().toString().trim();
-                telefone = cad_tel_inp.getText().toString().trim();
-                rg = cad_rg_inp.getText().toString().trim();
-                //-
+                textToString();
 
-                if(nome.isEmpty() || cpf.isEmpty() || cep.isEmpty() || telefone.isEmpty() || rg.isEmpty())
-                {
-                    Toast.makeText(CadSActivity.this, "Preencha os campons", Toast.LENGTH_SHORT).show();
+                switch(verfCamps(nome, cpf, cep, telefone, rg)) {
+
+                    case 1:
+                        Toast.makeText(CadSActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(CadSActivity.this, "Preencha inteiramente o CPF", Toast.LENGTH_SHORT).show();
+                        cad_cpf_inp.requestFocus();
+                        break;
+                    case 3:
+                        Toast.makeText(CadSActivity.this, "Preencha inteiramente o CEP", Toast.LENGTH_SHORT).show();
+                        cad_cep_inp.requestFocus();
+                        break;
+                    case 4:
+                        Toast.makeText(CadSActivity.this, "Preencha inteiramente o Telefone", Toast.LENGTH_SHORT).show();
+                        cad_tel_inp.requestFocus();
+                        break;
+                    case 5:
+                        Toast.makeText(CadSActivity.this, "Preencha inteiramente o RG", Toast.LENGTH_SHORT).show();
+                        cad_rg_inp.requestFocus();
+                        break;
+                    case 6:
+                        startActivity(new Intent(CadSActivity.this, CadActivity.class)
+                                .putExtra("nome_comp",nome)
+                                .putExtra("cpf",cpf)
+                                .putExtra("cep",cep)
+                                .putExtra("telefone",telefone)
+                                .putExtra("rg",rg));
+                        break;
+                    default:
+                        Toast.makeText(CadSActivity.this, "Um erro inesperado aconteceu", Toast.LENGTH_SHORT).show();
+                        break;
                 }
-                if(!cpf.equals("\\d{3}.\\d{3}.\\d{3}-\\d{2}"))
-                {
-                    //https://developer.android.com/reference/java/util/regex/Pattern - site de patterns
-                }
-                if(!cep.equals("\\d{5}-\\d{3}"))
-                {
-
-                }
-                /*if()
-                {
-
-                }
-                if()
-                {
-
-                }
-                if()
-                {
-
-                }*/
-                cadastro.setCadastroS(nome, cpf, cep, telefone, rg);
-                //jogar cadastros no bd
-                startActivity(new Intent(CadSActivity.this, CadActivity.class));
-
             }
         });
-
     }
+
+    private static int verfCamps(String nome, String cpf, String cep, String telefone, String rg)
+    {
+        if(nome.isEmpty() || cpf.isEmpty() || cep.isEmpty() || telefone.isEmpty() || rg.isEmpty())
+        {
+            return 1;
+        }
+        if(!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$"))
+        {
+            return 2;
+        }
+        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
+        {
+            return 3;
+        }
+        if(!telefone.matches("^\\(\\d{2}\\)\\d{5}-?\\d{4}$"))
+        {
+            return 4;
+        }
+        if(!rg.matches("^\\d[2]\\.?\\d{3}\\.?\\d{3}\\.?-?\\d$"))
+        {
+            return 5;
+        }
+        else
+        {
+            return 6;
+        }
+    }
+
+    private void textToString()
+    {
+        this.nome = cad_nom_inp.getText().toString().trim();
+        this.cpf = Objects.requireNonNull(cad_cpf_inp.getText()).toString().trim();
+        this.cep = Objects.requireNonNull(cad_cep_inp.getText()).toString().trim();
+        this.telefone = Objects.requireNonNull(cad_tel_inp.getText()).toString().trim();
+        this.rg = Objects.requireNonNull(cad_rg_inp.getText()).toString().trim();
+    }
+
+
 }
