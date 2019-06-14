@@ -21,7 +21,8 @@
         android:layout_height="240dp"
         android:layout_marginTop="-35dp"
         android:layout_marginBottom="8dp"
-        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="@+id/backgroud"
         app:layout_constraintEnd_toEndOf="parent"
@@ -173,23 +174,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.363" />
 
-    <EditText
-        android:id="@+id/cad_tip_usu_inp"
+    <View
         android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/color_brancofundo_log"
-        android:fontFamily="@font/montserrat"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/backgroud"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.477"/>
+
+        <Spinner
+            android:id="@+id/cad_tip_usu_inp"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view2"
+            app:layout_constraintVertical_bias="0.477">
+        </Spinner>
 
     <EditText
         android:id="@+id/cad_email_inp"

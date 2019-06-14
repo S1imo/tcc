@@ -44,7 +44,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UnknownIdInLayout" />
 
     <TextView
         android:id="@+id/cad_nome_text"
@@ -193,14 +194,14 @@
         android:elevation="3dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:inputType="number|text"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/cad2_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.483"
-        app:met_mask="#####-###"/>
+        app:met_mask="#####-###" />
 
     <com.santalu.maskedittext.MaskEditText
         android:id="@+id/cad_cpf_inp"

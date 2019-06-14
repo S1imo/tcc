@@ -3658,7 +3658,10 @@
         </item>
     </string-array></file><file path="C:\Users\joaog\AndroidStudioProjects\A\app\src\main\res\values\preloaded_fonts.xml" qualifiers=""><array name="preloaded_fonts" translatable="false">
         <item>@font/montserrat</item>
-    </array></file><file path="C:\Users\joaog\AndroidStudioProjects\A\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">A</string><string name="email"/></file><file path="C:\Users\joaog\AndroidStudioProjects\A\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </array></file><file path="C:\Users\joaog\AndroidStudioProjects\A\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">A</string><string-array name="tip_usu">
+        <item>Usuário</item>
+        <item>Empresa</item>
+    </string-array></file><file path="C:\Users\joaog\AndroidStudioProjects\A\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

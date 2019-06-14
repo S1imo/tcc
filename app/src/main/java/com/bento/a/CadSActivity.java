@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.santalu.maskedittext.MaskEditText;
 import java.util.Objects;
-import java.util.regex.Pattern;
 
 public class CadSActivity extends AppCompatActivity {
 
@@ -60,22 +59,26 @@ public class CadSActivity extends AppCompatActivity {
                         Toast.makeText(CadSActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
+                        Toast.makeText(CadSActivity.this, "O campo nome não pode conter numeros", Toast.LENGTH_SHORT).show();
+                        cad_nom_inp.requestFocus();
+                        break;
+                    case 3:
                         Toast.makeText(CadSActivity.this, "Preencha inteiramente o CPF", Toast.LENGTH_SHORT).show();
                         cad_cpf_inp.requestFocus();
                         break;
-                    case 3:
+                    case 4:
                         Toast.makeText(CadSActivity.this, "Preencha inteiramente o CEP", Toast.LENGTH_SHORT).show();
                         cad_cep_inp.requestFocus();
                         break;
-                    case 4:
+                    case 5:
                         Toast.makeText(CadSActivity.this, "Preencha inteiramente o Telefone", Toast.LENGTH_SHORT).show();
                         cad_tel_inp.requestFocus();
                         break;
-                    case 5:
+                    case 6:
                         Toast.makeText(CadSActivity.this, "Preencha inteiramente o RG", Toast.LENGTH_SHORT).show();
                         cad_rg_inp.requestFocus();
                         break;
-                    case 6:
+                    case 0:
                         startActivity(new Intent(CadSActivity.this, CadActivity.class)
                                 .putExtra("nome_comp",nome)
                                 .putExtra("cpf",cpf)
@@ -97,25 +100,29 @@ public class CadSActivity extends AppCompatActivity {
         {
             return 1;
         }
-        if(!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$"))
+        if(!nome.matches("^[a-zA-Z]*$"))
         {
             return 2;
         }
-        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
+        if(!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$"))
         {
             return 3;
         }
-        if(!telefone.matches("^\\(\\d{2}\\)\\d{5}-?\\d{4}$"))
+        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
         {
             return 4;
         }
-        if(!rg.matches("^\\d[2]\\.?\\d{3}\\.?\\d{3}\\.?-?\\d$"))
+        if(!telefone.matches("^\\(\\d{2}\\)\\d{5}-?\\d{4}$"))
         {
             return 5;
         }
-        else
+        if(!rg.matches("^\\d{2}\\.?\\d{3}\\.?\\d{3}\\.?-?\\d{1}$"))
         {
             return 6;
+        }
+        else
+        {
+            return 0;
         }
     }
 

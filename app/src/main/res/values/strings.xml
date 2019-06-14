@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">A</string>
-    <string name="email"></string>
+    <string-array name="tip_usu">
+        <item>Usuário</item>
+        <item>Empresa</item>
+    </string-array>
+
 </resources>

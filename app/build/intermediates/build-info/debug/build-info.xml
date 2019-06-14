@@ -2,40 +2,47 @@
 <instant-run
     abi="x86"
     api-level="27"
-    build-mode="HOT_WARM"
+    build-mode="COLD"
     density="420dpi"
     format="10"
+    ir-eligibility="METHOD_DELETED"
     plugin-version="3.4.1"
-    timestamp="1560385729778"
+    timestamp="1560473589262"
     token="8469095464858625447"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="472" />
+        duration="409" />
     <task
         name="instant-run-dex"
-        duration="84" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="136" />
+        duration="65" />
     <task
         name="verifier"
-        duration="4" />
+        duration="22" />
 
     <artifact
-        location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1560379036402"
+        timestamp="1560469804516"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
@@ -44,16 +51,10 @@
             location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
             location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
@@ -73,77 +74,21 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="METHOD_ADDED"
-        timestamp="1560382004120"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1560384679789"
+        timestamp="1560473184302"
         verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1560384827642"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\builds\debug\1560384827642\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1560385229380"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\builds\debug\1560385229380\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1560385335584"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\builds\debug\1560385335584\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1560385563411"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\builds\debug\1560385563411\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1560385590083"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\builds\debug\1560385590083\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1560385634751"
-        verifier="COMPATIBLE" >
         <artifact
             location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
     </build>
     <build
-        build-mode="HOT_WARM"
-        timestamp="1560385729778"
-        verifier="COMPATIBLE" >
+        build-mode="COLD"
+        ir-eligibility="METHOD_DELETED"
+        timestamp="1560473589262"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
+            location="C:\Users\joaog\AndroidStudioProjects\A\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>
