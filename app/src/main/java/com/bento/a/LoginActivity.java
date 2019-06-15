@@ -1,13 +1,19 @@
 package com.bento.a;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -20,17 +26,23 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inp_email;
     private android.support.design.widget.TextInputEditText inp_senha;
     private String email, senha;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 
     protected void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        /*if(isLogged())
+        if(currentUser != null)
         {
-            startActivity(Intent());
-        }*/
+            Log.d("USRLOG","Usuário logado");
+            startActivity(new Intent(LoginActivity.this, PerfilActivity.class));
+        }
+        else
+        {
+            Log.d("ERRLOG","Usuário não logado");
+        }
     }
 
     @Override
@@ -76,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         log_esq_senha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(LoginActivity.this, EsqueceuSenhaActivity.class));
             }
         });
     }
@@ -90,18 +102,17 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     case 1:
                         //email vazio
+                        Toast.makeText(LoginActivity.this, "Preencha o campo e-mail", Toast.LENGTH_SHORT).show();
                         inp_email.requestFocus();
                         break;
                     case 2:
+                        Toast.makeText(LoginActivity.this, "Preencha o campo senha", Toast.LENGTH_SHORT).show();
                         inp_senha.requestFocus();
                         //senha vazia
                         break;
-                    case 3:
-                        inp_email.requestFocus();
-                        //email ou senha não encontrados
-                        break;
                     case 0:
                         //conectando
+                        logUser();
                         break;
                     default:
                         //erro inesperado
@@ -120,10 +131,6 @@ public class LoginActivity extends AppCompatActivity {
         {
             return 2;
         }
-        else if(email.matches("") || senha.matches(""))
-        {
-            return 3;
-        }
         else
         {
             return 0;
@@ -131,8 +138,21 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    /*private boolean isLogged(FirebaseUser user)
+    private void logUser()
     {
+        mAuth.signInWithEmailAndPassword(email, senha)
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        startActivity(new Intent(LoginActivity.this, PerfilActivity.class));
 
-    }*/
+                    } else {
+                        Toast.makeText(LoginActivity.this, "E-mail ou senha não encontrados", Toast.LENGTH_SHORT).show();
+                        inp_email.requestFocus();
+                    }
+                }
+            });
+    }
 }

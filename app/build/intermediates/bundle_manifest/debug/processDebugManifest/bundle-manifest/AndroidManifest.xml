@@ -23,6 +23,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.bento.a.EsqueceuSenhaActivity" />
+        <activity android:name="com.bento.a.MainActivity" />
         <activity android:name="com.bento.a.CadSActivity" />
         <activity android:name="com.bento.a.CadActivity" />
         <activity android:name="com.bento.a.LoginActivity" >

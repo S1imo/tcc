@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9838961145f732a35d1de0052962bb65\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.santalu:mask-edittext:1.0.2] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\4c1bd97bef4cc1d38a2e0341217815fa\AndroidManifest.xml:2:1-14:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\70325c0843ec4d2655bbf3f1be0fe3ca\AndroidManifest.xml:17:1-22:12
@@ -47,25 +47,25 @@ MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\joaog\.gradle\cache
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\87f562224cc31c18be513e37898b3035\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\5b6420275c4e3d211d3256f3253e30e5\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\aa0a21218479e253a7755ade434ee81a\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:3:5-26
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:5:5-25:19
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9838961145f732a35d1de0052962bb65\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9838961145f732a35d1de0052962bb65\AndroidManifest.xml:22:5-20
 MERGED from [com.github.santalu:mask-edittext:1.0.2] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\4c1bd97bef4cc1d38a2e0341217815fa\AndroidManifest.xml:12:5-20
@@ -104,34 +104,42 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\joaog\.gra
 		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.bento.a.EsqueceuSenhaActivity
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:12:9-68
+	android:name
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:12:19-56
+activity#com.bento.a.MainActivity
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:13:9-50
+	android:name
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:13:19-47
 activity#com.bento.a.CadSActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:12:9-59
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:14:9-50
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:12:19-47
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:14:19-47
 activity#com.bento.a.CadActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:13:9-49
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:15:9-49
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:13:19-46
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:15:19-46
 activity#com.bento.a.LoginActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:14:9-20:20
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:16:9-22:20
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:14:19-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:16:19-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:15:13-19:29
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:18:17-77
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:18:27-74
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:20:27-74
 meta-data#preloaded_fonts
-ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:22:9-24:57
+ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:24:9-26:57
 	android:resource
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:24:13-54
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:26:13-54
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:23:13-43
+		ADDED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml:25:13-43
 uses-sdk
 INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\joaog\AndroidStudioProjects\A\app\src\main\AndroidManifest.xml

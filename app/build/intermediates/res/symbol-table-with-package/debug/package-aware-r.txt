@@ -1115,8 +1115,12 @@ id auto
 id backgroud
 id barrier
 id beginning
+id bg
+id bg_cont
 id blocking
 id bottom
+id but_env_es
+id but_vol_es
 id buttonPanel
 id cad2_logo
 id cad_but_cads
@@ -1171,10 +1175,13 @@ id dimensions
 id direct
 id disableHome
 id edit_query
+id email_es_inp
 id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id es_email_text1
+id es_nome_text
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1217,6 +1224,7 @@ id log_esq_senha
 id log_nome_text
 id log_senha
 id log_senha_text
+id logo
 id masked
 id media_actions
 id message
@@ -1391,7 +1399,9 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout esqueceu_senha_layout
 layout login_layout
+layout main_layout
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
