@@ -58,7 +58,7 @@ public class CadSUActivity extends AppCompatActivity {
         butt_vol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CadSUActivity.this, LoginActivity.class));
+                startActivity(new Intent(CadSUActivity.this, CadActivity.class));
             }
         });
     }
