@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         log_cad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, CadSActivity.class));
+                startActivity(new Intent(LoginActivity.this, CadSUActivity.class));
             }
         });
     }

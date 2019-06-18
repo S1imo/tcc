@@ -1,7 +1,6 @@
 package com.bento.a;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -13,14 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
 import java.util.Objects;
 
 
@@ -54,7 +47,7 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
         butt_vol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CadActivity.this, CadSActivity.class));
+                startActivity(new Intent(CadActivity.this, CadSUActivity.class));
             }
         });
     }
@@ -114,7 +107,22 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
                         inp_senha.requestFocus();
                         break;
                     case 0:
-                        connectDB(email, senha);
+                        if(tip_usu.equals("Usuário"))
+                        {
+                            startActivity(new Intent(CadActivity.this, CadSUActivity.class)
+                                .putExtra("nom_usu",nom_usu)
+                                .putExtra("tip_usu",tip_usu)
+                                .putExtra("senha", senha)
+                                .putExtra("email", email));
+                        }
+                        else if(tip_usu.equals("Empresa"))
+                        {
+                            startActivity(new Intent(CadActivity.this, CadSEActivity.class)
+                                    .putExtra("nom_usu",nom_usu)
+                                    .putExtra("tip_usu",tip_usu)
+                                    .putExtra("senha", senha)
+                                    .putExtra("email", email));
+                        }
                         break;
                     default:
                         Toast.makeText(CadActivity.this,"Um erro inesperado aconteceu",Toast.LENGTH_SHORT).show();
@@ -173,54 +181,6 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
         }
     }
 
-    private void connectDB(String email, String senha)
-    {
-        mAuth.createUserWithEmailAndPassword(email, senha)
-                .addOnCompleteListener(CadActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(CadActivity.this, "Cadastro efetuado", Toast.LENGTH_LONG).show();
-                            dataDB();
-                            startActivity(new Intent(CadActivity.this, LoginActivity.class));
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(CadActivity.this, "Cadastro não efetuado", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-    }
-
-    private void intentGetVar()
-    {
-        Bundle bundle = getIntent().getExtras();
-        assert bundle != null;
-        this.nome_comp = bundle.getString("nome_comp");
-        this.cpf = bundle.getString("cpf");
-        this.cep = bundle.getString("cep");
-        this.telefone = bundle.getString("telefone");
-        this.rg = bundle.getString("rg");
-    }
-
-    //metodo para cadastrar informações no bd
-    private void dataDB()
-    {
-        String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-        intentGetVar();
-        HashMap<String, String> dataInfo = new HashMap<>();
-            dataInfo.put("nome_user",nom_usu);
-            dataInfo.put("tip_user",tip_usu);
-            dataInfo.put("nome_comp_user", nome_comp);
-            dataInfo.put("CPF", cpf);
-            dataInfo.put("CEP", cep);
-            dataInfo.put("Telefone", telefone);
-            dataInfo.put("RG", rg);
-
-        current_user_db.setValue(dataInfo);
-    }
 
     //metodo para retornar array do tip_usuario
     private void setTipUsu()

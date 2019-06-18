@@ -25,8 +25,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.bento.a.CadSEActivity" />
         <activity android:name="com.bento.a.EsqueceuSenhaActivity" />
         <activity android:name="com.bento.a.PerfilActivity" />
         <activity android:name="com.bento.a.CadSActivity" />
@@ -47,8 +47,7 @@
         </activity>
         <activity
             android:name="com.bento.a.PopUpActivity"
-            android:theme="@style/Theme.Transparent" >
-        </activity>
+            android:theme="@style/Theme.Transparent" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -90,11 +89,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.bento.a.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>
