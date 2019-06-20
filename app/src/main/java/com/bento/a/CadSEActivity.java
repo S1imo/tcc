@@ -4,13 +4,9 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,24 +18,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.santalu.maskedittext.MaskEditText;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class CadSEActivity extends AppCompatActivity {
 
     private EditText cad_nom_inp;
-    private MaskEditText cad_cpf_inp, cad_cep_inp, cad_rg_inp, cad_tel_inp;
-    private String nome_comp, cpf, cep, telefone, rg, nom_usu, tip_usu, email, senha;
+    private MaskEditText cad_cep_inp, cad_tel_inp, cad_cnpj_inp;
+    private String nome_comp, cnpj, cep, telefone, nom_usu, tip_usu, email, senha;
     private Button but_cad, but_vol;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-
-    //TODO colocar cnpj
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cad_s_layout);
+        setContentView(R.layout.cad_se_layout);
 
         inputToVar();
+        intentGetVar();
 
         buttonVoltar(but_vol);
         buttonCadIr(but_cad);
@@ -48,10 +44,9 @@ public class CadSEActivity extends AppCompatActivity {
     private void inputToVar() {
 
         cad_nom_inp = findViewById(R.id.cad_nome_inp);
-        cad_cpf_inp = findViewById(R.id.cad_cpf_inp);
         cad_cep_inp = findViewById(R.id.cad_cep_inp);
         cad_tel_inp = findViewById(R.id.cad_tel_inp);
-        cad_rg_inp = findViewById(R.id.cad_rg_inp);
+        cad_cnpj_inp = findViewById(R.id.cad_cnpj_inp);
 
         but_cad = findViewById(R.id.cad_but_cads);
         but_vol = findViewById(R.id.cad_voltar_but);
@@ -75,7 +70,7 @@ public class CadSEActivity extends AppCompatActivity {
 
                 textToString();
 
-                switch(verfCamps(nome_comp, cpf, cep, telefone, rg)) {
+                switch(verfCamps(nome_comp, cnpj, cep, telefone,nom_usu, tip_usu, email,senha)) {
 
                     case 1:
                         Toast.makeText(CadSEActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
@@ -85,8 +80,8 @@ public class CadSEActivity extends AppCompatActivity {
                         cad_nom_inp.requestFocus();
                         break;
                     case 3:
-                        Toast.makeText(CadSEActivity.this, "Preencha inteiramente o CPF", Toast.LENGTH_SHORT).show();
-                        cad_cpf_inp.requestFocus();
+                        Toast.makeText(CadSEActivity.this, "Preencha inteiramente o CNPJ: " + cnpj, Toast.LENGTH_SHORT).show();
+                        cad_cnpj_inp.requestFocus();
                         break;
                     case 4:
                         Toast.makeText(CadSEActivity.this, "Preencha inteiramente o CEP", Toast.LENGTH_SHORT).show();
@@ -97,12 +92,11 @@ public class CadSEActivity extends AppCompatActivity {
                         cad_tel_inp.requestFocus();
                         break;
                     case 6:
-                        Toast.makeText(CadSEActivity.this, "Preencha inteiramente o RG", Toast.LENGTH_SHORT).show();
-                        cad_rg_inp.requestFocus();
+                        Toast.makeText(CadSEActivity.this, "Alguma coisa null: " + senha + nom_usu + tip_usu + email, Toast.LENGTH_SHORT).show();
+                        cad_nom_inp.requestFocus();
                         break;
                     case 0:
                         connectDB(email, senha);
-                        startActivity(new Intent(CadSEActivity.this, LoginActivity.class));
                         break;
                     default:
                         Toast.makeText(CadSEActivity.this, "Um erro inesperado aconteceu", Toast.LENGTH_SHORT).show();
@@ -112,17 +106,17 @@ public class CadSEActivity extends AppCompatActivity {
         });
     }
 
-    private static int verfCamps(String nome, String cpf, String cep, String telefone, String rg)
+    private static int verfCamps(String nome, String cnpj, String cep, String telefone, String nom_usu, String tip_usu, String email, String senha)
     {
-        if(nome.isEmpty() || cpf.isEmpty() || cep.isEmpty() || telefone.isEmpty() || rg.isEmpty())
+        if(nome.isEmpty() || cnpj.isEmpty() || cep.isEmpty() || telefone.isEmpty())
         {
             return 1;
         }
-        if(!nome.matches("^[a-zA-Z]*$"))
+        if(nome.matches("^[0-9]$"))
         {
             return 2;
         }
-        if(!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$"))
+        if(!cnpj.matches("^\\d{2}\\.\\d{3}\\.\\d{3}[/]\\d{4}[-]\\d{2}$"))
         {
             return 3;
         }
@@ -134,7 +128,7 @@ public class CadSEActivity extends AppCompatActivity {
         {
             return 5;
         }
-        if(!rg.matches("^\\d{2}\\.?\\d{3}\\.?\\d{3}\\.?-?\\d{1}$"))
+       if(nom_usu.isEmpty() || tip_usu.isEmpty() || email.isEmpty() || senha.isEmpty())
         {
             return 6;
         }
@@ -147,20 +141,19 @@ public class CadSEActivity extends AppCompatActivity {
     private void textToString()
     {
         this.nome_comp = cad_nom_inp.getText().toString().trim();
-        this.cpf = Objects.requireNonNull(cad_cpf_inp.getText()).toString().trim();
+        this.cnpj = Objects.requireNonNull(cad_cnpj_inp.getText()).toString().trim();
         this.cep = Objects.requireNonNull(cad_cep_inp.getText()).toString().trim();
         this.telefone = Objects.requireNonNull(cad_tel_inp.getText()).toString().trim();
-        this.rg = Objects.requireNonNull(cad_rg_inp.getText()).toString().trim();
     }
 
     private void intentGetVar()
     {
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
-        this.nom_usu = bundle.getString("nom_usu");
-        this.tip_usu = bundle.getString("tip_usu");
-        this.senha = bundle.getString("senha");
-        this.email = bundle.getString("email");
+        nom_usu = bundle.getString("nom_usu");
+        tip_usu = bundle.getString("tip_usu");
+        senha = bundle.getString("senha");
+        email = bundle.getString("email");
     }
 
     private void connectDB(String email, String senha)
@@ -171,13 +164,14 @@ public class CadSEActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(CadSEActivity.this, "Cadastro efetuado", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadSEActivity.this, "Cadastro efetuado", Toast.LENGTH_SHORT).show();
                             dataDB();
                             startActivity(new Intent(CadSEActivity.this, LoginActivity.class));
 
-                        } else {
+                        }
+                        else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(CadSEActivity.this, "Cadastro não efetuado", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadSEActivity.this, "Cadastro não efetuado: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -186,17 +180,14 @@ public class CadSEActivity extends AppCompatActivity {
     //metodo para cadastrar informações no bd
     private void dataDB()
     {
-        String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+        String user_id = mAuth.getCurrentUser().getUid();
         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-        intentGetVar();
-        HashMap<String, String> dataInfo = new HashMap<>();
-        dataInfo.put("nome_user",nom_usu);
-        dataInfo.put("tip_user",tip_usu);
-        dataInfo.put("nome_comp_user", nome_comp);
-        dataInfo.put("CPF", cpf);
+        Map<String, String> dataInfo = new HashMap<>();
+        dataInfo.put("Nome_Usuario",nom_usu);
+        dataInfo.put("Nome_Empresa", nome_comp);
+        dataInfo.put("CNPJ", cnpj);
         dataInfo.put("CEP", cep);
         dataInfo.put("Telefone", telefone);
-        dataInfo.put("RG", rg);
 
         current_user_db.setValue(dataInfo);
     }

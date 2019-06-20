@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         log_cad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, CadSUActivity.class));
+                startActivity(new Intent(LoginActivity.this, CadActivity.class));
             }
         });
     }
@@ -146,10 +146,10 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        startActivity(new Intent(LoginActivity.this, PerfilActivity.class));
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
                     } else {
-                        Toast.makeText(LoginActivity.this, "E-mail ou senha não encontrados", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "E-mail ou senha não registrados", Toast.LENGTH_SHORT).show();
                         inp_email.requestFocus();
                     }
                 }

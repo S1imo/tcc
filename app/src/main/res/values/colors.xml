@@ -6,6 +6,8 @@
     <color name="color_brancofundo_log">#D1DBDBDB</color>
     <color name="color_brancotext_log">#FFF6F6</color>
     <color name="color_preto_bg_fundo">#33000000</color>
+    <color name="color_cinza_menu">#26363535</color>
+    <color name="color_branco_menu">#D9FFFFFF</color>
     <color name="popupBack">#81AF80</color>
     <color name="buttonPressed">#C4C4C4</color>
     <color name="buttonNotPressed">#ffffff</color>

@@ -2,12 +2,10 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/buttonPressed">
 
     <item>
-        <shape android:shape="rectangle">
+        <shape android:shape="oval">
             <solid android:color="@color/buttonNotPressed"/>
             <size android:height="45dp" android:width="45dp"/>
-
-            <corners android:radius="20dp"></corners>
-
+            <corners android:radius="20dp"/>
         </shape>
     </item>
 </ripple>

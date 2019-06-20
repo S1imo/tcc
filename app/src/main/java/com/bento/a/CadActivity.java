@@ -1,8 +1,9 @@
 package com.bento.a;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -24,9 +23,7 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
     private Button but_cad_prox, but_cad_volt;
     private Spinner inp_tip_usu;
 
-    private String nom_usu, tip_usu, email, senha, conf_senha, nome_comp, cpf, cep, telefone, rg;
-
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private String nom_usu, tip_usu, email, senha, conf_senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +44,7 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
         butt_vol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CadActivity.this, CadSUActivity.class));
+                startActivity(new Intent(CadActivity.this, LoginActivity.class));
             }
         });
     }
@@ -95,7 +92,7 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
                         inp_conf_senha.requestFocus();
                         break;
                     case 6:
-                        Toast.makeText(CadActivity.this,"Email não válido",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CadActivity.this,"E-mail não válido",Toast.LENGTH_SHORT).show();
                         inp_email.requestFocus();
                         break;
                     case 7:
@@ -110,10 +107,10 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
                         if(tip_usu.equals("Usuário"))
                         {
                             startActivity(new Intent(CadActivity.this, CadSUActivity.class)
-                                .putExtra("nom_usu",nom_usu)
-                                .putExtra("tip_usu",tip_usu)
-                                .putExtra("senha", senha)
-                                .putExtra("email", email));
+                                    .putExtra("nom_usu",nom_usu)
+                                    .putExtra("tip_usu",tip_usu)
+                                    .putExtra("senha", senha)
+                                    .putExtra("email", email));
                         }
                         else if(tip_usu.equals("Empresa"))
                         {
@@ -191,13 +188,13 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
         inp_tip_usu.setOnItemSelectedListener(this);
     }
 
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            this.tip_usu = parent.getItemAtPosition(position).toString();
-        }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        this.tip_usu = parent.getItemAtPosition(position).toString();
+    }
 
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
-        }
+    }
 }

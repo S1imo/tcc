@@ -7,24 +7,33 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Toast;
-import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Dialog myDialog;
+    private Dialog myDialog;
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
     private int i;
-
+    private SwipeFlingAdapterView flingContainer;
+    private ImageButton buttonX, buttonLike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_layout);
+
+        buttonX = findViewById(R.id.deslike_btn);
+        buttonLike = findViewById(R.id.like_btn);
+
+        ButtonX();
+        ButtonLike();
 
         findViewById(R.id.info_btn).setOnClickListener(new View.OnClickListener(){
             @Override
@@ -47,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         al.add("javascript");
 
         arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.name_idade, al );
-        SwipeFlingAdapterView flingContainer = findViewById(R.id.frame);
+        flingContainer = findViewById(R.id.frame);
 
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -86,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
        
             }
         });
-
-
         // Optionally add an OnItemClickListener
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
@@ -97,6 +104,29 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private void ButtonX()
+    {
+        buttonX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));*/
+                flingContainer.getTopCardListener().selectLeft();
+            }
+        });
+    }
+
+    private void ButtonLike()
+    {
+        buttonLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               flingContainer.getTopCardListener().selectRight();
+            }
+        });
+    }
+
 
 }
 
