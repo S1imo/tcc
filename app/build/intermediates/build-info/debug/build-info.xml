@@ -2,46 +2,46 @@
 <instant-run
     abi="x86"
     api-level="28"
-    build-mode="COLD"
+    build-mode="HOT_WARM"
     density="420dpi"
     format="10"
     plugin-version="3.4.1"
-    timestamp="1561059300359"
+    timestamp="1561075406557"
     token="8225268105700083133"
-    verifier="FIELD_TYPE_CHANGE" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="1714" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="190" />
+        duration="0" />
     <task
         name="verifier"
-        duration="5" />
+        duration="0" />
 
     <artifact
-        location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+        location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
         type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1561054946696"
+        timestamp="1561073635385"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -73,45 +73,27 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1561057477874"
-        verifier="R_CLASS_CHANGE" >
+        ir-eligibility="METHOD_ADDED"
+        timestamp="1561074534886"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
     </build>
     <build
-        build-mode="COLD"
-        timestamp="1561059300359"
-        verifier="FIELD_TYPE_CHANGE" >
+        build-mode="HOT_WARM"
+        timestamp="1561075026332"
+        verifier="COMPATIBLE" >
         <artifact
-            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\builds\debug\1561075026332\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1561075406557"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\joaog\AndroidStudioProjects\tcc\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
     </build>
 

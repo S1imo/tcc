@@ -1,11 +1,9 @@
 package com.bento.a;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,21 +14,21 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseError;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.santalu.maskedittext.MaskEditText;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class CadSUActivity extends AppCompatActivity {
 
     private EditText cad_nom_inp;
     private MaskEditText cad_cpf_inp, cad_cep_inp, cad_rg_inp, cad_tel_inp, cad_nasc_inp;
-    private String nome_comp, cpf, cep, telefone, nascimento, rg, nom_usu, tip_usu, email, senha;
+    private String nome_comp, cpf, cep, telefone, nascimento, rg, nom_usu, email, senha;
     private Button but_cad, but_vol;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -167,7 +165,6 @@ public class CadSUActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
         this.nom_usu = bundle.getString("nom_usu");
-        this.tip_usu = bundle.getString("tip_usu");
         this.senha = bundle.getString("senha");
         this.email = bundle.getString("email");
     }
@@ -178,15 +175,15 @@ public class CadSUActivity extends AppCompatActivity {
                 .addOnCompleteListener(CadSUActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                        if (task.isSuccessful())
+                        {
                             dataDB();
                             Toast.makeText(CadSUActivity.this, "Cadastro efetuado", Toast.LENGTH_LONG).show();
-                            //startActivity(new Intent(CadSUActivity.this, LoginActivity.class));
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(CadSUActivity.this, "Cadastro não efetuado" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(CadSUActivity.this, LoginActivity.class));
+                        }
+                        else
+                        {
+                            exceptionsFire(task);
                         }
                     }
                 });
@@ -195,7 +192,7 @@ public class CadSUActivity extends AppCompatActivity {
     //metodo para cadastrar informações no bd
     private void dataDB()
     {
-        String user_id = mAuth.getCurrentUser().getUid();
+        String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child("Comum").child(user_id);
         HashMap<String, String> newPost = new HashMap<>();
         newPost.put("Nome_Usuario",nom_usu);
@@ -208,5 +205,29 @@ public class CadSUActivity extends AppCompatActivity {
         ref.setValue(newPost);
     }
 
+    //metodo de exceção do Firebase
+    private void exceptionsFire(Task<AuthResult> task)
+    {
+        try
+            {
+                throw Objects.requireNonNull(task.getException());
+            }
+        catch(FirebaseAuthWeakPasswordException e)
+            {
+                Toast.makeText(CadSUActivity.this, "Senha muito fraca.", Toast.LENGTH_LONG).show();
+            }
+        catch(FirebaseAuthInvalidCredentialsException e)
+            {
+                Toast.makeText(CadSUActivity.this, "O e-mail é inválido.", Toast.LENGTH_LONG).show();
+            }
+        catch(FirebaseAuthUserCollisionException e)
+            {
+                Toast.makeText(CadSUActivity.this, "O e-mail ou senha já estão cadastrados.", Toast.LENGTH_LONG).show();
+            }
+        catch(Exception e)
+            {
+                Log.e("ERRCad", e.getMessage());
+            }
+    }
 
 }

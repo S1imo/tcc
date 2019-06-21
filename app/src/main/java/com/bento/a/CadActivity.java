@@ -160,7 +160,7 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
         {
             return 5;
         }
-        else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        else if(!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"))
         {
             return 6;
         }

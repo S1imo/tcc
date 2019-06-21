@@ -1,6 +1,5 @@
 package com.bento.a;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,46 +16,129 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Dialog myDialog;
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
     private int i;
     private SwipeFlingAdapterView flingContainer;
-    private ImageButton buttonX, buttonLike;
+    private ImageButton buttonDes, buttonLike, buttonSuperL, buttonInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
-        buttonX = findViewById(R.id.deslike_btn);
-        buttonLike = findViewById(R.id.like_btn);
+        InpToVar(); //input para variaveis
+        SetArrays(); //seta os arrays
+        Buttons(); //função dos botoes
+        SwipeCard(); //função do card
 
-        ButtonX();
+    }
+
+    private void Buttons()
+    {
+        //botões superiores - menu
+        /*ButtonPerfil();
+        ButtonAdote();
+        ButtonPerdidos();
+        ButtonLoja();
+        ButtonChat();*/
+
+        //botões inferiores
+        ButtonDes();
         ButtonLike();
+        ButtonSuperLike();
+        ButtonInfo();
+    }
 
-        findViewById(R.id.info_btn).setOnClickListener(new View.OnClickListener(){
+    private void InpToVar()
+    {
+        buttonSuperL = findViewById(R.id.superlike_btn);
+        buttonDes = findViewById(R.id.deslike_btn);
+        buttonLike = findViewById(R.id.like_btn);
+        buttonInfo = findViewById(R.id.info_btn);
+
+        flingContainer = findViewById(R.id.frame);
+    }
+
+    /*private void ButtonPerfil()
+    {
+
+    }
+
+    private void ButtonAdote()
+    {
+
+    }
+
+    private void ButtonPerdidos()
+    {
+
+    }
+
+    private void ButtonLoja()
+    {
+
+    }
+
+    private void ButtonChat()
+    {
+
+    }
+
+    */
+
+    private void ButtonDes()
+    {
+        buttonDes.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                flingContainer.getTopCardListener().selectLeft();
+            }
+        });
+    }
+
+    private void ButtonLike()
+    {
+        buttonLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               flingContainer.getTopCardListener().selectRight();
+            }
+        });
+    }
+
+    private void ButtonSuperLike()
+    {
+        buttonSuperL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void ButtonInfo()
+    {
+        buttonInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
                 startActivity(new Intent(MainActivity.this, PopUpActivity.class));
             }
-
         });
+    }
 
-        myDialog = new Dialog(this);
-
+    private void SetArrays()
+    {
         al = new ArrayList<>();
-        al.add("Cachorro, 8 meses");
-        al.add("c");
-        al.add("python");
-        al.add("java");
-        al.add("html");
-        al.add("c++");
-        al.add("css");
-        al.add("javascript");
-
         arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.name_idade, al );
-        flingContainer = findViewById(R.id.frame);
+    }
+
+    private void SwipeCard()
+    {
+        ArrayListCards();
 
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -92,41 +174,22 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onScroll(float scrollProgressPercent) {
-       
-            }
-        });
-        // Optionally add an OnItemClickListener
-        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClicked(int itemPosition, Object dataObject) {
-                Toast.makeText(MainActivity.this, "click",Toast.LENGTH_SHORT).show();
-            }
-        });
 
+            }
+        });
     }
 
-    private void ButtonX()
+    private void ArrayListCards()
     {
-        buttonX.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));*/
-                flingContainer.getTopCardListener().selectLeft();
-            }
-        });
+        al.add("Cachorro, 8 meses");
+        al.add("c");
+        al.add("python");
+        al.add("java");
+        al.add("html");
+        al.add("c++");
+        al.add("css");
+        al.add("javascript");
     }
-
-    private void ButtonLike()
-    {
-        buttonLike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               flingContainer.getTopCardListener().selectRight();
-            }
-        });
-    }
-
 
 }
 

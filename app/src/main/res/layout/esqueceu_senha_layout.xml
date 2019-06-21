@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="296dp"
+        android:layout_width="411dp"
+        android:layout_height="240dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
@@ -56,9 +56,9 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/montserrat"
         android:shadowColor="#000000"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:shadowRadius="6"
+        android:shadowDx="0.5"
+        android:shadowDy="2"
+        android:shadowRadius="8"
         android:text="Você receberá um e-mail de verificação."
         android:textColor="@color/color_brancotext_log"
         android:textSize="17sp"
@@ -67,7 +67,7 @@
         app:layout_constraintHorizontal_bias="0.366"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bg_cont"
-        app:layout_constraintVertical_bias="0.386" />
+        app:layout_constraintVertical_bias="0.351" />
 
     <TextView
         android:id="@+id/es_email_text1"
@@ -78,9 +78,9 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/montserrat"
         android:shadowColor="#000000"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:shadowRadius="6"
+        android:shadowDx="0.5"
+        android:shadowDy="2"
+        android:shadowRadius="10"
         android:text="Esqueceu a senha"
         android:textColor="@color/color_brancotext_log"
         android:textSize="25sp"
@@ -89,7 +89,7 @@
         app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bg_cont"
-        app:layout_constraintVertical_bias="0.33" />
+        app:layout_constraintVertical_bias="0.286" />
 
     <EditText
         android:id="@+id/email_es_inp"
@@ -108,7 +108,7 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bg_cont"
-        app:layout_constraintVertical_bias="0.435" />
+        app:layout_constraintVertical_bias="0.401" />
 
     <Button
         android:id="@+id/but_vol_es"
@@ -126,7 +126,7 @@
         app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="@+id/bg_cont"
         app:layout_constraintTop_toTopOf="@+id/bg_cont"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.50" />
 
     <Button
         android:id="@+id/but_env_es"
@@ -145,6 +145,6 @@
         app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bg_cont"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.50" />
 
 </android.support.constraint.ConstraintLayout>
