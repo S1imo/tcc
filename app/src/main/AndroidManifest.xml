@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CadSEActivity"></activity>
+        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".CadSEActivity" />
         <activity android:name=".EsqueceuSenhaActivity" />
         <activity android:name=".PerfilActivity" />
         <activity android:name=".CadSUActivity" />
@@ -29,7 +30,7 @@
         </activity>
         <activity
             android:name=".PopUpActivity"
-            android:theme="@style/Theme.Transparent"></activity>
+            android:theme="@style/Theme.Transparent" />
         <activity android:name=".CadActivity" />
 
         <meta-data

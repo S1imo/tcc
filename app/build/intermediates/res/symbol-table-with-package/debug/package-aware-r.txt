@@ -15,6 +15,7 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fade_in
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1181,6 +1182,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable above_shadow
 drawable adot_icon
+drawable adot_icon_pressed
 drawable avd_hide_password
 drawable avd_show_password
 drawable below_shadow
@@ -1192,6 +1194,7 @@ drawable button_file
 drawable button_log_gradient
 drawable cerclebackground
 drawable chat_icon
+drawable chat_icon_pressed
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1226,9 +1229,11 @@ drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable imageview_click
 drawable local_icon
 drawable logo
 drawable loja_icon
+drawable loja_icon_pressed
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1245,7 +1250,9 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable perdido_icon
+drawable perdido_icon_pressed
 drawable profile_icon
+drawable profile_icon_pressed
 drawable superlike
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1487,10 +1494,10 @@ id path
 id pathRelative
 id percent
 id perdido_icon
-id perfil_icon
 id pin
 id position
 id postLayout
+id profile_icon
 id progress_circular
 id progress_horizontal
 id radio
@@ -1652,6 +1659,7 @@ layout browser_actions_context_menu_row
 layout cad_layout
 layout cad_se_layout
 layout cad_su_layout
+layout chat_layout
 layout custompopup
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
