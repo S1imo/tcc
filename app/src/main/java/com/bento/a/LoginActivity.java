@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         if(currentUser != null)
         {
             Log.d("USRLOG","Usuário logado");
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
         }
         else
         {
@@ -146,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
 
                     } else {
                         Toast.makeText(LoginActivity.this, "E-mail ou senha não registrados", Toast.LENGTH_SHORT).show();
