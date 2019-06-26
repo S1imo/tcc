@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Jun 22 18:39:34 BRT 2019
+#Sat Jun 22 20:37:35 BRT 2019
 1.base=C\:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY

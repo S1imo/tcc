@@ -30,7 +30,6 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.bento.a.ChatActivity" />
         <activity android:name="com.bento.a.CadSEActivity" />
         <activity android:name="com.bento.a.ProfileActivity" />
         <activity android:name="com.bento.a.EsqueceuSenhaActivity" />
