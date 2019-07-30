@@ -1,9 +1,9 @@
 package com.bento.a;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         if(currentUser != null)
         {
             Log.d("USRLOG","Usuário logado");
-            startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
         else
         {
@@ -146,8 +146,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
-
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
                         Toast.makeText(LoginActivity.this, "E-mail ou senha não registrados", Toast.LENGTH_SHORT).show();
                         inp_email.requestFocus();

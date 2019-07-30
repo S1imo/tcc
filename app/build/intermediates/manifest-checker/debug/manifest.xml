@@ -8,6 +8,12 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="28" />
 
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
     <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
     <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,7 +29,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.bento.a.ChatActivity" />
+        <activity android:name="com.bento.a.EditPerfEActivity" />
+        <activity android:name="com.bento.a.EditPerfUActivity" />
         <activity android:name="com.bento.a.CadSEActivity" />
         <activity android:name="com.bento.a.EsqueceuSenhaActivity" />
         <activity android:name="com.bento.a.PerfilActivity" />
@@ -46,6 +53,7 @@
             android:name="com.bento.a.PopUpActivity"
             android:theme="@style/Theme.Transparent" />
         <activity android:name="com.bento.a.CadActivity" />
+        <activity android:name="com.bento.a.ChatActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

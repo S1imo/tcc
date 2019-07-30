@@ -9,6 +9,8 @@
     <color name="color_cinza_menu">#26363535</color>
     <color name="color_branco_menu">#D9FFFFFF</color>
     <color name="popupBack">#81AF80</color>
+    <color name="editprof_inp">#33126942</color>
+    <color name="sep_grey">#B3AFAAAA</color>
     <color name="buttonPressed">#C4C4C4</color>
     <color name="buttonNotPressed">#ffffff</color>
     <color name="transparent">#dc000000</color>

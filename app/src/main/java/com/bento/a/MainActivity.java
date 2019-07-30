@@ -6,11 +6,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
     private int i;
+    private Animation anim_fade;
     private SwipeFlingAdapterView flingContainer;
     private ImageButton buttonInfo;
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat;
@@ -67,15 +71,18 @@ public class MainActivity extends AppCompatActivity {
         but_chat = findViewById(R.id.chat_icon);
 
         flingContainer = findViewById(R.id.frame);
+
+        anim_fade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
     }
 
-    //menu
     private void ButtonPerfil()
     {
         but_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                but_profile.startAnimation(anim_fade);
                 startActivity(new Intent(MainActivity.this, PerfilActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
     }
@@ -85,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         but_adot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                but_adot.startAnimation(anim_fade);
             }
         });
     }
@@ -95,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                but_perd.startAnimation(anim_fade);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
     }
@@ -105,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                but_loja.startAnimation(anim_fade);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
     }
@@ -115,7 +124,9 @@ public class MainActivity extends AppCompatActivity {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                but_chat.startAnimation(anim_fade);
                 startActivity(new Intent(MainActivity.this, ChatActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
     }
@@ -126,8 +137,8 @@ public class MainActivity extends AppCompatActivity {
         buttonDes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));*/
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 animarFab(buttonDes);
                 flingContainer.getTopCardListener().selectLeft();
             }
@@ -236,7 +247,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }
 
 

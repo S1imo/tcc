@@ -259,7 +259,7 @@
         android:elevation="3dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:inputType="phone"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/cad2_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"

@@ -30,9 +30,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.bento.a.ChatActivity" />
+        <activity android:name="com.bento.a.EditPerfEActivity" />
+        <activity android:name="com.bento.a.EditPerfUActivity" />
         <activity android:name="com.bento.a.CadSEActivity" />
-        <activity android:name="com.bento.a.ProfileActivity" />
         <activity android:name="com.bento.a.EsqueceuSenhaActivity" />
         <activity android:name="com.bento.a.PerfilActivity" />
         <activity android:name="com.bento.a.CadSUActivity" />
@@ -54,6 +54,7 @@
             android:name="com.bento.a.PopUpActivity"
             android:theme="@style/Theme.Transparent" />
         <activity android:name="com.bento.a.CadActivity" />
+        <activity android:name="com.bento.a.ChatActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -91,6 +92,11 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.bento.a.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
     </application>
 
 </manifest>

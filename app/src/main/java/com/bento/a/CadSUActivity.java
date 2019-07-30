@@ -28,7 +28,7 @@ public class CadSUActivity extends AppCompatActivity {
 
     private EditText cad_nom_inp;
     private MaskEditText cad_cpf_inp, cad_cep_inp, cad_rg_inp, cad_tel_inp, cad_nasc_inp;
-    private String nome_comp, cpf, cep, telefone, nascimento, rg, nom_usu, email, senha;
+    private String nome_comp, tip_usu, cpf, cep, telefone, nascimento, rg, nom_usu, email, senha;
     private Button but_cad, but_vol;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -81,26 +81,22 @@ public class CadSUActivity extends AppCompatActivity {
                         Toast.makeText(CadSUActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(CadSUActivity.this, "O campo nome não pode conter numeros", Toast.LENGTH_SHORT).show();
-                        cad_nom_inp.requestFocus();
-                        break;
-                    case 3:
                         Toast.makeText(CadSUActivity.this, "Preencha inteiramente o CPF", Toast.LENGTH_SHORT).show();
                         cad_cpf_inp.requestFocus();
                         break;
-                    case 4:
+                    case 3:
                         Toast.makeText(CadSUActivity.this, "Preencha inteiramente o CEP", Toast.LENGTH_SHORT).show();
                         cad_cep_inp.requestFocus();
                         break;
-                    case 5:
+                    case 4:
                         Toast.makeText(CadSUActivity.this, "Preencha inteiramente o Telefone", Toast.LENGTH_SHORT).show();
                         cad_tel_inp.requestFocus();
                         break;
-                    case 6:
+                    case 5:
                         Toast.makeText(CadSUActivity.this, "Preencha com a sua data de nascimento", Toast.LENGTH_SHORT).show();
                         cad_nasc_inp.requestFocus();
                         break;
-                    case 7:
+                    case 6:
                         Toast.makeText(CadSUActivity.this, "Preencha inteiramente o RG", Toast.LENGTH_SHORT).show();
                         cad_rg_inp.requestFocus();
                     case 0:
@@ -120,29 +116,25 @@ public class CadSUActivity extends AppCompatActivity {
         {
             return 1;
         }
-        if(!nome.matches("^[a-zA-Z]*$"))
+        if(!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$"))
         {
             return 2;
         }
-        if(!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$"))
+        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
         {
             return 3;
         }
-        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
+        if(!telefone.matches("^\\(\\d{2}\\)\\d{5}-?\\d{4}$"))
         {
             return 4;
         }
-        if(!telefone.matches("^\\(\\d{2}\\)\\d{5}-?\\d{4}$"))
+        if(!nascimento.matches("^\\d{2}[/]\\d{2}[/]\\d{4}$"))
         {
             return 5;
         }
-        if(!nascimento.matches("^\\d{2}[/]\\d{2}[/]\\d{4}$"))
-        {
-            return 6;
-        }
         if(!rg.matches("^\\d{2}\\.?\\d{3}\\.?\\d{3}\\.?-?\\d{1}$"))
         {
-            return 7;
+            return 6;
         }
         else
         {
@@ -165,6 +157,7 @@ public class CadSUActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
         this.nom_usu = bundle.getString("nom_usu");
+        this.tip_usu = bundle.getString("tip_usu");
         this.senha = bundle.getString("senha");
         this.email = bundle.getString("email");
     }
@@ -197,6 +190,7 @@ public class CadSUActivity extends AppCompatActivity {
         HashMap<String, String> newPost = new HashMap<>();
         newPost.put("Nome_Usuario",nom_usu);
         newPost.put("Nome_Completo_Usuário", nome_comp);
+        newPost.put("Tipo_Usuário", tip_usu);
         newPost.put("CEP", cep);
         newPost.put("CPF", cpf);
         newPost.put("Telefone", telefone);

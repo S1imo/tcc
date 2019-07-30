@@ -29,7 +29,7 @@ public class CadSEActivity extends AppCompatActivity {
 
     private EditText cad_nom_inp;
     private MaskEditText cad_cep_inp, cad_tel_inp, cad_cnpj_inp;
-    private String nome_comp, cnpj, cep, telefone, nom_usu, email, senha;
+    private String nome_comp, cnpj, cep, telefone, nom_usu, tip_usu, email, senha;
     private Button but_cad, but_vol;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -146,9 +146,10 @@ public class CadSEActivity extends AppCompatActivity {
     {
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
-        nom_usu = bundle.getString("nom_usu");
-        senha = bundle.getString("senha");
-        email = bundle.getString("email");
+        this.nom_usu = bundle.getString("nom_usu");
+        this.tip_usu = bundle.getString("tip_usu");
+        this.senha = bundle.getString("senha");
+        this.email = bundle.getString("email");
     }
 
     private void connectDB(String email, String senha)
@@ -179,6 +180,7 @@ public class CadSEActivity extends AppCompatActivity {
         Map<String, String> dataInfo = new HashMap<>();
         dataInfo.put("Nome_Usuario",nom_usu);
         dataInfo.put("Nome_Empresa", nome_comp);
+        dataInfo.put("Tipo_Usuário", tip_usu);
         dataInfo.put("CNPJ", cnpj);
         dataInfo.put("CEP", cep);
         dataInfo.put("Telefone", telefone);
