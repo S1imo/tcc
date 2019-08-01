@@ -33,12 +33,12 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
-        ReadInformation();
+        //ReadInformation();
         InpToVar();
         Buttons();
     }
 
-    private void ReadInformation()
+    /*private void ReadInformation()
     {
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -66,7 +66,7 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
     private void Buttons()
     {

@@ -1294,8 +1294,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addPet_click
-id addProd_click2
 id adjust_height
 id adjust_width
 id adot_icon
@@ -1466,7 +1464,15 @@ id imageView2
 id imageView3
 id imageView4
 id imageView_addPet2
+id imageView_addPet3
+id imageView_addPet4
+id imageView_addPet5
+id imageView_addPet6
 id imageView_addProd2
+id imageView_addProd3
+id imageView_addProd4
+id imageView_addProd5
+id imageView_addProd6
 id image_perfil
 id info
 id info_btn
@@ -1547,6 +1553,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scrollView2
 id scrollable
 id search_badge
 id search_bar
@@ -1560,7 +1567,6 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
-id separar_view
 id shop_icon
 id shortcut
 id showCustom
@@ -1630,6 +1636,10 @@ id up
 id useLogo
 id view
 id view2
+id view3
+id view4
+id view5
+id view6
 id view_bg
 id view_offset_helper
 id visible
