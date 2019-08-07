@@ -1420,7 +1420,9 @@ id edit_cnpjE
 id edit_cpf
 id edit_data
 id edit_nom
+id edit_nomComp
 id edit_nomE
+id edit_nomEU
 id edit_query
 id edit_rg
 id edit_tel

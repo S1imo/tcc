@@ -2,7 +2,7 @@
     <string name="app_name">A</string>
     <string-array name="tip_usu">
         <item>Usuário</item>
-        <item>Empresa</item>
+        <item>Organização</item>
     </string-array>
 
 </resources>

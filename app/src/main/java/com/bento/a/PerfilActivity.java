@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bento.a.users.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,40 +34,9 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
-        //ReadInformation();
         InpToVar();
         Buttons();
     }
-
-    /*private void ReadInformation()
-    {
-        mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference();
-        FirebaseUser user = mAuth.getCurrentUser();
-        user_id = user.getUid();
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren())
-                {
-                    User user = new User();
-                    user.setUs_tip_usu(Objects.requireNonNull(ds.child(user_id).getValue(User.class)).getUs_tip_usu());
-                    if(user.getUs_tip_usu().equals("Empresa"))
-                    {
-
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-    }*/
 
     private void Buttons()
     {
@@ -160,7 +130,32 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void editUser()
     {
+        mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        user_id = user.getUid();
+        myRef = mFirebaseDatabase.getReference("Users/"+user_id);
 
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                assert user != null;
+                if(user.getUs_tip_usu().equals("Organização"))
+                {
+                    startActivity(new Intent(PerfilActivity.this, EditPerfEActivity.class));
+                }
+                else if(user.getUs_tip_usu().equals("Usuário"))
+                {
+                    startActivity(new Intent(PerfilActivity.this, EditPerfUActivity.class));
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                Toast.makeText(PerfilActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

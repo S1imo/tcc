@@ -239,14 +239,17 @@
                 android:id="@+id/coins"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:srcCompat="@drawable/bone_icon" />
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/bone_icon"
+                />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
@@ -294,6 +297,7 @@
                 android:id="@+id/bone_view"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
                 app:srcCompat="@drawable/coin_icon" />
 
             <HorizontalScrollView

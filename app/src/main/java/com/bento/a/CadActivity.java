@@ -112,7 +112,7 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
                                     .putExtra("senha", senha)
                                     .putExtra("email", email));
                         }
-                        else if(tip_usu.equals("Empresa"))
+                        else if(tip_usu.equals("Organização"))
                         {
                             startActivity(new Intent(CadActivity.this, CadSEActivity.class)
                                     .putExtra("nom_usu",nom_usu)

@@ -136,7 +136,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141"/>
+        app:layout_constraintVertical_bias="0.141" />
 
     <ImageView
         android:id="@+id/change_icon"
@@ -165,16 +165,15 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/inp_prof_grad"
         android:fontFamily="@font/montserrat"
-        android:hint="Telefone"
         android:inputType="number"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_nom"
-        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nomComp"
+        app:layout_constraintVertical_bias="0.0"
         app:met_mask="(##)#####-####" />
 
     <com.santalu.maskedittext.MaskEditText
@@ -187,7 +186,6 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/inp_prof_grad"
         android:fontFamily="@font/montserrat"
-        android:hint="Data de nascimento"
         android:inputType="number"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
@@ -196,7 +194,7 @@
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_tel"
-        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintVertical_bias="0.0"
         app:met_mask="##/##/####" />
 
     <com.santalu.maskedittext.MaskEditText
@@ -209,7 +207,6 @@
         android:layout_marginBottom="68dp"
         android:background="@drawable/inp_prof_grad"
         android:fontFamily="@font/montserrat"
-        android:hint="RG"
         android:inputType="number"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
@@ -231,7 +228,6 @@
         android:layout_marginBottom="232dp"
         android:background="@drawable/inp_prof_grad"
         android:fontFamily="@font/montserrat"
-        android:hint="CPF"
         android:inputType="number"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
@@ -253,7 +249,6 @@
         android:layout_marginBottom="232dp"
         android:background="@drawable/inp_prof_grad"
         android:fontFamily="@font/montserrat"
-        android:hint="CEP"
         android:inputType="number"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
@@ -275,7 +270,6 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/inp_prof_grad"
         android:fontFamily="@font/montserrat"
-        android:hint="Nome de usuário"
         android:inputType="text"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
@@ -284,6 +278,26 @@
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_perfil"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edit_nomComp"
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/inp_prof_grad"
+        android:fontFamily="@font/montserrat"
+        android:inputType="text"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nom"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.bento.a.users.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -186,16 +187,10 @@ public class CadSUActivity extends AppCompatActivity {
     private void dataDB()
     {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child("Comum").child(user_id);
-        HashMap<String, String> newPost = new HashMap<>();
-        newPost.put("Nome_Usuario",nom_usu);
-        newPost.put("Nome_Completo_Usuário", nome_comp);
-        newPost.put("Tipo_Usuário", tip_usu);
-        newPost.put("CEP", cep);
-        newPost.put("CPF", cpf);
-        newPost.put("Telefone", telefone);
-        newPost.put("Data_de_Nascimento", nascimento);
-        newPost.put("RG", rg);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+        User user = new User(nom_usu, tip_usu, nome_comp, cpf, cep, telefone, nascimento, rg);
+        HashMap<String, Object> newPost = new HashMap<>();
+        newPost.put(user_id, user.toMap());
         ref.setValue(newPost);
     }
 
