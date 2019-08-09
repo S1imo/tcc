@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bento.a.MainActivity">
+    tools:context="com.bento.a.MainActivity"
+    android:id="@+id/layout">
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
@@ -144,20 +145,40 @@
         />
 
 
+    <ImageView
+        android:id="@+id/imagelike"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/superlike_btn"
+        app:layout_constraintEnd_toEndOf="@+id/frame"
+        app:layout_constraintStart_toStartOf="@+id/frame"
+        app:layout_constraintTop_toTopOf="@+id/perdido_icon"
+        app:srcCompat="@android:drawable/star_big_on"
+        android:visibility="invisible"
+       />
+
     <ImageButton
         android:id="@+id/info_btn"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/button_file"
         android:elevation="10dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/image"
-        app:layout_constraintEnd_toEndOf="@+id/image"
-        app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toStartOf="@+id/image"
-        app:layout_constraintTop_toTopOf="@+id/image"
-        app:layout_constraintVertical_bias="0.974"
+        app:layout_constraintBottom_toBottomOf="@+id/frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.862"
         app:srcCompat="@drawable/exclamacao" />
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/deslike_btn"
@@ -177,7 +198,7 @@
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="@+id/frame"
         app:layout_constraintTop_toBottomOf="@+id/image"
-        app:layout_constraintVertical_bias="0.363"
+        app:layout_constraintVertical_bias="0.846"
         app:maxImageSize="55dp"
         app:rippleColor="@null"
         app:srcCompat="@drawable/botao_deslike" />
@@ -201,7 +222,7 @@
         app:layout_constraintHorizontal_bias="0.739"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image"
-        app:layout_constraintVertical_bias="0.363"
+        app:layout_constraintVertical_bias="0.865"
         app:maxImageSize="55dp"
         app:rippleColor="@null"
         app:srcCompat="@drawable/superlike" />
@@ -224,7 +245,7 @@
         app:layout_constraintHorizontal_bias="0.861"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image"
-        app:layout_constraintVertical_bias="0.363"
+        app:layout_constraintVertical_bias="0.865"
         app:maxImageSize="43dp"
         app:rippleColor="@null"
         app:srcCompat="@drawable/botao_like" />

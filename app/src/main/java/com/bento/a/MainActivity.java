@@ -2,8 +2,11 @@ package com.bento.a;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Placeholder;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -23,16 +26,19 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
     private int i;
-    private Animation anim_fade;
+    private Animation frombottom;
     private SwipeFlingAdapterView flingContainer;
     private ImageButton buttonInfo;
-    private ImageView but_profile, but_adot, but_perd, but_loja, but_chat;
+    private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, imagelike;
     private FloatingActionButton buttonDes, buttonSuperL, buttonLike;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
+
 
         InpToVar(); //input para variaveis
         SetArrays(); //seta os arrays
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         SwipeCard(); //função do card
 
     }
+
 
     private void Buttons()
     {
@@ -72,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
         flingContainer = findViewById(R.id.frame);
 
-        anim_fade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
     }
 
     private void ButtonPerfil()
@@ -80,9 +86,10 @@ public class MainActivity extends AppCompatActivity {
         but_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_profile.startAnimation(anim_fade);
+
                 startActivity(new Intent(MainActivity.this, PerfilActivity.class));
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
             }
         });
     }
@@ -92,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         but_adot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_adot.startAnimation(anim_fade);
+
             }
         });
     }
@@ -102,8 +109,8 @@ public class MainActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_perd.startAnimation(anim_fade);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                //startActivity(new Intent(PerfilActivity.this, PerdidosActivity.class));
+                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
@@ -113,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_loja.startAnimation(anim_fade);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                //startActivity(new Intent(PerfilActivity.this, LojaActivity.class));
+                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
@@ -124,9 +131,8 @@ public class MainActivity extends AppCompatActivity {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_chat.startAnimation(anim_fade);
-                startActivity(new Intent(MainActivity.this, ChatActivity.class));
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                //startActivity(new Intent(PerfilActivity.this, ChatActivity.class));
+                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
@@ -147,24 +153,34 @@ public class MainActivity extends AppCompatActivity {
 
     private void ButtonLike()
     {
+
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
+                Toast.makeText(MainActivity.this, "Like",Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void ButtonSuperLike()
     {
+
         buttonSuperL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imagelike.startAnimation(frombottom);
                 animarFab(buttonSuperL);
+                flingContainer.getTopCardListener().selectRight();
+                Toast.makeText(MainActivity.this, "Superlike", Toast.LENGTH_SHORT).show();
+
             }
         });
+        imagelike = (ImageView) findViewById(R.id.imagelike);
+        frombottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);
     }
+
 
     private void ButtonInfo()
     {
@@ -208,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRightCardExit(Object dataObject) {
                 Toast.makeText(MainActivity.this, "Like",Toast.LENGTH_SHORT).show();
+
             }
 
             @Override

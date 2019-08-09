@@ -7,10 +7,10 @@
     android:layout_gravity="center"
     android:clipToPadding="false"
     android:outlineProvider="bounds"
-    android:paddingLeft="0dp"
-    android:paddingTop="0dp"
-    android:paddingRight="0dp"
-    android:paddingBottom="0dp">
+    android:paddingLeft="5dp"
+    android:paddingTop="60dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="80dp">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
@@ -20,27 +20,31 @@
         app:cardCornerRadius="4dp">
 
         <FrameLayout
-            android:layout_width="300dp"
-            android:layout_height="500dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center">
+
+
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="300dp"
-                android:layout_height="500dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/filhote" />
+
+
 
             <TextView
                 android:id="@+id/name_idade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="420dp"
+                android:layout_marginTop="550dp"
                 android:gravity="bottom|left"
                 android:paddingLeft="20dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/white"
-                android:textSize="28sp"
+                android:textSize="30sp"
                 tools:text="Cachorro, 8 meses" />
 
         </FrameLayout>

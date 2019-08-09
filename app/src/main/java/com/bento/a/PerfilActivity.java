@@ -23,7 +23,6 @@ import java.util.Objects;
 public class PerfilActivity extends AppCompatActivity {
 
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
-    private Animation anim_fade;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
@@ -88,7 +87,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_chat = findViewById(R.id.chat_icon);
         but_edit_prof = findViewById(R.id.but_edit_prof);
 
-        anim_fade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+
     }
 
     //menu
@@ -97,7 +96,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_profile.startAnimation(anim_fade);
+
             }
         });
     }
@@ -107,9 +106,9 @@ public class PerfilActivity extends AppCompatActivity {
         but_adot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_adot.startAnimation(anim_fade);
+
                 startActivity(new Intent(PerfilActivity.this, MainActivity.class));
-                overridePendingTransition(R.anim.fade_out, R.anim.fade_in);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
@@ -119,8 +118,10 @@ public class PerfilActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_perd.startAnimation(anim_fade);
-                overridePendingTransition(R.anim.fade_out, R.anim.fade_in);
+
+                //startActivity(new Intent(PerfilActivity.this, PerdidosActivity.class));
+                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
             }
         });
     }
@@ -130,8 +131,8 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_loja.startAnimation(anim_fade);
-                overridePendingTransition(R.anim.fade_out, R.anim.fade_in);
+                //startActivity(new Intent(PerfilActivity.this, LojaActivity.class));
+                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
@@ -141,9 +142,8 @@ public class PerfilActivity extends AppCompatActivity {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_chat.startAnimation(anim_fade);
-                startActivity(new Intent(PerfilActivity.this, ChatActivity.class));
-                overridePendingTransition(R.anim.fade_out, R.anim.fade_in);
+                //startActivity(new Intent(PerfilActivity.this, ChatActivity.class));
+                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }

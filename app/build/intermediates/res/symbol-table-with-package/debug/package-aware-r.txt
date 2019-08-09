@@ -17,6 +17,11 @@ anim design_snackbar_in
 anim design_snackbar_out
 anim fade_in
 anim fade_out
+anim frombottom
+anim slide_in_left
+anim slide_in_right
+anim slide_out_left
+anim slide_out_right
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1474,6 +1479,7 @@ id imageView_addProd4
 id imageView_addProd5
 id imageView_addProd6
 id image_perfil
+id imagelike
 id info
 id info_btn
 id invisible
