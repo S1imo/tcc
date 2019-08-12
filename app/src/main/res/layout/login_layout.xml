@@ -23,13 +23,13 @@
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
 
     <View
         android:id="@+id/view"
@@ -87,8 +87,10 @@
         android:id="@+id/log_senha_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="391dp"
+        android:layout_marginEnd="298dp"
+        android:layout_marginBottom="397dp"
         android:fontFamily="@font/montserrat"
         android:shadowColor="#332F2F"
         android:shadowDx="0.5"
@@ -97,12 +99,12 @@
         android:text="Senha:"
         android:textColor="@color/color_brancotext_log"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/log_email_inp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.467" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout"

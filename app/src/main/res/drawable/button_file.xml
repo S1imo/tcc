@@ -6,6 +6,7 @@
             <solid android:color="@color/buttonNotPressed"/>
             <size android:height="45dp" android:width="45dp"/>
             <corners android:radius="20dp"/>
+            <stroke android:color="#6B8D8D8D" android:width="0.01dp"/>
         </shape>
     </item>
 </ripple>

@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bento.a.users.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,11 +20,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 public class PerfilActivity extends AppCompatActivity {
 
-    private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, but_edit_prof, but_cad_dog;
+    private ImageView but_profile,but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
+    private TextView nome_text, cidade_text;
+    private Animation anim_fade;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
@@ -32,40 +34,17 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
-        //ReadInformation();
-        InpToVar();
-        Buttons();
-    }
 
-    /*private void ReadInformation()
-    {
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference();
         FirebaseUser user = mAuth.getCurrentUser();
         user_id = user.getUid();
+        myRef = mFirebaseDatabase.getReference("Users/"+user_id);
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren())
-                {
-                    User user = new User();
-                    user.setUs_tip_usu(Objects.requireNonNull(ds.child(user_id).getValue(User.class)).getUs_tip_usu());
-                    if(user.getUs_tip_usu().equals("Empresa"))
-                    {
-
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-    }*/
+        InpToVar();
+        PerfilTexts();
+        Buttons();
+    }
 
     private void Buttons()
     {
@@ -76,6 +55,7 @@ public class PerfilActivity extends AppCompatActivity {
         ButtonLoja();
         ButtonChat();
         ButtonEdit();
+        ButtoLogOut();
         ButtonCad();
     }
 
@@ -87,9 +67,31 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
         but_edit_prof = findViewById(R.id.but_edit_prof);
+        but_logout = findViewById(R.id.but_config);
+
+        nome_text = findViewById(R.id.nome_text);
+        cidade_text = findViewById(R.id.cidade_text);
         but_cad_dog = findViewById(R.id.imageView_addPet);
 
+        anim_fade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+    }
 
+    private void PerfilTexts() {
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                nome_text.setText(user.getUs_nome());
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                Toast.makeText(PerfilActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //menu
@@ -160,10 +162,40 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
+    private void ButtoLogOut()
+    {
+        but_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User user = new User();
+                user.signUp();
+            }
+        });
+    }
+
     private void editUser()
     {
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                assert user != null;
+                if(user.getUs_tip_usu().equals("Organização"))
+                {
+                    startActivity(new Intent(PerfilActivity.this, EditPerfEActivity.class));
+                }
+                else if(user.getUs_tip_usu().equals("Usuário"))
+                {
+                    startActivity(new Intent(PerfilActivity.this, EditPerfUActivity.class));
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                Toast.makeText(PerfilActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private void ButtonCad(){
         but_cad_dog.setOnClickListener(new View.OnClickListener() {

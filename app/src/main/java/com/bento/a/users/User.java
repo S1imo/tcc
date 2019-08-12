@@ -1,10 +1,10 @@
 package com.bento.a.users;
-
 import com.google.firebase.auth.FirebaseAuth;
 
-public class User {
+import java.util.HashMap;
+import java.util.Map;
 
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+public class User {
 
     private String us_nome, us_tip_usu, us_nome_comp, us_cpf, us_cnpj, us_cep, us_tel, us_dat_nasc, us_rg;
 
@@ -102,7 +102,33 @@ public class User {
         this.us_rg = us_rg;
     }
 
+    public Map<String, Object> toMap()
+    {
+        HashMap<String, Object> dataInfo = new HashMap<>();
+        if(us_tip_usu.equals("Usuário")){
+            dataInfo.put("us_nome",us_nome);
+            dataInfo.put("us_nome_comp", us_nome_comp);
+            dataInfo.put("us_tip_usu", us_tip_usu);
+            dataInfo.put("us_cep", us_cep);
+            dataInfo.put("us_cpf", us_cpf);
+            dataInfo.put("us_tel", us_tel);
+            dataInfo.put("us_dat_nasc", us_dat_nasc);
+            dataInfo.put("us_rg", us_rg);
 
+            return dataInfo;
+        }
+        else if(us_tip_usu.equals("Organização")) {
+            dataInfo.put("us_nome", us_nome);
+            dataInfo.put("us_nome_comp", us_nome_comp);
+            dataInfo.put("us_tip_usu", us_tip_usu);
+            dataInfo.put("us_cnpj", us_cnpj);
+            dataInfo.put("us_cep", us_cep);
+            dataInfo.put("us_tel", us_tel);
+
+            return dataInfo;
+        }
+        return null;
+    }
 
     public void signUp() {
         FirebaseAuth.getInstance().signOut();

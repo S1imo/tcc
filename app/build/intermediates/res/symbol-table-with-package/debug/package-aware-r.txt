@@ -1232,6 +1232,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_icon
 drawable exclamacao
+drawable exit_icon
 drawable filhote
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -1265,6 +1266,8 @@ drawable perfil_circle
 drawable prof_plus_icon
 drawable profile_icon
 drawable profile_icon_bk
+drawable quad_plus_perf
+drawable rec_plus_perf
 drawable superlike
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1437,7 +1440,9 @@ id edit_cnpjE
 id edit_cpf
 id edit_data
 id edit_nom
+id edit_nomComp
 id edit_nomE
+id edit_nomEU
 id edit_query
 id edit_rg
 id edit_tel

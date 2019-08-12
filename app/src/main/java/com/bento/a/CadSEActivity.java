@@ -1,15 +1,16 @@
 package com.bento.a;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.bento.a.users.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -80,18 +81,14 @@ public class CadSEActivity extends AppCompatActivity {
                         Toast.makeText(CadSEActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(CadSEActivity.this, "O campo nome não pode conter numeros", Toast.LENGTH_SHORT).show();
-                        cad_nom_inp.requestFocus();
-                        break;
-                    case 3:
                         Toast.makeText(CadSEActivity.this, "Preencha inteiramente o CNPJ: " + cnpj, Toast.LENGTH_SHORT).show();
                         cad_cnpj_inp.requestFocus();
                         break;
-                    case 4:
+                    case 3:
                         Toast.makeText(CadSEActivity.this, "Preencha inteiramente o CEP", Toast.LENGTH_SHORT).show();
                         cad_cep_inp.requestFocus();
                         break;
-                    case 5:
+                    case 4:
                         Toast.makeText(CadSEActivity.this, "Preencha inteiramente o Telefone", Toast.LENGTH_SHORT).show();
                         cad_tel_inp.requestFocus();
                         break;
@@ -112,21 +109,17 @@ public class CadSEActivity extends AppCompatActivity {
         {
             return 1;
         }
-        if(!nome.matches("^[a-zA-z]*+\\s*$"))
+        if(!cnpj.matches("^\\d{2}\\.\\d{3}\\.\\d{3}[/]\\d{4}[-]\\d{2}$"))
         {
             return 2;
         }
-        if(!cnpj.matches("^\\d{2}\\.\\d{3}\\.\\d{3}[/]\\d{4}[-]\\d{2}$"))
+        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
         {
             return 3;
         }
-        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
-        {
-            return 4;
-        }
         if(!telefone.matches("^\\(\\d{2}\\)\\d{5}-?\\d{4}$"))
         {
-            return 5;
+            return 4;
         }
         else
         {
@@ -176,16 +169,11 @@ public class CadSEActivity extends AppCompatActivity {
     private void dataDB()
     {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Empresa").child(user_id);
-        Map<String, String> dataInfo = new HashMap<>();
-        dataInfo.put("Nome_Usuario",nom_usu);
-        dataInfo.put("Nome_Empresa", nome_comp);
-        dataInfo.put("Tipo_Usuário", tip_usu);
-        dataInfo.put("CNPJ", cnpj);
-        dataInfo.put("CEP", cep);
-        dataInfo.put("Telefone", telefone);
-
-        current_user_db.setValue(dataInfo);
+        User user = new User(nom_usu, tip_usu, nome_comp, cep, cnpj, telefone);
+        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users");
+        Map<String, Object> valuesArr = new HashMap<>();
+        valuesArr.put(user_id, user.toMap());
+        current_user_db.updateChildren(valuesArr);
     }
 
     private void exceptionsFire(Task<AuthResult> task)
