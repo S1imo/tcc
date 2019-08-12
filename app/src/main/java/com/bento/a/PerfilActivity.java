@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
+    private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, but_edit_prof, but_cad_dog;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
@@ -76,6 +76,7 @@ public class PerfilActivity extends AppCompatActivity {
         ButtonLoja();
         ButtonChat();
         ButtonEdit();
+        ButtonCad();
     }
 
     private void InpToVar()
@@ -86,6 +87,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
         but_edit_prof = findViewById(R.id.but_edit_prof);
+        but_cad_dog = findViewById(R.id.imageView_addPet);
 
 
     }
@@ -161,6 +163,16 @@ public class PerfilActivity extends AppCompatActivity {
     private void editUser()
     {
 
+
+    }
+    private void ButtonCad(){
+        but_cad_dog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerfilActivity.this, CadAnimal.class));
+
+            }
+        });
 
     }
 }

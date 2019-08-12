@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bento.a.CadAnimal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/voltarDButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="#64CF9E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <ImageButton
+        android:id="@+id/addImage"
+        android:layout_width="157dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_file"
+        android:backgroundTint="#A6000000"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/addImage2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voltarDButton"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/addImage2"
+        android:layout_width="76dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_file"
+        android:backgroundTint="#A6000000"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cad_animal"
+        app:layout_constraintEnd_toEndOf="@+id/addImage"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/addImage"
+        app:layout_constraintTop_toBottomOf="@+id/addImage"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/addImage3"
+        android:layout_width="76dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_file"
+        android:backgroundTint="#A6000000"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/addImage2"
+        app:layout_constraintEnd_toStartOf="@+id/addImage2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addImage"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/addImage4"
+        android:layout_width="76dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_file"
+        android:backgroundTint="#A6000000"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/addImage2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addImage2"
+        app:layout_constraintTop_toBottomOf="@+id/addImage"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <EditText
+        android:id="@+id/cad_animal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/cad_dog_box"
+        android:clickable="true"
+        android:hint="Animal"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cad_cidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addImage2"
+        app:layout_constraintVertical_bias="0.39" />
+
+    <EditText
+        android:id="@+id/cad_cidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/cad_dog_box"
+        android:clickable="true"
+        android:hint="Cidade"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cad_animal" />
+
+    <EditText
+        android:id="@+id/cad_raca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/cad_dog_box"
+        android:clickable="true"
+        android:hint="Raça"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cad_status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+
+    <Spinner
+        android:id="@+id/cad_status"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/cad_dog_box"
+        android:textSize="20sp"
+        android:hint="Status do animal"
+        app:layout_constraintBottom_toTopOf="@+id/cad_descricao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cad_raca" />
+
+    <EditText
+        android:id="@+id/cad_descricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/cad_dog_box"
+        android:clickable="true"
+        android:hint="Descrição"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_aplicar"
+        app:layout_constraintEnd_toEndOf="@+id/cad_status"
+        app:layout_constraintHorizontal_bias="0.705"
+        app:layout_constraintStart_toStartOf="@+id/cad_status"
+        app:layout_constraintTop_toBottomOf="@+id/cad_status" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cad_cidade">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/cad_dog_box"
+            android:text="Porte"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <CheckedTextView
+            android:id="@+id/porte_grande"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#6D126942"
+            android:checkMarkTint="#000000"
+            android:checked="true"
+            android:clickable="true"
+            android:text="Grande"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+
+        <CheckedTextView
+            android:id="@+id/porte_medio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#6D126942"
+            android:text="Médio"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+
+        <CheckedTextView
+            android:id="@+id/porte_pequeno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#6D126942"
+            android:text="Pequeno"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/cad_raca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/cad_dog_box"
+            android:text="Vacinado"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <CheckedTextView
+            android:id="@+id/vacinado_sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#6D126942"
+            android:text="Sim"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+
+        <CheckedTextView
+            android:id="@+id/vacinado_nao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#6D126942"
+            android:text="Não"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_aplicar"
+        android:layout_width="63dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/cad_dog_box"
+        android:text="Aplicar"
+        android:textColor="#B7FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cad_descricao" />
+
+
+</android.support.constraint.ConstraintLayout>

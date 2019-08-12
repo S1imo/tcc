@@ -36,6 +36,7 @@ array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
 array preloaded_fonts
+array tip_status
 array tip_usu
 attr SwipeFlingStyle
 attr actionBarDivider
@@ -1199,6 +1200,7 @@ drawable botao_deslike
 drawable botao_like
 drawable button_file
 drawable button_log_gradient
+drawable cad_dog_box
 drawable chat_icon
 drawable circle_bg_pop
 drawable coin_icon
@@ -1299,6 +1301,10 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addImage
+id addImage2
+id addImage3
+id addImage4
 id adjust_height
 id adjust_width
 id adot_icon
@@ -1339,19 +1345,23 @@ id but_vol_es
 id buttonAplicar
 id buttonPanel
 id buttonVoltar
+id button_aplicar
 id cad2_logo
+id cad_animal
 id cad_but_cads
 id cad_but_prox
 id cad_but_vol
 id cad_cep_inp
 id cad_cep_text
 id cad_cep_text_E
+id cad_cidade
 id cad_cnpj_inp
 id cad_cnpj_text_E
 id cad_conf_senha_inp
 id cad_conf_senha_text
 id cad_cpf_inp
 id cad_cpf_text
+id cad_descricao
 id cad_email_inp
 id cad_email_text
 id cad_nasc_inp
@@ -1361,10 +1371,12 @@ id cad_nom_usu_inp
 id cad_nom_usu_text
 id cad_nome_inp
 id cad_nome_text
+id cad_raca
 id cad_rg_inp
 id cad_rg_text
 id cad_senha_inp
 id cad_senha_text
+id cad_status
 id cad_tel_inp
 id cad_tel_text
 id cad_tel_text_E
@@ -1468,7 +1480,7 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
-id imageView_addPet2
+id imageView_addPet
 id imageView_addPet3
 id imageView_addPet4
 id imageView_addPet5
@@ -1496,6 +1508,8 @@ id like_btn
 id line1
 id line3
 id linear
+id linearLayout
+id linearLayout2
 id listMode
 id list_item
 id log_cad
@@ -1538,6 +1552,9 @@ id pathRelative
 id percent
 id perdido_icon
 id pin
+id porte_grande
+id porte_medio
+id porte_pequeno
 id position
 id postLayout
 id profile_icon
@@ -1615,6 +1632,8 @@ id textInputLayout
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView2
+id textView3
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1640,6 +1659,8 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id vacinado_nao
+id vacinado_sim
 id view
 id view2
 id view3
@@ -1649,6 +1670,7 @@ id view6
 id view_bg
 id view_offset_helper
 id visible
+id voltarDButton
 id wide
 id withText
 id wrap
@@ -1703,6 +1725,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout cad_dog_layout
 layout cad_layout
 layout cad_se_layout
 layout cad_su_layout

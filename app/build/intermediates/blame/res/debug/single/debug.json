@@ -1920,6 +1920,10 @@
         "source": "C:\\Users\\vitor\\.gradle\\caches\\transforms-2\\files-2.1\\2e1a9cee8e76cac4bfc6c7226d1dd1fd\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
+        "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\layout_cad_dog_layout.xml.flat",
+        "source": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\src\\main\\res\\layout\\cad_dog_layout.xml"
+    },
+    {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\vitor\\.gradle\\caches\\transforms-2\\files-2.1\\ae75cb3e9a787f0a29a1bd22f25d4b34\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
     },
@@ -2210,6 +2214,10 @@
     {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_default_mtrl_shape.xml.flat",
         "source": "C:\\Users\\vitor\\.gradle\\caches\\transforms-2\\files-2.1\\2e1a9cee8e76cac4bfc6c7226d1dd1fd\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cad_dog_box.xml.flat",
+        "source": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\src\\main\\res\\drawable\\cad_dog_box.xml"
     },
     {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_menu_item_layout.xml.flat",

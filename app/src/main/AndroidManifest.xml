@@ -18,6 +18,9 @@
         <activity android:name=".EditPerfEActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
+        <activity android:name=".CadAnimal"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity android:name=".EditPerfUActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
