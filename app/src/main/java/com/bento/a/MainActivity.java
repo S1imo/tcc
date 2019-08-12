@@ -143,10 +143,9 @@ public class MainActivity extends AppCompatActivity {
         buttonDes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 animarFab(buttonDes);
                 flingContainer.getTopCardListener().selectLeft();
+                Toast.makeText(MainActivity.this, "Like",Toast.LENGTH_SHORT).show();
             }
         });
     }

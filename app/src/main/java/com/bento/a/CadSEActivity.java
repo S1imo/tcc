@@ -81,18 +81,14 @@ public class CadSEActivity extends AppCompatActivity {
                         Toast.makeText(CadSEActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(CadSEActivity.this, "O campo nome não pode conter numeros", Toast.LENGTH_SHORT).show();
-                        cad_nom_inp.requestFocus();
-                        break;
-                    case 3:
                         Toast.makeText(CadSEActivity.this, "Preencha inteiramente o CNPJ: " + cnpj, Toast.LENGTH_SHORT).show();
                         cad_cnpj_inp.requestFocus();
                         break;
-                    case 4:
+                    case 3:
                         Toast.makeText(CadSEActivity.this, "Preencha inteiramente o CEP", Toast.LENGTH_SHORT).show();
                         cad_cep_inp.requestFocus();
                         break;
-                    case 5:
+                    case 4:
                         Toast.makeText(CadSEActivity.this, "Preencha inteiramente o Telefone", Toast.LENGTH_SHORT).show();
                         cad_tel_inp.requestFocus();
                         break;
@@ -113,21 +109,17 @@ public class CadSEActivity extends AppCompatActivity {
         {
             return 1;
         }
-        if(!nome.matches("^[a-zA-z]*+\\s*$"))
+        if(!cnpj.matches("^\\d{2}\\.\\d{3}\\.\\d{3}[/]\\d{4}[-]\\d{2}$"))
         {
             return 2;
         }
-        if(!cnpj.matches("^\\d{2}\\.\\d{3}\\.\\d{3}[/]\\d{4}[-]\\d{2}$"))
+        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
         {
             return 3;
         }
-        if(!cep.matches("^\\d{5}[-]\\d{3}$"))
-        {
-            return 4;
-        }
         if(!telefone.matches("^\\(\\d{2}\\)\\d{5}-?\\d{4}$"))
         {
-            return 5;
+            return 4;
         }
         else
         {
@@ -181,7 +173,7 @@ public class CadSEActivity extends AppCompatActivity {
         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users");
         Map<String, Object> valuesArr = new HashMap<>();
         valuesArr.put(user_id, user.toMap());
-        current_user_db.setValue(valuesArr);
+        current_user_db.updateChildren(valuesArr);
     }
 
     private void exceptionsFire(Task<AuthResult> task)

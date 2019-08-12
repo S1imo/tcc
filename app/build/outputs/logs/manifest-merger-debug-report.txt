@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
 MERGED from [com.android.support.constraint:constraint-layout:2.0.0-beta2] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\15fe8a55516f7c29c0ee480ab0e4229f\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\85595794160d113d45f4d24661023de8\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.santalu:mask-edittext:1.0.2] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\52b2324f9e53be70b147a2fed3f57757\AndroidManifest.xml:2:1-14:12
@@ -52,35 +52,41 @@ MERGED from [android.arch.core:runtime:1.1.1] C:\Users\joaog\.gradle\caches\tran
 MERGED from [com.android.support:multidex:1.0.3] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\859be12fea5a3a4c0526c51204fc2343\AndroidManifest.xml:17:1-22:12
 MERGED from [com.lorentzos.swipecards:library:1.0.9] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69b0ac616c12b707803e6ab303e3af69\AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\58f046ab02b8b90aabbe0336db743491\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
-INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
+INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
 	package
 		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:3:5-26
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-63:12
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:1-65:12
 		INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:5:5-67
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\96e7862f508252bfee1ca073514b39da\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\96e7862f508252bfee1ca073514b39da\AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:5:22-64
 supports-screens
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:5:5-9:40
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:7:5-11:40
 	android:largeScreens
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:6:9-36
-	android:smallScreens
 		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:8:9-36
+	android:smallScreens
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:10:9-36
 	android:normalScreens
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:7:9-37
-	android:xlargeScreens
 		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:9:9-37
+	android:xlargeScreens
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:11:9-37
 application
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:11:5-61:19
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:13:5-63:19
 MERGED from [com.android.support.constraint:constraint-layout:2.0.0-beta2] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\15fe8a55516f7c29c0ee480ab0e4229f\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:2.0.0-beta2] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\15fe8a55516f7c29c0ee480ab0e4229f\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\85595794160d113d45f4d24661023de8\AndroidManifest.xml:22:5-20
@@ -112,107 +118,107 @@ MERGED from [com.lorentzos.swipecards:library:1.0.9] C:\Users\joaog\.gradle\cach
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9e6a73d0bd959ded120e1334d87bcca5\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:18:9-35
 	android:label
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:16:9-41
 	android:roundIcon
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:15:9-54
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:17:9-54
 	android:icon
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:13:9-43
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:15:9-43
 	android:allowBackup
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:17:9-40
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:19:9-40
 activity#com.bento.a.EditPerfEActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:18:9-20:51
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:20:9-22:51
 	android:screenOrientation
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:20:13-49
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:22:13-49
 	android:configChanges
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:19:13-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:21:13-48
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:18:19-52
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:20:19-52
 activity#com.bento.a.EditPerfUActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:21:9-23:51
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:23:9-25:51
 	android:screenOrientation
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:23:13-49
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:25:13-49
 	android:configChanges
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:22:13-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:24:13-48
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:21:19-52
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:23:19-52
 activity#com.bento.a.CadSEActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:24:9-26:51
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:26:9-28:51
 	android:screenOrientation
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:26:13-49
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:28:13-49
 	android:configChanges
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:25:13-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:27:13-48
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:24:19-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:26:19-48
 activity#com.bento.a.EsqueceuSenhaActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:27:9-29:51
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:29:9-31:51
 	android:screenOrientation
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:29:13-49
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:31:13-49
 	android:configChanges
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:28:13-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:30:13-48
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:27:19-56
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:29:19-56
 activity#com.bento.a.PerfilActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:30:9-32:51
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:32:9-34:51
 	android:screenOrientation
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:32:13-49
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:34:13-49
 	android:configChanges
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:31:13-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:33:13-48
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:30:19-49
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:32:19-49
 activity#com.bento.a.CadSUActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:33:9-35:51
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:35:9-37:51
 	android:screenOrientation
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:35:13-49
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:37:13-49
 	android:configChanges
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:34:13-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:36:13-48
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:33:19-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:35:19-48
 activity#com.bento.a.LoginActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:36:9-44:20
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:38:9-46:20
 	android:screenOrientation
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:38:13-49
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:40:13-49
 	android:configChanges
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:37:13-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:39:13-48
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:36:19-48
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:38:19-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:39:13-43:29
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:41:13-45:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:40:17-69
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:42:17-69
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:40:25-66
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:42:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:42:17-77
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:44:17-77
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:42:27-74
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:44:27-74
 activity#com.bento.a.MainActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:45:9-51:20
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:47:9-53:20
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:45:19-47
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:47:19-47
 activity#com.bento.a.PopUpActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:52:9-54:56
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:54:9-56:56
 	android:theme
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:54:13-53
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:56:13-53
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:53:13-42
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:55:13-42
 activity#com.bento.a.CadActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:55:9-49
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:57:9-49
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:55:19-46
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:57:19-46
 activity#com.bento.a.ChatActivity
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:56:9-50
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:58:9-50
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:56:19-47
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:58:19-47
 meta-data#preloaded_fonts
-ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:58:9-60:57
+ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:60:9-62:57
 	android:resource
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:60:13-54
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:62:13-54
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:59:13-43
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:61:13-43
 uses-sdk
 INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
@@ -327,10 +333,6 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\96e7862f508252bfee1ca073514b39da\AndroidManifest.xml:25:5-79
 	android:name
 		ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\96e7862f508252bfee1ca073514b39da\AndroidManifest.xml:25:22-76
-uses-permission#android.permission.INTERNET
-ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\96e7862f508252bfee1ca073514b39da\AndroidManifest.xml:26:5-67
-	android:name
-		ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\96e7862f508252bfee1ca073514b39da\AndroidManifest.xml:26:22-64
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\96e7862f508252bfee1ca073514b39da\AndroidManifest.xml:29:9-33:19
 MERGED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\2d8238cc9be2a4a0a8281a3bc90feadc\AndroidManifest.xml:33:9-39:19

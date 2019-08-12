@@ -31,9 +31,6 @@ public class EditPerfUActivity extends AppCompatActivity {
     private MaskEditText  novo_cep_inp, novo_cpf_inp, novo_dat_inp, novo_rg_inp, novo_tel_inp;
     private EditText novo_nom_usu_inp,  novo_nom_comp_usu_inp;
     private String novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cep, novo_cpf, novo_dat, novo_rg, novo_tel;
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference myRef;
-    private String user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +44,17 @@ public class EditPerfUActivity extends AppCompatActivity {
 
     private void SetValues() {
         mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         assert user != null;
-        user_id = user.getUid();
-        myRef = mFirebaseDatabase.getReference("Users/"+user_id);
+        String user_id = user.getUid();
+        DatabaseReference myRef = mFirebaseDatabase.getReference("Users/" + user_id);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
-                Toast.makeText(EditPerfUActivity.this, user.getUs_nome(), Toast.LENGTH_SHORT).show();
                 novo_nom_usu_inp.setText(user.getUs_nome());
                 novo_nom_comp_usu_inp.setText(user.getUs_nome_comp());
                 tip_usu = user.getUs_tip_usu();

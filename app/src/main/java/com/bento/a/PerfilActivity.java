@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bento.a.users.User;
@@ -19,11 +20,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 public class PerfilActivity extends AppCompatActivity {
 
-    private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
+    private ImageView but_profile, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
+    private TextView nome_text, cidade_text;
+    private Animation anim_fade;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
@@ -33,7 +34,15 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
+
+        mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        user_id = user.getUid();
+        myRef = mFirebaseDatabase.getReference("Users/"+user_id);
+
         InpToVar();
+        PerfilTexts();
         Buttons();
     }
 
@@ -46,6 +55,7 @@ public class PerfilActivity extends AppCompatActivity {
         ButtonLoja();
         ButtonChat();
         ButtonEdit();
+        ButtoLogOut();
     }
 
     private void InpToVar()
@@ -56,8 +66,30 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
         but_edit_prof = findViewById(R.id.but_edit_prof);
+        but_logout = findViewById(R.id.but_config);
+
+        nome_text = findViewById(R.id.nome_text);
+        cidade_text = findViewById(R.id.cidade_text);
+
+        anim_fade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+    }
+
+    private void PerfilTexts() {
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                nome_text.setText(user.getUs_nome());
 
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                Toast.makeText(PerfilActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //menu
@@ -66,7 +98,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                but_profile.startAnimation(anim_fade);
             }
         });
     }
@@ -76,9 +108,9 @@ public class PerfilActivity extends AppCompatActivity {
         but_adot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                but_adot.startAnimation(anim_fade);
                 startActivity(new Intent(PerfilActivity.this, MainActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                overridePendingTransition(R.anim.fade_out, R.anim.fade_in);
             }
         });
     }
@@ -88,10 +120,8 @@ public class PerfilActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //startActivity(new Intent(PerfilActivity.this, PerdidosActivity.class));
-                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
+                but_perd.startAnimation(anim_fade);
+                overridePendingTransition(R.anim.fade_out, R.anim.fade_in);
             }
         });
     }
@@ -101,8 +131,8 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(PerfilActivity.this, LojaActivity.class));
-                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                but_loja.startAnimation(anim_fade);
+                overridePendingTransition(R.anim.fade_out, R.anim.fade_in);
             }
         });
     }
@@ -112,8 +142,9 @@ public class PerfilActivity extends AppCompatActivity {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(PerfilActivity.this, ChatActivity.class));
-                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                but_chat.startAnimation(anim_fade);
+                startActivity(new Intent(PerfilActivity.this, ChatActivity.class));
+                overridePendingTransition(R.anim.fade_out, R.anim.fade_in);
             }
         });
     }
@@ -128,14 +159,19 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
+    private void ButtoLogOut()
+    {
+        but_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User user = new User();
+                user.signUp();
+            }
+        });
+    }
+
     private void editUser()
     {
-        mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-        user_id = user.getUid();
-        myRef = mFirebaseDatabase.getReference("Users/"+user_id);
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

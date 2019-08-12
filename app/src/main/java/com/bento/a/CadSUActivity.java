@@ -191,7 +191,7 @@ public class CadSUActivity extends AppCompatActivity {
         User user = new User(nom_usu, tip_usu, nome_comp, cpf, cep, telefone, nascimento, rg);
         HashMap<String, Object> newPost = new HashMap<>();
         newPost.put(user_id, user.toMap());
-        ref.setValue(newPost);
+        ref.updateChildren(newPost);
     }
 
     //metodo de exceção do Firebase

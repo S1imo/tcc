@@ -30,9 +30,6 @@ public class EditPerfEActivity extends AppCompatActivity {
     private MaskEditText novo_cep_inp, novo_cnpj_inp, novo_tel_inp;
     private EditText novo_nom_usu_inp, novo_nom_emp_inp;
     private String novo_nom_usu, tip_usu, novo_nom_emp, novo_cep, novo_cnpj, novo_tel;
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference myRef;
-    private String user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +44,11 @@ public class EditPerfEActivity extends AppCompatActivity {
 
     private void SetValues() {
         mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         assert user != null;
-        user_id = user.getUid();
-        myRef = mFirebaseDatabase.getReference("Users/"+user_id);
+        String user_id = user.getUid();
+        DatabaseReference myRef = mFirebaseDatabase.getReference("Users/" + user_id);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
