@@ -12,13 +12,19 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
+
 public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ImageButton but_voltar;
-    private EditText editTextAnimal, editTextCidade, editTextRaca, editTextDesc;
+    private EditText editTextRaca, editTextDesc;
     private Button buttonAplicar;
-    private Spinner inp_tip_status;
-    private String tip_status;
+    private Spinner inp_tip_animal;
+    private String tip_status, tip_animal;
+    private String[] spinnerValue = {
+            "Cachorro",
+            "Gato",
+            "Outro"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,7 +34,8 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
 
         InpToVar();
         Buttons();
-        setTipStatus();
+        setTipAnimal();
+
     }
 
     private void Buttons()
@@ -39,24 +46,26 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     private void InpToVar()
     {
         but_voltar = findViewById(R.id.voltarDButton);
-        editTextAnimal = findViewById(R.id.cad_animal);
-        editTextCidade = findViewById(R.id.cad_cidade);
         editTextDesc = findViewById(R.id.cad_descricao);
         editTextRaca = findViewById(R.id.cad_raca);
         buttonAplicar = findViewById(R.id.button_aplicar);
-        inp_tip_status = findViewById(R.id.cad_status);
-    }
+        inp_tip_animal = findViewById(R.id.cad_animal);
+        }
 
-    private void setTipStatus(){
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.tip_status, android.R.layout.simple_spinner_item);
+
+    private void setTipAnimal(){
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.tip_animal, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        inp_tip_status.setAdapter(adapter);
-        inp_tip_status.setOnItemSelectedListener(this);
+        inp_tip_animal.setAdapter(adapter);
+        inp_tip_animal.setOnItemSelectedListener(this);
 
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        this.tip_status = parent.getItemAtPosition(position).toString();
+        if(position > 0)
+        {
+            this.tip_animal = parent.getItemAtPosition(position).toString();
+        }
     }
 
     @Override

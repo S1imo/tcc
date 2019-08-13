@@ -82,41 +82,21 @@
         app:layout_constraintTop_toBottomOf="@+id/addImage"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <EditText
+    <Spinner
         android:id="@+id/cad_animal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/cad_dog_box"
-        android:clickable="true"
-        android:hint="Animal"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/cad_cidade"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addImage2"
-        app:layout_constraintVertical_bias="0.39" />
-
-    <EditText
-        android:id="@+id/cad_cidade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/cad_dog_box"
-        android:clickable="true"
-        android:hint="Cidade"
-        android:textSize="20sp"
+        android:backgroundTint="#6D126942"
+        android:popupBackground="#BFD4CB"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_animal" />
+        app:layout_constraintTop_toBottomOf="@+id/addImage2" />
 
     <EditText
         android:id="@+id/cad_raca"
@@ -136,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 
-    <Spinner
+    <RadioGroup
         android:id="@+id/cad_status"
         android:layout_width="0dp"
         android:layout_height="30dp"
@@ -144,14 +124,39 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/cad_dog_box"
-        android:textSize="20sp"
-        android:hint="Status do animal"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/cad_descricao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_raca" />
+        app:layout_constraintTop_toBottomOf="@+id/cad_raca">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: "
+            android:textSize="20sp"
+            android:background="@drawable/cad_dog_box"
+            android:layout_marginRight="5dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adoção"
+            android:textAlignment="center"
+            android:textColor="#FF000000"
+            android:textSize="16sp"
+            android:layout_marginRight="1dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perdido"
+            android:textAlignment="center"
+            android:textColor="#FF000000"
+            android:textSize="16sp"/>
+
+    </RadioGroup>
 
     <EditText
         android:id="@+id/cad_descricao"
@@ -160,7 +165,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/cad_dog_box"
         android:clickable="true"
         android:hint="Descrição"
@@ -183,57 +188,49 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_cidade">
+        app:layout_constraintTop_toBottomOf="@+id/cad_animal">
+
+            <RadioGroup
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
             android:background="@drawable/cad_dog_box"
-            android:text="Porte"
+            android:text="Porte: "
             android:textAlignment="center"
             android:textSize="20sp" />
 
-        <CheckedTextView
-            android:id="@+id/porte_grande"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="#6D126942"
-            android:checkMarkTint="#000000"
-            android:checked="true"
-            android:clickable="true"
-            android:text="Grande"
-            android:textAlignment="center"
-            android:textColor="#ffff"
-            android:textSize="20sp" />
+                <RadioButton
+                    android:id="@+id/porte_grande"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkMarkTint="#000000"
+                    android:text="Grande"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
 
-        <CheckedTextView
+        <RadioButton
             android:id="@+id/porte_medio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="#6D126942"
             android:text="Médio"
             android:textAlignment="center"
-            android:textColor="#ffff"
-            android:textSize="20sp" />
+            android:textColor="#FF000000"
+            android:textSize="16sp" />
 
-        <CheckedTextView
+        <RadioButton
             android:id="@+id/porte_pequeno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#6D126942"
             android:text="Pequeno"
-            android:textAlignment="center"
-            android:textColor="#ffff"
-            android:textSize="20sp" />
-
+            android:textColor="#FF000000"
+            android:textSize="16sp" />
+            </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -250,39 +247,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
+            android:layout_marginRight="5dp"
             android:background="@drawable/cad_dog_box"
-            android:text="Vacinado"
+            android:text="Vacinado: "
             android:textAlignment="center"
             android:textSize="20sp" />
 
-        <CheckedTextView
+        <RadioButton
             android:id="@+id/vacinado_sim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="#6D126942"
-            android:text="Sim"
+            android:layout_marginRight="1dp"
+            android:text="Sim "
             android:textAlignment="center"
-            android:textColor="#ffff"
-            android:textSize="20sp" />
+            android:textColor="#FF000000"
+            android:textSize="16sp" />
 
-        <CheckedTextView
+        <RadioButton
             android:id="@+id/vacinado_nao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#6D126942"
-            android:text="Não"
+            android:text="Não "
             android:textAlignment="center"
-            android:textColor="#ffff"
-            android:textSize="20sp" />
+            android:textColor="#FF000000"
+            android:textSize="16sp" />
+        </RadioGroup>
     </LinearLayout>
 
     <Button
@@ -290,7 +287,9 @@
         android:layout_width="63dp"
         android:layout_height="31dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/cad_dog_box"
         android:text="Aplicar"
         android:textColor="#B7FFFFFF"

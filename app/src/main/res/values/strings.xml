@@ -5,9 +5,10 @@
         <item>Organização</item>
     </string-array>
 
-    <string-array name="tip_status">
-        <item>Adoção</item>
-        <item>Perdido</item>
+    <string-array name="tip_animal">
+        <item>Cachorro</item>
+        <item>Gato</item>
+        <item>Outro</item>
     </string-array>
 
 </resources>

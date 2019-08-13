@@ -36,7 +36,7 @@ array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
 array preloaded_fonts
-array tip_status
+array tip_animal
 array tip_usu
 attr SwipeFlingStyle
 attr actionBarDivider
@@ -1357,7 +1357,6 @@ id cad_but_vol
 id cad_cep_inp
 id cad_cep_text
 id cad_cep_text_E
-id cad_cidade
 id cad_cnpj_inp
 id cad_cnpj_text_E
 id cad_conf_senha_inp
