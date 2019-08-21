@@ -1,12 +1,15 @@
 package com.bento.a;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bento.a.users.User;
@@ -28,9 +31,11 @@ public class EditPerfUActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private Button but_aplicar, but_voltar;
+    private ImageView profile_Img;
     private MaskEditText  novo_cep_inp, novo_cpf_inp, novo_dat_inp, novo_rg_inp, novo_tel_inp;
     private EditText novo_nom_usu_inp,  novo_nom_comp_usu_inp;
     private String novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cep, novo_cpf, novo_dat, novo_rg, novo_tel;
+    final static int Gallery_Pick = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +86,8 @@ public class EditPerfUActivity extends AppCompatActivity {
         novo_rg_inp = findViewById(R.id.edit_rg);
         novo_tel_inp = findViewById(R.id.edit_tel);
 
+        profile_Img = findViewById(R.id.image_perfil);
+
         but_aplicar = findViewById(R.id.buttonAplicar);
         but_voltar = findViewById(R.id.buttonVoltar);
     }
@@ -94,7 +101,6 @@ public class EditPerfUActivity extends AppCompatActivity {
         novo_rg = Objects.requireNonNull(novo_rg_inp.getText()).toString().trim();
         novo_tel = Objects.requireNonNull(novo_tel_inp.getText()).toString().trim();
     }
-
     private void ButtonVoltar()
     {
         but_voltar.setOnClickListener(new View.OnClickListener() {

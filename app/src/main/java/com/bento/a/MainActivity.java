@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
         flingContainer = findViewById(R.id.frame);
 
+        imagelike = findViewById(R.id.imagelike);
+
     }
 
     private void ButtonPerfil()
@@ -165,19 +167,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void ButtonSuperLike()
     {
-
+        frombottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);
         buttonSuperL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 imagelike.startAnimation(frombottom);
                 animarFab(buttonSuperL);
                 flingContainer.getTopCardListener().selectRight();
+                flingContainer.getTopCardListener().setRotationDegrees(10);
                 Toast.makeText(MainActivity.this, "Superlike", Toast.LENGTH_SHORT).show();
-
             }
         });
-        imagelike = (ImageView) findViewById(R.id.imagelike);
-        frombottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);
     }
 
 

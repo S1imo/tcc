@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">A</string>
+    <string name="app_name">Adot!</string>
     <string-array name="tip_usu">
         <item>Usuário</item>
         <item>Organização</item>

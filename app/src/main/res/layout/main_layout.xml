@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/adot_icon" />
 
-    <ImageView
+zz    <ImageView
         android:id="@+id/profile_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"

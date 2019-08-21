@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class PerfilActivity extends AppCompatActivity {
 
+    //TODO fazer cidade
+
     private ImageView but_profile,but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
     private TextView nome_text, cidade_text;
-    private Animation anim_fade;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
@@ -34,16 +34,21 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
+        SettingFire();
 
+
+        InpToVar();
+        PerfilTexts();
+        Buttons();
+    }
+
+    private void SettingFire()
+    {
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         user_id = user.getUid();
         myRef = mFirebaseDatabase.getReference("Users/"+user_id);
-
-        InpToVar();
-        PerfilTexts();
-        Buttons();
     }
 
     private void Buttons()
@@ -54,9 +59,11 @@ public class PerfilActivity extends AppCompatActivity {
         ButtonPerdidos();
         ButtonLoja();
         ButtonChat();
+
         ButtonEdit();
-        ButtoLogOut();
         ButtonCad();
+        ButtoLogOut();
+
     }
 
     private void InpToVar()
@@ -72,8 +79,6 @@ public class PerfilActivity extends AppCompatActivity {
         nome_text = findViewById(R.id.nome_text);
         cidade_text = findViewById(R.id.cidade_text);
         but_cad_dog = findViewById(R.id.imageView_addPet);
-
-        anim_fade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
     }
 
     private void PerfilTexts() {
@@ -169,6 +174,7 @@ public class PerfilActivity extends AppCompatActivity {
             public void onClick(View v) {
                 User user = new User();
                 user.signUp();
+                startActivity(new Intent(PerfilActivity.this, LoginActivity.class));
             }
         });
     }

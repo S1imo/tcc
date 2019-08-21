@@ -124,36 +124,19 @@
 
     <ImageView
         android:id="@+id/image_perfil"
-        android:layout_width="170dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/perfil_circle"
+        android:background="@drawable/bg_prof_all"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.141" />
-
-    <ImageView
-        android:id="@+id/change_icon"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:alpha="0.8"
-        android:background="@drawable/profile_icon_bk"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171" />
 
     <com.santalu.maskedittext.MaskEditText
         android:id="@+id/edit_tel"
