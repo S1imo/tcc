@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -180,7 +180,7 @@ zz    <ImageView
         app:srcCompat="@drawable/exclamacao" />
 
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/deslike_btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
@@ -204,7 +204,7 @@ zz    <ImageView
         app:srcCompat="@drawable/botao_deslike" />
 
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/superlike_btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
@@ -227,7 +227,7 @@ zz    <ImageView
         app:rippleColor="@null"
         app:srcCompat="@drawable/superlike" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/like_btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
@@ -250,4 +250,4 @@ zz    <ImageView
         app:rippleColor="@null"
         app:srcCompat="@drawable/botao_like" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

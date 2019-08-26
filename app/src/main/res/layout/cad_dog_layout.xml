@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,67 +20,57 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/addImage"
         android:layout_width="157dp"
         android:layout_height="144dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/button_file"
-        android:backgroundTint="#A6000000"
-        android:tint="#FFFFFF"
+        android:src="@drawable/add_an_prof"
         app:layout_constraintBottom_toTopOf="@+id/addImage2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/voltarDButton"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/addImage2"
         android:layout_width="76dp"
         android:layout_height="73dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/button_file"
-        android:backgroundTint="#A6000000"
-        android:tint="#FFFFFF"
+        android:src="@drawable/add_an_prof"
         app:layout_constraintBottom_toTopOf="@+id/cad_animal"
         app:layout_constraintEnd_toEndOf="@+id/addImage"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/addImage"
-        app:layout_constraintTop_toBottomOf="@+id/addImage"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:layout_constraintTop_toBottomOf="@+id/addImage" />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/addImage3"
         android:layout_width="76dp"
         android:layout_height="73dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/button_file"
-        android:backgroundTint="#A6000000"
-        android:tint="#FFFFFF"
+        android:src="@drawable/add_an_prof"
         app:layout_constraintBottom_toBottomOf="@+id/addImage2"
         app:layout_constraintEnd_toStartOf="@+id/addImage2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addImage"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/addImage4"
         android:layout_width="76dp"
         android:layout_height="73dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/button_file"
-        android:backgroundTint="#A6000000"
-        android:tint="#FFFFFF"
+        android:src="@drawable/add_an_prof"
         app:layout_constraintBottom_toBottomOf="@+id/addImage2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addImage2"
-        app:layout_constraintTop_toBottomOf="@+id/addImage"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:layout_constraintTop_toBottomOf="@+id/addImage" />
 
     <Spinner
         android:id="@+id/cad_animal"
@@ -305,4 +295,4 @@
         app:layout_constraintTop_toBottomOf="@+id/cad_descricao" />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

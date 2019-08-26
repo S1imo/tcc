@@ -10,18 +10,16 @@ public class Animal {
     private String an_raca;
     private String an_status;
     private String an_descricao;
-    private String user_id;
 
     public Animal() { }
 
-    public Animal(String tip_an, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String user_id) {
+    public Animal(String tip_an, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao) {
         this.tip_an = tip_an;
         this.an_porte = an_porte;
         this.an_vacinado = an_vacinado;
         this.an_raca = an_raca;
         this.an_status = an_status;
         this.an_descricao = an_descricao;
-        this.user_id = user_id;
     }
 
     public String getTip_an() {
@@ -81,7 +79,6 @@ public class Animal {
             dataInfo.put("an_raca", an_raca);
             dataInfo.put("an_status", an_status);
             dataInfo.put("an_descricao", an_descricao);
-            dataInfo.put("user_id", user_id);
         return dataInfo;
     }
 }

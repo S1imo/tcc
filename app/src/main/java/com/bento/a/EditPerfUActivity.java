@@ -1,19 +1,26 @@
 package com.bento.a;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.bento.a.users.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,26 +29,39 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.santalu.maskedittext.MaskEditText;
+import com.yalantis.ucrop.UCrop;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class EditPerfUActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private Button but_aplicar, but_voltar;
-    private ImageView profile_Img;
+    private static final int REQUEST_CODE = 1;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private CircleImageView imagemPerf;
     private MaskEditText  novo_cep_inp, novo_cpf_inp, novo_dat_inp, novo_rg_inp, novo_tel_inp;
     private EditText novo_nom_usu_inp,  novo_nom_comp_usu_inp;
     private String novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cep, novo_cpf, novo_dat, novo_rg, novo_tel;
-    final static int Gallery_Pick = 1;
+    private FirebaseUser user = mAuth.getCurrentUser();
+    private StorageReference folder;
+    private String user_id = Objects.requireNonNull(user).getUid();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_perfu_layout);
         InputToVar();
+        ProfilePic();
+        ImagePerfUp();
         SetValues();
         ButtonAplicar();
         ButtonVoltar();
@@ -76,8 +96,30 @@ public class EditPerfUActivity extends AppCompatActivity {
         });
     }
 
+    private void permissionCheck()
+    {if (ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.INTERNET)
+            != PackageManager.PERMISSION_GRANTED) {
+        Toast.makeText(this, "Permissão de internet não habilitada", Toast.LENGTH_SHORT).show();
+    }
+    else if(ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+        Toast.makeText(this, "Permissão de câmera não habilitada", Toast.LENGTH_SHORT).show();
+    }
+    else if(ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED)
+    {
+        Toast.makeText(this, "Permissão de leitura não habilitada", Toast.LENGTH_SHORT).show();
+    }
+    else if(ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED)
+    {
+        Toast.makeText(this, "Permissão de gravação não habilitada", Toast.LENGTH_SHORT).show();
+    }}
+
     private void InputToVar()
     {
+        folder = FirebaseStorage.getInstance().getReference().child("Users").child(user_id);
+
         novo_nom_usu_inp = findViewById(R.id.edit_nom);
         novo_nom_comp_usu_inp = findViewById(R.id.edit_nomComp);
         novo_cep_inp = findViewById(R.id.edit_cep);
@@ -86,11 +128,12 @@ public class EditPerfUActivity extends AppCompatActivity {
         novo_rg_inp = findViewById(R.id.edit_rg);
         novo_tel_inp = findViewById(R.id.edit_tel);
 
-        profile_Img = findViewById(R.id.image_perfil);
+        imagemPerf = findViewById(R.id.image_perfil);
 
         but_aplicar = findViewById(R.id.buttonAplicar);
         but_voltar = findViewById(R.id.buttonVoltar);
     }
+
     private void InpToString()
     {
         novo_nom_usu = novo_nom_usu_inp.getText().toString().trim();
@@ -101,6 +144,25 @@ public class EditPerfUActivity extends AppCompatActivity {
         novo_rg = Objects.requireNonNull(novo_rg_inp.getText()).toString().trim();
         novo_tel = Objects.requireNonNull(novo_tel_inp.getText()).toString().trim();
     }
+
+    private void ProfilePic() {
+        folder.child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+                imagemPerf.setImageBitmap(Bitmap.createScaledBitmap(bmp, imagemPerf.getWidth(),
+                        imagemPerf.getHeight(), false));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Toast.makeText(EditPerfUActivity.this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+                imagemPerf.setImageDrawable(getDrawable(R.drawable.profile_icon));
+            }
+        });
+    }
+
     private void ButtonVoltar()
     {
         but_voltar.setOnClickListener(new View.OnClickListener() {
@@ -176,6 +238,79 @@ public class EditPerfUActivity extends AppCompatActivity {
         {
             return 0;
         }
+    }
+
+    private void ImagePerfUp()
+    {
+        imagemPerf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                permissionCheck();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        imagemPerf.setImageURI(null);
+
+        if(requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null && data.getData() != null)
+        {
+            Uri imageUri = data.getData();
+            if(imageUri != null)
+            {
+                startCrop(imageUri);
+            }
+        }
+        else if(requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK)
+        {
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+            assert data != null;
+            Uri imageUriResultCrop = UCrop.getOutput(data);
+            if(imageUriResultCrop != null)
+            {
+                ref.child(user_id).child("us_prof_img").setValue(imageUriResultCrop.getLastPathSegment());
+                StorageReference Imagename = folder.child("image" + imageUriResultCrop.getLastPathSegment());
+                Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(EditPerfUActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                imagemPerf.setImageURI(imageUriResultCrop);
+            }
+        }
+
+    }
+
+    private void startCrop(@NonNull Uri uri)
+    {
+        String SAMPLE_CROPPED_IMG_NAME = "UserProf";
+        String destinationFileName = SAMPLE_CROPPED_IMG_NAME + ".jpg";
+
+        UCrop uCrop = UCrop.of(uri, Uri.fromFile(new File(getCacheDir(), destinationFileName)));
+        uCrop.withAspectRatio(2, 3);
+        uCrop.withMaxResultSize(450,450);
+        uCrop.withOptions(getCropOptions());
+        uCrop.start(EditPerfUActivity.this);
+    }
+
+    private UCrop.Options getCropOptions(){
+        UCrop.Options options = new UCrop.Options();
+        options.setCompressionQuality(70);
+        options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        options.setHideBottomControls(false);
+        options.setFreeStyleCropEnabled(true);
+        options.setStatusBarColor(getResources().getColor(R.color.color_branco_menu));
+        options.setToolbarColor(getResources().getColor(R.color.color_cinza_menu));
+        options.setToolbarTitle("Recortar imagem");
+        return options;
     }
 
     private void ChangeData() {

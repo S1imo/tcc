@@ -3,7 +3,9 @@ package com.bento.a;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,15 +15,18 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.bento.a.animals.Animal;
-import com.bento.a.users.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicLong;
 
 
 public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -34,6 +39,8 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     private Spinner inp_tip_animal;
     private String tip_animal, an_port, an_vac, an_stat, an_desc, an_raca;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private static AtomicLong idCounter = new AtomicLong();
+    private String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -76,10 +83,29 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
             public void onClick(View v) {
                 SetRadioText();
                 RadioTxtToStg();
-                //Colocar dados do animal
-                CreateAn();
+                int count = VerificaCad();
+                switch(count) {
+                    case 1:
+                        Toast.makeText(CadAnimal.this, "Selecione todas as opções", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        CreateAn();
+                        break;
+                }
             }
         });
+    }
+
+    private int VerificaCad()
+    {
+        if(an_desc.isEmpty() || an_port.isEmpty() || an_raca.isEmpty() || an_stat.isEmpty() || an_vac.isEmpty())
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     private void RadioTxtToStg()
@@ -124,12 +150,27 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     //colocando dados an
     private void CreateAn()
     {
-        String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-        Animal an = new Animal(tip_animal, an_port, an_vac, an_raca, an_stat, an_desc, user_id);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Animais").child(user_id);
+        Animal an = new Animal(tip_animal, an_port, an_vac, an_raca, an_stat, an_desc);
         HashMap<String, Object> newPost = new HashMap<>();
-        newPost.put("Alguma coisa", an.toMap());
-        ref.updateChildren(newPost);
+        newPost.put("animal"+createID(), an.toMap());
+        ref.updateChildren(newPost)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                startActivity(new Intent(CadAnimal.this, PerfilActivity.class));
+            }
+        })      .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(CadAnimal.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+    public static String createID()
+    {
+        return String.valueOf(idCounter.getAndIncrement());
     }
 
     private void ButtonVoltar(){
