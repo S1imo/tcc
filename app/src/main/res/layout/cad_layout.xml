@@ -231,14 +231,12 @@
         app:layout_constraintTop_toBottomOf="@+id/cad_conf_senha_text"
         app:passwordToggleEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_conf_senha_inp"
-            android:layout_width="350dp"
-            android:layout_height="30dp"
-            android:background="@color/color_brancofundo_log"
-            android:fontFamily="@font/montserrat"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/cad_conf_senha_inp"
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:background="@color/color_brancofundo_log"
+        android:fontFamily="@font/montserrat"
+        android:inputType="textPassword" />
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

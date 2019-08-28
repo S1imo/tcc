@@ -171,18 +171,18 @@
         app:layout_constraintTop_toBottomOf="@+id/cad_tel_text_E"
         app:met_mask="(##)#####-####" />
 
-            <Button
-                android:id="@+id/cad_voltar_but"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_log_gradient"
-                android:fontFamily="@font/montserrat"
-                android:text="Voltar"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/cad_tel_inp"
-                app:layout_constraintTop_toBottomOf="@+id/cad_tel_inp" />
+        <Button
+            android:id="@+id/cad_voltar_but"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_log_gradient"
+            android:fontFamily="@font/montserrat"
+            android:text="Voltar"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/cad_tel_inp"
+            app:layout_constraintTop_toBottomOf="@+id/cad_tel_inp" />
 
             <Button
                 android:id="@+id/cad_but_cads"

@@ -22,6 +22,8 @@ anim slide_in_left
 anim slide_in_right
 anim slide_out_left
 anim slide_out_right
+anim ucrop_loader_circle_path
+anim ucrop_loader_circle_scale
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -163,6 +165,10 @@ attr chipStrokeColor
 attr chipStrokeWidth
 attr chipStyle
 attr circleCrop
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr closeIcon
 attr closeIconEnabled
 attr closeIconEndPadding
@@ -570,6 +576,22 @@ attr track
 attr trackTint
 attr trackTintMode
 attr ttcIndex
+attr ucrop_artv_ratio_title
+attr ucrop_artv_ratio_x
+attr ucrop_artv_ratio_y
+attr ucrop_aspect_ratio_x
+attr ucrop_aspect_ratio_y
+attr ucrop_circle_dimmed_layer
+attr ucrop_dimmed_color
+attr ucrop_frame_color
+attr ucrop_frame_stroke_size
+attr ucrop_grid_color
+attr ucrop_grid_column_count
+attr ucrop_grid_row_count
+attr ucrop_grid_stroke_size
+attr ucrop_show_frame
+attr ucrop_show_grid
+attr ucrop_show_oval_crop_frame
 attr umanoAnchorPoint
 attr umanoClipPanel
 attr umanoDragView
@@ -756,6 +778,20 @@ color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
 color transparent
+color ucrop_color_crop_background
+color ucrop_color_default_crop_frame
+color ucrop_color_default_crop_grid
+color ucrop_color_default_dimmed
+color ucrop_color_default_logo
+color ucrop_color_progress_wheel_line
+color ucrop_color_statusbar
+color ucrop_color_toolbar
+color ucrop_color_toolbar_widget
+color ucrop_color_widget
+color ucrop_color_widget_active
+color ucrop_color_widget_background
+color ucrop_color_widget_text
+color ucrop_scale_text_view_selector
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -977,6 +1013,25 @@ dimen tooltip_precise_anchor_threshold
 dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
+dimen ucrop_default_crop_frame_stoke_width
+dimen ucrop_default_crop_grid_stoke_width
+dimen ucrop_default_crop_logo_size
+dimen ucrop_default_crop_rect_corner_touch_area_line_length
+dimen ucrop_default_crop_rect_corner_touch_threshold
+dimen ucrop_default_crop_rect_min_size
+dimen ucrop_height_crop_aspect_ratio_text
+dimen ucrop_height_divider_shadow
+dimen ucrop_height_horizontal_wheel_progress_line
+dimen ucrop_height_wrapper_controls
+dimen ucrop_height_wrapper_states
+dimen ucrop_margin_horizontal_wheel_progress_line
+dimen ucrop_margit_top_widget_text
+dimen ucrop_padding_crop_frame
+dimen ucrop_progress_size
+dimen ucrop_size_dot_scale_text_view
+dimen ucrop_size_wrapper_rotate_button
+dimen ucrop_text_size_widget_text
+dimen ucrop_width_horizontal_wheel_progress_line
 drawable abc_ab_share_pack_mtrl_alpha
 drawable abc_action_bar_item_background_material
 drawable abc_btn_borderless_material
@@ -1062,6 +1117,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable above_shadow
+drawable add_an_prof
 drawable adot_icon
 drawable avd_hide_password
 drawable avd_show_password
@@ -1144,6 +1200,18 @@ drawable rec_plus_perf
 drawable superlike
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable ucrop_ic_angle
+drawable ucrop_ic_crop
+drawable ucrop_ic_cross
+drawable ucrop_ic_done
+drawable ucrop_ic_next
+drawable ucrop_ic_reset
+drawable ucrop_ic_rotate
+drawable ucrop_ic_scale
+drawable ucrop_shadow_upside
+drawable ucrop_vector_ic_crop
+drawable ucrop_vector_loader
+drawable ucrop_vector_loader_animated
 font montserrat
 id ALT
 id CTRL
@@ -1194,7 +1262,6 @@ id bg_cont
 id blocking
 id bone_view
 id bottom
-id bottom_overlay
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -1244,7 +1311,6 @@ id cad_tip_usu_inp
 id cad_tip_usu_text
 id cad_voltar_but
 id cancel_action
-id cardStack
 id cardView
 id center
 id center_horizontal
@@ -1324,7 +1390,6 @@ id ifRoom
 id image
 id imageView
 id imageView2
-id imageView3
 id imageView4
 id imageView_addPet
 id imageView_addPet3
@@ -1337,6 +1402,11 @@ id imageView_addProd4
 id imageView_addProd5
 id imageView_addProd6
 id image_perfil
+id image_view_crop
+id image_view_logo
+id image_view_state_aspect_ratio
+id image_view_state_rotate
+id image_view_state_scale
 id imagelike
 id info
 id info_btn
@@ -1346,8 +1416,10 @@ id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
 id layout
+id layout_aspect_ratio
+id layout_rotate_wheel
+id layout_scale_wheel
 id left
-id left_overlay
 id light
 id like_btn
 id line1
@@ -1367,6 +1439,8 @@ id logo
 id logo_adot
 id masked
 id media_actions
+id menu_crop
+id menu_loader
 id menu_view
 id menu_view_shadow
 id message
@@ -1403,14 +1477,14 @@ id radio
 id radio_port
 id radio_stat
 id radio_vac
-id recycle
 id right
 id right_icon
-id right_overlay
 id right_side
+id rotate_scroll_wheel
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
+id scale_scroll_wheel
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1449,6 +1523,9 @@ id src_in
 id src_over
 id standard
 id start
+id state_aspect_ratio
+id state_rotate
+id state_scale
 id status_bar_latest_event_content
 id stretch
 id submenuarrow
@@ -1461,14 +1538,14 @@ id tag_unhandled_key_listeners
 id text
 id text2
 id textInputLayout
-id textInputLayout2
-id textInputLayout3
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView2
 id textView3
 id text_input_password_toggle
+id text_view_rotate
+id text_view_scale
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -1476,9 +1553,10 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar
+id toolbar_title
 id top
 id topPanel
-id top_overlay
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -1486,6 +1564,9 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id txtclose
+id ucrop
+id ucrop_frame
+id ucrop_photobox
 id uniform
 id unlabeled
 id up
@@ -1498,15 +1579,19 @@ id view3
 id view4
 id view5
 id view6
-id view7
 id view_bg
 id view_offset_helper
+id view_overlay
 id visible
 id voltarDButton
 id wide
 id withText
 id wrap
 id wrap_content
+id wrapper_controls
+id wrapper_reset_rotate
+id wrapper_rotate_by_angle
+id wrapper_states
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -1523,6 +1608,7 @@ integer mtrl_chip_anim_duration
 integer mtrl_tab_indicator_anim_duration_ms
 integer show_password_duration
 integer status_bar_notification_info_maxnum
+integer ucrop_progress_loading_anim_time
 interpolator mtrl_fast_out_linear_in
 interpolator mtrl_fast_out_slow_in
 interpolator mtrl_linear
@@ -1555,7 +1641,6 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_main2
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cad_dog_layout
@@ -1601,12 +1686,19 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout overlay
 layout profile_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout ucrop_activity_photobox
+layout ucrop_aspect_ratio
+layout ucrop_controls
+layout ucrop_fragment_photobox
+layout ucrop_layout_rotate_wheel
+layout ucrop_layout_scale_wheel
+layout ucrop_view
+menu ucrop_menu_activity
 mipmap exit_icon
 mipmap ic_adot_round
 mipmap ic_launcher
@@ -1692,6 +1784,11 @@ string path_password_strike_through
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
+string ucrop_error_input_data_is_absent
+string ucrop_label_edit_photo
+string ucrop_label_original
+string ucrop_menu_crop
+string ucrop_mutate_exception_hint
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -2195,6 +2292,11 @@ style Widget_MaterialComponents_TextInputLayout_OutlinedBox
 style Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense
 style Widget_MaterialComponents_Toolbar
 style Widget_Support_CoordinatorLayout
+style ucrop_ImageViewWidgetIcon
+style ucrop_TextViewCropAspectRatio
+style ucrop_TextViewWidgetText
+style ucrop_WrapperIconState
+style ucrop_WrapperRotateButton
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -2220,6 +2322,7 @@ styleable ButtonBarLayout allowStacking
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable Chip android_textAppearance android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipStartPadding chipStrokeColor chipStrokeWidth closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible hideMotionSpec iconEndPadding iconStartPadding rippleColor showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
 styleable ColorStateListItem android_color android_alpha alpha
@@ -2277,3 +2380,6 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+styleable ucrop_AspectRatioTextView ucrop_artv_ratio_title ucrop_artv_ratio_x ucrop_artv_ratio_y
+styleable ucrop_UCropView ucrop_aspect_ratio_x ucrop_aspect_ratio_y ucrop_circle_dimmed_layer ucrop_dimmed_color ucrop_frame_color ucrop_frame_stroke_size ucrop_grid_color ucrop_grid_column_count ucrop_grid_row_count ucrop_grid_stroke_size ucrop_show_frame ucrop_show_grid ucrop_show_oval_crop_frame
+xml file_paths

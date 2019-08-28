@@ -1,6 +1,8 @@
 package com.bento.a;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bento.a.users.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -17,14 +21,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    //TODO fazer cidade
-
     private ImageView but_profile,but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
+    private CircleImageView perf_img;
     private TextView nome_text, cidade_text;
     private FirebaseDatabase mFirebaseDatabase;
+    private StorageReference storageReference;
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
     private String user_id;
@@ -34,8 +42,6 @@ public class PerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
         SettingFire();
-
-
         InpToVar();
         PerfilTexts();
         Buttons();
@@ -48,6 +54,26 @@ public class PerfilActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         user_id = user.getUid();
         myRef = mFirebaseDatabase.getReference("Users/"+user_id);
+        storageReference = FirebaseStorage.getInstance().getReference().child("Users").child(user_id);
+        ProfilePic();
+    }
+
+    private void ProfilePic() {
+        storageReference.child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+                perf_img.setImageBitmap(Bitmap.createScaledBitmap(bmp, perf_img.getWidth(),
+                        perf_img.getHeight(), false));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Toast.makeText(PerfilActivity.this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+                perf_img.setImageDrawable(getDrawable(R.drawable.profile_icon));
+            }
+        });
     }
 
     private void Buttons()
@@ -62,7 +88,6 @@ public class PerfilActivity extends AppCompatActivity {
         ButtonEdit();
         ButtonCad();
         ButtoLogOut();
-
     }
 
     private void InpToVar()
@@ -77,7 +102,10 @@ public class PerfilActivity extends AppCompatActivity {
 
         nome_text = findViewById(R.id.nome_text);
         cidade_text = findViewById(R.id.cidade_text);
+
+        perf_img = findViewById(R.id.image_perfil);
         but_cad_dog = findViewById(R.id.imageView_addPet);
+
     }
 
     private void PerfilTexts() {
