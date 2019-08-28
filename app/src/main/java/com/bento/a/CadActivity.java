@@ -2,9 +2,8 @@ package com.bento.a;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.Patterns;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,13 +12,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Objects;
 
 
 public class CadActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText inp_nom_usu, inp_email;
-    private android.support.design.widget.TextInputEditText inp_senha, inp_conf_senha;
+    private TextInputEditText inp_senha, inp_conf_senha;
     private Button but_cad_prox, but_cad_volt;
     private Spinner inp_tip_usu;
 
@@ -129,7 +130,7 @@ public class CadActivity extends AppCompatActivity implements AdapterView.OnItem
         });
     }
 
-    private void inputToString(EditText inp_nom_usu, EditText inp_email, android.support.design.widget.TextInputEditText inp_senha, android.support.design.widget.TextInputEditText inp_conf_senha)
+    private void inputToString(EditText inp_nom_usu, EditText inp_email, TextInputEditText inp_senha, TextInputEditText inp_conf_senha)
     {
         this.nom_usu = inp_nom_usu.getText().toString().trim();
         this.email = inp_email.getText().toString().trim();
