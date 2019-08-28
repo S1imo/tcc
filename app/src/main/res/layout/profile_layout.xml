@@ -49,12 +49,11 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/perdido_icon"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="@+id/frame"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="@+id/frame"
-        app:layout_constraintTop_toTopOf="@+id/perdido_icon"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/view5"
         app:srcCompat="@drawable/adot_icon" />
 
     <ImageView
@@ -75,12 +74,12 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintBottom_toBottomOf="@+id/adot_icon"
         app:layout_constraintEnd_toEndOf="@+id/frame"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="@+id/frame"
-        app:layout_constraintTop_toTopOf="@+id/view5"
-        app:layout_constraintVertical_bias="0.733"
+        app:layout_constraintTop_toTopOf="@+id/adot_icon"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/perdido_icon" />
 
     <ImageView
@@ -165,18 +164,15 @@
         android:id="@+id/but_config"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/button_file"
         android:paddingStart="2dp"
         android:paddingEnd="7dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977"
+        app:layout_constraintBottom_toBottomOf="@+id/cidade_text"
+        app:layout_constraintEnd_toStartOf="@+id/but_edit_prof"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view5"
+        app:layout_constraintVertical_bias="0.969"
         app:srcCompat="@mipmap/exit_icon" />
 
     <ImageView
@@ -187,9 +183,9 @@
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/cidade_text"
         app:layout_constraintEnd_toEndOf="@+id/frame"
-        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="@+id/frame"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view5"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/edit_icon" />
 
