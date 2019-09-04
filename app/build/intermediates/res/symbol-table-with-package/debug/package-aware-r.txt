@@ -444,6 +444,18 @@ attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
 attr reverseLayout
 attr rippleColor
+attr riv_border_color
+attr riv_border_width
+attr riv_corner_radius
+attr riv_corner_radius_bottom_left
+attr riv_corner_radius_bottom_right
+attr riv_corner_radius_top_left
+attr riv_corner_radius_top_right
+attr riv_mutate_background
+attr riv_oval
+attr riv_tile_mode
+attr riv_tile_mode_x
+attr riv_tile_mode_y
 attr rotation_degrees
 attr scopeUris
 attr scrimAnimationDuration
@@ -1262,6 +1274,7 @@ id bg_cont
 id blocking
 id bone_view
 id bottom
+id bottom_overlay
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -1275,6 +1288,7 @@ id buttonAplicar
 id buttonPanel
 id buttonVoltar
 id button_aplicar
+id button_container
 id cad2_logo
 id cad_animal
 id cad_but_cads
@@ -1312,6 +1326,7 @@ id cad_tip_usu_text
 id cad_voltar_but
 id cancel_action
 id cardView
+id card_stack_view
 id center
 id center_horizontal
 id center_vertical
@@ -1320,6 +1335,7 @@ id chat_icon
 id checkbox
 id chronometer
 id cidade_text
+id clamp
 id clip_horizontal
 id clip_vertical
 id coins
@@ -1334,6 +1350,7 @@ id customPanel
 id dark
 id decor_content_parent
 id default_activity_button
+id desc_animal
 id desc_text
 id design_bottom_sheet
 id design_menu_item_action_area
@@ -1345,6 +1362,7 @@ id dimensions
 id direct
 id disableHome
 id distancia_view
+id drawer_layout
 id edit_cep
 id edit_cepE
 id edit_cnpjE
@@ -1366,6 +1384,7 @@ id enterAlwaysCollapsed
 id es_email_text1
 id es_nome_text
 id exitUntilCollapsed
+id exit_text
 id expand_activities_button
 id expanded
 id expanded_menu
@@ -1401,6 +1420,7 @@ id imageView_addProd3
 id imageView_addProd4
 id imageView_addProd5
 id imageView_addProd6
+id image_dog
 id image_perfil
 id image_view_crop
 id image_view_logo
@@ -1420,6 +1440,7 @@ id layout_aspect_ratio
 id layout_rotate_wheel
 id layout_scale_wheel
 id left
+id left_overlay
 id light
 id like_btn
 id line1
@@ -1446,6 +1467,7 @@ id menu_view_shadow
 id message
 id middle
 id mini
+id mirror
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
@@ -1467,18 +1489,22 @@ id parent_matrix
 id percent
 id perdido_icon
 id pin
+id porte_animal
 id porte_grande
 id porte_medio
 id porte_pequeno
 id profile_icon
 id progress_circular
 id progress_horizontal
+id raca_animal
 id radio
 id radio_port
 id radio_stat
 id radio_vac
+id repeat
 id right
 id right_icon
+id right_overlay
 id right_side
 id rotate_scroll_wheel
 id save_image_matrix
@@ -1509,6 +1535,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id skip_button
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1526,6 +1553,7 @@ id start
 id state_aspect_ratio
 id state_rotate
 id state_scale
+id status_animal
 id status_bar_latest_event_content
 id stretch
 id submenuarrow
@@ -1550,6 +1578,7 @@ id textinput_counter
 id textinput_error
 id textinput_helper_text
 id time
+id tipo_animal
 id title
 id titleDividerNoCustom
 id title_template
@@ -1557,6 +1586,7 @@ id toolbar
 id toolbar_title
 id top
 id topPanel
+id top_overlay
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -1571,6 +1601,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id vacinado_animal
 id vacinado_nao
 id vacinado_sim
 id view
@@ -1579,6 +1610,7 @@ id view3
 id view4
 id view5
 id view6
+id view7
 id view_bg
 id view_offset_helper
 id view_overlay
@@ -1641,6 +1673,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_main2
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cad_dog_layout
@@ -1686,6 +1719,8 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout overlay
+layout popup_perfil
 layout profile_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -1766,6 +1801,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string default_web_client_id
+string define_roundedimageview
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string firebase_database_url
@@ -1775,6 +1811,15 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
+string library_roundedimageview_author
+string library_roundedimageview_authorWebsite
+string library_roundedimageview_isOpenSource
+string library_roundedimageview_libraryDescription
+string library_roundedimageview_libraryName
+string library_roundedimageview_libraryVersion
+string library_roundedimageview_libraryWebsite
+string library_roundedimageview_licenseId
+string library_roundedimageview_repositoryLink
 string mtrl_chip_close_icon_content_description
 string password_toggle_content_description
 string path_password_eye
@@ -2359,6 +2404,7 @@ styleable PopupWindow android_popupBackground android_popupAnimationStyle overla
 styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RecyclerView android_orientation android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
+styleable RoundedImageView android_scaleType riv_border_color riv_border_width riv_corner_radius riv_corner_radius_bottom_left riv_corner_radius_bottom_right riv_corner_radius_top_left riv_corner_radius_top_right riv_mutate_background riv_oval riv_tile_mode riv_tile_mode_x riv_tile_mode_y
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon

@@ -15,7 +15,7 @@ public final class R {
         public static final int SwipeFlingStyle = 0x7f040000;
         public static final int max_visible = 0x7f04016d;
         public static final int min_adapter_stack = 0x7f040171;
-        public static final int rotation_degrees = 0x7f040194;
+        public static final int rotation_degrees = 0x7f0401a0;
     }
     public static final class string {
         private string() {}
@@ -30,7 +30,7 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] SwipeFlingAdapterView = { 0x7f040000, 0x7f04016d, 0x7f040171, 0x7f040194 };
+        public static final int[] SwipeFlingAdapterView = { 0x7f040000, 0x7f04016d, 0x7f040171, 0x7f0401a0 };
         public static final int SwipeFlingAdapterView_SwipeFlingStyle = 0;
         public static final int SwipeFlingAdapterView_max_visible = 1;
         public static final int SwipeFlingAdapterView_min_adapter_stack = 2;

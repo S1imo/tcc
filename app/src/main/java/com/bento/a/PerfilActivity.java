@@ -35,7 +35,7 @@ public class PerfilActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
-    private String user_id;
+    private String user_id = mAuth.getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,6 @@ public class PerfilActivity extends AppCompatActivity {
     {
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-        user_id = user.getUid();
         myRef = mFirebaseDatabase.getReference("Users/"+user_id);
         storageReference = FirebaseStorage.getInstance().getReference().child("Users").child(user_id);
         ProfilePic();
@@ -232,7 +230,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_cad_dog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PerfilActivity.this, CadAnimal.class));
+                startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class));
 
             }
         });
