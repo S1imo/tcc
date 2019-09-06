@@ -3,6 +3,7 @@ package com.bento.a;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.bento.a.users.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 

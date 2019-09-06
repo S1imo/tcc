@@ -6,11 +6,15 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bento.a.animals.Animal;
 import com.bento.a.users.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -24,11 +28,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    private ImageView but_profile,but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
+    private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof, img_dog;
     private CircleImageView perf_img;
     private TextView nome_text, cidade_text;
     private FirebaseDatabase mFirebaseDatabase;
@@ -53,27 +61,8 @@ public class PerfilActivity extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         user_id = user.getUid();
-        myRef = mFirebaseDatabase.getReference("Users/"+user_id);
         storageReference = FirebaseStorage.getInstance().getReference().child("Users").child(user_id);
         ProfilePic();
-    }
-
-    private void ProfilePic() {
-        storageReference.child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-
-                perf_img.setImageBitmap(Bitmap.createScaledBitmap(bmp, perf_img.getWidth(),
-                        perf_img.getHeight(), false));
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Toast.makeText(PerfilActivity.this, exception.getMessage(), Toast.LENGTH_SHORT).show();
-                perf_img.setImageDrawable(getDrawable(R.drawable.profile_icon));
-            }
-        });
     }
 
     private void Buttons()
@@ -97,6 +86,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_perd = findViewById(R.id.perdido_icon);
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
+        but_cad_dog = findViewById(R.id.coins);
         but_edit_prof = findViewById(R.id.but_edit_prof);
         but_logout = findViewById(R.id.but_config);
 
@@ -104,15 +94,15 @@ public class PerfilActivity extends AppCompatActivity {
         cidade_text = findViewById(R.id.cidade_text);
 
         perf_img = findViewById(R.id.image_perfil);
-        but_cad_dog = findViewById(R.id.imageView_addPet);
-
     }
 
     private void PerfilTexts() {
+        myRef = mFirebaseDatabase.getReference("Users/" + user_id + "/us_info");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
+                assert user != null;
                 nome_text.setText(user.getUs_nome());
             }
 
@@ -120,6 +110,23 @@ public class PerfilActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 Toast.makeText(PerfilActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void ProfilePic() {
+        storageReference.child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+                perf_img.setImageBitmap(Bitmap.createScaledBitmap(bmp, perf_img.getWidth(),
+                        perf_img.getHeight(), false));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                perf_img.setImageDrawable(getDrawable(R.drawable.bg_prof_all));
             }
         });
     }
@@ -233,7 +240,6 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PerfilActivity.this, CadAnimal.class));
-
             }
         });
 

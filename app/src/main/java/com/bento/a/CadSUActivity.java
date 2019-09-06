@@ -187,10 +187,10 @@ public class CadSUActivity extends AppCompatActivity {
     private void dataDB()
     {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         User user = new User(nom_usu, tip_usu, nome_comp, cpf, cep, telefone, nascimento, rg);
         HashMap<String, Object> newPost = new HashMap<>();
-        newPost.put(user_id, user.toMap());
+        newPost.put("us_info", user.toMap());
         ref.updateChildren(newPost);
     }
 

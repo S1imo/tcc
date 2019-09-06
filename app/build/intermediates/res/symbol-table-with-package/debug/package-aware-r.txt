@@ -1391,16 +1391,12 @@ id image
 id imageView
 id imageView2
 id imageView4
-id imageView_addPet
-id imageView_addPet3
-id imageView_addPet4
-id imageView_addPet5
-id imageView_addPet6
 id imageView_addProd2
 id imageView_addProd3
 id imageView_addProd4
 id imageView_addProd5
 id imageView_addProd6
+id image_View_upload
 id image_perfil
 id image_view_crop
 id image_view_logo
@@ -1481,6 +1477,7 @@ id right
 id right_icon
 id right_side
 id rotate_scroll_wheel
+id rvAnimal
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1538,6 +1535,8 @@ id tag_unhandled_key_listeners
 id text
 id text2
 id textInputLayout
+id textInputLayout2
+id textInputLayout3
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
@@ -1579,6 +1578,7 @@ id view3
 id view4
 id view5
 id view6
+id view7
 id view_bg
 id view_offset_helper
 id view_overlay
@@ -1666,6 +1666,7 @@ layout design_text_input_password_icon
 layout edit_perfe_layout
 layout edit_perfu_layout
 layout esqueceu_senha_layout
+layout image_item
 layout item
 layout login_layout
 layout main_layout

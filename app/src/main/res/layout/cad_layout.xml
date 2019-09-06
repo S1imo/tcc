@@ -161,7 +161,7 @@
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view7"
-        app:layout_constraintTop_toBottomOf="@+id/cad_tip_usu_text"></Spinner>
+        app:layout_constraintTop_toBottomOf="@+id/cad_tip_usu_text" />
 
     <EditText
         android:id="@+id/cad_email_inp"
@@ -183,60 +183,61 @@
         app:layout_constraintTop_toBottomOf="@+id/cad_senha_text"
         app:passwordToggleEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_senha_inp"
-            android:layout_width="350dp"
-            android:layout_height="30dp"
-            android:background="@color/color_brancofundo_log"
-            android:fontFamily="@font/montserrat"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cad_senha_inp"
+                android:layout_width="350dp"
+                android:layout_height="30dp"
+                android:background="@color/color_brancofundo_log"
+                android:fontFamily="@font/montserrat"
+                android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/cad_but_vol"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="100dp"
-            android:background="@drawable/button_log_gradient"
-            android:fontFamily="@font/montserrat"
-            android:text="Voltar"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+            <Button
+                android:id="@+id/cad_but_vol"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/button_log_gradient"
+                android:fontFamily="@font/montserrat"
+                android:text="Voltar"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
-        <Button
-            android:id="@+id/cad_but_prox"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="100dp"
-            android:background="@drawable/button_log_gradient"
-            android:fontFamily="@font/montserrat"
-            android:text="Próximo"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+            <Button
+                android:id="@+id/cad_but_prox"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/button_log_gradient"
+                android:fontFamily="@font/montserrat"
+                android:text="Próximo"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cad_conf_senha_text"
-        app:passwordToggleEnabled="true">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cad_conf_senha_text"
+                app:passwordToggleEnabled="true"/>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/cad_conf_senha_inp"
-        android:layout_width="350dp"
-        android:layout_height="30dp"
-        android:background="@color/color_brancofundo_log"
-        android:fontFamily="@font/montserrat"
-        android:inputType="textPassword" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cad_conf_senha_inp"
+                android:layout_width="350dp"
+                android:layout_height="30dp"
+                android:background="@color/color_brancofundo_log"
+                android:fontFamily="@font/montserrat"
+                android:inputType="textPassword" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
