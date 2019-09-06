@@ -1,11 +1,19 @@
 package com.bento.a;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,24 +31,38 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.yalantis.ucrop.UCrop;
 
+import java.io.File;
+import java.io.StringBufferInputStream;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    private static final int REQUEST_CODE = 1;
     private ImageButton but_voltar;
     private EditText editTextRaca, editTextDesc;
     private Button buttonAplicar;
     private RadioGroup inp_sel_port, inp_sel_vac, inp_sel_stat;
     private RadioButton but_rad_port, but_rad_vac, but_rad_stat;
     private Spinner inp_tip_animal;
+    private CircleImageView inp_img1, inp_img2, inp_img3, inp_img4, img;
     private String tip_animal, an_port, an_vac, an_stat, an_desc, an_raca;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private static AtomicLong idCounter = new AtomicLong();
+    private StorageReference folder;
+    private static AtomicLong idCount = new AtomicLong();
+    private AtomicLong idImgCount = new AtomicLong();
     private String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+    private HashMap<String, Object> newPost = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,12 +78,87 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
 
     private void Buttons()
     {
+        ImagePerfUp(inp_img1);
+        ImagePerfUp(inp_img2);
+        ImagePerfUp(inp_img3);
+        ImagePerfUp(inp_img4);
         ButtonAplicar();
         ButtonVoltar();
     }
 
+    private void startCrop(@NonNull Uri uri)
+    {
+        String SAMPLE_CROPPED_IMG_NAME = "AnProfPic" + CreateIdImg();
+        String destinationFileName = SAMPLE_CROPPED_IMG_NAME + ".jpg";
+
+        UCrop uCrop = UCrop.of(uri, Uri.fromFile(new File(getCacheDir(), destinationFileName)));
+        uCrop.withAspectRatio(2, 3);
+        uCrop.withMaxResultSize(450,450);
+        uCrop.withOptions(getCropOptions());
+        uCrop.start(CadAnimal.this);
+    }
+
+    private UCrop.Options getCropOptions(){
+        UCrop.Options options = new UCrop.Options();
+        options.setCompressionQuality(70);
+        options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        options.setHideBottomControls(false);
+        options.setFreeStyleCropEnabled(true);
+        options.setStatusBarColor(getResources().getColor(R.color.color_branco_menu));
+        options.setToolbarColor(getResources().getColor(R.color.color_cinza_menu));
+        options.setToolbarTitle("Recortar imagem");
+        return options;
+    }
+
+    private void ImagePerfUp(final CircleImageView image)
+    {
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                permissionCheck();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, REQUEST_CODE);
+                img = image;
+            }
+        });
+    }
+
+    private void permissionCheck()
+    {if (ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.INTERNET)
+            != PackageManager.PERMISSION_GRANTED) {
+        Toast.makeText(this, "Permissão de internet não habilitada", Toast.LENGTH_SHORT).show();
+    }
+    else if(ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+        Toast.makeText(this, "Permissão de câmera não habilitada", Toast.LENGTH_SHORT).show();
+    }
+    else if(ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED)
+    {
+        Toast.makeText(this, "Permissão de leitura não habilitada", Toast.LENGTH_SHORT).show();
+    }
+    else if(ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED)
+    {
+        Toast.makeText(this, "Permissão de gravação não habilitada", Toast.LENGTH_SHORT).show();
+    }}
+
     private void InpToVar()
     {
+        folder = FirebaseStorage.getInstance().getReference().child("Animais").child("animal"+CreateIdAn()).child(user_id);
+
+        inp_img1 = findViewById(R.id.addImage);
+        inp_img2 = findViewById(R.id.addImage2);
+        inp_img3 = findViewById(R.id.addImage3);
+        inp_img4 = findViewById(R.id.addImage4);
+        inp_img1.setImageDrawable(getDrawable(R.drawable.add_an_prof));
+        inp_img2.setImageDrawable(getDrawable(R.drawable.add_an_prof));
+        inp_img3.setImageDrawable(getDrawable(R.drawable.add_an_prof));
+        inp_img4.setImageDrawable(getDrawable(R.drawable.add_an_prof));
+
+
         editTextDesc = findViewById(R.id.cad_descricao);
         editTextRaca = findViewById(R.id.cad_raca);
 
@@ -84,16 +181,45 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
                 SetRadioText();
                 RadioTxtToStg();
                 int count = VerificaCad();
-                switch(count) {
-                    case 1:
-                        Toast.makeText(CadAnimal.this, "Selecione todas as opções", Toast.LENGTH_SHORT).show();
-                        break;
-                    default:
-                        CreateAn();
-                        break;
+                if (count == 1) {
+                    Toast.makeText(CadAnimal.this, "Selecione todas as opções", Toast.LENGTH_SHORT).show();
+                } else {
+                    CreateAn();
                 }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        img.setImageURI(null);
+        if(requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null && data.getData() != null)
+        {
+            Uri imageUri = data.getData();
+            if(imageUri != null)
+            {
+                startCrop(imageUri);
+            }
+        }
+        else if(requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK)
+        {
+            assert data != null;
+            Uri imageUriResultCrop = UCrop.getOutput(data);
+            if(imageUriResultCrop != null)
+            {
+                StorageReference Imagename = folder.child("image" + imageUriResultCrop.getLastPathSegment());
+                Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(CadAnimal.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                newPost.put("an_imgs/an_prof_img"+CreateIdImg(),imageUriResultCrop.getLastPathSegment());
+                img.setImageURI(imageUriResultCrop);
+            }
+        }
     }
 
     private int VerificaCad()
@@ -150,14 +276,14 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     //colocando dados an
     private void CreateAn()
     {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Animais").child(user_id);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Animais").child(user_id).child("animal"+CreateIdAn());
         Animal an = new Animal(tip_animal, an_port, an_vac, an_raca, an_stat, an_desc);
-        HashMap<String, Object> newPost = new HashMap<>();
-        newPost.put("animal"+createID(), an.toMap());
+        newPost.put("an_info",an.toMap());
         ref.updateChildren(newPost)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
+                idCount.getAndIncrement();
                 startActivity(new Intent(CadAnimal.this, PerfilActivity.class));
             }
         })      .addOnFailureListener(new OnFailureListener() {
@@ -168,9 +294,16 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
         });
 
     }
-    public static String createID()
+
+    private static String CreateIdAn()
     {
-        return String.valueOf(idCounter.getAndIncrement());
+        return String.valueOf(idCount.get());
+    }
+
+    private String CreateIdImg()
+    {
+        idImgCount.compareAndSet(4, 0);
+        return String.valueOf(idImgCount.getAndIncrement());
     }
 
     private void ButtonVoltar(){

@@ -53,7 +53,16 @@ public class EditPerfUActivity extends AppCompatActivity {
     private FirebaseUser user = mAuth.getCurrentUser();
     private StorageReference folder;
     private String user_id = Objects.requireNonNull(user).getUid();
+    private HashMap<String, Object> newPost = new HashMap<>();
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getUid() == null)
+        {
+            startActivity(new Intent(EditPerfUActivity.this, LoginActivity.class));
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +82,7 @@ public class EditPerfUActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         assert user != null;
         String user_id = user.getUid();
-        DatabaseReference myRef = mFirebaseDatabase.getReference("Users/" + user_id);
+        DatabaseReference myRef = mFirebaseDatabase.getReference("Users/" + user_id + "/us_info");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -275,7 +284,7 @@ public class EditPerfUActivity extends AppCompatActivity {
             Uri imageUriResultCrop = UCrop.getOutput(data);
             if(imageUriResultCrop != null)
             {
-                ref.child(user_id).child("us_prof_img").setValue(imageUriResultCrop.getLastPathSegment());
+                newPost.put("us_img",imageUriResultCrop.getLastPathSegment());
                 StorageReference Imagename = folder.child("image" + imageUriResultCrop.getLastPathSegment());
                 Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -315,10 +324,10 @@ public class EditPerfUActivity extends AppCompatActivity {
 
     private void ChangeData() {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         User user = new User(novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cpf, novo_cep, novo_tel, novo_dat, novo_rg);
-        HashMap<String, Object> newPost = new HashMap<>();
-        newPost.put(user_id, user.toMap());
+
+        newPost.put("us_info", user.toMap());
         ref.updateChildren(newPost).addOnCompleteListener(EditPerfUActivity.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

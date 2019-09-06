@@ -50,10 +50,19 @@ public class EditPerfEActivity extends AppCompatActivity {
     private EditText novo_nom_usu_inp, novo_nom_emp_inp;
     private String novo_nom_usu, tip_usu, novo_nom_emp, novo_cep, novo_cnpj, novo_tel;
     private FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
-    private FirebaseUser user = mAuth.getCurrentUser();
     private StorageReference folder;
-    private String user_id = Objects.requireNonNull(user).getUid();
+    private String user_id = mAuth.getUid();
+    private HashMap<String, Object> newPost = new HashMap<>();
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getUid() == null)
+        {
+            startActivity(new Intent(EditPerfEActivity.this, LoginActivity.class));
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +78,7 @@ public class EditPerfEActivity extends AppCompatActivity {
     }
 
     private void SetValues() {
-        DatabaseReference myRef = mFirebaseDatabase.getReference("Users/" + user_id);
+        DatabaseReference myRef = mFirebaseDatabase.getReference("Users/" + user_id + "/us_info");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -111,6 +120,7 @@ public class EditPerfEActivity extends AppCompatActivity {
 
     private void InputToVar() {
         folder = FirebaseStorage.getInstance().getReference().child("Users").child(user_id);
+
         imagemPerf = findViewById(R.id.image_perfil);
 
         novo_nom_usu_inp = findViewById(R.id.edit_nomEU);
@@ -228,7 +238,6 @@ public class EditPerfEActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         imagemPerf.setImageURI(null);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
         if(requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null && data.getData() != null)
         {
             Uri imageUri = data.getData();
@@ -243,7 +252,7 @@ public class EditPerfEActivity extends AppCompatActivity {
             Uri imageUriResultCrop = UCrop.getOutput(data);
             if(imageUriResultCrop != null)
             {
-                ref.child(user_id).child("us_prof_img").setValue(imageUriResultCrop.getLastPathSegment());
+                newPost.put("us_img",imageUriResultCrop.getLastPathSegment());
                 StorageReference Imagename = folder.child("image" + imageUriResultCrop.getLastPathSegment());
                 Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -268,6 +277,7 @@ public class EditPerfEActivity extends AppCompatActivity {
         uCrop.withOptions(getCropOptions());
         uCrop.start(EditPerfEActivity.this);
     }
+
     private UCrop.Options getCropOptions(){
         UCrop.Options options = new UCrop.Options();
         options.setCompressionQuality(70);
@@ -281,11 +291,9 @@ public class EditPerfEActivity extends AppCompatActivity {
     }
 
     private void ChangeData() {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-        String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         User user = new User(novo_nom_usu, tip_usu, novo_nom_emp, novo_cep, novo_cnpj, novo_tel);
-        HashMap<String, Object> newPost = new HashMap<>();
-        newPost.put(user_id, user.toMap());
+        newPost.put("us_info", user.toMap());
         ref.updateChildren(newPost).addOnCompleteListener(EditPerfEActivity.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -1,5 +1,7 @@
 package com.bento.a.animals;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,6 +70,19 @@ public class Animal {
 
     public void setAn_descricao(String an_descricao) {
         this.an_descricao = an_descricao;
+    }
+
+    public boolean isPerdido()
+    {
+        if(an_status.equals("Perdido"))
+        {
+            Log.e("Perdido","Perdido");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public Map<String, Object> toMap()
