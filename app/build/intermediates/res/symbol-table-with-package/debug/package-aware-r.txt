@@ -444,6 +444,18 @@ attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
 attr reverseLayout
 attr rippleColor
+attr riv_border_color
+attr riv_border_width
+attr riv_corner_radius
+attr riv_corner_radius_bottom_left
+attr riv_corner_radius_bottom_right
+attr riv_corner_radius_top_left
+attr riv_corner_radius_top_right
+attr riv_mutate_background
+attr riv_oval
+attr riv_tile_mode
+attr riv_tile_mode_x
+attr riv_tile_mode_y
 attr rotation_degrees
 attr scopeUris
 attr scrimAnimationDuration
@@ -1192,6 +1204,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable perdido_icon
 drawable perfil_circle
+drawable pop_bg
 drawable prof_plus_icon
 drawable profile_icon
 drawable profile_icon_bk
@@ -1247,6 +1260,7 @@ id addImage4
 id adjust_height
 id adjust_width
 id adot_icon
+id adulto
 id alertTitle
 id all
 id always
@@ -1262,6 +1276,7 @@ id bg_cont
 id blocking
 id bone_view
 id bottom
+id bottom_overlay
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -1269,6 +1284,7 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id but_config
 id but_edit_prof
+id but_editar
 id but_env_es
 id but_vol_es
 id buttonAplicar
@@ -1320,6 +1336,7 @@ id chat_icon
 id checkbox
 id chronometer
 id cidade_text
+id clamp
 id clip_horizontal
 id clip_vertical
 id coins
@@ -1334,6 +1351,7 @@ id customPanel
 id dark
 id decor_content_parent
 id default_activity_button
+id desc_animal
 id desc_text
 id design_bottom_sheet
 id design_menu_item_action_area
@@ -1366,9 +1384,11 @@ id enterAlwaysCollapsed
 id es_email_text1
 id es_nome_text
 id exitUntilCollapsed
+id exit_text
 id expand_activities_button
 id expanded
 id expanded_menu
+id filhote
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1386,6 +1406,7 @@ id homeAsUp
 id icon
 id icon_group
 id icon_only
+id idade_ani
 id ifRoom
 id image
 id imageView
@@ -1397,6 +1418,7 @@ id imageView_addProd4
 id imageView_addProd5
 id imageView_addProd6
 id image_View_upload
+id image_dog
 id image_perfil
 id image_view_crop
 id image_view_logo
@@ -1416,12 +1438,14 @@ id layout_aspect_ratio
 id layout_rotate_wheel
 id layout_scale_wheel
 id left
+id left_overlay
 id light
 id like_btn
 id line1
 id line3
 id linearLayout
 id linearLayout2
+id linearlayout3
 id listMode
 id list_item
 id log_cad
@@ -1442,10 +1466,10 @@ id menu_view_shadow
 id message
 id middle
 id mini
+id mirror
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
-id name_idade
 id navigation_header_container
 id never
 id nome_text
@@ -1463,18 +1487,22 @@ id parent_matrix
 id percent
 id perdido_icon
 id pin
+id porte_animal
 id porte_grande
 id porte_medio
 id porte_pequeno
 id profile_icon
 id progress_circular
 id progress_horizontal
+id raca_animal
 id radio
 id radio_port
 id radio_stat
 id radio_vac
+id repeat
 id right
 id right_icon
+id right_overlay
 id right_side
 id rotate_scroll_wheel
 id rvAnimal
@@ -1523,11 +1551,11 @@ id start
 id state_aspect_ratio
 id state_rotate
 id state_scale
+id status_animal
 id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
-id superlike_btn
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1535,11 +1563,10 @@ id tag_unhandled_key_listeners
 id text
 id text2
 id textInputLayout
-id textInputLayout2
-id textInputLayout3
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id textView2
 id textView3
 id text_input_password_toggle
@@ -1549,6 +1576,8 @@ id textinput_counter
 id textinput_error
 id textinput_helper_text
 id time
+id tipo_ani
+id tipo_animal
 id title
 id titleDividerNoCustom
 id title_template
@@ -1556,12 +1585,14 @@ id toolbar
 id toolbar_title
 id top
 id topPanel
+id top_overlay
 id touch_outside
 id transition_current_scene
 id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtLayout
 id txtclose
 id ucrop
 id ucrop_frame
@@ -1570,6 +1601,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id vacinado_animal
 id vacinado_nao
 id vacinado_sim
 id view
@@ -1687,6 +1719,8 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout overlay
+layout popup_perfil
 layout profile_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -1767,6 +1801,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string default_web_client_id
+string define_roundedimageview
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string firebase_database_url
@@ -1776,6 +1811,15 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
+string library_roundedimageview_author
+string library_roundedimageview_authorWebsite
+string library_roundedimageview_isOpenSource
+string library_roundedimageview_libraryDescription
+string library_roundedimageview_libraryName
+string library_roundedimageview_libraryVersion
+string library_roundedimageview_libraryWebsite
+string library_roundedimageview_licenseId
+string library_roundedimageview_repositoryLink
 string mtrl_chip_close_icon_content_description
 string password_toggle_content_description
 string path_password_eye
@@ -1797,6 +1841,7 @@ style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style AppTheme
+style AppTheme_Popup
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
@@ -2360,6 +2405,7 @@ styleable PopupWindow android_popupBackground android_popupAnimationStyle overla
 styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RecyclerView android_orientation android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
+styleable RoundedImageView android_scaleType riv_border_color riv_border_width riv_corner_radius riv_corner_radius_bottom_left riv_corner_radius_bottom_right riv_corner_radius_top_left riv_corner_radius_top_right riv_mutate_background riv_oval riv_tile_mode riv_tile_mode_x riv_tile_mode_y
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon

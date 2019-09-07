@@ -8,12 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bento.a.animals.Animal;
 import com.bento.a.users.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -36,7 +34,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof, img_dog;
+    private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof, img_dog, but_popup;
     private CircleImageView perf_img;
     private TextView nome_text, cidade_text;
     private FirebaseDatabase mFirebaseDatabase;
@@ -77,6 +75,7 @@ public class PerfilActivity extends AppCompatActivity {
         ButtonEdit();
         ButtonCad();
         ButtoLogOut();
+        ButtonPopup();
     }
 
     private void InpToVar()
@@ -89,6 +88,8 @@ public class PerfilActivity extends AppCompatActivity {
         but_cad_dog = findViewById(R.id.coins);
         but_edit_prof = findViewById(R.id.but_edit_prof);
         but_logout = findViewById(R.id.but_config);
+
+        but_popup = findViewById(R.id.imageView_addProd3);
 
         nome_text = findViewById(R.id.nome_text);
         cidade_text = findViewById(R.id.cidade_text);
@@ -110,6 +111,15 @@ public class PerfilActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 Toast.makeText(PerfilActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void ButtonPopup(){
+        but_popup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class));
             }
         });
     }

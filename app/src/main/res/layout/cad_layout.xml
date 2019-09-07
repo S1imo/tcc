@@ -110,9 +110,9 @@
             android:text="Senha:"
             android:textColor="@color/color_brancotext_log"
             android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="@+id/cad_senha_inp"
+            app:layout_constraintEnd_toEndOf="@+id/txtLayout"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/cad_senha_inp"
+            app:layout_constraintStart_toStartOf="@+id/txtLayout"
             app:layout_constraintTop_toBottomOf="@+id/cad_email_inp" />
 
         <TextView
@@ -127,16 +127,17 @@
             android:text="Confirmar senha:"
             android:textColor="@color/color_brancotext_log"
             android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="@+id/cad_conf_senha_inp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/cad_conf_senha_inp"
-            app:layout_constraintTop_toBottomOf="@+id/cad_senha_inp" />
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/txtLayout" />
 
         <EditText
             android:id="@+id/cad_nom_usu_inp"
             android:layout_width="350dp"
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@color/color_brancofundo_log"
             android:fontFamily="@font/montserrat"
@@ -150,6 +151,7 @@
             android:id="@+id/view7"
             android:layout_width="350dp"
             android:layout_height="30dp"
+            android:layout_marginTop="8dp"
             android:background="@color/color_brancofundo_log"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -169,6 +171,7 @@
             android:id="@+id/cad_email_inp"
             android:layout_width="350dp"
             android:layout_height="30dp"
+            android:layout_marginTop="8dp"
             android:background="@color/color_brancofundo_log"
             android:fontFamily="@font/montserrat"
             android:inputType="textEmailAddress"
@@ -176,30 +179,43 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cad_email_text" />
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_senha_inp"
-            android:layout_width="350dp"
-            android:layout_height="30dp"
-            android:background="@color/color_brancofundo_log"
-            android:fontFamily="@font/montserrat"
-            android:inputType="textPassword"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cad_senha_text"
-            app:passwordToggleEnabled="true" />
+            app:passwordToggleEnabled="true">
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cad_conf_senha_inp"
-            android:layout_width="350dp"
-            android:layout_height="30dp"
-            android:background="@color/color_brancofundo_log"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cad_senha_inp"
+                android:layout_width="350dp"
+                android:layout_height="30dp"
+                android:background="@color/color_brancofundo_log"
+                android:fontFamily="@font/montserrat"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cad_senha_text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cad_conf_senha_text"
-            app:passwordToggleEnabled="true" />
+            app:passwordToggleEnabled="true">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cad_conf_senha_inp"
+                    android:layout_width="350dp"
+                    android:layout_height="30dp"
+                    android:background="@color/color_brancofundo_log"
+                    android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/cad_but_vol"
             android:layout_width="150dp"
@@ -210,10 +226,10 @@
             android:text="Voltar"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/cad_conf_senha_inp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/cad_conf_senha_inp"
-            app:layout_constraintTop_toBottomOf="@+id/cad_conf_senha_inp" />
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
         <Button
             android:id="@+id/cad_but_prox"
@@ -225,10 +241,10 @@
             android:text="Próximo"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/cad_conf_senha_inp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/cad_conf_senha_inp"
-            app:layout_constraintTop_toBottomOf="@+id/cad_conf_senha_inp" />
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
