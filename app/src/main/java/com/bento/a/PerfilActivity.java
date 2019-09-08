@@ -4,22 +4,26 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import com.bento.a.ViewHolders.ViewHolderAnimal;
 import com.bento.a.animals.Animal;
 import com.bento.a.users.User;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,27 +31,37 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof, img_dog;
+    private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
     private CircleImageView perf_img;
     private TextView nome_text, cidade_text;
-    private FirebaseDatabase mFirebaseDatabase;
-    private StorageReference storageReference;
+    private FirebaseStorage mStorage;
     private FirebaseAuth mAuth;
-    private DatabaseReference myRef;
+    private FirebaseDatabase mFirebaseDatabase;
+    private StorageReference myStoreRef;
+    private DatabaseReference myRef, Ref;
     private String user_id;
+    private static AtomicLong idCount = new AtomicLong();
+
+    private RecyclerView recyclerView;
+    private FirebaseRecyclerOptions<Animal> options;
+    private FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mAuth = FirebaseAuth.getInstance();
+        user_id = mAuth.getUid();
+
         setContentView(R.layout.profile_layout);
         SettingFire();
         InpToVar();
@@ -55,14 +69,39 @@ public class PerfilActivity extends AppCompatActivity {
         Buttons();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(adapter != null)
+            adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        if(adapter != null)
+            adapter.stopListening();
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(adapter != null)
+            adapter.startListening();
+    }
+
     private void SettingFire()
     {
-        mAuth = FirebaseAuth.getInstance();
+
+        mStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-        user_id = user.getUid();
-        storageReference = FirebaseStorage.getInstance().getReference().child("Users").child(user_id);
+
+        myStoreRef = mStorage.getReference();
+        myRef = mFirebaseDatabase.getReference();
+
         ProfilePic();
+        ProfileAn();
     }
 
     private void Buttons()
@@ -97,15 +136,16 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void PerfilTexts() {
-        myRef = mFirebaseDatabase.getReference("Users/" + user_id + "/us_info");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef = mFirebaseDatabase.getReference("Users/" + user_id);
+        myRef.addValueEventListener(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
-                nome_text.setText(user.getUs_nome());
+                   nome_text.setText(user.getUs_nome());
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -115,7 +155,7 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void ProfilePic() {
-        storageReference.child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+        myStoreRef.child("Users").child(user_id).child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
@@ -172,6 +212,8 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                user_id = mAuth.getUid();
+                Toast.makeText(PerfilActivity.this, user_id, Toast.LENGTH_SHORT).show();
                 //startActivity(new Intent(PerfilActivity.this, LojaActivity.class));
                 //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
@@ -242,6 +284,48 @@ public class PerfilActivity extends AppCompatActivity {
                 startActivity(new Intent(PerfilActivity.this, CadAnimal.class));
             }
         });
-
     }
+
+    private void ProfileAn()
+    {
+        assert user_id != null;
+        DatabaseReference ref = myRef.child("Animais").child(user_id);
+
+        recyclerView = findViewById(R.id.rvAnimal);
+        recyclerView.setHasFixedSize(true);
+
+        options = new FirebaseRecyclerOptions.Builder<Animal>()
+                .setQuery(ref, Animal.class).build();
+
+        FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter = new FirebaseRecyclerAdapter<Animal, ViewHolderAnimal>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ViewHolderAnimal viewHolderAnimal, int i, @NonNull Animal animal) {
+                Picasso.get().load(animal.getAn_fprof_img()).into(viewHolderAnimal.i1, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+                    @Override
+                    public void onError(Exception e) {
+                        Toast.makeText(PerfilActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                viewHolderAnimal.t1.setText(animal.getAn_raca());
+            }
+            @NonNull
+            @Override
+            public ViewHolderAnimal onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_item, parent, false);
+
+                return new ViewHolderAnimal(view);
+            }
+        };
+
+        LinearLayoutManager mLinearLManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(mLinearLManager);
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
+    }
+
 }

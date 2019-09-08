@@ -54,16 +54,6 @@ public class EditPerfEActivity extends AppCompatActivity {
     private String user_id = mAuth.getUid();
     private HashMap<String, Object> newPost = new HashMap<>();
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(mAuth.getUid() == null)
-        {
-            startActivity(new Intent(EditPerfEActivity.this, LoginActivity.class));
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +68,7 @@ public class EditPerfEActivity extends AppCompatActivity {
     }
 
     private void SetValues() {
-        DatabaseReference myRef = mFirebaseDatabase.getReference("Users/" + user_id + "/us_info");
+        DatabaseReference myRef = mFirebaseDatabase.getReference("Users/" + user_id);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -252,12 +242,17 @@ public class EditPerfEActivity extends AppCompatActivity {
             Uri imageUriResultCrop = UCrop.getOutput(data);
             if(imageUriResultCrop != null)
             {
-                newPost.put("us_img",imageUriResultCrop.getLastPathSegment());
-                StorageReference Imagename = folder.child("image" + imageUriResultCrop.getLastPathSegment());
+                final StorageReference Imagename = folder.child("image" + imageUriResultCrop.getLastPathSegment());
                 Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         Toast.makeText(EditPerfEActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        Imagename.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Uri> task) {
+                                newPost.put("us_img", Objects.requireNonNull(task.getResult()).toString());
+                            }
+                        });
                     }
                 });
                 imagemPerf.setImageURI(imageUriResultCrop);
@@ -291,9 +286,9 @@ public class EditPerfEActivity extends AppCompatActivity {
     }
 
     private void ChangeData() {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
         User user = new User(novo_nom_usu, tip_usu, novo_nom_emp, novo_cep, novo_cnpj, novo_tel);
-        newPost.put("us_info", user.toMap());
+        newPost.put(user_id, user.toMap());
         ref.updateChildren(newPost).addOnCompleteListener(EditPerfEActivity.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -57,11 +57,6 @@
             android:name="com.bento.a.PerfilActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.bento.a.CadSUActivity"
@@ -71,14 +66,15 @@
             android:name="com.bento.a.LoginActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.bento.a.Main2Activity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.bento.a.MainActivity" >
         </activity>
+        <activity android:name="com.bento.a.desespero" />
         <activity
             android:name="com.bento.a.PopUpActivity"
             android:theme="@style/Theme.Transparent" />

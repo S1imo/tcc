@@ -170,9 +170,9 @@ public class CadSEActivity extends AppCompatActivity {
     {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         User user = new User(nom_usu, tip_usu, nome_comp, cep, cnpj, telefone);
-        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users");
         Map<String, Object> valuesArr = new HashMap<>();
-        valuesArr.put("us_info", user.toMap());
+        valuesArr.put(user_id, user.toMap());
         current_user_db.updateChildren(valuesArr);
     }
 

@@ -122,8 +122,8 @@
 
     <View
         android:id="@+id/view4"
-        android:layout_width="wrap_content"
-        android:layout_height="406dp"
+        android:layout_width="410dp"
+        android:layout_height="319dp"
         android:layout_marginBottom="8dp"
         android:background="#F9F9F9"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -203,93 +203,39 @@
         app:layout_constraintTop_toBottomOf="@+id/nome_text" />
 
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="280dp"
+    <ImageView
+        android:id="@+id/coins"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="364dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:srcCompat="@drawable/bone_icon" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAnimal"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/bone_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coins"
+        app:layout_constraintVertical_bias="0.705" />
+
+    <ImageView
+        android:id="@+id/bone_view"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/but_edit_prof"
-        app:layout_constraintStart_toStartOf="@+id/but_config"
-        app:layout_constraintTop_toBottomOf="@+id/view4">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/coins"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="10dp"
-                app:srcCompat="@drawable/bone_icon"
-                />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvAnimal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scrollbars="horizontal">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <ImageView
-                android:id="@+id/bone_view"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="10dp"
-                app:srcCompat="@drawable/coin_icon" />
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imageView_addProd2"
-                        android:layout_width="90dp"
-                        android:layout_height="100dp"
-                        android:background="@drawable/quad_plus_perf" />
-
-                    <ImageView
-                        android:id="@+id/imageView_addProd3"
-                        android:layout_width="90dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="10dp"
-                        app:srcCompat="@color/buttonPressed" />
-
-                    <ImageView
-                        android:id="@+id/imageView_addProd4"
-                        android:layout_width="90dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="10dp"
-                        app:srcCompat="@color/buttonPressed" />
-
-                    <ImageView
-                        android:id="@+id/imageView_addProd5"
-                        android:layout_width="90dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="10dp"
-                        app:srcCompat="@color/buttonPressed" />
-
-                    <ImageView
-                        android:id="@+id/imageView_addProd6"
-                        android:layout_width="90dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="10dp"
-                        app:srcCompat="@color/buttonPressed" />
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
-
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/coin_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

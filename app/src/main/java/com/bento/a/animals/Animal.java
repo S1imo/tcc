@@ -1,7 +1,5 @@
 package com.bento.a.animals;
 
-import android.util.Log;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,23 +10,27 @@ public class Animal {
     private String an_raca;
     private String an_status;
     private String an_descricao;
+    private String[] an_prof_img;
+    private String an_fprof_img;
 
     public Animal() { }
 
-    public Animal(String tip_an, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao) {
+    public Animal(String tip_an, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img, String an_fprof_img) {
         this.tip_an = tip_an;
         this.an_porte = an_porte;
         this.an_vacinado = an_vacinado;
         this.an_raca = an_raca;
         this.an_status = an_status;
         this.an_descricao = an_descricao;
+        this.an_prof_img = an_prof_img;
+        this.an_fprof_img = an_fprof_img;
     }
 
     public String getTip_an() {
         return tip_an;
     }
 
-    public void setTip_ani(String tip_an) {
+    public void setTip_an(String tip_an) {
         this.tip_an = tip_an;
     }
 
@@ -72,17 +74,21 @@ public class Animal {
         this.an_descricao = an_descricao;
     }
 
-    public boolean isPerdido()
+    public String[] getAn_prof_img() {
+        return an_prof_img;
+    }
+
+    public void setAn_prof_img(String[] an_prof_img) {
+        this.an_prof_img = an_prof_img;
+    }
+
+    public String getAn_fprof_img()
     {
-        if(an_status.equals("Perdido"))
-        {
-            Log.e("Perdido","Perdido");
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return an_fprof_img;
+    }
+
+    public void setAn_fprof_img(String an_fprof_img) {
+        this.an_fprof_img = an_fprof_img;
     }
 
     public Map<String, Object> toMap()
@@ -94,6 +100,9 @@ public class Animal {
             dataInfo.put("an_raca", an_raca);
             dataInfo.put("an_status", an_status);
             dataInfo.put("an_descricao", an_descricao);
+            dataInfo.put("an_fprof_img", an_prof_img[1]);
+            for (int i = 0; i < 4; i++)
+                dataInfo.put("an_prof_img"+i, an_prof_img[i]);
         return dataInfo;
     }
 }
