@@ -32,21 +32,32 @@
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/filhote" />
-
-
-
-            <TextView
-                android:id="@+id/name_idade"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="550dp"
-                android:gravity="bottom|left"
-                android:paddingLeft="20dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                tools:text="Cachorro, 8 meses" />
+                android:orientation="horizontal"
+                android:layout_gravity="bottom">
+                        <TextView
+                            android:id="@+id/tipo_ani"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:paddingLeft="20dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textColor="@android:color/white"
+                            android:textSize="30sp"
+                            tools:text="Cachorro, " />
 
+                        <TextView
+                            android:id="@+id/idade_ani"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textColor="@android:color/white"
+                            android:textSize="30sp"
+                            tools:text="Filhote"/>
+            </LinearLayout>
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 

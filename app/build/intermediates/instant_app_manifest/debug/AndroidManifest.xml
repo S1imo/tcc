@@ -77,6 +77,9 @@
         </activity>
         <activity android:name="com.bento.a.desespero" />
         <activity
+            android:name="com.bento.a.PopUpPerfil"
+            android:theme="@style/AppTheme.Popup" />
+        <activity
             android:name="com.bento.a.PopUpActivity"
             android:theme="@style/Theme.Transparent" />
         <activity android:name="com.bento.a.CadActivity" />

@@ -5,6 +5,7 @@
     android:layout_height="475dp"
     android:padding="5dp"
     android:layout_gravity="center"
+    android:background="@drawable/pop_bg"
     tools:context="com.bento.a.PopUpPerfil">
 
     <TextView
@@ -146,7 +147,8 @@
 
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
+        android:id="@+id/but_editar"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_gravity="end"

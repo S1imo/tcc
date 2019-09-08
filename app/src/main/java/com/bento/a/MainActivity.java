@@ -2,23 +2,21 @@ package com.bento.a;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.bento.a.users.User;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private SwipeFlingAdapterView flingContainer;
     private ImageButton buttonInfo;
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, imagelike;
-    private FloatingActionButton buttonDes, buttonSuperL, buttonLike;
-
+    private FloatingActionButton buttonDes, buttonLike;
 
 
     @Override
@@ -59,13 +56,11 @@ public class MainActivity extends AppCompatActivity {
         //botões inferiores
         ButtonDes();
         ButtonLike();
-        ButtonSuperLike();
         ButtonInfo();
     }
 
     private void InpToVar()
     {
-        buttonSuperL = findViewById(R.id.superlike_btn);
         buttonDes = findViewById(R.id.deslike_btn);
         buttonLike = findViewById(R.id.like_btn);
         buttonInfo = findViewById(R.id.info_btn);
@@ -77,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         but_chat = findViewById(R.id.chat_icon);
 
         flingContainer = findViewById(R.id.frame);
-
         imagelike = findViewById(R.id.imagelike);
 
     }
@@ -146,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 animarFab(buttonDes);
                 flingContainer.getTopCardListener().selectLeft();
-                Toast.makeText(MainActivity.this, "Like",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Deslike",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -160,21 +154,6 @@ public class MainActivity extends AppCompatActivity {
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
                 Toast.makeText(MainActivity.this, "Like",Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void ButtonSuperLike()
-    {
-        frombottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);
-        buttonSuperL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imagelike.startAnimation(frombottom);
-                animarFab(buttonSuperL);
-                flingContainer.getTopCardListener().selectRight();
-                flingContainer.getTopCardListener().setRotationDegrees(10);
-                Toast.makeText(MainActivity.this, "Superlike", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -194,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
     private void SetArrays()
     {
         al = new ArrayList<>();
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.name_idade, al );
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.tipo_ani, al );
     }
 
     private void SwipeCard()
@@ -255,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void animarFab(final FloatingActionButton fab)
     {
-        fab.animate().scaleX(0.7f).scaleY(0.7f).setDuration(100).withEndAction(new Runnable() {
+        fab.animate().scaleX(1.0f).scaleY(1.0f).setDuration(500).withEndAction(new Runnable() {
             @Override
             public void run() {
                 fab.animate().scaleX(1f).scaleY(1f);

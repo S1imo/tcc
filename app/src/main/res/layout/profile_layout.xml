@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.bento.a.PerfilActivity">
 
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:background="@color/browser_actions_bg_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
         android:layout_width="match_parent"
@@ -16,7 +25,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:rotation_degrees="15.5"
-        tools:context=".MyActivity" />
+        tools:context=".MyActivity" >
+
+    </com.lorentzos.flingswipe.SwipeFlingAdapterView>
 
     <View
         android:id="@+id/view6"
@@ -29,19 +40,6 @@
         app:layout_constraintHorizontal_bias="0.621"
         app:layout_constraintStart_toStartOf="@+id/frame"
         app:layout_constraintTop_toTopOf="@+id/frame"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <View
-        android:id="@+id/view5"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/browser_actions_bg_grey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/frame"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/frame"
-        app:layout_constraintTop_toTopOf="@+id/view6"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -60,13 +58,14 @@
         android:id="@+id/profile_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/perdido_icon"
         app:layout_constraintEnd_toEndOf="@+id/frame"
-        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="@+id/frame"
         app:layout_constraintTop_toTopOf="@+id/perdido_icon"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/profile_icon" />
 
     <ImageView

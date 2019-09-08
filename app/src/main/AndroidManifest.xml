@@ -54,6 +54,8 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".desespero"/>
+        <activity android:name=".PopUpPerfil"
+            android:theme="@style/AppTheme.Popup" />
         <activity
             android:name=".PopUpActivity"
             android:theme="@style/Theme.Transparent" />
