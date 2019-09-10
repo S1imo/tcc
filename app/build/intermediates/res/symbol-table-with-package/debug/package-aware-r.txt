@@ -1204,6 +1204,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable perdido_icon
 drawable perfil_circle
+drawable pop_bg
 drawable prof_plus_icon
 drawable profile_icon
 drawable profile_icon_bk
@@ -1259,10 +1260,13 @@ id addImage4
 id adjust_height
 id adjust_width
 id adot_icon
+id adulto
 id alertTitle
 id all
 id always
 id anchored
+id ani_adot
+id ani_perdido
 id async
 id auto
 id backgroud
@@ -1280,8 +1284,11 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id but_aplicar
+id but_back
 id but_config
 id but_edit_prof
+id but_editar
 id but_env_es
 id but_vol_es
 id button
@@ -1386,6 +1393,7 @@ id exit_text
 id expand_activities_button
 id expanded
 id expanded_menu
+id filhote
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1403,6 +1411,7 @@ id homeAsUp
 id icon
 id icon_group
 id icon_only
+id idade_ani
 id ifRoom
 id image
 id imageView
@@ -1436,6 +1445,7 @@ id line1
 id line3
 id linearLayout
 id linearLayout2
+id linearlayout3
 id listMode
 id list_item
 id log_cad
@@ -1460,7 +1470,6 @@ id mirror
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
-id name_idade
 id navigation_header_container
 id never
 id nome_text
@@ -1548,7 +1557,6 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
-id superlike_btn
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1559,6 +1567,7 @@ id textInputLayout
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id textView2
 id textView3
 id text_View_upload
@@ -1569,6 +1578,7 @@ id textinput_counter
 id textinput_error
 id textinput_helper_text
 id time
+id tipo_ani
 id tipo_animal
 id title
 id titleDividerNoCustom
@@ -1584,6 +1594,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtLayout
 id txtclose
 id ucrop
 id ucrop_frame
@@ -1834,6 +1845,7 @@ style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style AppTheme
+style AppTheme_Popup
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog

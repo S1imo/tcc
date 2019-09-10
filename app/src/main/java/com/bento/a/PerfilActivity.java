@@ -311,6 +311,14 @@ public class PerfilActivity extends AppCompatActivity {
                     }
                 });
                 viewHolderAnimal.t1.setText(animal.getAn_raca());
+
+                viewHolderAnimal.i1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class));
+                    }
+                });
+
             }
             @NonNull
             @Override

@@ -6,261 +6,267 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
+8-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="28" />
-9-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml
+9-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
 10
 11    <supports-screens
-11-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:80:5-84:40
+11-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:82:5-86:40
 12        android:largeScreens="true"
-12-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:81:9-36
+12-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:83:9-36
 13        android:normalScreens="true"
-13-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:82:9-37
+13-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:84:9-37
 14        android:smallScreens="true"
-14-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:83:9-36
+14-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:85:9-36
 15        android:xlargeScreens="true" />
-15-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:84:9-37
+15-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:86:9-37
 16
 17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-17-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:85:5-80
-17-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:85:22-77
+17-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:87:5-80
+17-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:87:22-77
 18    <uses-permission android:name="android.permission.CAMERA" />
-18-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:86:5-65
-18-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:86:22-62
+18-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:88:5-65
+18-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:88:22-62
 19    <uses-permission android:name="android.permission.INTERNET" />
-19-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:88:5-67
-19-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:88:22-64
+19-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:90:5-67
+19-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:90:22-64
 20    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-20-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:90:5-81
-20-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:90:22-78
+20-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:92:5-81
+20-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:92:22-78
 21
 22    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 23    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-24-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:25:5-79
-24-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:25:22-76
+24-->[com.google.firebase:firebase-database:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:25:5-79
+24-->[com.google.firebase:firebase-database:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:25:22-76
 25
 26    <application
-26-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:5:5-79:19
+26-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:5:5-81:19
 27        android:allowBackup="true"
-27-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:6:9-35
+27-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:6:9-35
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-28-->[androidx.core:core:1.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f6c88a7e33d7aa58cef8dce524c6defe\core-1.0.1\AndroidManifest.xml:22:18-86
+28-->[androidx.core:core:1.0.1] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\f6c88a7e33d7aa58cef8dce524c6defe\core-1.0.1\AndroidManifest.xml:22:18-86
 29        android:debuggable="true"
 30        android:icon="@mipmap/ic_adot_round"
-30-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:7:9-45
+30-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:7:9-45
 31        android:label="@string/app_name"
-31-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:8:9-41
+31-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:8:9-41
 32        android:roundIcon="@mipmap/ic_adot_round"
-32-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:9:9-50
+32-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:9:9-50
 33        android:supportsRtl="true"
-33-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:10:9-35
+33-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:10:9-35
 34        android:testOnly="true"
 35        android:theme="@style/AppTheme" >
-35-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:11:9-40
+35-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:11:9-40
 36        <activity
-36-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:13:9-16:52
+36-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:13:9-16:52
 37            android:name="com.bento.a.EditPerfEActivity"
-37-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:14:13-46
+37-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:14:13-46
 38            android:configChanges="orientation"
-38-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:15:13-48
+38-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:15:13-48
 39            android:screenOrientation="portrait" />
-39-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:16:13-49
+39-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:16:13-49
 40        <activity
-40-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:18:9-21:52
+40-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:18:9-21:52
 41            android:name="com.bento.a.CadAnimal"
-41-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:19:13-38
+41-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:19:13-38
 42            android:configChanges="orientation"
-42-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:20:13-48
+42-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:20:13-48
 43            android:screenOrientation="portrait" />
-43-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:21:13-49
+43-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:21:13-49
 44        <activity
-44-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:22:9-25:52
+44-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:22:9-25:52
 45            android:name="com.bento.a.EditPerfUActivity"
-45-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:23:13-46
+45-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:23:13-46
 46            android:configChanges="orientation"
-46-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:24:13-48
+46-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:24:13-48
 47            android:screenOrientation="portrait" />
-47-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:25:13-49
+47-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:25:13-49
 48        <activity
-48-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:26:9-29:52
+48-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:26:9-29:52
 49            android:name="com.bento.a.CadSEActivity"
-49-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:27:13-42
+49-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:27:13-42
 50            android:configChanges="orientation"
-50-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:28:13-48
+50-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:28:13-48
 51            android:screenOrientation="portrait" />
-51-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:29:13-49
+51-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:29:13-49
 52        <activity
-52-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:30:9-33:52
+52-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:30:9-33:52
 53            android:name="com.bento.a.EsqueceuSenhaActivity"
-53-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:31:13-50
+53-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:31:13-50
 54            android:configChanges="orientation"
-54-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:32:13-48
+54-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:32:13-48
 55            android:screenOrientation="portrait" />
-55-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:33:13-49
+55-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:33:13-49
 56        <activity
-56-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:34:9-38:20
+56-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:34:9-38:20
 57            android:name="com.bento.a.PerfilActivity"
-57-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:35:13-43
+57-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:35:13-43
 58            android:configChanges="orientation"
-58-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:36:13-48
+58-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:36:13-48
 59            android:screenOrientation="portrait" >
-59-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:37:13-49
+59-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:37:13-49
 60        </activity>
 61        <activity
-61-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:39:9-42:51
+61-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:39:9-42:51
 62            android:name="com.bento.a.CadSUActivity"
-62-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:40:13-42
+62-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:40:13-42
 63            android:configChanges="orientation"
-63-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:41:13-48
+63-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:41:13-48
 64            android:screenOrientation="portrait" />
-64-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:42:13-49
+64-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:42:13-49
 65        <activity
-65-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:44:9-53:20
+65-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:44:9-53:20
 66            android:name="com.bento.a.LoginActivity"
-66-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:45:13-42
+66-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:45:13-42
 67            android:configChanges="orientation"
-67-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:46:13-48
+67-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:46:13-48
 68            android:screenOrientation="portrait" >
-68-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:47:13-49
+68-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:47:13-49
 69            <intent-filter>
-69-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:48:13-52:29
+69-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:48:13-52:29
 70                <action android:name="android.intent.action.MAIN" />
-70-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:49:17-69
-70-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:49:25-66
+70-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:49:17-69
+70-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:49:25-66
 71
 72                <category android:name="android.intent.category.LAUNCHER" />
-72-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:51:17-77
-72-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:51:27-74
+72-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:51:17-77
+72-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:51:27-74
 73            </intent-filter>
 74        </activity>
 75        <activity android:name="com.bento.a.MainActivity" >
-75-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:54:9-55:20
-75-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:54:19-47
+75-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:54:9-55:20
+75-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:54:19-47
 76        </activity>
 77        <activity android:name="com.bento.a.desespero" />
-77-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:56:9-46
-77-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:56:19-44
+77-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:56:9-46
+77-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:56:19-44
 78        <activity
-78-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:57:9-59:56
-79            android:name="com.bento.a.PopUpActivity"
-79-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:58:13-42
-80            android:theme="@style/Theme.Transparent" />
-80-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:59:13-53
-81        <activity android:name="com.bento.a.CadActivity" />
-81-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:60:9-49
-81-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:60:19-46
-82        <activity android:name="com.bento.a.ChatActivity" />
-82-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:61:9-50
-82-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:61:19-47
-83        <activity
-83-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:62:9-65:72
-84            android:name="com.yalantis.ucrop.UCropActivity"
-84-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:63:13-60
-85            android:screenOrientation="portrait"
-85-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:64:13-49
-86            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-86-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:65:13-69
-87
-88        <meta-data
-88-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:66:9-68:57
-89            android:name="preloaded_fonts"
-89-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:67:13-43
-90            android:resource="@array/preloaded_fonts" />
-90-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:68:13-54
-91
-92        <provider
-93            android:name="androidx.core.content.FileProvider"
-93-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:71:13-62
-94            android:authorities="com.bento.a.provider"
-94-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:72:13-60
-95            android:exported="false"
-95-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:73:13-37
-96            android:grantUriPermissions="true" >
-96-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:74:13-47
-97            <meta-data
-97-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:75:13-77:54
-98                android:name="android.support.FILE_PROVIDER_PATHS"
-98-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:76:17-67
-99                android:resource="@xml/file_paths" />
-99-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:77:17-51
-100        </provider>
-101        <provider
-101-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0d4705770ad5dbecabf7e2150dfddf69\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
-102            android:name="com.squareup.picasso.PicassoProvider"
-102-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0d4705770ad5dbecabf7e2150dfddf69\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
-103            android:authorities="com.bento.a.com.squareup.picasso"
-103-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0d4705770ad5dbecabf7e2150dfddf69\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
-104            android:exported="false" />
-104-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0d4705770ad5dbecabf7e2150dfddf69\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
-105
-106        <service
-106-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:29:9-35:19
-107            android:name="com.google.firebase.components.ComponentDiscoveryService"
-107-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:30:13-84
-108            android:exported="false" >
-108-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:31:13-37
-109            <meta-data
-109-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:32:13-34:85
-110                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-110-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:33:17-109
-111                android:value="com.google.firebase.components.ComponentRegistrar" />
-111-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:34:17-82
+78-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:57:9-58:53
+79            android:name="com.bento.a.PopUpPerfil"
+79-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:57:19-46
+80            android:theme="@style/AppTheme.Popup" />
+80-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:58:13-50
+81        <activity
+81-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:59:9-61:56
+82            android:name="com.bento.a.PopUpActivity"
+82-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:60:13-42
+83            android:theme="@style/Theme.Transparent" />
+83-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:61:13-53
+84        <activity android:name="com.bento.a.CadActivity" />
+84-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:62:9-49
+84-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:62:19-46
+85        <activity android:name="com.bento.a.ChatActivity" />
+85-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:63:9-50
+85-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:63:19-47
+86        <activity
+86-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:64:9-67:72
+87            android:name="com.yalantis.ucrop.UCropActivity"
+87-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:65:13-60
+88            android:screenOrientation="portrait"
+88-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:66:13-49
+89            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+89-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:67:13-69
+90
+91        <meta-data
+91-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:68:9-70:57
+92            android:name="preloaded_fonts"
+92-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:69:13-43
+93            android:resource="@array/preloaded_fonts" />
+93-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:70:13-54
+94
+95        <provider
+96            android:name="androidx.core.content.FileProvider"
+96-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:73:13-62
+97            android:authorities="com.bento.a.provider"
+97-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:74:13-60
+98            android:exported="false"
+98-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:75:13-37
+99            android:grantUriPermissions="true" >
+99-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:76:13-47
+100            <meta-data
+100-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:77:13-79:54
+101                android:name="android.support.FILE_PROVIDER_PATHS"
+101-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:78:17-67
+102                android:resource="@xml/file_paths" />
+102-->C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:79:17-51
+103        </provider>
+104        <provider
+104-->[com.squareup.picasso:picasso:2.71828] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\6edc2244ed4d17a57dfcbb01d28a7b9f\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+105            android:name="com.squareup.picasso.PicassoProvider"
+105-->[com.squareup.picasso:picasso:2.71828] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\6edc2244ed4d17a57dfcbb01d28a7b9f\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+106            android:authorities="com.bento.a.com.squareup.picasso"
+106-->[com.squareup.picasso:picasso:2.71828] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\6edc2244ed4d17a57dfcbb01d28a7b9f\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+107            android:exported="false" />
+107-->[com.squareup.picasso:picasso:2.71828] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\6edc2244ed4d17a57dfcbb01d28a7b9f\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+108
+109        <service
+109-->[com.google.firebase:firebase-database:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:29:9-35:19
+110            android:name="com.google.firebase.components.ComponentDiscoveryService"
+110-->[com.google.firebase:firebase-database:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:30:13-84
+111            android:exported="false" >
+111-->[com.google.firebase:firebase-database:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:31:13-37
 112            <meta-data
-112-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:33:13-35:85
-113                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-113-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:34:17-107
+112-->[com.google.firebase:firebase-database:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:32:13-34:85
+113                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+113-->[com.google.firebase:firebase-database:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:33:17-109
 114                android:value="com.google.firebase.components.ComponentRegistrar" />
-114-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:35:17-82
+114-->[com.google.firebase:firebase-database:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:34:17-82
 115            <meta-data
-115-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:36:13-38:85
-116                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-116-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:37:17-109
+115-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:33:13-35:85
+116                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+116-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:34:17-107
 117                android:value="com.google.firebase.components.ComponentRegistrar" />
-117-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:38:17-82
-118        </service>
-119
-120        <activity
-120-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:24:9-31:50
-121            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-121-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:25:13-85
-122            android:excludeFromRecents="true"
-122-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:26:13-46
-123            android:exported="true"
-123-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:27:13-36
-124            android:launchMode="singleTask"
-124-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:28:13-44
-125            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-125-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:29:13-102
-126            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-126-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:30:13-72
-127
-128        <provider
-128-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
-129            android:name="com.google.firebase.provider.FirebaseInitProvider"
-129-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:13:13-77
-130            android:authorities="com.bento.a.firebaseinitprovider"
-130-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:14:13-72
-131            android:exported="false"
-131-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:15:13-37
-132            android:initOrder="100" />
-132-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:16:13-36
-133
-134        <activity
-134-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
-135            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-135-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
-136            android:exported="false"
-136-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
-137            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-137-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
-138
-139        <meta-data
-139-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\b87fa2ee0c0ceb4e4c6509e0860512a5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-140            android:name="com.google.android.gms.version"
-140-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\b87fa2ee0c0ceb4e4c6509e0860512a5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-141            android:value="@integer/google_play_services_version" />
-141-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\b87fa2ee0c0ceb4e4c6509e0860512a5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-142    </application>
-143
-144</manifest>
+117-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:35:17-82
+118            <meta-data
+118-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:36:13-38:85
+119                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+119-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:37:17-109
+120                android:value="com.google.firebase.components.ComponentRegistrar" />
+120-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:38:17-82
+121        </service>
+122
+123        <activity
+123-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:24:9-31:50
+124            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+124-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:25:13-85
+125            android:excludeFromRecents="true"
+125-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:26:13-46
+126            android:exported="true"
+126-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:27:13-36
+127            android:launchMode="singleTask"
+127-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:28:13-44
+128            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+128-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:29:13-102
+129            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+129-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:30:13-72
+130
+131        <provider
+131-->[com.google.firebase:firebase-common:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
+132            android:name="com.google.firebase.provider.FirebaseInitProvider"
+132-->[com.google.firebase:firebase-common:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:13:13-77
+133            android:authorities="com.bento.a.firebaseinitprovider"
+133-->[com.google.firebase:firebase-common:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:14:13-72
+134            android:exported="false"
+134-->[com.google.firebase:firebase-common:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:15:13-37
+135            android:initOrder="100" />
+135-->[com.google.firebase:firebase-common:19.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:16:13-36
+136
+137        <activity
+137-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+138            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+138-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+139            android:exported="false"
+139-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+140            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+140-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+141
+142        <meta-data
+142-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\88c6857529dc05359c934508355131b8\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+143            android:name="com.google.android.gms.version"
+143-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\88c6857529dc05359c934508355131b8\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+144            android:value="@integer/google_play_services_version" />
+144-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\88c6857529dc05359c934508355131b8\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+145    </application>
+146
+147</manifest>
