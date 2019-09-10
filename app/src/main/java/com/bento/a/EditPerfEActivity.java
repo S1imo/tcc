@@ -242,7 +242,7 @@ public class EditPerfEActivity extends AppCompatActivity {
             Uri imageUriResultCrop = UCrop.getOutput(data);
             if(imageUriResultCrop != null)
             {
-                final StorageReference Imagename = folder.child("image" + imageUriResultCrop.getLastPathSegment());
+                final StorageReference Imagename = folder.child(user_id).child("image" + imageUriResultCrop.getLastPathSegment());
                 Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

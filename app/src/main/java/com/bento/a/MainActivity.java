@@ -4,48 +4,56 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bento.a.Adapters.arrayAdapter;
+import com.bento.a.animals.Animal;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> al;
-    private ArrayAdapter<String> arrayAdapter;
-    private int i;
-    private Animation frombottom;
-    private SwipeFlingAdapterView flingContainer;
+    private arrayAdapter arr_Adapter;
+    private FirebaseAuth mAuth;
     private ImageButton buttonInfo;
+    private FirebaseDatabase mFire;
+    private String user_id;
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, imagelike;
     private FloatingActionButton buttonDes, buttonLike;
-
+    private List<Animal> rowItems;
+    private SwipeFlingAdapterView flingContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
-
+        mAuth = FirebaseAuth.getInstance();
+        mFire = FirebaseDatabase.getInstance();
+        user_id = mAuth.getUid();
 
         InpToVar(); //input para variaveis
-        SetArrays(); //seta os arrays
-        Buttons(); //função dos botoes
         SwipeCard(); //função do card
+        Buttons(); //função dos botoes
+
 
     }
 
-
-    private void Buttons()
-    {
+    private void Buttons() {
         //botões superiores - menu
         ButtonPerfil();
         ButtonAdote();
@@ -59,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
         ButtonInfo();
     }
 
-    private void InpToVar()
-    {
+    private void InpToVar() {
         buttonDes = findViewById(R.id.deslike_btn);
         buttonLike = findViewById(R.id.like_btn);
         buttonInfo = findViewById(R.id.info_btn);
@@ -76,8 +83,73 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void ButtonPerfil()
-    {
+
+    private void SwipeCard() {
+        rowItems = new ArrayList<>();
+        DatabaseReference mRef = mFire.getReference().child("Animais");
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot value: dataSnapshot.getChildren())
+                {
+                    String pint = value.getKey();
+                    assert pint != null;
+                    if(!pint.equals(user_id))
+                    {
+                        for(DataSnapshot value_in: value.getChildren())
+                        {
+                            Animal animal = value_in.getValue(Animal.class);
+                            rowItems.add(animal);
+                            arr_Adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        arr_Adapter = new arrayAdapter(this, R.layout.main_item, rowItems);
+        flingContainer.setAdapter(arr_Adapter);
+        flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+            @Override
+            public void removeFirstObjectInAdapter() {
+                Log.d("LIST", "removed object!");
+                rowItems.remove(0);
+                arr_Adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onLeftCardExit(Object dataObject) {
+                //Do something on the left!
+                //You also have access to the original object.
+                //If you want to use it just cast it (String) dataObject
+                Toast.makeText(MainActivity.this, "Deslike", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRightCardExit(Object dataObject) {
+                Toast.makeText(MainActivity.this, "Like", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onAdapterAboutToEmpty(int itemsInAdapter) {
+                // Ask for more data here
+                //arr_Adapter.notifyDataSetChanged();
+                Log.d("LIST", "notified");
+            }
+
+            @Override
+            public void onScroll(float scrollProgressPercent) {
+
+            }
+        });
+    }
+
+    private void ButtonPerfil() {
         but_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,8 +161,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonAdote()
-    {
+    private void ButtonAdote() {
         but_adot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,8 +170,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonPerdidos()
-    {
+    private void ButtonPerdidos() {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,8 +180,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonLoja()
-    {
+    private void ButtonLoja() {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,8 +190,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonChat()
-    {
+    private void ButtonChat() {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,107 +201,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //inferior
-    private void ButtonDes()
-    {
+    private void ButtonDes() {
         buttonDes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 animarFab(buttonDes);
                 flingContainer.getTopCardListener().selectLeft();
-                Toast.makeText(MainActivity.this, "Deslike",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Deslike", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void ButtonLike()
-    {
+    private void ButtonLike() {
 
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
-                Toast.makeText(MainActivity.this, "Like",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Like", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
 
-    private void ButtonInfo()
-    {
+    private void ButtonInfo() {
         buttonInfo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, PopUpActivity.class));
             }
         });
     }
 
-    private void SetArrays()
-    {
-        al = new ArrayList<>();
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.tipo_ani, al );
-    }
-
-    private void SwipeCard()
-    {
-        ArrayTextListCards();
-
-        flingContainer.setAdapter(arrayAdapter);
-        flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
-            @Override
-            public void removeFirstObjectInAdapter() {
-                // this is the simplest way to delete an object from the Adapter (/AdapterView)
-                Log.d("LIST", "removed object!");
-                al.remove(0);
-                arrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onLeftCardExit(Object dataObject) {
-                //Do something on the left!
-                //You also have access to the original object.
-                //If you want to use it just cast it (String) dataObject
-                Toast.makeText(MainActivity.this, "Deslike",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRightCardExit(Object dataObject) {
-                Toast.makeText(MainActivity.this, "Like",Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                // Ask for more data here
-                al.add("XML ".concat(String.valueOf(i)));
-                arrayAdapter.notifyDataSetChanged();
-                Log.d("LIST", "notified");
-                i++;
-            }
-
-            @Override
-            public void onScroll(float scrollProgressPercent) {
-
-            }
-        });
-    }
-
-    private void ArrayTextListCards()
-    {
-        al.add("Cachorro, 8 meses");
-        al.add("c");
-        al.add("python");
-        al.add("java");
-        al.add("html");
-        al.add("c++");
-        al.add("css");
-        al.add("javascript");
-    }
-
-    private void animarFab(final FloatingActionButton fab)
-    {
+    private void animarFab(final FloatingActionButton fab) {
         fab.animate().scaleX(1.0f).scaleY(1.0f).setDuration(500).withEndAction(new Runnable() {
             @Override
             public void run() {

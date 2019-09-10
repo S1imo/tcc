@@ -1,104 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="350dp"
+    android:layout_width="350dp"
     android:layout_height="475dp"
-    android:padding="5dp"
     android:layout_gravity="center"
     android:background="@drawable/pop_bg"
+    android:orientation="vertical"
+    android:padding="5dp"
     tools:context="com.bento.a.PopUpPerfil">
 
     <TextView
         android:id="@+id/exit_text"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:textColor="@color/popupBack"
-        android:text="X"
-        android:textStyle="bold"
         android:layout_gravity="end"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="X"
+        android:textColor="@color/popupBack"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_dog"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:id="@+id/image_dog1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/perfil_circle"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/perfil_circle" />
 
-            <TextView
-                android:id="@+id/tipo_animal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_dog2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:text="Cachorro"
-                android:layout_marginTop="5dp"
-                android:textStyle="bold"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/perfil_circle" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_dog3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/perfil_circle" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/perfil_circle" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tipo_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="Cachorro"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
         android:background="@drawable/cad_dog_box"
-        android:layout_marginTop="15dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Porte: "
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/porte_animal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Grande"
-                android:textStyle="bold"
-                android:textColor="@color/color_branco_menu"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Porte: "
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/porte_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grande"
+            android:textColor="@color/color_branco_menu"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:background="@drawable/cad_dog_box"
-        android:layout_marginTop="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Vacinado: "
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/vacinado_animal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="@color/color_branco_menu"
-                android:text="Sim"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Vacinado: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/vacinado_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sim"
+            android:textColor="@color/color_branco_menu"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:background="@drawable/cad_dog_box"
-        android:layout_marginTop="10dp">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Raça: "
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/raca_animal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_branco_menu"
             android:text="Pastor Alemão"
+            android:textColor="@color/color_branco_menu"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -106,21 +150,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:background="@drawable/cad_dog_box"
-        android:layout_marginTop="10dp">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Status: "
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/status_animal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_branco_menu"
             android:text="Adoção"
+            android:textColor="@color/color_branco_menu"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -128,21 +173,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:background="@drawable/cad_dog_box"
-        android:layout_marginTop="10dp">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Descrição "
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/desc_animal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_branco_menu"
             android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:textColor="@color/color_branco_menu"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -155,9 +201,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/cad_dog_box"
         android:text="Editar"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold" />
-
-
 
 </LinearLayout>

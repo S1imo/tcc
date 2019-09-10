@@ -4,19 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Animal {
-    private String tip_an;
-    private String an_porte;
-    private String an_vacinado;
-    private String an_raca;
-    private String an_status;
-    private String an_descricao;
+    private String tip_an, an_idade, an_porte, an_vacinado, an_raca, an_status, an_descricao, an_fprof_img, an_prof_img1, an_prof_img2, an_prof_img3;
     private String[] an_prof_img;
-    private String an_fprof_img;
 
     public Animal() { }
 
-    public Animal(String tip_an, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img, String an_fprof_img) {
+    public Animal(String tip_an, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img, String an_fprof_img) {
         this.tip_an = tip_an;
+        this.an_idade = an_idade;
         this.an_porte = an_porte;
         this.an_vacinado = an_vacinado;
         this.an_raca = an_raca;
@@ -82,6 +77,14 @@ public class Animal {
         this.an_prof_img = an_prof_img;
     }
 
+    public String getAn_idade() {
+        return an_idade;
+    }
+
+    public void setAn_idade(String an_idade) {
+        this.an_idade = an_idade;
+    }
+
     public String getAn_fprof_img()
     {
         return an_fprof_img;
@@ -91,10 +94,35 @@ public class Animal {
         this.an_fprof_img = an_fprof_img;
     }
 
+    public String getAn_prof_img1() {
+        return an_prof_img1;
+    }
+
+    public void setAn_prof_img1(String an_prof_img1) {
+        this.an_prof_img1 = an_prof_img1;
+    }
+
+    public String getAn_prof_img2() {
+        return an_prof_img2;
+    }
+
+    public void setAn_prof_img2(String an_prof_img2) {
+        this.an_prof_img2 = an_prof_img2;
+    }
+
+    public String getAn_prof_img3() {
+        return an_prof_img3;
+    }
+
+    public void setAn_prof_img3(String an_prof_img3) {
+        this.an_prof_img3 = an_prof_img3;
+    }
+
     public Map<String, Object> toMap()
     {
         HashMap<String, Object> dataInfo = new HashMap<>();
-            dataInfo.put("tip_an",tip_an);
+            dataInfo.put("tip_an", tip_an);
+            dataInfo.put("an_idade", an_idade);
             dataInfo.put("an_porte", an_porte);
             dataInfo.put("an_vacinado", an_vacinado);
             dataInfo.put("an_raca", an_raca);
