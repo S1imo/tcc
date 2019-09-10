@@ -133,6 +133,7 @@
                         android:textSize="18sp" />
 
                     <RadioButton
+                        android:id="@+id/ani_adot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="1dp"
@@ -142,6 +143,7 @@
                         android:textSize="16sp" />
 
                     <RadioButton
+                        android:id="@+id/ani_perdido"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Perdido"

@@ -3,7 +3,6 @@ package com.bento.a;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,8 +47,9 @@ public class PerfilActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFirebaseDatabase;
     private StorageReference myStoreRef;
-    private DatabaseReference myRef;
+    private DatabaseReference myRef, Ref;
     private String user_id;
+    private static AtomicLong idCount = new AtomicLong();
 
     private RecyclerView recyclerView;
     private FirebaseRecyclerOptions<Animal> options;
@@ -78,7 +78,7 @@ public class PerfilActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        if (adapter != null)
+        if(adapter != null)
             adapter.stopListening();
         super.onStop();
 
@@ -103,7 +103,8 @@ public class PerfilActivity extends AppCompatActivity {
         ProfileAn();
     }
 
-    private void Buttons() {
+    private void Buttons()
+    {
         //botões superiores - menu
         ButtonPerfil();
         ButtonAdote();
@@ -116,7 +117,8 @@ public class PerfilActivity extends AppCompatActivity {
         ButtoLogOut();
     }
 
-    private void InpToVar() {
+    private void InpToVar()
+    {
         but_profile = findViewById(R.id.profile_icon);
         but_adot = findViewById(R.id.adot_icon);
         but_perd = findViewById(R.id.perdido_icon);
@@ -134,14 +136,15 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void PerfilTexts() {
         myRef = mFirebaseDatabase.getReference("Users/" + user_id);
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
-                nome_text.setText(user.getUs_nome());
+                   nome_text.setText(user.getUs_nome());
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -168,7 +171,8 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     //menu
-    private void ButtonPerfil() {
+    private void ButtonPerfil()
+    {
         but_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,7 +181,8 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonAdote() {
+    private void ButtonAdote()
+    {
         but_adot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,7 +193,8 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonPerdidos() {
+    private void ButtonPerdidos()
+    {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,7 +206,8 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonLoja() {
+    private void ButtonLoja()
+    {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -212,7 +219,8 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonChat() {
+    private void ButtonChat()
+    {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -222,7 +230,8 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonEdit() {
+    private void ButtonEdit()
+    {
         but_edit_prof.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,7 +240,8 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtoLogOut() {
+    private void ButtoLogOut()
+    {
         but_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -242,15 +252,19 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void editUser() {
+    private void editUser()
+    {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
-                if (user.getUs_tip_usu().equals("Organização")) {
+                if(user.getUs_tip_usu().equals("Organização"))
+                {
                     startActivity(new Intent(PerfilActivity.this, EditPerfEActivity.class));
-                } else if (user.getUs_tip_usu().equals("Usuário")) {
+                }
+                else if(user.getUs_tip_usu().equals("Usuário"))
+                {
                     startActivity(new Intent(PerfilActivity.this, EditPerfUActivity.class));
                 }
             }
@@ -262,8 +276,7 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void ButtonCad() {
+    private void ButtonCad(){
         but_cad_dog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -272,7 +285,8 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ProfileAn() {
+    private void ProfileAn()
+    {
         assert user_id != null;
         DatabaseReference ref = myRef.child("Animais").child(user_id);
 
@@ -290,7 +304,6 @@ public class PerfilActivity extends AppCompatActivity {
                     public void onSuccess() {
 
                     }
-
                     @Override
                     public void onError(Exception e) {
                         Toast.makeText(PerfilActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -298,13 +311,13 @@ public class PerfilActivity extends AppCompatActivity {
                 });
                 viewHolderAnimal.t1.setText(animal.getAn_raca());
 
-                viewHolderAnimal.itemView.setOnClickListener(new View.OnClickListener() {
+                viewHolderAnimal.i1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class)
-                                .putExtra("an_fprof_img", animal.getAn_fprof_img()));
+                        startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class));
                     }
                 });
+
             }
 
             @NonNull
@@ -322,4 +335,5 @@ public class PerfilActivity extends AppCompatActivity {
         adapter.startListening();
         recyclerView.setAdapter(adapter);
     }
+
 }

@@ -155,8 +155,8 @@
         android:paddingEnd="7dp"
         app:layout_constraintBottom_toBottomOf="@+id/cidade_text"
         app:layout_constraintEnd_toStartOf="@+id/but_edit_prof"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view5"
         app:layout_constraintVertical_bias="0.969"
         app:srcCompat="@mipmap/exit_icon" />
@@ -206,10 +206,9 @@
         android:id="@+id/coins"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="364dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         app:srcCompat="@drawable/bone_icon" />
@@ -221,19 +220,18 @@
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/bone_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coins"
-        app:layout_constraintVertical_bias="0.705" />
+        app:layout_constraintVertical_bias="0.156" />
 
     <ImageView
         android:id="@+id/bone_view"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.005"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/coin_icon" />
 

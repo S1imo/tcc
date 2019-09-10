@@ -1337,6 +1337,8 @@ id alertTitle
 id all
 id always
 id anchored
+id ani_adot
+id ani_perdido
 id async
 id auto
 id backgroud
@@ -1354,6 +1356,8 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id but_aplicar
+id but_back
 id but_config
 id but_edit_prof
 id but_editar
@@ -1481,6 +1485,7 @@ id homeAsUp
 id icon
 id icon_group
 id icon_only
+id idade_ani
 id ifRoom
 id image
 id imageView
@@ -1656,6 +1661,7 @@ id textinput_counter
 id textinput_error
 id textinput_helper_text
 id time
+id tipo_ani
 id tipo_animal
 id title
 id titleDividerNoCustom
