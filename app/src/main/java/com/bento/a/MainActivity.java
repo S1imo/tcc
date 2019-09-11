@@ -4,18 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bento.a.Adapters.arrayAdapter;
 import com.bento.a.animals.Animal;
-import com.bento.a.users.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -102,12 +98,9 @@ public class MainActivity extends AppCompatActivity {
                     {
                         for(DataSnapshot value_in: value.getChildren())
                         {
-                            if(!value_in.child("connections").child("No").hasChild(user_id) && !value_in.child(user_id).child("connections").child("Yes").hasChild(user_id))
-                            {
-                                Animal animal = value_in.getValue(Animal.class);
-                                rowItems.add(animal);
-                                arr_Adapter.notifyDataSetChanged();
-                            }
+                            Animal animal = value_in.getValue(Animal.class);
+                            rowItems.add(animal);
+                            arr_Adapter.notifyDataSetChanged();
                         }
                     }
                 }
@@ -132,36 +125,22 @@ public class MainActivity extends AppCompatActivity {
             public void onLeftCardExit(final Object dataObject) {
                 final String other_uid = ((Animal) dataObject).getUs_uid();
                 mRef = mFire.getReference();
-                final DatabaseReference mRefA = mFire.getReference().child("Animais").child(other_uid);
                 mRef.child("Users").child(other_uid).child("connections").child("No").child(user_id).setValue(true);
-                mRefA.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot value: dataSnapshot.getChildren())
-                        {
-                            if(value.child("an_fprof_img").getValue().equals(((Animal) dataObject).getAn_fprof_img()))
-                            {
-                                mRefA.child("connections").child("No").child(user_id).setValue(true);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                mRef.child("Users").child(other_uid).child("connections").child("No").child(((Animal) dataObject).getAn_uid()).setValue(true);
+                mRef.child("Animais").child(user_id).child(((Animal) dataObject).getAn_uid()).child("connections").child("No").child(other_uid).setValue(true);
             }
 
             @Override
             public void onRightCardExit(final Object dataObject) {
                 String other_uid = ((Animal) dataObject).getUs_uid();
                 mRef = mFire.getReference();
+                String currentLocalId = String.valueOf(System.currentTimeMillis()*11);
                 mRef.child("Users").child(other_uid).child("connections").child("Yes").child(user_id).setValue(true);
-                //TODO - colocar numero diferente para cada localchat - pegar do animal
-                mRef.child("Chat_Connections").child("LocalChat").child(user_id).setValue(true);
-                mRef.child("Chat_Connections").child("LocalChat").child(other_uid).setValue(true);
-                mRef.child("Chat_Connections").child("LocalChat").child(((Animal) dataObject).getAn_uid()).setValue(true);
+                mRef.child("Users").child(other_uid).child("connections").child("Yes").child(((Animal) dataObject).getAn_uid()).setValue(true);
+                mRef.child("Animais").child(other_uid).child(((Animal) dataObject).getAn_uid()).child("connections").child("Yes").child(user_id).setValue(true);
+                mRef.child("Chat_Connections").child("LocalChat"+currentLocalId).child(user_id).setValue(true);
+                mRef.child("Chat_Connections").child("LocalChat"+currentLocalId).child(other_uid).setValue(true);
+                mRef.child("Chat_Connections").child("LocalChat"+currentLocalId).child(((Animal) dataObject).getAn_uid()).setValue(true);
                 //user_uid, other_uid e uid_cachorro
 
             }
@@ -215,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LojaActivity.class));
+                startActivity(new Intent(MainActivity.this, desespero.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -238,7 +217,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 animarFab(buttonDes);
                 flingContainer.getTopCardListener().selectLeft();
-                Toast.makeText(MainActivity.this, "Deslike", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -250,9 +228,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
-                CharSequence contentDescription = flingContainer.getSelectedView().getContentDescription();
-                String a = contentDescription.toString();
-                Toast.makeText(MainActivity.this, a, Toast.LENGTH_SHORT).show();
             }
         });
     }

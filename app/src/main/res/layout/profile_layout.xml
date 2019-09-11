@@ -208,7 +208,8 @@
         android:id="@+id/coins"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintStart_toStartOf="parent"
@@ -219,22 +220,12 @@
         android:id="@+id/rvAnimal"
         android:layout_width="0dp"
         android:layout_height="190dp"
+        android:layout_marginTop="2dp"
         android:scrollbars="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coins" />
-
-    <ImageView
-        android:id="@+id/bone_view"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvAnimal"
-        app:srcCompat="@drawable/coin_icon" />
 
 
 

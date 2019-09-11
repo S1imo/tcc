@@ -1350,7 +1350,6 @@ id bg
 id bg_adot
 id bg_cont
 id blocking
-id bone_view
 id bottom
 id bottom_overlay
 id browser_actions_header_text

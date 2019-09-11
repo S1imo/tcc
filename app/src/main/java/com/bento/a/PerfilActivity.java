@@ -34,22 +34,19 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PerfilActivity extends AppCompatActivity {
 
     private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
     private CircleImageView perf_img;
-    private TextView nome_text, cidade_text;
+    private TextView nome_text;
     private FirebaseStorage mStorage;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFirebaseDatabase;
     private StorageReference myStoreRef;
-    private DatabaseReference myRef, Ref;
+    private DatabaseReference myRef;
     private String user_id;
-    private static AtomicLong idCount = new AtomicLong();
 
     private RecyclerView recyclerView;
     private FirebaseRecyclerOptions<Animal> options;
@@ -129,7 +126,6 @@ public class PerfilActivity extends AppCompatActivity {
         but_logout = findViewById(R.id.but_config);
 
         nome_text = findViewById(R.id.nome_text);
-        cidade_text = findViewById(R.id.cidade_text);
 
         perf_img = findViewById(R.id.image_perfil);
     }

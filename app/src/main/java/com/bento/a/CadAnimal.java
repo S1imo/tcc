@@ -5,8 +5,15 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,25 +25,25 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import com.bento.a.animals.Animal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
+import java.io.StringBufferInputStream;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
@@ -58,7 +65,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     private String[] an_prof_img = new String[4];
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private StorageReference folder;
-    private int idCount;
+    private String currentIdAn;
     private AtomicLong idImgCount = new AtomicLong(0);
     private String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
     private HashMap<String, Object> newPost = new HashMap<>();
@@ -135,7 +142,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     private void InpToVar() {
-        folder = FirebaseStorage.getInstance().getReference().child("Animais").child("animal" + CreateIdAn()).child(user_id);
+        folder = FirebaseStorage.getInstance().getReference().child("Animais").child("animal" + currentIdAn).child(user_id);
 
         inp_img1 = findViewById(R.id.addImage);
         inp_img2 = findViewById(R.id.addImage2);
@@ -146,6 +153,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
         inp_img3.setImageDrawable(getDrawable(R.drawable.add_an_prof));
         inp_img4.setImageDrawable(getDrawable(R.drawable.add_an_prof));
 
+        currentIdAn = CreateIdAn();
 
         editTextDesc = findViewById(R.id.cad_descricao);
         editTextRaca = findViewById(R.id.cad_raca);
@@ -193,7 +201,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
             assert data != null;
             final Uri imageUriResultCrop = UCrop.getOutput(data);
             if (imageUriResultCrop != null) {
-                final StorageReference Imagename = folder.child(CreateIdAn()).child("image" + imageUriResultCrop.getLastPathSegment());
+                final StorageReference Imagename = folder.child(currentIdAn).child("image" + imageUriResultCrop.getLastPathSegment());
                 Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -263,8 +271,8 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     //colocando dados an
     private void CreateAn() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Animais").child(user_id);
-        Animal an = new Animal(user_id, String.valueOf(idCount), tip_animal, an_idade, an_port, an_vac, an_raca, an_stat, an_desc, new String[]{an_prof_img[0], an_prof_img[1], an_prof_img[2], an_prof_img[3]}, an_prof_img[0]);
-        newPost.put(CreateIdAn(), an.toMap());
+        Animal an = new Animal(user_id, currentIdAn, tip_animal, an_idade, an_port, an_vac, an_raca, an_stat, an_desc, new String[]{an_prof_img[0], an_prof_img[1], an_prof_img[2], an_prof_img[3]}, an_prof_img[0]);
+        newPost.put(currentIdAn, an.toMap());
         ref.updateChildren(newPost)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -282,9 +290,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     private String CreateIdAn() {
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("Animais").child(user_id);
-        return myRef.orderByKey().limitToLast(1).toString();
-        //
+        return String.valueOf(System.currentTimeMillis()*100);
     }
 
     private String CreateIdImg() {
