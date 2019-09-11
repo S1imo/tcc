@@ -1495,6 +1495,7 @@ id imageView2
 id imageView4
 id image_View_upload
 id image_adp_dog
+id image_dog
 id image_dog1
 id image_dog2
 id image_dog3
@@ -1505,6 +1506,7 @@ id image_view_state_aspect_ratio
 id image_view_state_rotate
 id image_view_state_scale
 id imagelike
+id img_us
 id info
 id info_btn
 id invisible
@@ -1589,6 +1591,7 @@ id right_overlay
 id right_side
 id rotate_scroll_wheel
 id rvAnimal
+id rvChat
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1658,13 +1661,14 @@ id textView2
 id textView3
 id text_View_upload
 id text_input_password_toggle
+id text_us_nom
+id text_us_status
 id text_view_rotate
 id text_view_scale
 id textinput_counter
 id textinput_error
 id textinput_helper_text
 id time
-id tipo_ani
 id tipo_animal
 id title
 id titleDividerNoCustom
@@ -1700,6 +1704,7 @@ id view4
 id view5
 id view6
 id view7
+id view8
 id view_bg
 id view_offset_helper
 id view_overlay
@@ -1778,6 +1783,7 @@ layout cad_dog_layout
 layout cad_layout
 layout cad_se_layout
 layout cad_su_layout
+layout chat_item
 layout chat_layout
 layout custom_dialog
 layout custompopup

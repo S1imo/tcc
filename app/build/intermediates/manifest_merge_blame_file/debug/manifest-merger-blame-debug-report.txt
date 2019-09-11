@@ -37,15 +37,15 @@
 22    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 23    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-24-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:25:5-79
-24-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:25:22-76
+24-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:25:5-79
+24-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:25:22-76
 25
 26    <application
 26-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:5:5-81:19
 27        android:allowBackup="true"
 27-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:6:9-35
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-28-->[androidx.core:core:1.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d0871df00cc08757fbfd2d17bd1081fb\core-1.1.0\AndroidManifest.xml:24:18-86
+28-->[androidx.core:core:1.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0136ca65841c199e13145e51c5d77d51\core-1.1.0\AndroidManifest.xml:24:18-86
 29        android:debuggable="true"
 30        android:icon="@mipmap/ic_adot_round"
 30-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:7:9-45
@@ -192,81 +192,81 @@
 102-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:79:17-51
 103        </provider>
 104        <provider
-104-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0d4705770ad5dbecabf7e2150dfddf69\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+104-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
 105            android:name="com.squareup.picasso.PicassoProvider"
-105-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0d4705770ad5dbecabf7e2150dfddf69\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+105-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
 106            android:authorities="com.bento.a.com.squareup.picasso"
-106-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0d4705770ad5dbecabf7e2150dfddf69\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+106-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
 107            android:exported="false" />
-107-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0d4705770ad5dbecabf7e2150dfddf69\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+107-->[com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
 108
 109        <service
-109-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:29:9-35:19
+109-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:29:9-35:19
 110            android:name="com.google.firebase.components.ComponentDiscoveryService"
-110-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:30:13-84
+110-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:30:13-84
 111            android:exported="false" >
-111-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:31:13-37
+111-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:31:13-37
 112            <meta-data
-112-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:32:13-34:85
+112-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:32:13-34:85
 113                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-113-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:33:17-109
+113-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:33:17-109
 114                android:value="com.google.firebase.components.ComponentRegistrar" />
-114-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\73682cc1ef2d97ebed1b3b9eb3040722\firebase-database-19.0.0\AndroidManifest.xml:34:17-82
+114-->[com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:34:17-82
 115            <meta-data
-115-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:33:13-35:85
+115-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:33:13-35:85
 116                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-116-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:34:17-107
+116-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:34:17-107
 117                android:value="com.google.firebase.components.ComponentRegistrar" />
-117-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dba992db07e637198233ca5f1f36f279\firebase-storage-19.0.0\AndroidManifest.xml:35:17-82
+117-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:35:17-82
 118            <meta-data
-118-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:36:13-38:85
+118-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:36:13-38:85
 119                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-119-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:37:17-109
+119-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:37:17-109
 120                android:value="com.google.firebase.components.ComponentRegistrar" />
-120-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:38:17-82
+120-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:38:17-82
 121        </service>
 122
 123        <activity
-123-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:24:9-31:50
+123-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:24:9-31:50
 124            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-124-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:25:13-85
+124-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:25:13-85
 125            android:excludeFromRecents="true"
-125-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:26:13-46
+125-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:26:13-46
 126            android:exported="true"
-126-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:27:13-36
+126-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:27:13-36
 127            android:launchMode="singleTask"
-127-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:28:13-44
+127-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:28:13-44
 128            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-128-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:29:13-102
+128-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:29:13-102
 129            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-129-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\789523bdf8b00c836dc6f1de412f9e40\firebase-auth-19.0.0\AndroidManifest.xml:30:13-72
+129-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:30:13-72
 130
 131        <provider
-131-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
+131-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
 132            android:name="com.google.firebase.provider.FirebaseInitProvider"
-132-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:13:13-77
+132-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:13:13-77
 133            android:authorities="com.bento.a.firebaseinitprovider"
-133-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:14:13-72
+133-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:14:13-72
 134            android:exported="false"
-134-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:15:13-37
+134-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:15:13-37
 135            android:initOrder="100" />
-135-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\09720eea8140b55e974880538fbb4820\firebase-common-19.0.0\AndroidManifest.xml:16:13-36
+135-->[com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:16:13-36
 136
 137        <activity
-137-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+137-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
 138            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-138-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+138-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
 139            android:exported="false"
-139-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+139-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
 140            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-140-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0a7adbb17e21e0f33c4ee2db652f9070\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+140-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
 141
 142        <meta-data
-142-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\b87fa2ee0c0ceb4e4c6509e0860512a5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+142-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6b960c6c787fee9ea59e0c6464a51767\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
 143            android:name="com.google.android.gms.version"
-143-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\b87fa2ee0c0ceb4e4c6509e0860512a5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+143-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6b960c6c787fee9ea59e0c6464a51767\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
 144            android:value="@integer/google_play_services_version" />
-144-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\b87fa2ee0c0ceb4e4c6509e0860512a5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+144-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6b960c6c787fee9ea59e0c6464a51767\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 145    </application>
 146
 147</manifest>

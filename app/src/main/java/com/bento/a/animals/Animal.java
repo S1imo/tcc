@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Animal {
-    private String tip_an, an_idade, an_porte, an_vacinado, an_raca, an_status, an_descricao, an_fprof_img, an_prof_img1, an_prof_img2, an_prof_img3;
+    private String us_uid, an_uid, tip_an, an_idade, an_porte, an_vacinado, an_raca, an_status, an_descricao, an_fprof_img, an_prof_img1, an_prof_img2, an_prof_img3;
     private String[] an_prof_img;
 
     public Animal() { }
 
-    public Animal(String tip_an, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img, String an_fprof_img) {
+    public Animal(String us_uid, String an_uid, String tip_an, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img, String an_fprof_img) {
+        this.us_uid = us_uid;
+        this.an_uid = an_uid;
         this.tip_an = tip_an;
         this.an_idade = an_idade;
         this.an_porte = an_porte;
@@ -19,6 +21,18 @@ public class Animal {
         this.an_descricao = an_descricao;
         this.an_prof_img = an_prof_img;
         this.an_fprof_img = an_fprof_img;
+    }
+
+    public String getUs_uid(){return this.us_uid;}
+
+    public void setUs_uid(String us_uid){this.us_uid = us_uid;}
+
+    public String getAn_uid() {
+        return an_uid;
+    }
+
+    public void setAn_uid(String an_uid) {
+        this.an_uid = an_uid;
     }
 
     public String getTip_an() {
@@ -121,6 +135,8 @@ public class Animal {
     public Map<String, Object> toMap()
     {
         HashMap<String, Object> dataInfo = new HashMap<>();
+            dataInfo.put("us_uid", us_uid);
+            dataInfo.put("an_uid", an_uid);
             dataInfo.put("tip_an", tip_an);
             dataInfo.put("an_idade", an_idade);
             dataInfo.put("an_porte", an_porte);

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
+import com.bento.a.MainActivity;
 import com.bento.a.R;
 import com.bento.a.animals.Animal;
 import com.squareup.picasso.Picasso;
@@ -16,6 +17,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class arrayAdapter extends ArrayAdapter<Animal> {
+
+    private MainActivity mainActivity;
 
     public arrayAdapter(@NonNull Context context, int resource, List<Animal> rowItems)
     {
@@ -25,12 +28,10 @@ public class arrayAdapter extends ArrayAdapter<Animal> {
     public View getView(int position, View convertView, ViewGroup parent)
     {
         Animal animal = getItem(position);
-
         if(convertView == null)
         {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent, false);
         }
-
 
         ImageView imagem_dog = convertView.findViewById(R.id.image_adp_dog);
 

@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_gravity="center">
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="350dp"
@@ -29,13 +23,45 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_dog"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
                 android:background="@drawable/perfil_circle"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_dog1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/perfil_circle"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_dog2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/perfil_circle"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_dog3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/perfil_circle"/>
+
+        </LinearLayout>
 
             <TextView
                 android:id="@+id/tipo_animal"
@@ -68,7 +94,8 @@
             android:text="pequeno"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:layout_marginStart="10dp"/>
 
         <RadioButton
             android:id="@+id/porte_grande"
@@ -116,6 +143,7 @@
             android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="14sp" />
+
         <TextView
             android:id="@+id/idade_ani"
             android:layout_width="wrap_content"
@@ -123,6 +151,7 @@
             android:text="Filhote"
             android:textStyle="bold"
             android:textSize="14sp"
+            android:layout_marginStart="10dp"
             android:visibility="visible"/>
 
         <RadioButton
@@ -162,8 +191,10 @@
                 android:id="@+id/vacinado_animal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:textStyle="bold"
                 android:text="Sim"/>
+
         <RadioButton
             android:id="@+id/vacinado_sim"
             android:layout_width="wrap_content"
@@ -223,32 +254,34 @@
             android:id="@+id/status_animal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="Adoção"
             android:textStyle="bold"
             android:visibility="visible"/>
-                <RadioButton
-                    android:id="@+id/ani_adot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="1dp"
-                    android:text="Adoção"
-                    android:textAlignment="center"
-                    android:textColor="#FF000000"
-                    android:textSize="14sp"
-                    android:visibility="gone" />
+        <RadioButton
+            android:id="@+id/ani_adot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:text="Adoção"
+            android:textAlignment="center"
+            android:textColor="#FF000000"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
-                <RadioButton
-                    android:id="@+id/ani_perdido"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Perdido"
-                    android:textAlignment="center"
-                    android:textColor="#FF000000"
-                    android:textSize="14sp"
-                    android:visibility="gone"/>
+        <RadioButton
+            android:id="@+id/ani_perdido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perdido"
+            android:textAlignment="center"
+            android:textColor="#FF000000"
+            android:textSize="14sp"
+            android:visibility="gone"/>
     </RadioGroup>
 
     <LinearLayout
+        android:layout_marginTop="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -259,55 +292,54 @@
             android:text=" Descrição "
             android:textStyle="bold"
             android:background="@drawable/cad_dog_box"/>
-        <EditText
-            android:id="@+id/desc_animal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:textSize="14sp"
-            android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-            android:textStyle="bold" />
 
     </LinearLayout>
 
-<RelativeLayout
+    <EditText
+        android:id="@+id/desc_animal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <Button
-        android:id="@+id/but_editar"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/cad_dog_box"
-        android:text="Editar"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:visibility="visible"/>
-    <Button
-        android:id="@+id/but_back"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/cad_dog_box"
-        android:text="Voltar"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:visibility="invisible" />
+        <Button
+            android:id="@+id/but_editar"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cad_dog_box"
+            android:text="Editar"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="visible"/>
+        <Button
+            android:id="@+id/but_back"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cad_dog_box"
+            android:text="Voltar"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
 
-    <Button
-        android:id="@+id/but_aplicar"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/cad_dog_box"
-        android:layout_marginLeft="250dp"
-        android:text="Aplicar"
-        android:textSize="10sp"
-        android:visibility="invisible"
-        android:textStyle="bold" />
-</RelativeLayout>
-
+        <Button
+            android:id="@+id/but_aplicar"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cad_dog_box"
+            android:layout_marginLeft="250dp"
+            android:text="Aplicar"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:textStyle="bold"/>
+    </RelativeLayout>
 </LinearLayout>
-</ScrollView>

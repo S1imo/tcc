@@ -64,13 +64,13 @@ public final class R {
 
         public static final int adjust_height = 0x7f0a0040;
         public static final int adjust_width = 0x7f0a0041;
-        public static final int auto = 0x7f0a0049;
-        public static final int dark = 0x7f0a009c;
-        public static final int icon_only = 0x7f0a00d7;
-        public static final int light = 0x7f0a00f6;
-        public static final int none = 0x7f0a0118;
-        public static final int standard = 0x7f0a0163;
-        public static final int wide = 0x7f0a01af;
+        public static final int auto = 0x7f0a004b;
+        public static final int dark = 0x7f0a00a0;
+        public static final int icon_only = 0x7f0a00db;
+        public static final int light = 0x7f0a00fd;
+        public static final int none = 0x7f0a011f;
+        public static final int standard = 0x7f0a016b;
+        public static final int wide = 0x7f0a01ba;
     }
     public static final class string {
         private string() {}

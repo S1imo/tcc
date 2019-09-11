@@ -110,7 +110,7 @@ public class PopUpPerfil extends AppCompatActivity {
                 medio.setVisibility(View.GONE);
                 pequeno.setVisibility(View.GONE);
 
-                idade_animal.setVisibility(View.VISIBLE);
+                idade_animal.setVisibility(View.VISIBLE); //
                 ani_filhote.setVisibility(View.GONE);
                 ani_adulto.setVisibility(View.GONE);
 
