@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bento.a.users.User;
@@ -31,6 +32,7 @@ public class CadSUActivity extends AppCompatActivity {
     private MaskEditText cad_cpf_inp, cad_cep_inp, cad_rg_inp, cad_tel_inp, cad_nasc_inp;
     private String nome_comp, tip_usu, cpf, cep, telefone, nascimento, rg, nom_usu, email, senha;
     private Button but_cad, but_vol;
+    private ProgressBar circle_load;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -56,6 +58,8 @@ public class CadSUActivity extends AppCompatActivity {
 
         but_cad = findViewById(R.id.cad_but_cads);
         but_vol = findViewById(R.id.cad_voltar_but);
+
+        circle_load = findViewById(R.id.load);
     }
 
     private void buttonVoltar(Button butt_vol)
@@ -174,10 +178,12 @@ public class CadSUActivity extends AppCompatActivity {
                             dataDB();
                             Toast.makeText(CadSUActivity.this, "Cadastro efetuado", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(CadSUActivity.this, LoginActivity.class));
+                            circle_load.setVisibility(View.VISIBLE);
                         }
                         else
                         {
                             exceptionsFire(task);
+                            circle_load.setVisibility(View.GONE);
                         }
                     }
                 });

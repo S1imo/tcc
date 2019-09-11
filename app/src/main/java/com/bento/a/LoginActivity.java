@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText inp_senha;
     private String email, senha;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private ProgressBar progressBar;
 
 
     protected void onStart() {
@@ -66,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         this.log_esq_senha = findViewById(R.id.log_esq_senha);
         this.inp_email = findViewById(R.id.log_email_inp);
         this.inp_senha = findViewById(R.id.log_senha);
+        this.progressBar = findViewById(R.id.load);
     }
 
     private void inputToString()
@@ -105,18 +108,23 @@ public class LoginActivity extends AppCompatActivity {
                         //email vazio
                         Toast.makeText(LoginActivity.this, "Preencha o campo e-mail", Toast.LENGTH_SHORT).show();
                         inp_email.requestFocus();
+                        progressBar.setVisibility(View.GONE);
                         break;
                     case 2:
                         Toast.makeText(LoginActivity.this, "Preencha o campo senha", Toast.LENGTH_SHORT).show();
                         inp_senha.requestFocus();
+                        progressBar.setVisibility(View.GONE);
                         //senha vazia
                         break;
                     case 0:
                         //conectando
                         logUser();
+                        progressBar.setVisibility(View.VISIBLE);
                         break;
                     default:
                         //erro inesperado
+
+                        progressBar.setVisibility(View.GONE);
                         break;
                 }
             }
@@ -147,10 +155,12 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
+                        progressBar.setVisibility(View.VISIBLE);
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
                         Toast.makeText(LoginActivity.this, "E-mail ou senha não registrados", Toast.LENGTH_SHORT).show();
                         inp_email.requestFocus();
+                        progressBar.setVisibility(View.GONE);
                     }
                 }
             });

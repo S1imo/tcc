@@ -1131,6 +1131,7 @@ drawable abc_vector_test
 drawable above_shadow
 drawable add_an_prof
 drawable adot_icon
+drawable adot_icon_pressed
 drawable avd_hide_password
 drawable avd_show_password
 drawable below_shadow
@@ -1144,6 +1145,7 @@ drawable button_log_gradient
 drawable cad_dog_box
 drawable chat_icon
 drawable circle_bg_pop
+drawable circle_load
 drawable coin_icon
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
@@ -1448,6 +1450,7 @@ id linearLayout2
 id linearlayout3
 id listMode
 id list_item
+id load
 id log_cad
 id log_email_inp
 id log_ent_but
@@ -1677,6 +1680,8 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_desespero
+layout activity_loja
+layout activity_perdidos
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cad_dog_layout

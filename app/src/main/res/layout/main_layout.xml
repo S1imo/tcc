@@ -49,13 +49,14 @@
         android:id="@+id/adot_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:tint="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintEnd_toEndOf="@+id/frame"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/frame"
         app:layout_constraintTop_toTopOf="@+id/view5"
         app:layout_constraintVertical_bias="0.533"
-        app:srcCompat="@drawable/adot_icon" />
+        app:srcCompat="@drawable/adot_icon_pressed" />
 
     <ImageView
         android:id="@+id/profile_icon"

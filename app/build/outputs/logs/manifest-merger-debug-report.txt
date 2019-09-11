@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:72:9-80:20
+INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:74:9-82:20
 	android:grantUriPermissions
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:76:13-47
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:78:13-47
 	android:authorities
 		INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:74:13-60
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:76:13-60
 	android:exported
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:75:13-37
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:77:13-37
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:73:13-62
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:75:13-62
 manifest
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
-INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
-INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
-INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\9bac9c4889645f6890dde18e8b20da08\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\6ae0516d2d3235c0ace324e7a6769422\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.santalu:mask-edittext:1.0.2] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\9ba76002a4827b43546606f92b53ccb1\jetified-mask-edittext-1.0.2\AndroidManifest.xml:2:1-14:12
@@ -70,25 +70,25 @@ MERGED from [com.lorentzos.swipecards:library:1.0.9] C:\Users\vitor\.gradle\cach
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\928fa1f74106ebc7aa517c41497b7440\circleimageview-3.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\8175aabfbe5def3ef12420df7eba7898\jetified-roundedimageview-2.3.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\7c3f40922534760522232442d1a17b19\firebase-database-collection-17.0.0\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
-INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
-INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
+INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
 	package
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:3:5-26
 		INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
 		INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-94:12
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:1-96:12
 		INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:5:5-81:19
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:5:5-83:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\9bac9c4889645f6890dde18e8b20da08\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\9bac9c4889645f6890dde18e8b20da08\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\6ae0516d2d3235c0ace324e7a6769422\material-1.0.0\AndroidManifest.xml:22:5-20
@@ -137,140 +137,144 @@ MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\vitor\.gradle\caches\t
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:11:9-40
-activity#com.bento.a.EditPerfEActivity
+activity#com.bento.a.LojaActivity
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:12:9-59
+	android:name
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:12:19-47
+activity#com.bento.a.PerdidosActivity
 ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:13:9-16:52
 	android:screenOrientation
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:16:13-49
 	android:configChanges
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:15:13-48
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:14:13-46
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:14:13-45
+activity#com.bento.a.EditPerfEActivity
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:17:9-20:52
+	android:screenOrientation
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:20:13-49
+	android:configChanges
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:19:13-48
+	android:name
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:18:13-46
 activity#com.bento.a.CadAnimal
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:18:9-21:52
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:21:9-24:52
 	android:screenOrientation
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:21:13-49
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:24:13-49
 	android:configChanges
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:20:13-48
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:23:13-48
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:19:13-38
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:22:13-38
 activity#com.bento.a.EditPerfUActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:22:9-25:52
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:25:9-28:52
 	android:screenOrientation
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:25:13-49
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:28:13-49
 	android:configChanges
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:24:13-48
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:27:13-48
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:23:13-46
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:26:13-46
 activity#com.bento.a.CadSEActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:26:9-29:52
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:29:9-32:52
 	android:screenOrientation
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:29:13-49
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:32:13-49
 	android:configChanges
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:28:13-48
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:31:13-48
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:27:13-42
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:30:13-42
 activity#com.bento.a.EsqueceuSenhaActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:30:9-33:52
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:33:9-36:52
 	android:screenOrientation
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:33:13-49
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:36:13-49
 	android:configChanges
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:32:13-48
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:35:13-48
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:31:13-50
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:34:13-50
 activity#com.bento.a.PerfilActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:34:9-38:20
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:37:9-40:52
 	android:screenOrientation
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:37:13-49
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:40:13-49
 	android:configChanges
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:36:13-48
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:39:13-48
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:35:13-43
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:38:13-43
 activity#com.bento.a.CadSUActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:39:9-42:51
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:41:9-44:52
 	android:screenOrientation
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:42:13-49
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:44:13-49
 	android:configChanges
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:41:13-48
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:43:13-48
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:40:13-42
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:42:13-42
 activity#com.bento.a.LoginActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:44:9-53:20
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:45:9-54:20
 	android:screenOrientation
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:47:13-49
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:48:13-49
 	android:configChanges
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:46:13-48
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:47:13-48
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:45:13-42
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:46:13-42
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:48:13-52:29
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:49:13-53:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:49:17-69
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:50:17-69
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:49:25-66
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:50:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:51:17-77
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:52:17-77
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:51:27-74
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:52:27-74
 activity#com.bento.a.MainActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:54:9-55:20
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:55:9-50
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:54:19-47
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:55:19-47
 activity#com.bento.a.desespero
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:56:9-46
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:56:9-47
 	android:name
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:56:19-44
 activity#com.bento.a.PopUpPerfil
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:57:9-58:53
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:57:9-59:53
 	android:theme
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:58:13-50
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:59:13-50
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:57:19-46
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:58:13-40
 activity#com.bento.a.PopUpActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:59:9-61:56
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:60:9-62:56
 	android:theme
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:61:13-53
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:62:13-53
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:60:13-42
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:61:13-42
 activity#com.bento.a.CadActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:62:9-49
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:63:9-49
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:62:19-46
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:63:19-46
 activity#com.bento.a.ChatActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:63:9-50
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:64:9-50
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:63:19-47
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:64:19-47
 activity#com.yalantis.ucrop.UCropActivity
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:64:9-67:72
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:65:9-68:72
 	android:screenOrientation
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:66:13-49
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:67:13-49
 	android:theme
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:67:13-69
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:68:13-69
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:65:13-60
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:66:13-60
 meta-data#preloaded_fonts
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:68:9-70:57
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:70:9-72:57
 	android:resource
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:70:13-54
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:72:13-54
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:69:13-43
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:71:13-43
 supports-screens
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:82:5-86:40
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:85:5-89:40
 	android:largeScreens
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:83:9-36
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:86:9-36
 	android:smallScreens
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:85:9-36
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:88:9-36
 	android:normalScreens
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:84:9-37
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:87:9-37
 	android:xlargeScreens
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:86:9-37
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:87:5-80
-	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:87:22-77
-uses-permission#android.permission.CAMERA
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:88:5-65
-	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:88:22-62
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:89:9-37
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:90:5-67
 MERGED from [com.firebaseui:firebase-ui-database:4.3.2] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\90027a199959f1701881e0d410ddc987\jetified-firebase-ui-database-4.3.2\AndroidManifest.xml:11:5-67
@@ -282,9 +286,17 @@ MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\vitor\.gradle
 	android:name
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:90:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:92:5-81
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:91:5-81
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:92:22-78
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:91:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:92:5-80
+	android:name
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:92:22-77
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:94:5-65
+	android:name
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:94:22-62
 uses-sdk
 INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
@@ -410,11 +422,11 @@ INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidMani
 		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:77:13-79:54
+ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:79:13-81:54
 	android:resource
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:79:17-51
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:81:17-51
 	android:name
-		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:78:17-67
+		ADDED from C:\Users\vitor\AndroidStudioProjects\tcc2\app\src\main\AndroidManifest.xml:80:17-67
 provider#com.squareup.picasso.PicassoProvider
 ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\vitor\.gradle\caches\transforms-2\files-2.1\6edc2244ed4d17a57dfcbb01d28a7b9f\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
 	android:authorities
