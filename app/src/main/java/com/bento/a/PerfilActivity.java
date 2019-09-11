@@ -199,8 +199,8 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //startActivity(new Intent(PerfilActivity.this, PerdidosActivity.class));
-                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                startActivity(new Intent(PerfilActivity.this, PerdidosActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
         });
@@ -211,10 +211,8 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user_id = mAuth.getUid();
-                Toast.makeText(PerfilActivity.this, user_id, Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(PerfilActivity.this, LojaActivity.class));
-                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                startActivity(new Intent(PerfilActivity.this, LojaActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }

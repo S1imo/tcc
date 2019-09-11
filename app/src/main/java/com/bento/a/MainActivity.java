@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -174,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(PerfilActivity.this, PerdidosActivity.class));
-                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }
@@ -184,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, desespero.class));
+                startActivity(new Intent(MainActivity.this, LojaActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -194,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(PerfilActivity.this, ChatActivity.class));
+                //startActivity(new Intent(MainActivity.this, ChatActivity.class));
                 //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
