@@ -124,7 +124,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_perd = findViewById(R.id.perdido_icon);
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
-        but_cad_dog = findViewById(R.id.coins);
+        but_cad_dog = findViewById(R.id.add_animal);
         but_edit_prof = findViewById(R.id.but_edit_prof);
         but_logout = findViewById(R.id.but_config);
 

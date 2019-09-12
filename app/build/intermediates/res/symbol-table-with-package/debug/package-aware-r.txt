@@ -1331,6 +1331,7 @@ id addImage
 id addImage2
 id addImage3
 id addImage4
+id add_animal
 id adjust_height
 id adjust_width
 id adot_icon
@@ -1350,7 +1351,6 @@ id bg
 id bg_adot
 id bg_cont
 id blocking
-id bone_view
 id bottom
 id bottom_overlay
 id browser_actions_header_text
@@ -1543,8 +1543,6 @@ id masked
 id media_actions
 id menu_crop
 id menu_loader
-id menu_view
-id menu_view_shadow
 id message
 id middle
 id mini

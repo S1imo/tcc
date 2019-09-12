@@ -271,10 +271,10 @@ public class MainActivity extends AppCompatActivity {
         fab.animate().scaleX(1.0f).scaleY(1.0f).setDuration(500).withEndAction(new Runnable() {
             @Override
             public void run() {
-                fab.animate().scaleX(1f).scaleY(1f);
+
             }
         });
     }
+
+
 }
-
-

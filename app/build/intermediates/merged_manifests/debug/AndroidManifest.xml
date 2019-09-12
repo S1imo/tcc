@@ -111,6 +111,7 @@
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:directBootAware="true"
             android:exported="false" >
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"

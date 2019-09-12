@@ -226,16 +226,16 @@
         app:layout_constraintTop_toBottomOf="@+id/coins" />
 
     <ImageView
-        android:id="@+id/bone_view"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/add_animal"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:tint="#88008577"
+        app:layout_constraintBottom_toTopOf="@+id/rvAnimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvAnimal"
-        app:srcCompat="@drawable/coin_icon" />
-
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:srcCompat="@drawable/prof_plus_icon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

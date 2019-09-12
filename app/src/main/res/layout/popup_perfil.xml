@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="350dp"
@@ -13,6 +18,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:textColor="@color/popupBack"
+        android:layout_marginTop="5dp"
         android:text="X"
         android:textStyle="bold"
         android:layout_gravity="end"
@@ -343,3 +349,4 @@
             android:textStyle="bold"/>
     </RelativeLayout>
 </LinearLayout>
+</ScrollView>
