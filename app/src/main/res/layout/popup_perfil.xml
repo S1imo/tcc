@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Cachorro"
+                android:fontFamily="@font/montserrat"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold"/>
     </LinearLayout>
@@ -90,6 +91,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/cad_dog_box"
             android:text=" Porte: "
+            android:fontFamily="@font/montserrat"
             android:textStyle="bold"
             android:textSize="14sp" />
 
@@ -98,6 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="pequeno"
+            android:fontFamily="@font/montserrat"
             android:textSize="14sp"
             android:textStyle="bold"
             android:visibility="visible"
@@ -146,6 +149,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/cad_dog_box"
             android:text=" Idade: "
+            android:fontFamily="@font/montserrat"
             android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="14sp" />
@@ -155,6 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Filhote"
+            android:fontFamily="@font/montserrat"
             android:textStyle="bold"
             android:textSize="14sp"
             android:layout_marginStart="10dp"
@@ -192,8 +197,10 @@
                 android:layout_height="wrap_content"
                 android:text=" Vacinado: "
                 android:background="@drawable/cad_dog_box"
+                android:fontFamily="@font/montserrat"
                 android:textStyle="bold" />
             <TextView
+                android:fontFamily="@font/montserrat"
                 android:id="@+id/vacinado_animal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -230,6 +237,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Raça: "
+            android:fontFamily="@font/montserrat"
             android:textStyle="bold"
             android:background="@drawable/cad_dog_box"/>
 
@@ -239,6 +247,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:enabled="false"
+            android:fontFamily="@font/montserrat"
             android:text="Pastor Alemão"
             android:textStyle="bold" />
 
@@ -255,6 +264,7 @@
             android:layout_height="wrap_content"
             android:text=" Status: "
             android:textStyle="bold"
+            android:fontFamily="@font/montserrat"
             android:background="@drawable/cad_dog_box"/>
         <TextView
             android:id="@+id/status_animal"
@@ -262,6 +272,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Adoção"
+            android:fontFamily="@font/montserrat"
             android:textStyle="bold"
             android:visibility="visible"/>
         <RadioButton
@@ -296,6 +307,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Descrição "
+            android:fontFamily="@font/montserrat"
             android:textStyle="bold"
             android:background="@drawable/cad_dog_box"/>
 
@@ -306,6 +318,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="false"
+        android:fontFamily="@font/montserrat"
         android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -322,6 +335,7 @@
             android:background="@drawable/cad_dog_box"
             android:text="Editar"
             android:textSize="10sp"
+            android:fontFamily="@font/montserrat"
             android:textStyle="bold"
             android:visibility="visible"/>
         <Button
@@ -331,6 +345,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
             android:background="@drawable/cad_dog_box"
+            android:fontFamily="@font/montserrat"
             android:text="Voltar"
             android:textSize="10sp"
             android:textStyle="bold"
@@ -345,6 +360,7 @@
             android:layout_marginLeft="250dp"
             android:text="Aplicar"
             android:textSize="10sp"
+            android:fontFamily="@font/montserrat"
             android:visibility="invisible"
             android:textStyle="bold"/>
     </RelativeLayout>
