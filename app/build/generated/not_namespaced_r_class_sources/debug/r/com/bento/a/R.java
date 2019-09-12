@@ -6234,20 +6234,19 @@ public final class R {
     public static final int view5=0x7f0a01b0;
     public static final int view6=0x7f0a01b1;
     public static final int view7=0x7f0a01b2;
-    public static final int view8=0x7f0a01b3;
-    public static final int view_bg=0x7f0a01b4;
-    public static final int view_offset_helper=0x7f0a01b5;
-    public static final int view_overlay=0x7f0a01b6;
-    public static final int visible=0x7f0a01b7;
-    public static final int voltarDButton=0x7f0a01b8;
-    public static final int wide=0x7f0a01b9;
-    public static final int withText=0x7f0a01ba;
-    public static final int wrap=0x7f0a01bb;
-    public static final int wrap_content=0x7f0a01bc;
-    public static final int wrapper_controls=0x7f0a01bd;
-    public static final int wrapper_reset_rotate=0x7f0a01be;
-    public static final int wrapper_rotate_by_angle=0x7f0a01bf;
-    public static final int wrapper_states=0x7f0a01c0;
+    public static final int view_bg=0x7f0a01b3;
+    public static final int view_offset_helper=0x7f0a01b4;
+    public static final int view_overlay=0x7f0a01b5;
+    public static final int visible=0x7f0a01b6;
+    public static final int voltarDButton=0x7f0a01b7;
+    public static final int wide=0x7f0a01b8;
+    public static final int withText=0x7f0a01b9;
+    public static final int wrap=0x7f0a01ba;
+    public static final int wrap_content=0x7f0a01bb;
+    public static final int wrapper_controls=0x7f0a01bc;
+    public static final int wrapper_reset_rotate=0x7f0a01bd;
+    public static final int wrapper_rotate_by_angle=0x7f0a01be;
+    public static final int wrapper_states=0x7f0a01bf;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f0b0000;

@@ -1702,7 +1702,6 @@ id view4
 id view5
 id view6
 id view7
-id view8
 id view_bg
 id view_offset_helper
 id view_overlay

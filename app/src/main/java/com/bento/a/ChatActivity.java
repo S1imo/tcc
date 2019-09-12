@@ -106,9 +106,9 @@ public class ChatActivity extends AppCompatActivity {
         but_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_profile.startAnimation(anim_fade);
+
                 startActivity(new Intent(ChatActivity.this, PerfilActivity.class));
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }
@@ -118,9 +118,9 @@ public class ChatActivity extends AppCompatActivity {
         but_adot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_adot.startAnimation(anim_fade);
+
                 startActivity(new Intent(ChatActivity.this, MainActivity.class));
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }
@@ -130,8 +130,8 @@ public class ChatActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_perd.startAnimation(anim_fade);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                startActivity(new Intent(ChatActivity.this, PerdidosActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }
@@ -141,8 +141,9 @@ public class ChatActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                but_loja.startAnimation(anim_fade);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+                startActivity(new Intent(ChatActivity.this, LojaActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }
