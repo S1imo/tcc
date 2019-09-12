@@ -93,6 +93,7 @@
 
                 <EditText
                     android:id="@+id/cad_raca"
+                    android:fontFamily="@font/montserrat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -130,6 +131,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/cad_dog_box"
                         android:text=" Status: "
+                        android:fontFamily="@font/montserrat"
                         android:textSize="18sp" />
 
                     <RadioButton
@@ -162,6 +164,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/cad_dog_box"
+                    android:fontFamily="@font/montserrat"
                     android:clickable="true"
                     android:hint=" Descrição"
                     android:textSize="18sp"
@@ -192,11 +195,13 @@
                         android:orientation="horizontal">
 
                         <TextView
+
                             android:id="@+id/textView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/cad_dog_box"
                             android:paddingStart="5dp"
+                            android:fontFamily="@font/montserrat"
                             android:paddingEnd="5dp"
                             android:text=" Porte: "
                             android:textAlignment="center"
@@ -257,6 +262,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
+                    android:fontFamily="@font/montserrat"
                     android:background="@drawable/cad_dog_box"
                     android:text=" Idade: "
                     android:textAlignment="center"
@@ -312,6 +318,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/cad_dog_box"
                             android:text=" Vacinado: "
+                            android:fontFamily="@font/montserrat"
                             android:textAlignment="center"
                             android:textSize="18sp" />
 
@@ -347,6 +354,7 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/cad_dog_box"
                 android:text="Aplicar"
+                android:fontFamily="@font/montserrat"
                 android:textColor="#B7FFFFFF"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"

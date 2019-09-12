@@ -1331,6 +1331,7 @@ id addImage
 id addImage2
 id addImage3
 id addImage4
+id add_animal
 id adjust_height
 id adjust_width
 id adot_icon
@@ -1542,8 +1543,6 @@ id masked
 id media_actions
 id menu_crop
 id menu_loader
-id menu_view
-id menu_view_shadow
 id message
 id middle
 id mini
@@ -1703,7 +1702,6 @@ id view4
 id view5
 id view6
 id view7
-id view8
 id view_bg
 id view_offset_helper
 id view_overlay

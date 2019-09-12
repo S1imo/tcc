@@ -43,6 +43,7 @@
             android:id="@+id/distancia_view"
             android:layout_width="250dp"
             android:layout_height="30dp"
+            android:fontFamily="@font/montserrat"
             android:text="50 Km"
             android:textSize="20sp" />
 
@@ -55,6 +56,7 @@
         android:paddingTop="60dp">
         <TextView
             android:id="@+id/desc_text"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Descrição"
