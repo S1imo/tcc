@@ -83,7 +83,7 @@
             android:name="com.bento.a.PopUpPerfil"
             android:theme="@style/AppTheme.Popup" />
         <activity
-            android:name="com.bento.a.PopUpActivity"
+            android:name="com.bento.a.PopUpMain"
             android:theme="@style/Theme.Transparent" />
         <activity android:name="com.bento.a.CadActivity" />
         <activity android:name="com.bento.a.ChatActivity" />

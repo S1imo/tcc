@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.bento.a.users.User;
+import com.bento.a.Classes.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -31,7 +31,7 @@ public class CadSEActivity extends AppCompatActivity {
 
     private EditText cad_nom_inp;
     private MaskEditText cad_cep_inp, cad_tel_inp, cad_cnpj_inp;
-    private String nome_comp, cnpj, cep, telefone, nom_usu, tip_usu, email, senha;
+    private String nome_comp, cnpj, cep, telefone, nom_usu, tip_usu, email, senha, us_img = "null";
     private Button but_cad, but_vol;
     private ProgressBar circle_load;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -174,7 +174,7 @@ public class CadSEActivity extends AppCompatActivity {
     private void dataDB()
     {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        User user = new User(nom_usu, tip_usu, nome_comp, cep, cnpj, telefone);
+        User user = new User(nom_usu, tip_usu, nome_comp, cep, cnpj, telefone, us_img);
         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users");
         Map<String, Object> valuesArr = new HashMap<>();
         valuesArr.put(user_id, user.toMap());

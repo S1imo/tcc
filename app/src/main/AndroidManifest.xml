@@ -58,7 +58,7 @@
             android:name=".PopUpPerfil"
             android:theme="@style/AppTheme.Popup" />
         <activity
-            android:name=".PopUpActivity"
+            android:name=".PopUpMain"
             android:theme="@style/Theme.Transparent" />
         <activity android:name=".CadActivity" />
         <activity android:name=".ChatActivity" />

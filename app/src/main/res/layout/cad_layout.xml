@@ -165,7 +165,7 @@
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="@+id/view7"
             app:layout_constraintStart_toStartOf="@+id/view7"
-            app:layout_constraintTop_toTopOf="@+id/view7"></Spinner>
+            app:layout_constraintTop_toTopOf="@+id/view7"/>
 
         <EditText
             android:id="@+id/cad_email_inp"

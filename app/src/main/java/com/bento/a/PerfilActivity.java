@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bento.a.ViewHolders.ViewHolderAnimal;
-import com.bento.a.animals.Animal;
-import com.bento.a.users.User;
+import com.bento.a.Classes.Animal;
+import com.bento.a.Classes.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -282,7 +282,7 @@ public class PerfilActivity extends AppCompatActivity {
     private void ProfileAn()
     {
         assert user_id != null;
-        DatabaseReference ref = myRef.child("Animais").child(user_id);
+        final DatabaseReference ref = myRef.child("Animais").child(user_id);
 
         recyclerView = findViewById(R.id.rvAnimal);
         recyclerView.setHasFixedSize(true);
@@ -293,7 +293,7 @@ public class PerfilActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter = new FirebaseRecyclerAdapter<Animal, ViewHolderAnimal>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolderAnimal viewHolderAnimal, int i, @NonNull final Animal animal) {
-                Picasso.get().load(animal.getAn_fprof_img()).into(viewHolderAnimal.i1, new Callback() {
+                Picasso.get().load(animal.getAn_prof_img1()).into(viewHolderAnimal.i1, new Callback() {
                     @Override
                     public void onSuccess() {
 
@@ -305,13 +305,15 @@ public class PerfilActivity extends AppCompatActivity {
                 });
                 viewHolderAnimal.t1.setText(animal.getAn_raca());
 
+
                 viewHolderAnimal.i1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class));
+                        String an_uid1 = animal.getAn_uid();
+                        startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class)
+                                .putExtra("an_uid", an_uid1));
                     }
                 });
-
             }
 
             @NonNull

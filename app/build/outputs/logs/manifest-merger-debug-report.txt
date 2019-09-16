@@ -27,14 +27,14 @@ MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\joaog\.gradle\cac
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\88d46ce597d410c8d9a1addcd2777129\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9b17c268919ccf64f4fc8447e7350842\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:15:1-38:12
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:15:1-39:12
 MERGED from [com.yuyakaido.android:card-stack-view:2.3.4] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\11920657a5363e78797a9f806f873c16\card-stack-view-2.3.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\52881a419dc1ce9a2c4c5412ae90c679\recyclerview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.media:media:1.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8ab2988a88d2116f2c7e61c486a5251a\media-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\5fadf7acbdefb2782a469c6ef4216c8c\firebase-auth-interop-18.0.0\AndroidManifest.xml:2:1-10:12
-MERGED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:2:1-19:12
+MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dffe7cebfa4e6032ec3fea966723cfe7\play-services-tasks-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6b960c6c787fee9ea59e0c6464a51767\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
@@ -69,6 +69,7 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\joaog\.gradle
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\942ae5bb408d75da4f7f89b1ab4a5794\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\3f7255e5c39577612d42757c6a1a973c\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f9e8a4049ccd4cee12453dacd5d4d4df\multidex-2.0.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.d-max:spots-dialog:1.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6c87c68e90b56c4ec765ddf6ecd8179d\jetified-spots-dialog-1.1\AndroidManifest.xml:2:1-13:12
 MERGED from [com.lorentzos.swipecards:library:1.0.9] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f120ef0c7b595e2fa65e35097b656396\library-1.0.9\AndroidManifest.xml:2:1-14:12
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\041078e2d9832e8cebc0c864b88c744f\circleimageview-3.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\ad61ec6552b465765951902856d85d3c\jetified-roundedimageview-2.3.0\AndroidManifest.xml:2:1-9:12
@@ -102,16 +103,16 @@ MERGED from [com.sothree.slidinguppanel:library:3.4.0] C:\Users\joaog\.gradle\ca
 MERGED from [com.sothree.slidinguppanel:library:3.4.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\2c950a37e948d5bf8cf3fefb2be4baab\jetified-library-3.4.0\AndroidManifest.xml:9:5-20
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
-MERGED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:29:5-37:19
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:29:5-37:19
 MERGED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\5fadf7acbdefb2782a469c6ef4216c8c\firebase-auth-interop-18.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\5fadf7acbdefb2782a469c6ef4216c8c\firebase-auth-interop-18.0.0\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:11:5-17:19
-MERGED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:11:5-17:19
+MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:11:5-22:19
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dffe7cebfa4e6032ec3fea966723cfe7\play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
@@ -122,6 +123,8 @@ MERGED from [androidx.core:core:1.1.0] C:\Users\joaog\.gradle\caches\transforms-
 MERGED from [androidx.core:core:1.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\0136ca65841c199e13145e51c5d77d51\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9e4ba8edcf27848e4358a1aaab005aeb\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9e4ba8edcf27848e4358a1aaab005aeb\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [com.github.d-max:spots-dialog:1.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6c87c68e90b56c4ec765ddf6ecd8179d\jetified-spots-dialog-1.1\AndroidManifest.xml:11:5-20
+MERGED from [com.github.d-max:spots-dialog:1.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6c87c68e90b56c4ec765ddf6ecd8179d\jetified-spots-dialog-1.1\AndroidManifest.xml:11:5-20
 MERGED from [com.lorentzos.swipecards:library:1.0.9] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f120ef0c7b595e2fa65e35097b656396\library-1.0.9\AndroidManifest.xml:12:5-20
 MERGED from [com.lorentzos.swipecards:library:1.0.9] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f120ef0c7b595e2fa65e35097b656396\library-1.0.9\AndroidManifest.xml:12:5-20
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\041078e2d9832e8cebc0c864b88c744f\circleimageview-3.0.0\AndroidManifest.xml:9:5-20
@@ -240,12 +243,12 @@ ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest
 		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:59:13-50
 	android:name
 		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:58:13-40
-activity#com.bento.a.PopUpActivity
+activity#com.bento.a.PopUpMain
 ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:60:9-62:56
 	android:theme
 		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:62:13-53
 	android:name
-		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:61:13-42
+		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:61:13-38
 activity#com.bento.a.CadActivity
 ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:63:9-49
 	android:name
@@ -282,10 +285,10 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:90:5-67
 MERGED from [com.firebaseui:firebase-ui-database:4.3.2] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\aceb8d452a01001e1572ccc95aad2d78\jetified-firebase-ui-database-4.3.2\AndroidManifest.xml:11:5-67
 MERGED from [com.firebaseui:firebase-ui-database:4.3.2] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\aceb8d452a01001e1572ccc95aad2d78\jetified-firebase-ui-database-4.3.2\AndroidManifest.xml:11:5-67
-MERGED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:27:5-67
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:27:5-67
 	android:name
 		ADDED from C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:90:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
@@ -328,10 +331,10 @@ MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9b17c268919ccf64f4fc8447e7350842\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\9b17c268919ccf64f4fc8447e7350842\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.yuyakaido.android:card-stack-view:2.3.4] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\11920657a5363e78797a9f806f873c16\card-stack-view-2.3.4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.yuyakaido.android:card-stack-view:2.3.4] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\11920657a5363e78797a9f806f873c16\card-stack-view-2.3.4\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\52881a419dc1ce9a2c4c5412ae90c679\recyclerview-1.0.0\AndroidManifest.xml:20:5-44
@@ -342,8 +345,8 @@ MERGED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\ca
 MERGED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\5fadf7acbdefb2782a469c6ef4216c8c\firebase-auth-interop-18.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\5fadf7acbdefb2782a469c6ef4216c8c\firebase-auth-interop-18.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\dffe7cebfa4e6032ec3fea966723cfe7\play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
@@ -412,6 +415,8 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\joaog\.gradle\cache
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\3f7255e5c39577612d42757c6a1a973c\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f9e8a4049ccd4cee12453dacd5d4d4df\multidex-2.0.1\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f9e8a4049ccd4cee12453dacd5d4d4df\multidex-2.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.github.d-max:spots-dialog:1.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6c87c68e90b56c4ec765ddf6ecd8179d\jetified-spots-dialog-1.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.d-max:spots-dialog:1.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6c87c68e90b56c4ec765ddf6ecd8179d\jetified-spots-dialog-1.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.lorentzos.swipecards:library:1.0.9] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f120ef0c7b595e2fa65e35097b656396\library-1.0.9\AndroidManifest.xml:8:5-10:41
 MERGED from [com.lorentzos.swipecards:library:1.0.9] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\f120ef0c7b595e2fa65e35097b656396\library-1.0.9\AndroidManifest.xml:8:5-10:41
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\041078e2d9832e8cebc0c864b88c744f\circleimageview-3.0.0\AndroidManifest.xml:5:5-7:41
@@ -445,33 +450,37 @@ ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\
 	android:name
 		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\78477c372ce0bb331996c587b796b44a\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:26:5-79
+ADDED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:26:5-79
 	android:name
-		ADDED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:25:22-76
+		ADDED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:25:22-76
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:29:9-35:19
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:30:9-36:19
-MERGED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:30:9-36:19
+ADDED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:30:9-36:19
 MERGED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:33:9-39:19
 MERGED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:33:9-39:19
+MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:12:9-15:40
+MERGED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:12:9-15:40
 	android:exported
-		ADDED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:31:13-37
+		ADDED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:31:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:14:13-43
 	android:name
-		ADDED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:30:13-84
+		ADDED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:30:13-84
 meta-data#com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar
-ADDED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:32:13-34:85
+ADDED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:32:13-34:85
 	android:value
-		ADDED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:34:17-82
+		ADDED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:34:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-database:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\1ab57c4cb060aeab7ce87a9a04a95404\firebase-database-19.0.0\AndroidManifest.xml:33:17-109
+		ADDED from [com.google.firebase:firebase-database:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\6af11f8db37b6f67e4facceafdc70b3d\firebase-database-19.1.0\AndroidManifest.xml:33:17-109
 meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
-ADDED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:33:13-35:85
+ADDED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:33:13-35:85
 	android:value
-		ADDED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:35:17-82
+		ADDED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:35:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-storage:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\d33b52aa4f5ffd086051a790e2f6208e\firebase-storage-19.0.0\AndroidManifest.xml:34:17-107
+		ADDED from [com.google.firebase:firebase-storage:19.0.1] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\fb1a59e0628b971392caea9f38818ae4\firebase-storage-19.0.1\AndroidManifest.xml:34:17-107
 activity#com.google.firebase.auth.internal.FederatedSignInActivity
 ADDED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:24:9-31:50
 	android:excludeFromRecents
@@ -495,15 +504,15 @@ ADDED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\cac
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\69da79c4ce330b3365720076842c30a9\firebase-auth-19.0.0\AndroidManifest.xml:37:17-109
 provider#com.google.firebase.provider.FirebaseInitProvider
-ADDED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
+ADDED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:17:9-21:39
 	android:authorities
-		ADDED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:14:13-72
+		ADDED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:19:13-72
 	android:exported
-		ADDED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:15:13-37
+		ADDED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:20:13-37
 	android:initOrder
-		ADDED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:16:13-36
+		ADDED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:21:13-36
 	android:name
-		ADDED from [com.google.firebase:firebase-common:19.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\daa9c6651247b129963b4bac8e5dd40c\firebase-common-19.0.0\AndroidManifest.xml:13:13-77
+		ADDED from [com.google.firebase:firebase-common:19.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8cbd70a9c6656372297554838b175ec2\firebase-common-19.1.0\AndroidManifest.xml:18:13-77
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\8eb866707b690ca0a19e0e3fe5cc8413\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
 	android:exported

@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.bento.a.users.User;
+import com.bento.a.Classes.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -49,7 +49,7 @@ public class EditPerfUActivity extends AppCompatActivity {
     private CircleImageView imagemPerf;
     private MaskEditText  novo_cep_inp, novo_cpf_inp, novo_dat_inp, novo_rg_inp, novo_tel_inp;
     private EditText novo_nom_usu_inp,  novo_nom_comp_usu_inp;
-    private String novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cep, novo_cpf, novo_dat, novo_rg, novo_tel;
+    private String novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cep, novo_cpf, novo_dat, novo_rg, novo_tel, us_img;
     private FirebaseUser user = mAuth.getCurrentUser();
     private StorageReference folder;
     private String user_id = Objects.requireNonNull(user).getUid();
@@ -292,7 +292,7 @@ public class EditPerfUActivity extends AppCompatActivity {
                         Imagename.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                             @Override
                             public void onComplete(@NonNull Task<Uri> task) {
-                                newPost.put("us_img", Objects.requireNonNull(task.getResult()).toString());
+                                us_img = Objects.requireNonNull(task.getResult()).toString();
                             }
                         });
                     }
@@ -330,7 +330,7 @@ public class EditPerfUActivity extends AppCompatActivity {
     private void ChangeData() {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-        User user = new User(novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cpf, novo_cep, novo_tel, novo_dat, novo_rg);
+        User user = new User(novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cpf, novo_cep, novo_tel, novo_dat, novo_rg, us_img);
 
         newPost.put(user_id, user.toMap());
         ref.updateChildren(newPost).addOnCompleteListener(EditPerfUActivity.this, new OnCompleteListener<Void>() {

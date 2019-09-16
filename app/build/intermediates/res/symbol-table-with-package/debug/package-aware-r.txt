@@ -52,6 +52,10 @@ array com_google_android_gms_fonts_certs_prod
 array preloaded_fonts
 array tip_animal
 array tip_usu
+attr DialogSpotColor
+attr DialogSpotCount
+attr DialogTitleAppearance
+attr DialogTitleText
 attr SwipeFlingStyle
 attr actionBarDivider
 attr actionBarItemBackground
@@ -807,6 +811,7 @@ color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
 color sep_grey
+color spots_dialog_color
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -1042,10 +1047,15 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen progress_margin
+dimen progress_width
+dimen spot_size
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
 dimen subtitle_shadow_radius
+dimen title_margin
+dimen title_padding
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -1212,6 +1222,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dmax_spots_spot
 drawable edit_icon
 drawable exclamacao
 drawable filhote
@@ -1339,6 +1350,8 @@ id adulto
 id alertTitle
 id all
 id always
+id an_dig_raca
+id an_dig_uid
 id anchored
 id ani_adot
 id ani_perdido
@@ -1442,7 +1455,8 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
-id distancia_view
+id dmax_spots_progress
+id dmax_spots_title
 id edit_cep
 id edit_cepE
 id edit_cnpjE
@@ -1464,7 +1478,7 @@ id enterAlwaysCollapsed
 id es_email_text1
 id es_nome_text
 id exitUntilCollapsed
-id exit_text
+id exit_m
 id expand_activities_button
 id expanded
 id expanded_menu
@@ -1499,6 +1513,7 @@ id image_dog
 id image_dog1
 id image_dog2
 id image_dog3
+id image_dog4
 id image_perfil
 id image_view_crop
 id image_view_logo
@@ -1577,6 +1592,10 @@ id profile_icon
 id progress_circular
 id progress_horizontal
 id raca_animal
+id radbut_idade
+id radbut_porte
+id radbut_status
+id radbut_vacina
 id radio
 id radio_idade
 id radio_port
@@ -1590,6 +1609,7 @@ id right_side
 id rotate_scroll_wheel
 id rvAnimal
 id rvChat
+id rvChatHeader
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1702,6 +1722,7 @@ id view4
 id view5
 id view6
 id view7
+id view8
 id view_bg
 id view_offset_helper
 id view_overlay
@@ -1780,6 +1801,7 @@ layout cad_dog_layout
 layout cad_layout
 layout cad_se_layout
 layout cad_su_layout
+layout chat_global_item
 layout chat_item
 layout chat_layout
 layout custom_dialog
@@ -1798,6 +1820,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout dmax_spots_dialog
 layout edit_perfe_layout
 layout edit_perfu_layout
 layout esqueceu_senha_layout
@@ -2156,6 +2179,7 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
+style SpotsDialogDefault
 style SwipeFling
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
@@ -2474,6 +2498,7 @@ styleable ConstraintSet android_orientation android_id android_visibility androi
 styleable CoordinatorLayout keylines statusBarBackground
 styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
 styleable DesignTheme bottomSheetDialogTheme bottomSheetStyle
+styleable Dialog DialogSpotColor DialogSpotCount DialogTitleAppearance DialogTitleText
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide

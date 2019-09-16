@@ -12,25 +12,25 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int riv_border_color = 0x7f0401a1;
-        public static final int riv_border_width = 0x7f0401a2;
-        public static final int riv_corner_radius = 0x7f0401a3;
-        public static final int riv_corner_radius_bottom_left = 0x7f0401a4;
-        public static final int riv_corner_radius_bottom_right = 0x7f0401a5;
-        public static final int riv_corner_radius_top_left = 0x7f0401a6;
-        public static final int riv_corner_radius_top_right = 0x7f0401a7;
-        public static final int riv_mutate_background = 0x7f0401a8;
-        public static final int riv_oval = 0x7f0401a9;
-        public static final int riv_tile_mode = 0x7f0401aa;
-        public static final int riv_tile_mode_x = 0x7f0401ab;
-        public static final int riv_tile_mode_y = 0x7f0401ac;
+        public static final int riv_border_color = 0x7f0401a5;
+        public static final int riv_border_width = 0x7f0401a6;
+        public static final int riv_corner_radius = 0x7f0401a7;
+        public static final int riv_corner_radius_bottom_left = 0x7f0401a8;
+        public static final int riv_corner_radius_bottom_right = 0x7f0401a9;
+        public static final int riv_corner_radius_top_left = 0x7f0401aa;
+        public static final int riv_corner_radius_top_right = 0x7f0401ab;
+        public static final int riv_mutate_background = 0x7f0401ac;
+        public static final int riv_oval = 0x7f0401ad;
+        public static final int riv_tile_mode = 0x7f0401ae;
+        public static final int riv_tile_mode_x = 0x7f0401af;
+        public static final int riv_tile_mode_y = 0x7f0401b0;
     }
     public static final class id {
         private id() {}
 
-        public static final int clamp = 0x7f0a0093;
-        public static final int mirror = 0x7f0a0118;
-        public static final int repeat = 0x7f0a013c;
+        public static final int clamp = 0x7f0a0096;
+        public static final int mirror = 0x7f0a011b;
+        public static final int repeat = 0x7f0a0143;
     }
     public static final class string {
         private string() {}
@@ -49,7 +49,7 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] RoundedImageView = { 0x101011d, 0x7f0401a1, 0x7f0401a2, 0x7f0401a3, 0x7f0401a4, 0x7f0401a5, 0x7f0401a6, 0x7f0401a7, 0x7f0401a8, 0x7f0401a9, 0x7f0401aa, 0x7f0401ab, 0x7f0401ac };
+        public static final int[] RoundedImageView = { 0x101011d, 0x7f0401a5, 0x7f0401a6, 0x7f0401a7, 0x7f0401a8, 0x7f0401a9, 0x7f0401aa, 0x7f0401ab, 0x7f0401ac, 0x7f0401ad, 0x7f0401ae, 0x7f0401af, 0x7f0401b0 };
         public static final int RoundedImageView_android_scaleType = 0;
         public static final int RoundedImageView_riv_border_color = 1;
         public static final int RoundedImageView_riv_border_width = 2;

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 
 import com.bento.a.MainActivity;
 import com.bento.a.R;
-import com.bento.a.animals.Animal;
+import com.bento.a.Classes.Animal;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class arrayAdapter extends ArrayAdapter<Animal> {
         ImageView imagem_dog = convertView.findViewById(R.id.image_adp_dog);
 
         assert animal != null;
-        Picasso.get().load(animal.getAn_fprof_img()).into(imagem_dog);
+        Picasso.get().load(animal.getAn_prof_img1()).into(imagem_dog);
 
         return convertView;
     }

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.bento.a.users.User;
+import com.bento.a.Classes.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,7 +30,7 @@ public class CadSUActivity extends AppCompatActivity {
 
     private EditText cad_nom_inp;
     private MaskEditText cad_cpf_inp, cad_cep_inp, cad_rg_inp, cad_tel_inp, cad_nasc_inp;
-    private String nome_comp, tip_usu, cpf, cep, telefone, nascimento, rg, nom_usu, email, senha;
+    private String nome_comp, tip_usu, cpf, cep, telefone, nascimento, rg, nom_usu, email, senha, us_img = "null";
     private Button but_cad, but_vol;
     private ProgressBar circle_load;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -194,7 +194,7 @@ public class CadSUActivity extends AppCompatActivity {
     {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-        User user = new User(nom_usu, tip_usu, nome_comp, cpf, cep, telefone, nascimento, rg);
+        User user = new User(nom_usu, tip_usu, nome_comp, cpf, cep, telefone, nascimento, rg, us_img);
         HashMap<String, Object> newPost = new HashMap<>();
         newPost.put(user_id, user.toMap());
         ref.updateChildren(newPost);

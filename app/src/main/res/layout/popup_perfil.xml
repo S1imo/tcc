@@ -14,7 +14,7 @@
     tools:context="com.bento.a.PopUpPerfil">
 
     <TextView
-        android:id="@+id/exit_text"
+        android:id="@+id/exit_m"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:textColor="@color/popupBack"
@@ -33,20 +33,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center"
-            >
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_dog"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/perfil_circle"/>
+            android:layout_gravity="center">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_dog1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/perfil_circle"/>
@@ -61,6 +53,14 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_dog3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/perfil_circle"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_dog4"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -81,6 +81,7 @@
     </LinearLayout>
 
     <RadioGroup
+        android:id="@+id/radbut_porte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -138,6 +139,7 @@
         </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/radbut_idade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -188,6 +190,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/radbut_vacina"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -255,6 +258,7 @@
     </LinearLayout>
 
     <RadioGroup
+        android:id="@+id/radbut_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

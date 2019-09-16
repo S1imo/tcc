@@ -61,7 +61,7 @@
         android:id="@+id/log_email_inp"
         android:layout_width="350dp"
         android:layout_height="30dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:background="@color/color_brancofundo_log"
         android:fontFamily="@font/montserrat"
         android:inputType="textEmailAddress"
@@ -73,6 +73,7 @@
         android:id="@+id/log_senha_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:shadowColor="#332F2F"
         android:shadowDx="0.5"
@@ -91,6 +92,7 @@
         android:layout_width="350dp"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/log_senha_text"
         app:passwordToggleEnabled="true">
@@ -138,7 +140,7 @@
 
     <TextView
         android:id="@+id/log_esq_senha"
-        android:layout_width="131dp"
+        android:layout_width="142dp"
         android:layout_height="20dp"
         android:shadowColor="#332F2F"
         android:shadowDx="0.5"
