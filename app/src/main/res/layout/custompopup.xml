@@ -156,6 +156,29 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/radbut_castrado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Castrado: "
+            android:background="@drawable/cad_dog_box"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="bold" />
+        <TextView
+            android:fontFamily="@font/montserrat"
+            android:id="@+id/castrado_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            android:text="Sim"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/radbut_vacina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

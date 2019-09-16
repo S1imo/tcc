@@ -1419,6 +1419,9 @@ id cad_tip_usu_text
 id cad_voltar_but
 id cancel_action
 id cardView
+id castrado_animal
+id castrado_nao
+id castrado_sim
 id center
 id center_horizontal
 id center_vertical
@@ -1541,6 +1544,7 @@ id line1
 id line3
 id linearLayout
 id linearLayout2
+id linearLayout4
 id linearlayout3
 id listMode
 id list_item
@@ -1592,11 +1596,13 @@ id profile_icon
 id progress_circular
 id progress_horizontal
 id raca_animal
+id radbut_castrado
 id radbut_idade
 id radbut_porte
 id radbut_status
 id radbut_vacina
 id radio
+id radio_castrado
 id radio_idade
 id radio_port
 id radio_stat
@@ -1677,6 +1683,7 @@ id textStart
 id textView
 id textView2
 id textView3
+id textView4
 id text_View_upload
 id text_input_password_toggle
 id text_us_nom

@@ -24,9 +24,9 @@ import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PopUpPerfil extends AppCompatActivity {
-    private TextView exitText, text_tip, text_porte, text_idade, text_vac, text_stat;
+    private TextView exitText, text_tip, text_porte, text_idade, text_vac, text_stat, text_cast;
     private EditText text_raca, text_desc;
-    private RadioGroup sel_inp_porte, sel_inp_idade, sel_inp_vac, sel_inp_stat;
+    private RadioGroup sel_inp_porte, sel_inp_idade, sel_inp_vac, sel_inp_stat, sel_inp_cast;
     private String an_porte, an_tip, an_idade, an_vac, an_raca, an_stat, an_desc, an_uid;
     private RadioButton but_sel_porte, but_sel_idade, but_sel_vac, but_sel_stat;
     private CircleImageView image1, image2, image3, image4;
@@ -81,12 +81,14 @@ public class PopUpPerfil extends AppCompatActivity {
         text_raca = findViewById(R.id.raca_animal); //edit
         text_stat = findViewById(R.id.status_animal);
         text_desc = findViewById(R.id.desc_animal); //edit
+        text_cast = findViewById(R.id.castrado_animal);
 
         //parte edição
         sel_inp_idade = findViewById(R.id.radbut_idade);
         sel_inp_porte = findViewById(R.id.radbut_porte);
         sel_inp_stat = findViewById(R.id.radbut_status);
         sel_inp_vac = findViewById(R.id.radbut_vacina);
+        sel_inp_cast = findViewById(R.id.radbut_castrado);
 
     }
 
