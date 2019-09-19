@@ -1493,7 +1493,7 @@ id filled
 id fixed
 id forever
 id frame
-id frame_layout_des
+id frame_layout_desespero
 id ghost_view
 id gone
 id group_divider
@@ -1685,7 +1685,9 @@ id textView2
 id textView3
 id textView4
 id text_View_upload
+id text_idade_dog
 id text_input_password_toggle
+id text_raca_dog
 id text_us_nom
 id text_us_status
 id text_view_rotate
@@ -1800,8 +1802,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_desespero
-layout activity_loja
-layout activity_perdidos
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cad_dog_layout
@@ -1833,6 +1833,7 @@ layout edit_perfu_layout
 layout esqueceu_senha_layout
 layout image_item
 layout login_layout
+layout loja_layout
 layout main_item
 layout main_layout
 layout mtrl_layout_snackbar
@@ -1853,6 +1854,7 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout overlay
+layout perdidos_layout
 layout popup_perfil
 layout profile_layout
 layout select_dialog_item_material

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bento.a.Adapters.arrayAdapter;
 import com.bento.a.Classes.Animal;
+import com.bento.a.Classes.Connections;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ImageButton buttonInfo;
     private FirebaseDatabase mFire;
-    private DatabaseReference mRef, mRefUser, mRefAnimal;
+    private DatabaseReference mRef, mRefAnimal;
     private String user_id, an_uid;
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, imagelike;
     private FloatingActionButton buttonDes, buttonLike;
@@ -85,39 +86,43 @@ public class MainActivity extends AppCompatActivity {
 
     private void SwipeCard() {
         rowItems = new ArrayList<>();
-        mRef = mFire.getReference().child("Connections");
-        mRefUser = mFire.getReference().child("Users");
+        mRefAnimal = mFire.getReference().child("Animais").child(user_id);
+        rowItems = new ArrayList<>();
         mRefAnimal = mFire.getReference().child("Animais");
 
-        mRef.addValueEventListener(new ValueEventListener() {
+        mRefAnimal.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+                for (final DataSnapshot value : dataSnapshot.getChildren()) {
+                    for (DataSnapshot value_in : value.getChildren()) {
+                        final Animal animal = value_in.getValue(Animal.class);
+                        assert animal != null;
+                        if (!animal.getUs_uid().equals(user_id)) {
+                            System.out.println(animal.getAn_uid());
+                            mRef = mFire.getReference().child("Connections").child(animal.getAn_uid());
+                            mRef.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.hasChildren()) {
+                                        for (DataSnapshot value_con : dataSnapshot.getChildren()) {
+                                            Connections connections = value_con.getValue(Connections.class);
+                                            assert connections != null;
+                                            if (!connections.getUs_uid().equals(user_id)) {
+                                                rowItems.add(animal);
+                                                arr_Adapter.notifyDataSetChanged();
+                                            }
+                                        }
+                                    } else {
+                                        rowItems.add(animal);
+                                        arr_Adapter.notifyDataSetChanged();
+                                    }
+                                }
 
-            }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
-
-            }
-        });
-
-        /*mRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot value: dataSnapshot.getChildren())
-                {
-                    String pint = value.getKey();
-                    assert pint != null;
-                    if(!pint.equals(user_id))
-                    {
-                        for(DataSnapshot value_in: value.getChildren())
-                        {
-                            if(value_in.child("connections").getValue() == null)
-                            {
-
-                            }
+                                }
+                            });
                         }
                     }
                 }
@@ -127,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });*/
+        });
         arr_Adapter = new arrayAdapter(this, R.layout.main_item, rowItems);
         flingContainer.setAdapter(arr_Adapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -142,16 +147,23 @@ public class MainActivity extends AppCompatActivity {
             public void onLeftCardExit(final Object dataObject) {
                 an_uid = ((Animal) dataObject).getAn_uid();
                 DatabaseReference refNew = mFire.getReference();
-                refNew.child("Connections").child(an_uid).child("No").child(user_id).setValue(true);
-                refNew.child("Connections").child(an_uid).child("No").child(((Animal) dataObject).getUs_uid()).setValue(true);
+                int num_chat = (int) System.currentTimeMillis();
+                //o uid do usuario conectado
+                refNew.child("Connections").child(an_uid).child("No" + num_chat).child("us_uid").setValue(user_id);
+                //uid do animal
+                refNew.child("Connections").child(an_uid).child("No" + num_chat).child("an_uid").setValue(((Animal) dataObject).getAn_uid());
+                //uid da pessoa que colocou o cachorro para adoção
+                refNew.child("Connections").child(an_uid).child("No" + num_chat).child("an_us_uid").setValue(((Animal) dataObject).getUs_uid());
             }
 
             @Override
             public void onRightCardExit(final Object dataObject) {
                 an_uid = ((Animal) dataObject).getAn_uid();
                 DatabaseReference refNew = mFire.getReference();
-                refNew.child("Connections").child(an_uid).child("Yes").child(user_id).setValue(true);
-                refNew.child("Connections").child(an_uid).child("Yes").child(((Animal) dataObject).getUs_uid()).setValue(true);
+                int bbb = (int) System.currentTimeMillis();
+                refNew.child("Connections").child(an_uid).child("Yes" + bbb).child("us_uid").setValue(user_id);
+                refNew.child("Connections").child(an_uid).child("Yes" + bbb).child("an_uid").setValue(((Animal) dataObject).getAn_uid());
+                refNew.child("Connections").child(an_uid).child("Yes" + bbb).child("an_us_uid").setValue(((Animal) dataObject).getUs_uid());
             }
 
             @Override

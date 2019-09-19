@@ -14,7 +14,7 @@ public class PerdidosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perdidos);
+        setContentView(R.layout.perdidos_layout);
 
         InpToVar(); //input para variaveis
         Buttons(); //função dos botoes

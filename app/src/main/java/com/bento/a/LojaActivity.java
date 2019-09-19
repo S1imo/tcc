@@ -14,7 +14,7 @@ public class LojaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loja);
+        setContentView(R.layout.loja_layout);
 
         InpToVar(); //input para variaveis
         Buttons(); //função dos botoes

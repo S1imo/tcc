@@ -263,7 +263,6 @@ public class ChatActivity extends AppCompatActivity {
                 return new ViewHolderChat(view);
             }
         };
-
         LinearLayoutManager mLinearLManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLinearLManager);
         adapter1.startListening();
