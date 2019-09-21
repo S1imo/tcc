@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -37,33 +36,47 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="400dp">
+                android:layout_marginTop="400dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/text_raca_dog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
+                    android:text="TextNome,"
                     android:textColor="@color/color_branco_menu"
-                    android:textSize="30sp"
-                    android:text="TextNome,"/>
+                    android:textSize="30sp" />
+
                 <TextView
                     android:id="@+id/text_idade_dog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
+                    android:text="TextIdade"
                     android:textColor="@color/color_branco_menu"
-                    android:textSize="30sp"
-                    android:text="TextIdade"/>
-
+                    android:textSize="30sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="360sp"
+                android:layout_marginTop="440sp">
+                <ImageButton
+                    android:id="@+id/info_btn_card"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_file"
+                    android:elevation="10dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/exclamacao" />
             </LinearLayout>
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

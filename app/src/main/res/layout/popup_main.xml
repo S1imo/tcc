@@ -59,7 +59,7 @@
             android:layout_gravity="center"
             >
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_dog"
+                android:id="@+id/image_dog_main"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
@@ -67,7 +67,7 @@
                 android:background="@drawable/perfil_circle"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_dog1"
+                android:id="@+id/image_dog1_main"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
@@ -75,7 +75,7 @@
                 android:background="@drawable/perfil_circle"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_dog2"
+                android:id="@+id/image_dog2_main"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
@@ -85,11 +85,10 @@
         </LinearLayout>
     </LinearLayout>
         <TextView
-            android:id="@+id/tipo_animal"
+            android:id="@+id/tipo_animal_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Cachorro"
             android:fontFamily="@font/montserrat"
             android:layout_marginTop="5dp"
             android:textStyle="bold"/>
@@ -112,7 +111,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/porte_animal"
+                android:id="@+id/porte_animal_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="pequeno"
@@ -143,7 +142,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/idade_ani"
+                android:id="@+id/idade_ani_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Filhote"
@@ -170,7 +169,7 @@
             android:textStyle="bold" />
         <TextView
             android:fontFamily="@font/montserrat"
-            android:id="@+id/castrado_animal"
+            android:id="@+id/castrado_animal_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -193,7 +192,7 @@
                 android:textStyle="bold" />
             <TextView
                 android:fontFamily="@font/montserrat"
-                android:id="@+id/vacinado_animal"
+                android:id="@+id/vacinado_animal_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -216,7 +215,7 @@
                 android:background="@drawable/cad_dog_box"/>
 
             <TextView
-                android:id="@+id/raca_animal"
+                android:id="@+id/raca_animal_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
@@ -243,7 +242,7 @@
                 android:fontFamily="@font/montserrat"
                 android:background="@drawable/cad_dog_box"/>
             <TextView
-                android:id="@+id/status_animal"
+                android:id="@+id/status_animal_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -271,12 +270,12 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/desc_animal"
+            android:id="@+id/desc_animal_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
             android:fontFamily="@font/montserrat"
-            android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:text="aaaaaaaaaaaaaaaaaaaaaaaaa"
             android:textSize="14sp"
             android:textStyle="bold" />
 

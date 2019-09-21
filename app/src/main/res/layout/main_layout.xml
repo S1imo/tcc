@@ -155,24 +155,11 @@
         app:srcCompat="@android:drawable/star_big_on" />
 
 
-    <ImageButton
-        android:id="@+id/info_btn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button_file"
-        android:elevation="10dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/frame"
-        app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintStart_toStartOf="@+id/view3"
-        app:srcCompat="@drawable/exclamacao" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/deslike_btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@android:color/white"
         android:clickable="true"
         android:focusable="true"
@@ -180,7 +167,7 @@
         app:borderWidth="0dp"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/info_btn"
+        app:layout_constraintEnd_toStartOf="@+id/like_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="55dp"
         app:rippleColor="@null"
@@ -190,7 +177,8 @@
         android:id="@+id/like_btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@android:color/white"
         android:clickable="true"
         android:focusable="true"
@@ -199,7 +187,8 @@
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/info_btn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/frame"
         app:maxImageSize="43dp"
         app:rippleColor="@null"
         app:srcCompat="@drawable/botao_like" />

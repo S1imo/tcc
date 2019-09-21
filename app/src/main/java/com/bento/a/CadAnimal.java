@@ -49,11 +49,11 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     private ImageButton but_voltar;
     private EditText editTextRaca, editTextDesc;
     private Button buttonAplicar;
-    private RadioGroup inp_sel_port, inp_sel_vac, inp_sel_stat, inp_sel_idade;
-    private RadioButton but_rad_port, but_rad_vac, but_rad_stat, but_rad_idade;
+    private RadioGroup inp_sel_port, inp_sel_vac, inp_sel_stat, inp_sel_idade, inp_sel_cast;
+    private RadioButton but_rad_port, but_rad_vac, but_rad_stat, but_rad_idade, but_rad_cast;
     private Spinner inp_tip_animal;
     private CircleImageView inp_img1, inp_img2, inp_img3, inp_img4, img;
-    private String an_idade, tip_animal, an_port, an_vac, an_stat, an_desc, an_raca;
+    private String an_idade, tip_animal, an_port, an_vac, an_stat, an_desc, an_raca, an_cast;
     private String[] an_prof_img = new String[5];
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private StorageReference folder;
@@ -159,6 +159,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
         inp_sel_vac = findViewById(R.id.radio_vac);
         inp_sel_stat = findViewById(R.id.radio_stat);
         inp_sel_idade = findViewById(R.id.radio_idade);
+        inp_sel_cast = findViewById(R.id.radio_castrado);
 
         buttonAplicar = findViewById(R.id.button_aplicar);
         but_voltar = findViewById(R.id.voltarDButton);
@@ -242,10 +243,12 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
         int selectedid_vac = inp_sel_vac.getCheckedRadioButtonId();
         int selectedid_stat = inp_sel_stat.getCheckedRadioButtonId();
         int selectedid_idade = inp_sel_idade.getCheckedRadioButtonId();
+        int selectedid_cast = inp_sel_cast.getCheckedRadioButtonId();
         but_rad_port = findViewById(selectedid_port);
         but_rad_vac = findViewById(selectedid_vac);
         but_rad_stat = findViewById(selectedid_stat);
         but_rad_idade = findViewById(selectedid_idade);
+        but_rad_cast = findViewById(selectedid_cast);
     }
 
     private void RadioTxtToStg() {
@@ -253,6 +256,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
         an_port = but_rad_port.getText().toString().trim();
         an_vac = but_rad_vac.getText().toString().trim();
         an_stat = but_rad_stat.getText().toString();
+        an_cast = but_rad_cast.getText().toString();
         an_raca = editTextRaca.getText().toString().trim();
         an_desc = editTextDesc.getText().toString().trim();
     }
@@ -276,7 +280,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     //Colocando dados FB - DB
     private void CreateAn() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Animais").child(user_id);
-        Animal an = new Animal(user_id, currentIdAn, tip_animal, an_idade, an_port, an_vac, an_raca, an_stat, an_desc, new String[]{an_prof_img[0], an_prof_img[1], an_prof_img[2], an_prof_img[3], an_prof_img[4]}, an_prof_img[0]);
+        Animal an = new Animal(user_id, currentIdAn, tip_animal, an_cast, an_idade, an_port, an_vac, an_raca, an_stat, an_desc, new String[]{an_prof_img[0], an_prof_img[1], an_prof_img[2], an_prof_img[3], an_prof_img[4]}, an_prof_img[0]);
         newPost.put(currentIdAn, an.toMap());
         ref.updateChildren(newPost)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

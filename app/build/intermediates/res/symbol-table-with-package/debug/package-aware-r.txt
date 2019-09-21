@@ -1420,6 +1420,7 @@ id cad_voltar_but
 id cancel_action
 id cardView
 id castrado_animal
+id castrado_animal_main
 id castrado_nao
 id castrado_sim
 id center
@@ -1447,6 +1448,7 @@ id dark
 id decor_content_parent
 id default_activity_button
 id desc_animal
+id desc_animal_main
 id desc_text
 id design_bottom_sheet
 id design_menu_item_action_area
@@ -1505,6 +1507,7 @@ id icon
 id icon_group
 id icon_only
 id idade_ani
+id idade_ani_main
 id ifRoom
 id image
 id imageView
@@ -1512,11 +1515,13 @@ id imageView2
 id imageView4
 id image_View_upload
 id image_adp_dog
-id image_dog
 id image_dog1
+id image_dog1_main
 id image_dog2
+id image_dog2_main
 id image_dog3
 id image_dog4
+id image_dog_main
 id image_perfil
 id image_view_crop
 id image_view_logo
@@ -1526,7 +1531,7 @@ id image_view_state_scale
 id imagelike
 id img_us
 id info
-id info_btn
+id info_btn_card
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1589,6 +1594,7 @@ id percent
 id perdido_icon
 id pin
 id porte_animal
+id porte_animal_main
 id porte_grande
 id porte_medio
 id porte_pequeno
@@ -1596,6 +1602,7 @@ id profile_icon
 id progress_circular
 id progress_horizontal
 id raca_animal
+id raca_animal_main
 id radbut_castrado
 id radbut_idade
 id radbut_porte
@@ -1661,6 +1668,7 @@ id state_aspect_ratio
 id state_rotate
 id state_scale
 id status_animal
+id status_animal_main
 id status_bar_latest_event_content
 id stretch
 id submenuarrow
@@ -1697,6 +1705,7 @@ id textinput_error
 id textinput_helper_text
 id time
 id tipo_animal
+id tipo_animal_main
 id title
 id titleDividerNoCustom
 id title_template
@@ -1722,6 +1731,7 @@ id unlabeled
 id up
 id useLogo
 id vacinado_animal
+id vacinado_animal_main
 id vacinado_nao
 id vacinado_sim
 id view
@@ -1812,7 +1822,6 @@ layout chat_global_item
 layout chat_item
 layout chat_layout
 layout custom_dialog
-layout custompopup
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1855,6 +1864,7 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout overlay
 layout perdidos_layout
+layout popup_main
 layout popup_perfil
 layout profile_layout
 layout select_dialog_item_material
