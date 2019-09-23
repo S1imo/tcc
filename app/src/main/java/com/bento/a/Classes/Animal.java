@@ -4,16 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Animal {
-    private String us_uid, an_uid, tip_an, an_idade, an_porte, an_vacinado, an_raca, an_status, an_descricao, an_prof_img1, an_prof_img2, an_prof_img3, an_prof_img4;
+    private String us_uid, an_uid, tip_an, an_cast, an_idade, an_porte, an_vacinado, an_raca, an_status, an_descricao, an_prof_img1, an_prof_img2, an_prof_img3, an_prof_img4;
     private String[] an_prof_img;
 
     public Animal() {
     }
 
-    public Animal(String us_uid, String an_uid, String tip_an, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img, String an_fprof_img) {
+    public Animal(String us_uid, String an_uid, String tip_an, String an_cast, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img, String an_fprof_img) {
         this.us_uid = us_uid;
         this.an_uid = an_uid;
         this.tip_an = tip_an;
+        this.an_cast = an_cast;
         this.an_idade = an_idade;
         this.an_porte = an_porte;
         this.an_vacinado = an_vacinado;
@@ -46,6 +47,14 @@ public class Animal {
 
     public void setTip_an(String tip_an) {
         this.tip_an = tip_an;
+    }
+
+    public String getAn_cast() {
+        return an_cast;
+    }
+
+    public void setAn_cast(String an_cast) {
+        this.an_cast = an_cast;
     }
 
     public String getAn_porte() {

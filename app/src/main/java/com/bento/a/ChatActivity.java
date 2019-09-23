@@ -241,7 +241,6 @@ public class ChatActivity extends AppCompatActivity {
         adapter1 = new FirebaseRecyclerAdapter<Animal, ViewHolderChat>(options1) {
 
             private Context context;
-            private List<Animal> animals;
 
             @Override
             protected void onBindViewHolder(@NonNull ViewHolderChat viewHolderChat, int i, @NonNull Animal animal) {

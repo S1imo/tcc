@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     private arrayAdapter arr_Adapter;
     private FirebaseAuth mAuth;
-    private ImageButton buttonInfo;
     private FirebaseDatabase mFire;
     private DatabaseReference mRef, mRefAnimal;
     private String user_id, an_uid;
@@ -64,14 +63,11 @@ public class MainActivity extends AppCompatActivity {
         //botões inferiores
         ButtonDes();
         ButtonLike();
-        ButtonInfo();
     }
 
     private void InpToVar() {
         buttonDes = findViewById(R.id.deslike_btn);
         buttonLike = findViewById(R.id.like_btn);
-        buttonInfo = findViewById(R.id.info_btn);
-
         but_profile = findViewById(R.id.profile_icon);
         but_adot = findViewById(R.id.adot_icon);
         but_perd = findViewById(R.id.perdido_icon);
@@ -98,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
                         final Animal animal = value_in.getValue(Animal.class);
                         assert animal != null;
                         if (!animal.getUs_uid().equals(user_id)) {
-                            System.out.println(animal.getAn_uid());
                             mRef = mFire.getReference().child("Connections").child(animal.getAn_uid());
                             mRef.addValueEventListener(new ValueEventListener() {
                                 @Override
@@ -249,17 +244,6 @@ public class MainActivity extends AppCompatActivity {
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
                 Toast.makeText(MainActivity.this, "Like", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-    private void ButtonInfo() {
-        buttonInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PopUpMain.class)
-                        .putExtra("an_uid", an_uid));
             }
         });
     }
