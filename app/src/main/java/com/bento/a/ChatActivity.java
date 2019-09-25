@@ -188,18 +188,29 @@ public class ChatActivity extends AppCompatActivity {
 
                 adapter2 = new FirebaseRecyclerAdapter<User, ViewHolderSubChat>(options2) {
                     @Override
-                    protected void onBindViewHolder(@NonNull ViewHolderSubChat viewHolderSubChat, int i, @NonNull User user) {
-                        viewHolderSubChat.us_nome.setText(user.getUs_nome());
-                        viewHolderSubChat.us_status.setText("Online");
+                    protected void onBindViewHolder(@NonNull final ViewHolderSubChat viewHolderSubChat, final int i, @NonNull final User user) {
 
-                        viewHolderSubChat.us_nome.setOnClickListener(new View.OnClickListener() {
+                        ref3.addValueEventListener(new ValueEventListener() {
                             @Override
-                            public void onClick(View v) {
-                                Toast.makeText(ChatActivity.this, "PINTO", Toast.LENGTH_SHORT).show();
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot value : dataSnapshot.getChildren()) {
+                                    for (DataSnapshot value_user_con : value.getChildren()) {
+                                        Connections connections = value_user_con.getValue(Connections.class);
+                                        assert connections != null;
+                                        if (connections.getUs_uid().equals(user.getUs_uid()) && connections.getAn_uid().equals(animal.getAn_uid())) {
+                                            viewHolderSubChat.us_status.setText("Online");
+                                            viewHolderSubChat.us_nome.setText(user.getUs_nome());
+                                            Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
+                                        }
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
                             }
                         });
-
-                        Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
                     }
 
                     @NonNull
