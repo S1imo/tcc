@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bento.a.Adapters.arrayAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
+import com.bento.a.Classes.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -102,12 +103,15 @@ public class MainActivity extends AppCompatActivity {
                                         for (DataSnapshot value_con : dataSnapshot.getChildren()) {
                                             Connections connections = value_con.getValue(Connections.class);
                                             assert connections != null;
-                                            if (!connections.getUs_uid().equals(user_id)) {
+                                            if (!connections.getUs_uid().contains(user_id)) {
+                                                //TODO: ele só pega o primeira da lista e compara com os outros -- erro
                                                 rowItems.add(animal);
                                                 arr_Adapter.notifyDataSetChanged();
                                             }
                                         }
-                                    } else {
+                                    }
+                                    else
+                                    {
                                         rowItems.add(animal);
                                         arr_Adapter.notifyDataSetChanged();
                                     }
@@ -198,8 +202,11 @@ public class MainActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                User user = new User();
+                user.signUp();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                /*startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);*/
             }
         });
     }

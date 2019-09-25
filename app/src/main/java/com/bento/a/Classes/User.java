@@ -6,11 +6,12 @@ import java.util.Map;
 
 public class User {
 
-    private String us_nome, us_status, us_tip_usu, us_nome_comp, us_cpf, us_cnpj, us_cep, us_tel, us_dat_nasc, us_rg, us_img;
+    private String us_uid, us_nome, us_status, us_tip_usu, us_nome_comp, us_cpf, us_cnpj, us_cep, us_tel, us_dat_nasc, us_rg, us_img;
 
     public User(){}
 
-    public User(String nome, String tip_usu, String nome_comp, String cpf, String cep, String tel, String dat_nasc, String rg, String us_img) {
+    public User(String us_uid,String nome, String tip_usu, String nome_comp, String cpf, String cep, String tel, String dat_nasc, String rg, String us_img) {
+        this.us_uid = us_uid;
         this.us_nome = nome;
         this.us_tip_usu = tip_usu;
         this.us_nome_comp = nome_comp;
@@ -22,7 +23,8 @@ public class User {
         this.us_img = us_img;
     }
 
-    public User(String nome, String tip_usu, String nome_comp, String cep, String cnpj, String tel, String us_img) {
+    public User(String us_uid, String nome, String tip_usu, String nome_comp, String cep, String cnpj, String tel, String us_img) {
+        this.us_uid = us_uid;
         this.us_nome = nome;
         this.us_tip_usu = tip_usu;
         this.us_nome_comp = nome_comp;
@@ -74,6 +76,14 @@ public class User {
         return us_status;
     }
 
+    public String getUs_uid() {
+        return us_uid;
+    }
+
+    public void setUs_uid(String us_uid) {
+        this.us_uid = us_uid;
+    }
+
     public void setUs_status(String us_status) {
         this.us_status = us_status;
     }
@@ -120,6 +130,7 @@ public class User {
     {
         HashMap<String, Object> dataInfo = new HashMap<>();
         if(us_tip_usu.equals("Usuário")){
+            dataInfo.put("us_uid",us_uid);
             dataInfo.put("us_nome",us_nome);
             dataInfo.put("us_nome_comp", us_nome_comp);
             dataInfo.put("us_tip_usu", us_tip_usu);
@@ -133,12 +144,14 @@ public class User {
             return dataInfo;
         }
         else if(us_tip_usu.equals("Organização")) {
+            dataInfo.put("us_uid", us_uid);
             dataInfo.put("us_nome", us_nome);
             dataInfo.put("us_nome_comp", us_nome_comp);
             dataInfo.put("us_tip_usu", us_tip_usu);
             dataInfo.put("us_cnpj", us_cnpj);
             dataInfo.put("us_cep", us_cep);
             dataInfo.put("us_tel", us_tel);
+            dataInfo.put("us_img", us_img);
 
             return dataInfo;
         }

@@ -7,15 +7,4 @@
     tools:context=".desespero">
 
 
-    <com.lorentzos.flingswipe.SwipeFlingAdapterView
-        android:id="@+id/frame_layout_desespero"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffeee9e2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:rotation_degrees="15.5"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

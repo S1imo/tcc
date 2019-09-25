@@ -150,18 +150,17 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void ProfilePic() {
-        myStoreRef.child("Users").child(user_id).child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+        myRef.child("Users").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onSuccess(byte[] bytes) {
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-
-                perf_img.setImageBitmap(Bitmap.createScaledBitmap(bmp, perf_img.getWidth(),
-                        perf_img.getHeight(), false));
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                assert user != null;
+                Picasso.get().load(user.getUs_img()).into(perf_img);
             }
-        }).addOnFailureListener(new OnFailureListener() {
+
             @Override
-            public void onFailure(@NonNull Exception exception) {
-                perf_img.setImageDrawable(getDrawable(R.drawable.bg_prof_all));
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Picasso.get().load(R.drawable.bg_prof_all).into(perf_img);
             }
         });
     }
