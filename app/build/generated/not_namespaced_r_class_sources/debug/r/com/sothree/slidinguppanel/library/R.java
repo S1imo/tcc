@@ -122,6 +122,7 @@ public final class R {
         public static final int cancel_action = 0x7f0a008b;
         public static final int chronometer = 0x7f0a0098;
         public static final int collapsed = 0x7f0a009f;
+<<<<<<< Updated upstream
         public static final int end_padder = 0x7f0a00c7;
         public static final int expanded = 0x7f0a00cf;
         public static final int forever = 0x7f0a00d7;
@@ -145,6 +146,31 @@ public final class R {
         public static final int text2 = 0x7f0a0195;
         public static final int time = 0x7f0a01a9;
         public static final int title = 0x7f0a01ac;
+=======
+        public static final int end_padder = 0x7f0a00c8;
+        public static final int expanded = 0x7f0a00d0;
+        public static final int forever = 0x7f0a00d8;
+        public static final int hidden = 0x7f0a00df;
+        public static final int icon = 0x7f0a00e2;
+        public static final int icon_group = 0x7f0a00e3;
+        public static final int info = 0x7f0a00fd;
+        public static final int italic = 0x7f0a0100;
+        public static final int item_touch_helper_previous_elevation = 0x7f0a0101;
+        public static final int line1 = 0x7f0a010d;
+        public static final int line3 = 0x7f0a010e;
+        public static final int media_actions = 0x7f0a0121;
+        public static final int normal = 0x7f0a012f;
+        public static final int notification_background = 0x7f0a0130;
+        public static final int notification_main_column = 0x7f0a0131;
+        public static final int notification_main_column_container = 0x7f0a0132;
+        public static final int right_icon = 0x7f0a0157;
+        public static final int right_side = 0x7f0a0159;
+        public static final int status_bar_latest_event_content = 0x7f0a018d;
+        public static final int text = 0x7f0a019b;
+        public static final int text2 = 0x7f0a019c;
+        public static final int time = 0x7f0a01b1;
+        public static final int title = 0x7f0a01b4;
+>>>>>>> Stashed changes
     }
     public static final class integer {
         private integer() {}

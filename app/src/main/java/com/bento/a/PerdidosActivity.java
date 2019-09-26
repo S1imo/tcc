@@ -1,6 +1,7 @@
 package com.bento.a;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 public class PerdidosActivity extends AppCompatActivity {
 
     private ImageView but_profile, but_adot, but_loja, but_chat;
+    private RecyclerView recentesView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,8 @@ public class PerdidosActivity extends AppCompatActivity {
 
         InpToVar(); //input para variaveis
         Buttons(); //função dos botoes
+
+        PerdidoAn();
     }
 
     private void Buttons(){
@@ -80,5 +84,10 @@ public class PerdidosActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
+    }
+
+    private void PerdidoAn(){
+        recentesView = findViewById(R.id.rvPerdidos);
+
     }
 }

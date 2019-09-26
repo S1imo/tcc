@@ -39,8 +39,8 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int dmax_spots_progress = 0x7f0a00b6;
-        public static final int dmax_spots_title = 0x7f0a00b7;
+        public static final int dmax_spots_progress = 0x7f0a00b7;
+        public static final int dmax_spots_title = 0x7f0a00b8;
     }
     public static final class layout {
         private layout() {}

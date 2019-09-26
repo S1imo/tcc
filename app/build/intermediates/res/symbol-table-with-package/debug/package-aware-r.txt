@@ -1455,6 +1455,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id deslike_anim
 id deslike_btn
 id dialog_button
 id dimensions
@@ -1543,11 +1544,13 @@ id layout_scale_wheel
 id left
 id left_overlay
 id light
+id like_anim
 id like_btn
 id line1
 id line3
 id linearLayout
 id linearLayout2
+id linearLayout3
 id linearLayout4
 id linearlayout3
 id listMode
@@ -1590,6 +1593,8 @@ id parent
 id parentPanel
 id parent_matrix
 id percent
+id perdido_bairro
+id perdido_cid
 id perdido_icon
 id pin
 id porte_animal
@@ -1622,6 +1627,7 @@ id rotate_scroll_wheel
 id rvAnimal
 id rvChat
 id rvChatHeader
+id rvPerdidos
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1672,7 +1678,11 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+<<<<<<< Updated upstream
 id swipe_des
+=======
+id superlike_btn
+>>>>>>> Stashed changes
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -1692,6 +1702,7 @@ id textView
 id textView2
 id textView3
 id textView4
+id textView5
 id text_View_upload
 id text_idade_dog
 id text_input_password_toggle
@@ -1863,6 +1874,7 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout overlay
+layout perdidos_item
 layout perdidos_layout
 layout popup_main
 layout popup_perfil

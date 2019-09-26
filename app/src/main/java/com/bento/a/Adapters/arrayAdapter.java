@@ -23,29 +23,27 @@ import java.util.List;
 
 public class arrayAdapter extends ArrayAdapter<Animal> {
 
-    public arrayAdapter(@NonNull Context context, int resource, List<Animal> rowItems)
-    {
+    public arrayAdapter(@NonNull Context context, int resource, List<Animal> rowItems) {
         super(context, resource, rowItems);
     }
 
     @SuppressLint("SetTextI18n")
-    public View getView(int position, View convertView, final ViewGroup parent)
-    {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         final Animal animal = getItem(position);
-        if(convertView == null)
-        {
+        if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent, false);
         }
+
 
         ImageView imagem_dog = convertView.findViewById(R.id.image_adp_dog);
         ImageButton img_but_det = convertView.findViewById(R.id.info_btn_card);
         TextView text_raca_dog = convertView.findViewById(R.id.text_raca_dog);
         TextView text_idade_dog = convertView.findViewById(R.id.text_idade_dog);
-
         assert animal != null;
         Picasso.get().load(animal.getAn_prof_img1()).into(imagem_dog);
         text_raca_dog.setText(animal.getAn_raca() + ", ");
         text_idade_dog.setText(animal.getAn_idade());
+
 
         img_but_det.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +53,6 @@ public class arrayAdapter extends ArrayAdapter<Animal> {
                         .putExtra("us_uid", animal.getUs_uid()));
             }
         });
-
         return convertView;
     }
 }

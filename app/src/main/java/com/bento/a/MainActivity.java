@@ -1,9 +1,13 @@
 package com.bento.a;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -37,10 +41,11 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase mFire;
     private DatabaseReference mRef, mRefAnimal, mRefConnections;
     private String user_id, an_uid;
-    private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, imagelike;
-    private FloatingActionButton buttonDes, buttonLike;
+    private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, likee, deslikee;
+    private FloatingActionButton buttonDes, buttonLike, buttonSuper;
     private List<Animal> rowItems;
     private SwipeFlingAdapterView flingContainer;
+    private Animation likeanim, deslikeanim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +71,13 @@ public class MainActivity extends AppCompatActivity {
         //botões inferiores
         ButtonDes();
         ButtonLike();
+        ButtonSuperLike();
     }
 
     private void InpToVar() {
         buttonDes = findViewById(R.id.deslike_btn);
         buttonLike = findViewById(R.id.like_btn);
+        buttonSuper = findViewById(R.id.superlike_btn);
         but_profile = findViewById(R.id.profile_icon);
         but_adot = findViewById(R.id.adot_icon);
         but_perd = findViewById(R.id.perdido_icon);
@@ -78,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
         but_chat = findViewById(R.id.chat_icon);
 
         flingContainer = findViewById(R.id.frame);
-        imagelike = findViewById(R.id.imagelike);
+
+        likeanim = AnimationUtils.loadAnimation(this,R.anim.fade_in);
+        deslikeanim = AnimationUtils.loadAnimation(this,R.anim.fade_in);
 
     }
 
@@ -157,6 +166,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLeftCardExit(final Object dataObject) {
+                deslikee = findViewById(R.id.deslike_anim);
+                deslikee.setAnimation(deslikeanim);
+                deslikeanim.start();
+
                 an_uid = ((Animal) dataObject).getAn_uid();
                 DatabaseReference refNew = mFire.getReference();
                 int num_chat = (int) System.currentTimeMillis();
@@ -170,6 +183,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onRightCardExit(final Object dataObject) {
+                likee = findViewById(R.id.like_anim);
+                likee.setAnimation(likeanim);
+                likeanim.start();
+
                 an_uid = ((Animal) dataObject).getAn_uid();
                 DatabaseReference refNew = mFire.getReference();
                 int bbb = (int) System.currentTimeMillis();
@@ -256,11 +273,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void ButtonSuperLike(){
+        buttonSuper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animarFab(buttonSuper);
+                flingContainer.getTopCardListener().selectRight();
+                likeanim.cancel();
+            }
+        });
+    }
+
     private void ButtonLike() {
 
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
                 Toast.makeText(MainActivity.this, "Like", Toast.LENGTH_SHORT).show();

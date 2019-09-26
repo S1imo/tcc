@@ -29,8 +29,13 @@ public final class R {
         private id() {}
 
         public static final int clamp = 0x7f0a009a;
+<<<<<<< Updated upstream
         public static final int mirror = 0x7f0a0123;
         public static final int repeat = 0x7f0a014f;
+=======
+        public static final int mirror = 0x7f0a0127;
+        public static final int repeat = 0x7f0a0155;
+>>>>>>> Stashed changes
     }
     public static final class string {
         private string() {}

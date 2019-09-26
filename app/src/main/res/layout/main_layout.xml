@@ -137,6 +137,33 @@
         app:layout_constraintTop_toBottomOf="@+id/view5"
         app:layout_constraintVertical_bias="0.632" />
 
+
+    <ImageView
+        android:id="@+id/like_anim"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/botao_like"
+        android:tint="@color/transparent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/superlike_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6" />
+
+    <ImageView
+        android:id="@+id/deslike_anim"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        android:src="@drawable/botao_deslike"
+        android:tint="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/superlike_btn"
+        app:layout_constraintEnd_toEndOf="@+id/frame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/adot_icon" />
+
+
     <ImageView
         android:id="@+id/imagelike"
         android:layout_width="0dp"
@@ -167,17 +194,34 @@
         app:borderWidth="0dp"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/like_btn"
+        app:layout_constraintEnd_toStartOf="@+id/superlike_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="55dp"
         app:rippleColor="@null"
         app:srcCompat="@drawable/botao_deslike" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/superlike_btn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@android:color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/superlike"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="55dp"
+        app:rippleColor="@null" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/like_btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginEnd="100dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@android:color/white"
         android:clickable="true"
@@ -187,8 +231,7 @@
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/frame"
+        app:layout_constraintStart_toEndOf="@+id/superlike_btn"
         app:maxImageSize="43dp"
         app:rippleColor="@null"
         app:srcCompat="@drawable/botao_like" />
