@@ -201,6 +201,14 @@ public class ChatActivity extends AppCompatActivity {
                                             viewHolderSubChat.us_status.setText("Online");
                                             viewHolderSubChat.us_nome.setText(user.getUs_nome());
                                             Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
+                                            viewHolderSubChat.us_img.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    //colocar activity do chat
+                                                    startActivity(new Intent(ChatActivity.this, ChatConversaActivity.class)
+                                                            .putExtra("other_us_uid", user.getUs_uid()));
+                                                }
+                                            });
                                         }
                                     }
                                 }

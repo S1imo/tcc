@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:context="com.bento.a.ChatConversaActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#64CF9E"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/voltar_chat"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#FFFFFF"
+            android:tint="#FFFFF"
+            app:srcCompat="?attr/actionModeCloseDrawable" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_chat"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10sp"
+            android:background="@drawable/perfil_circle" />
+        <TextView
+            android:id="@+id/chat_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10sp"
+            android:text="Nome"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/clip_chat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="120dp"
+            android:src="@drawable/clip_icon" />
+
+        <ImageView
+            android:id="@+id/trash_chat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/trash_icon" />
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    app:layout_constraintBottom_toBottomOf="parent">
+        <EditText
+            android:id="@+id/text_msg"
+            android:layout_width="350dp"
+            android:layout_height="35dp"
+            android:background="@drawable/cad_dog_box"
+            android:layout_gravity="center"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/enviar_msg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/enviar_icon"
+            android:scaleType="centerCrop"
+            app:backgroundTint="@color/color_branco_menu"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
