@@ -22,7 +22,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PopUpMain extends AppCompatActivity {
 
-    private TextView exitText, text_tip_main, text_porte_main, text_idade_main, text_vac_main, text_raca_main, text_stat_main, text_desc_main;
+    private TextView exitText, text_tip_main, text_cast_main, text_porte_main, text_idade_main, text_vac_main, text_raca_main, text_stat_main, text_desc_main;
     private String an_uid, user_id;
     private CircleImageView image1, image2, image3;
     private FirebaseDatabase mFire;
@@ -49,6 +49,7 @@ public class PopUpMain extends AppCompatActivity {
         image3 = findViewById(R.id.image_dog2_main);
 
         text_tip_main = findViewById(R.id.tipo_animal_main);
+        text_cast_main = findViewById(R.id.castrado_animal_main);
         text_porte_main = findViewById(R.id.porte_animal_main);
         text_idade_main = findViewById(R.id.idade_ani_main);
         text_vac_main = findViewById(R.id.vacinado_animal_main);
@@ -77,6 +78,7 @@ public class PopUpMain extends AppCompatActivity {
                 text_raca_main.setText(animal.getAn_raca());
                 text_stat_main.setText(animal.getAn_status());
                 text_vac_main.setText(animal.getAn_vacinado());
+                text_cast_main.setText(animal.getAn_cast());
                 Picasso.get().load(animal.getAn_prof_img1()).into(image1);
                 Picasso.get().load(animal.getAn_prof_img2()).into(image2);
                 Picasso.get().load(animal.getAn_prof_img3()).into(image3);

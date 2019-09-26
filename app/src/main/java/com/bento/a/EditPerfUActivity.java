@@ -330,7 +330,7 @@ public class EditPerfUActivity extends AppCompatActivity {
     private void ChangeData() {
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-        User user = new User(novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cpf, novo_cep, novo_tel, novo_dat, novo_rg, us_img);
+        User user = new User(user_id, novo_nom_usu, tip_usu, novo_nom_comp_usu, novo_cpf, novo_cep, novo_tel, novo_dat, novo_rg, us_img);
 
         newPost.put(user_id, user.toMap());
         ref.updateChildren(newPost).addOnCompleteListener(EditPerfUActivity.this, new OnCompleteListener<Void>() {

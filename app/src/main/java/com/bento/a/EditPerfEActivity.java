@@ -285,8 +285,9 @@ public class EditPerfEActivity extends AppCompatActivity {
     }
 
     private void ChangeData() {
+        user_id = mAuth.getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-        User user = new User(novo_nom_usu, tip_usu, novo_nom_emp, novo_cep, novo_cnpj, novo_tel, us_img);
+        User user = new User(user_id, novo_nom_usu, tip_usu, novo_nom_emp, novo_cep, novo_cnpj, novo_tel, us_img);
         newPost.put(user_id, user.toMap());
         ref.updateChildren(newPost).addOnCompleteListener(EditPerfEActivity.this, new OnCompleteListener<Void>() {
             @Override

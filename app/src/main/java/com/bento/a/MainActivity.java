@@ -4,18 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bento.a.Adapters.arrayAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
+import com.bento.a.Classes.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +27,7 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private arrayAdapter arr_Adapter;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
-    private DatabaseReference mRef, mRefAnimal;
+    private DatabaseReference mRef, mRefAnimal, mRefConnections;
     private String user_id, an_uid;
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, imagelike;
     private FloatingActionButton buttonDes, buttonLike;
@@ -82,10 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void SwipeCard() {
         rowItems = new ArrayList<>();
-        mRefAnimal = mFire.getReference().child("Animais").child(user_id);
-        rowItems = new ArrayList<>();
         mRefAnimal = mFire.getReference().child("Animais");
-
+        mRefConnections = mFire.getReference().child("Connections");
         mRefAnimal.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
@@ -93,24 +94,40 @@ public class MainActivity extends AppCompatActivity {
                     for (DataSnapshot value_in : value.getChildren()) {
                         final Animal animal = value_in.getValue(Animal.class);
                         assert animal != null;
+                        //verificação - ver se o animal é do user que está
                         if (!animal.getUs_uid().equals(user_id)) {
-                            mRef = mFire.getReference().child("Connections").child(animal.getAn_uid());
-                            mRef.addValueEventListener(new ValueEventListener() {
+                            rowItems.add(animal);
+                            arr_Adapter.notifyDataSetChanged();
+                            mRefConnections.addChildEventListener(new ChildEventListener() {
                                 @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    if (dataSnapshot.hasChildren()) {
-                                        for (DataSnapshot value_con : dataSnapshot.getChildren()) {
-                                            Connections connections = value_con.getValue(Connections.class);
-                                            assert connections != null;
-                                            if (!connections.getUs_uid().equals(user_id)) {
-                                                rowItems.add(animal);
-                                                arr_Adapter.notifyDataSetChanged();
+                                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                    for(DataSnapshot value_con: dataSnapshot.getChildren()) {
+                                        if (Objects.equals(value_con.getKey(), animal.getAn_uid())) {
+                                            for (DataSnapshot value_con1 : value_con.getChildren()) {
+                                                Connections connections = value_con1.getValue(Connections.class);
+                                                assert connections != null;
+                                                if (connections.getUs_uid().equals(user_id)) {
+                                                    rowItems.remove(animal);
+                                                    arr_Adapter.notifyDataSetChanged();
+                                                }
                                             }
                                         }
-                                    } else {
-                                        rowItems.add(animal);
-                                        arr_Adapter.notifyDataSetChanged();
                                     }
+                                }
+
+                                @Override
+                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                                }
+
+                                @Override
+                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
                                 }
 
                                 @Override
@@ -198,8 +215,11 @@ public class MainActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                User user = new User();
+                user.signUp();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                /*startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);*/
             }
         });
     }

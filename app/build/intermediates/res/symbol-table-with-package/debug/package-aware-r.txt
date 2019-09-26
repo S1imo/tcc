@@ -1495,7 +1495,6 @@ id filled
 id fixed
 id forever
 id frame
-id frame_layout_desespero
 id ghost_view
 id gone
 id group_divider
@@ -1673,6 +1672,7 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id swipe_des
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
