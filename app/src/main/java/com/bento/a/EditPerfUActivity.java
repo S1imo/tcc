@@ -166,8 +166,7 @@ public class EditPerfUActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                Toast.makeText(EditPerfUActivity.this, exception.getMessage(), Toast.LENGTH_SHORT).show();
-                imagemPerf.setImageDrawable(getDrawable(R.drawable.profile_icon));
+                imagemPerf.setImageDrawable(getDrawable(R.drawable.bg_prof_all));
             }
         });
     }

@@ -40,7 +40,6 @@ public class ChatActivity extends AppCompatActivity {
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat;
     private String user_id;
     private Animation anim_fade;
-    private RecyclerView recyclerView;
 
     private FirebaseRecyclerOptions<Animal> options1;
     private FirebaseRecyclerOptions<User> options2;
@@ -162,12 +161,13 @@ public class ChatActivity extends AppCompatActivity {
         final DatabaseReference ref3 = mRef.child("Connections");
 
 
-        recyclerView = findViewById(R.id.rvChatHeader);
+        RecyclerView recyclerView = findViewById(R.id.rvChatHeader);
         recyclerView.setHasFixedSize(true);
 
 
         options1 = new FirebaseRecyclerOptions.Builder<Animal>()
-                .setQuery(ref1, Animal.class).build();
+                .setQuery(ref1, Animal.class)
+                .build();
 
         adapter1 = new FirebaseRecyclerAdapter<Animal, ViewHolderChat>(options1) {
 
@@ -187,28 +187,30 @@ public class ChatActivity extends AppCompatActivity {
                         .setQuery(ref2, User.class).build();
 
                 adapter2 = new FirebaseRecyclerAdapter<User, ViewHolderSubChat>(options2) {
+
                     @Override
                     protected void onBindViewHolder(@NonNull final ViewHolderSubChat viewHolderSubChat, final int i, @NonNull final User user) {
-
                         ref3.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot value : dataSnapshot.getChildren()) {
                                     for (DataSnapshot value_user_con : value.getChildren()) {
-                                        Connections connections = value_user_con.getValue(Connections.class);
-                                        assert connections != null;
-                                        if (connections.getUs_uid().equals(user.getUs_uid()) && connections.getAn_uid().equals(animal.getAn_uid())) {
-                                            viewHolderSubChat.us_status.setText("Online");
-                                            viewHolderSubChat.us_nome.setText(user.getUs_nome());
-                                            Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
-                                            viewHolderSubChat.us_img.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    //colocar activity do chat
-                                                    startActivity(new Intent(ChatActivity.this, ChatConversaActivity.class)
-                                                            .putExtra("other_us_uid", user.getUs_uid()));
-                                                }
-                                            });
+                                        if (Objects.requireNonNull(value_user_con.getKey()).contains("Yes")) {
+                                            Connections connections = value_user_con.getValue(Connections.class);
+                                            assert connections != null;
+                                            if (connections.getUs_uid().equals(user.getUs_uid()) && connections.getAn_uid().equals(animal.getAn_uid())) {
+                                                viewHolderSubChat.us_status.setText("Online");
+                                                viewHolderSubChat.us_nome.setText(user.getUs_nome());
+                                                Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
+                                                viewHolderSubChat.itemView.setOnClickListener(new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View v) {
+                                                        //colocar activity do chat
+                                                        startActivity(new Intent(ChatActivity.this, ChatConversaActivity.class)
+                                                                .putExtra("other_us_uid", user.getUs_uid()));
+                                                    }
+                                                });
+                                            }
                                         }
                                     }
                                 }

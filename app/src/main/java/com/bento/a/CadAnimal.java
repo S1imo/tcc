@@ -280,7 +280,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     //Colocando dados FB - DB
     private void CreateAn() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Animais").child(user_id);
-        Animal an = new Animal(user_id, currentIdAn, tip_animal, an_cast, an_idade, an_port, an_vac, an_raca, an_stat, an_desc, new String[]{an_prof_img[0], an_prof_img[1], an_prof_img[2], an_prof_img[3], an_prof_img[4]}, an_prof_img[0]);
+        Animal an = new Animal(user_id, currentIdAn, tip_animal, an_cast, an_idade, an_port, an_vac, an_raca, an_stat, an_desc, new String[]{an_prof_img[0], an_prof_img[1], an_prof_img[2], an_prof_img[3], an_prof_img[4]});
         newPost.put(currentIdAn, an.toMap());
         ref.updateChildren(newPost)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -107,19 +107,34 @@ public class MainActivity extends AppCompatActivity {
                         if (!animal.getUs_uid().equals(user_id)) {
                             rowItems.add(animal);
                             arr_Adapter.notifyDataSetChanged();
+                            mRefConnections.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot value_con: dataSnapshot.getChildren()) {
+                                        for(DataSnapshot value_con_in: value_con.getChildren())
+                                        {
+                                            Connections connections = value_con_in.getValue(Connections.class);
+                                            assert connections != null;
+                                            if (user_id.equals(connections.getUs_uid()) && animal.getAn_uid().equals(connections.getAn_uid())) {
+                                                rowItems.remove(animal);
+                                                arr_Adapter.notifyDataSetChanged();
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                             mRefConnections.addChildEventListener(new ChildEventListener() {
                                 @Override
                                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                                     for(DataSnapshot value_con: dataSnapshot.getChildren()) {
                                         if (Objects.equals(value_con.getKey(), animal.getAn_uid())) {
-                                            for (DataSnapshot value_con1 : value_con.getChildren()) {
-                                                Connections connections = value_con1.getValue(Connections.class);
-                                                assert connections != null;
-                                                if (connections.getUs_uid().equals(user_id)) {
-                                                    rowItems.remove(animal);
-                                                    arr_Adapter.notifyDataSetChanged();
-                                                }
-                                            }
+                                            rowItems.remove(animal);
+                                            arr_Adapter.notifyDataSetChanged();
                                         }
                                     }
                                 }
@@ -232,11 +247,8 @@ public class MainActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user = new User();
-                user.signUp();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                /*startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);*/
+                startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }

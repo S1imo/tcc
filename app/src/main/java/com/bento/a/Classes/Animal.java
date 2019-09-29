@@ -10,7 +10,7 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(String us_uid, String an_uid, String tip_an, String an_cast, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img, String an_fprof_img) {
+    public Animal(String us_uid, String an_uid, String tip_an, String an_cast, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img) {
         this.us_uid = us_uid;
         this.an_uid = an_uid;
         this.tip_an = tip_an;
