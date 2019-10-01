@@ -1,15 +1,12 @@
 package com.bento.a;
 
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bento.a.Adapters.arrayAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
-import com.bento.a.Classes.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -227,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(MainActivity.this, PerfilActivity.class));
+                startActivity(new Intent(MainActivity.this, PerfilActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
             }
@@ -247,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
+                startActivity(new Intent(MainActivity.this, PerdidosActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -257,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, desespero.class));
+                startActivity(new Intent(MainActivity.this, desespero.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -267,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ChatActivity.class));
+                startActivity(new Intent(MainActivity.this, ChatActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -280,7 +276,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 animarFab(buttonDes);
                 flingContainer.getTopCardListener().selectLeft();
-                Toast.makeText(MainActivity.this, "Deslike", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -304,7 +299,6 @@ public class MainActivity extends AppCompatActivity {
 
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
-                Toast.makeText(MainActivity.this, "Like", Toast.LENGTH_SHORT).show();
             }
         });
     }

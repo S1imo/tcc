@@ -8,8 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_adot_round"
         android:supportsRtl="true"
+        android:launchMode="singleTop"
         android:theme="@style/AppTheme">
-        <activity android:name=".LojaActivity"></activity>
+        <activity android:name=".LojaActivity"/>
         <activity
             android:name=".PerdidosActivity"
             android:configChanges="orientation"
@@ -94,7 +95,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

@@ -173,7 +173,7 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(PerfilActivity.this, MainActivity.class));
+                startActivity(new Intent(PerfilActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -184,7 +184,7 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(PerfilActivity.this, PerdidosActivity.class));
+                startActivity(new Intent(PerfilActivity.this, PerdidosActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
@@ -195,7 +195,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PerfilActivity.this, LojaActivity.class));
+                startActivity(new Intent(PerfilActivity.this, LojaActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -205,7 +205,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PerfilActivity.this, ChatActivity.class));
+                startActivity(new Intent(PerfilActivity.this, ChatActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -226,7 +226,7 @@ public class PerfilActivity extends AppCompatActivity {
             public void onClick(View v) {
                 User user = new User();
                 user.signUp();
-                startActivity(new Intent(PerfilActivity.this, LoginActivity.class));
+                startActivity(new Intent(PerfilActivity.this, LoginActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });
     }
@@ -238,9 +238,11 @@ public class PerfilActivity extends AppCompatActivity {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 if (user.getUs_tip_usu().equals("Organização")) {
-                    startActivity(new Intent(PerfilActivity.this, EditPerfEActivity.class));
+                    startActivity(new Intent(PerfilActivity.this, EditPerfEActivity.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 } else if (user.getUs_tip_usu().equals("Usuário")) {
-                    startActivity(new Intent(PerfilActivity.this, EditPerfUActivity.class));
+                    startActivity(new Intent(PerfilActivity.this, EditPerfUActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 }
             }
 
@@ -256,7 +258,7 @@ public class PerfilActivity extends AppCompatActivity {
         but_cad_dog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PerfilActivity.this, CadAnimal.class));
+                startActivity(new Intent(PerfilActivity.this, CadAnimal.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });
     }
@@ -290,7 +292,8 @@ public class PerfilActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         String an_uid1 = animal.getAn_uid();
                         startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class)
-                                .putExtra("an_uid", an_uid1));
+                                .putExtra("an_uid", an_uid1)
+                                .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                     }
                 });
             }

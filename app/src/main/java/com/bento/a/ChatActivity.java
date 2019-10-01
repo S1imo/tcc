@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
 import java.util.Objects;
 
 public class ChatActivity extends AppCompatActivity {
@@ -106,7 +106,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ChatActivity.this, PerfilActivity.class));
+                startActivity(new Intent(ChatActivity.this, PerfilActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -117,7 +117,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ChatActivity.this, MainActivity.class));
+                startActivity(new Intent(ChatActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -127,7 +127,7 @@ public class ChatActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChatActivity.this, PerdidosActivity.class));
+                startActivity(new Intent(ChatActivity.this, PerdidosActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -138,7 +138,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ChatActivity.this, LojaActivity.class));
+                startActivity(new Intent(ChatActivity.this, LojaActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -199,6 +199,8 @@ public class ChatActivity extends AppCompatActivity {
                                             Connections connections = value_user_con.getValue(Connections.class);
                                             assert connections != null;
                                             if (connections.getUs_uid().equals(user.getUs_uid()) && connections.getAn_uid().equals(animal.getAn_uid())) {
+                                                viewHolderSubChat.itemView.setVisibility(View.VISIBLE);
+                                                adapter2.notifyDataSetChanged();
                                                 viewHolderSubChat.us_status.setText("Online");
                                                 viewHolderSubChat.us_nome.setText(user.getUs_nome());
                                                 Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
@@ -207,10 +209,21 @@ public class ChatActivity extends AppCompatActivity {
                                                     public void onClick(View v) {
                                                         //colocar activity do chat
                                                         startActivity(new Intent(ChatActivity.this, ChatConversaActivity.class)
-                                                                .putExtra("other_us_uid", user.getUs_uid()));
+                                                                .putExtra("other_us_uid", user.getUs_uid())
+                                                                .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                                                     }
                                                 });
                                             }
+                                            else if(!connections.getUs_uid().equals(user.getUs_uid()) && !connections.getAn_uid().equals(animal.getAn_uid()))
+                                            {
+                                                viewHolderSubChat.itemView.setVisibility(View.GONE);
+                                                adapter2.notifyDataSetChanged();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            viewHolderSubChat.itemView.setVisibility(View.GONE);
+                                            adapter2.notifyDataSetChanged();
                                         }
                                     }
                                 }

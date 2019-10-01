@@ -30,7 +30,7 @@ public class ChatConversaActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
-    private String user_id, other_us_id, messages_stg;
+    private String user_id, other_us_id, messages_stg, idMessage;
     private DatabaseReference mRef;
     private FloatingActionButton but_enviar;
     private ImageView but_voltar;
@@ -38,7 +38,6 @@ public class ChatConversaActivity extends AppCompatActivity {
     private static int MSG_DIRECTION = 0;
 
     private FirebaseRecyclerOptions<Messages> options;
-    private FirebaseRecyclerAdapter<Messages, ViewHolderChatMessages> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +80,10 @@ public class ChatConversaActivity extends AppCompatActivity {
                 if (messages_stg.equals("") || messages_stg.equals(" ")) {
                     Log.d("MSGN", "mensagem vazia");
                 } else {
-                    Messages messages = new Messages(user_id, other_us_id, messages_stg);
+                    idMessage = "IDChat"+System.currentTimeMillis();
+                    Messages messages = new Messages(idMessage, user_id, other_us_id, messages_stg);
                     Map<String, Object> valuesArr = new HashMap<>();
-                    valuesArr.put("C" + (int) System.currentTimeMillis(), messages.toMap());
+                    valuesArr.put("M" + (int) System.currentTimeMillis(), messages.toMap());
                     mRef.child("Messages").child(user_id).updateChildren(valuesArr);
                     edit_chat.setText("");
                 }
@@ -93,12 +93,13 @@ public class ChatConversaActivity extends AppCompatActivity {
 
     private void DisplayMsg() {
         RecyclerView recyclerViewMessages = findViewById(R.id.recyclerMessages);
+        //TODO: criar referencia que verifique se um dos ids é do usuário e outro do other_uid
 
         options = new FirebaseRecyclerOptions.Builder<Messages>()
                 .setQuery(mRef.child("Messages").child(user_id), Messages.class)
                 .build();
 
-        adapter = new FirebaseRecyclerAdapter<Messages, ViewHolderChatMessages>(options) {
+        FirebaseRecyclerAdapter<Messages, ViewHolderChatMessages> adapter = new FirebaseRecyclerAdapter<Messages, ViewHolderChatMessages>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolderChatMessages viewHolderChatMessages, int i, @NonNull Messages messages) {
                 if (messages.getUs_uid().equals(user_id)) {
