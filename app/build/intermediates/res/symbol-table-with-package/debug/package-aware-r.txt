@@ -1237,6 +1237,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable imageview_click
 drawable inp_prof_grad
+drawable interrogacao_icon
 drawable local_icon
 drawable logo
 drawable logo_1
@@ -1346,6 +1347,7 @@ id addImage2
 id addImage3
 id addImage4
 id add_animal
+id add_chat
 id adjust_height
 id adjust_width
 id adot_icon
@@ -1364,6 +1366,7 @@ id beginning
 id bg
 id bg_adot
 id bg_cont
+id block_chat
 id blocking
 id bottom
 id bottom_overlay
@@ -1372,8 +1375,6 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
-id btn_interessados
-id btn_likes
 id but_aplicar
 id but_back
 id but_config
@@ -1420,8 +1421,10 @@ id cad_tel_text_E
 id cad_tip_usu_inp
 id cad_tip_usu_text
 id cad_voltar_but
+id call_chat
 id cancel_action
 id cardView
+id cardView2
 id castrado_animal
 id castrado_animal_main
 id castrado_nao
@@ -1430,11 +1433,14 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id chat_email
 id chat_icon
 id chat_nome
+id chat_tel
 id checkbox
 id checked
 id chronometer
+id cid_chat
 id cidade_text
 id clamp
 id clip_chat
@@ -1586,6 +1592,7 @@ id mtrl_internal_children_alpha_tag
 id multiply
 id navigation_header_container
 id never
+id nome_chat
 id nome_text
 id none
 id normal
@@ -1604,12 +1611,14 @@ id percent
 id perdido_bairro
 id perdido_cid
 id perdido_icon
+id perfil_chat
 id pin
 id porte_animal
 id porte_animal_main
 id porte_grande
 id porte_medio
 id porte_pequeno
+id prof_item_perd
 id profile_icon
 id progress_circular
 id progress_horizontal
@@ -1710,8 +1719,10 @@ id textView4
 id textView5
 id textView6
 id text_View_upload
+id text_current_time
 id text_idade_dog
 id text_input_password_toggle
+id text_messages
 id text_msg
 id text_raca_dog
 id text_us_nom
@@ -1830,7 +1841,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_chat_interessados
+layout activity_chat_perfil
 layout activity_desespero
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
@@ -1841,6 +1852,8 @@ layout cad_su_layout
 layout chat_conversa
 layout chat_item
 layout chat_layout
+layout chat_messages_item_l
+layout chat_messages_item_r
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1860,7 +1873,6 @@ layout dmax_spots_dialog
 layout edit_perfe_layout
 layout edit_perfu_layout
 layout esqueceu_senha_layout
-layout image_item
 layout login_layout
 layout loja_layout
 layout main_item
@@ -1887,6 +1899,7 @@ layout perdidos_item
 layout perdidos_layout
 layout popup_main
 layout popup_perfil
+layout profile_item
 layout profile_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
