@@ -22,22 +22,22 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/color_branco_menu"
+            android:tint="@color/color_branco_menu"
             app:srcCompat="?attr/actionModeCloseDrawable" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_chat"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10sp"
             android:background="@drawable/perfil_circle" />
-
         <TextView
             android:id="@+id/chat_nome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="10sp"
+            android:layout_marginLeft="10sp"
             android:text="Nome"
             android:textSize="24sp" />
 
@@ -46,7 +46,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginStart="120dp"
+            android:layout_marginLeft="120dp"
             android:src="@drawable/clip_icon" />
 
         <ImageView
@@ -54,43 +54,31 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
             android:src="@drawable/trash_icon" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMessages"
-        android:layout_width="match_parent"
-        android:layout_height="530dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        app:layout_constraintVertical_bias="0.0" />
-
     <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="parent">
-
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    app:layout_constraintBottom_toBottomOf="parent">
         <EditText
             android:id="@+id/text_msg"
             android:layout_width="350dp"
             android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:background="@drawable/cad_dog_box" />
+            android:background="@drawable/cad_dog_box"
+            android:layout_gravity="center"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/enviar_msg"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="5dp"
-            android:scaleType="centerCrop"
             android:src="@drawable/enviar_icon"
-            app:backgroundTint="@color/color_branco_menu" />
+            android:scaleType="centerCrop"
+            app:backgroundTint="@color/color_branco_menu"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

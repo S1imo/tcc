@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +31,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
 import java.util.Objects;
 
 public class ChatActivity extends AppCompatActivity {
@@ -40,6 +41,8 @@ public class ChatActivity extends AppCompatActivity {
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat;
     private String user_id;
     private Animation anim_fade;
+    private RecyclerView recyclerView;
+    private Button but_interessados;
 
     private FirebaseRecyclerOptions<Animal> options1;
     private FirebaseRecyclerOptions<User> options2;
@@ -88,6 +91,7 @@ public class ChatActivity extends AppCompatActivity {
         ButtonPerdidos();
         ButtonLoja();
         ButtonChat();
+        ButtonInteressados();
     }
 
     private void InpToVar() {
@@ -96,6 +100,8 @@ public class ChatActivity extends AppCompatActivity {
         but_perd = findViewById(R.id.perdido_icon);
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
+
+        but_interessados = findViewById(R.id.btn_interessados);
 
         anim_fade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
     }
@@ -106,7 +112,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ChatActivity.this, PerfilActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                startActivity(new Intent(ChatActivity.this, PerfilActivity.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -117,7 +123,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ChatActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                startActivity(new Intent(ChatActivity.this, MainActivity.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -127,7 +133,7 @@ public class ChatActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChatActivity.this, PerdidosActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                startActivity(new Intent(ChatActivity.this, PerdidosActivity.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -138,7 +144,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ChatActivity.this, LojaActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                startActivity(new Intent(ChatActivity.this, LojaActivity.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -153,6 +159,16 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
+    private void ButtonInteressados(){
+        but_interessados.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(ChatActivity.this, ChatInteressadosActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+    }
+
     private void RecycleViewA() {
 
         assert user_id != null;
@@ -161,13 +177,12 @@ public class ChatActivity extends AppCompatActivity {
         final DatabaseReference ref3 = mRef.child("Connections");
 
 
-        RecyclerView recyclerView = findViewById(R.id.rvChatHeader);
+        recyclerView = findViewById(R.id.rvChatHeader);
         recyclerView.setHasFixedSize(true);
 
 
         options1 = new FirebaseRecyclerOptions.Builder<Animal>()
-                .setQuery(ref1, Animal.class)
-                .build();
+                .setQuery(ref1, Animal.class).build();
 
         adapter1 = new FirebaseRecyclerAdapter<Animal, ViewHolderChat>(options1) {
 
@@ -187,43 +202,28 @@ public class ChatActivity extends AppCompatActivity {
                         .setQuery(ref2, User.class).build();
 
                 adapter2 = new FirebaseRecyclerAdapter<User, ViewHolderSubChat>(options2) {
-
                     @Override
                     protected void onBindViewHolder(@NonNull final ViewHolderSubChat viewHolderSubChat, final int i, @NonNull final User user) {
+
                         ref3.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot value : dataSnapshot.getChildren()) {
                                     for (DataSnapshot value_user_con : value.getChildren()) {
-                                        if (Objects.requireNonNull(value_user_con.getKey()).contains("Yes")) {
-                                            Connections connections = value_user_con.getValue(Connections.class);
-                                            assert connections != null;
-                                            if (connections.getUs_uid().equals(user.getUs_uid()) && connections.getAn_uid().equals(animal.getAn_uid())) {
-                                                viewHolderSubChat.itemView.setVisibility(View.VISIBLE);
-                                                adapter2.notifyDataSetChanged();
-                                                viewHolderSubChat.us_status.setText("Online");
-                                                viewHolderSubChat.us_nome.setText(user.getUs_nome());
-                                                Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
-                                                viewHolderSubChat.itemView.setOnClickListener(new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-                                                        //colocar activity do chat
-                                                        startActivity(new Intent(ChatActivity.this, ChatConversaActivity.class)
-                                                                .putExtra("other_us_uid", user.getUs_uid())
-                                                                .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
-                                                    }
-                                                });
-                                            }
-                                            else if(!connections.getUs_uid().equals(user.getUs_uid()) && !connections.getAn_uid().equals(animal.getAn_uid()))
-                                            {
-                                                viewHolderSubChat.itemView.setVisibility(View.GONE);
-                                                adapter2.notifyDataSetChanged();
-                                            }
-                                        }
-                                        else
-                                        {
-                                            viewHolderSubChat.itemView.setVisibility(View.GONE);
-                                            adapter2.notifyDataSetChanged();
+                                        Connections connections = value_user_con.getValue(Connections.class);
+                                        assert connections != null;
+                                        if (connections.getUs_uid().equals(user.getUs_uid()) && connections.getAn_uid().equals(animal.getAn_uid())) {
+                                            viewHolderSubChat.us_status.setText("Online");
+                                            viewHolderSubChat.us_nome.setText(user.getUs_nome());
+                                            Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
+                                            viewHolderSubChat.us_img.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    //colocar activity do chat
+                                                    startActivity(new Intent(ChatActivity.this, ChatConversaActivity.class)
+                                                            .putExtra("other_us_uid", user.getUs_uid()));
+                                                }
+                                            });
                                         }
                                     }
                                 }

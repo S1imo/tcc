@@ -1237,7 +1237,6 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable imageview_click
 drawable inp_prof_grad
-drawable interrogacao_icon
 drawable local_icon
 drawable logo
 drawable logo_1
@@ -1375,6 +1374,8 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btn_interessados
+id btn_likes
 id but_aplicar
 id but_back
 id but_config
@@ -1560,7 +1561,6 @@ id linearLayout
 id linearLayout2
 id linearLayout3
 id linearLayout4
-id linearLayout5
 id linearLayout7
 id linearlayout3
 id listMode
@@ -1612,7 +1612,6 @@ id porte_animal_main
 id porte_grande
 id porte_medio
 id porte_pequeno
-id prof_item_perd
 id profile_icon
 id progress_circular
 id progress_horizontal
@@ -1629,7 +1628,6 @@ id radio_idade
 id radio_port
 id radio_stat
 id radio_vac
-id recyclerMessages
 id repeat
 id right
 id right_icon
@@ -1715,10 +1713,8 @@ id textView4
 id textView5
 id textView6
 id text_View_upload
-id text_current_time
 id text_idade_dog
 id text_input_password_toggle
-id text_messages
 id text_msg
 id text_raca_dog
 id text_us_nom
@@ -1767,7 +1763,6 @@ id view4
 id view5
 id view6
 id view7
-id view8
 id view_bg
 id view_offset_helper
 id view_overlay
@@ -1838,6 +1833,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_chat_interessados
 layout activity_desespero
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
@@ -1849,8 +1845,6 @@ layout chat_conversa
 layout chat_global_item
 layout chat_item
 layout chat_layout
-layout chat_messages_item_l
-layout chat_messages_item_r
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1870,6 +1864,7 @@ layout dmax_spots_dialog
 layout edit_perfe_layout
 layout edit_perfu_layout
 layout esqueceu_senha_layout
+layout image_item
 layout login_layout
 layout loja_layout
 layout main_item
@@ -1896,7 +1891,6 @@ layout perdidos_item
 layout perdidos_layout
 layout popup_main
 layout popup_perfil
-layout profile_item
 layout profile_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
