@@ -652,10 +652,6 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\383837a1f189d10df3511e6927171459\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout_chat_global_item.xml.flat",
-        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\layout\\chat_global_item.xml"
-    },
-    {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\383837a1f189d10df3511e6927171459\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
     },

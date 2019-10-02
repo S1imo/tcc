@@ -5,17 +5,16 @@
     android:layout_height="wrap_content"
     android:elevation="3dp"
     android:orientation="horizontal"
-    android:padding="20sp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginStart="5dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_us"
+            android:padding="5dp"
             android:layout_width="95sp"
             android:layout_height="95sp"
             android:src="@mipmap/ic_adot_round" />

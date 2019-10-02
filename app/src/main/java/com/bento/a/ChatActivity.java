@@ -2,9 +2,7 @@ package com.bento.a;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -14,37 +12,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bento.a.Adapters.chat_AAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
 import com.bento.a.Classes.User;
-import com.bento.a.ViewHolders.ViewHolderChat;
-import com.bento.a.ViewHolders.ViewHolderSubChat;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class ChatActivity extends AppCompatActivity {
 
+    private chat_AAdapter chat_adp;
+    private ArrayList<User> mUsersList;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
     private DatabaseReference mRef;
+    private RecyclerView recyclerView;
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat;
     private String user_id;
     private Animation anim_fade;
-
-    private FirebaseRecyclerOptions<Animal> options1;
-    private FirebaseRecyclerOptions<User> options2;
-    private FirebaseRecyclerAdapter<Animal, ViewHolderChat> adapter1;
-    private FirebaseRecyclerAdapter<User, ViewHolderSubChat> adapter2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,28 +48,10 @@ public class ChatActivity extends AppCompatActivity {
         mRef = mFire.getReference();
 
         InpToVar();
-        RecycleViewA();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        RecycleView();
         Buttons();
-    }
-
-
-    @Override
-    protected void onStop() {
-        if (adapter2 != null && adapter1 != null) {
-            adapter2.stopListening();
-            adapter1.stopListening();
-        }
-        super.onStop();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (adapter2 == null && adapter1 == null) {
-            adapter2.startListening();
-            adapter1.startListening();
-        }
-        super.onStop();
     }
 
     private void Buttons() {
@@ -96,6 +69,9 @@ public class ChatActivity extends AppCompatActivity {
         but_perd = findViewById(R.id.perdido_icon);
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
+
+        recyclerView = findViewById(R.id.rvChatHeader);
+
 
         anim_fade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
     }
@@ -153,108 +129,62 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
-    private void RecycleViewA() {
+    private void RecycleView() {
+        mUsersList = new ArrayList<>();
 
-        assert user_id != null;
-        final DatabaseReference ref1 = mRef.child("Animais").child(user_id);
-        final DatabaseReference ref2 = mRef.child("Users");
-        final DatabaseReference ref3 = mRef.child("Connections");
+        chat_adp = new chat_AAdapter(getApplicationContext(), mUsersList);
 
-
-        RecyclerView recyclerView = findViewById(R.id.rvChatHeader);
-        recyclerView.setHasFixedSize(true);
-
-
-        options1 = new FirebaseRecyclerOptions.Builder<Animal>()
-                .setQuery(ref1, Animal.class)
-                .build();
-
-        adapter1 = new FirebaseRecyclerAdapter<Animal, ViewHolderChat>(options1) {
-
-            @NonNull
+        mRef.child("Animais").addValueEventListener(new ValueEventListener() {
             @Override
-            public ViewHolderChat onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_global_item, parent, false);
-                return new ViewHolderChat(view);
-            }
-
-            @Override
-            protected void onBindViewHolder(@NonNull final ViewHolderChat viewHolderChat, int i, @NonNull final Animal animal) {
-                viewHolderChat.an_uid.setText(animal.getAn_uid());
-                viewHolderChat.an_raca.setText(animal.getAn_raca());
-
-                options2 = new FirebaseRecyclerOptions.Builder<User>()
-                        .setQuery(ref2, User.class).build();
-
-                adapter2 = new FirebaseRecyclerAdapter<User, ViewHolderSubChat>(options2) {
-
-                    @Override
-                    protected void onBindViewHolder(@NonNull final ViewHolderSubChat viewHolderSubChat, final int i, @NonNull final User user) {
-                        ref3.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                for (DataSnapshot value : dataSnapshot.getChildren()) {
-                                    for (DataSnapshot value_user_con : value.getChildren()) {
-                                        if (Objects.requireNonNull(value_user_con.getKey()).contains("Yes")) {
-                                            Connections connections = value_user_con.getValue(Connections.class);
-                                            assert connections != null;
-                                            if (connections.getUs_uid().equals(user.getUs_uid()) && connections.getAn_uid().equals(animal.getAn_uid())) {
-                                                viewHolderSubChat.itemView.setVisibility(View.VISIBLE);
-                                                adapter2.notifyDataSetChanged();
-                                                viewHolderSubChat.us_status.setText("Online");
-                                                viewHolderSubChat.us_nome.setText(user.getUs_nome());
-                                                Picasso.get().load(user.getUs_img()).into(viewHolderSubChat.us_img);
-                                                viewHolderSubChat.itemView.setOnClickListener(new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-                                                        //colocar activity do chat
-                                                        startActivity(new Intent(ChatActivity.this, ChatConversaActivity.class)
-                                                                .putExtra("other_us_uid", user.getUs_uid())
-                                                                .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
-                                                    }
-                                                });
-                                            }
-                                            else if(!connections.getUs_uid().equals(user.getUs_uid()) && !connections.getAn_uid().equals(animal.getAn_uid()))
-                                            {
-                                                viewHolderSubChat.itemView.setVisibility(View.GONE);
-                                                adapter2.notifyDataSetChanged();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    final Animal animal = snapshot.getValue(Animal.class);
+                    assert animal != null;
+                    mRef.child("Connections").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
+                                final Connections connections = snapshot1.getValue(Connections.class);
+                                assert connections != null;
+                                //ver1
+                                if (connections.getAn_uid().equals(animal.getAn_uid())) {
+                                    mRef.child("Users").addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
+                                                User user = snapshot2.getValue(User.class);
+                                                assert user != null;
+                                                //ver2
+                                                if(connections.getAn_us_uid().equals(user_id))
+                                                {
+                                                    mUsersList.add(user);
+                                                    chat_adp.notifyDataSetChanged();
+                                                }
                                             }
                                         }
-                                        else
-                                        {
-                                            viewHolderSubChat.itemView.setVisibility(View.GONE);
-                                            adapter2.notifyDataSetChanged();
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
                                         }
-                                    }
+                                    });
                                 }
                             }
+                        }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                            }
-                        });
-                    }
-
-                    @NonNull
-                    @Override
-                    public ViewHolderSubChat onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View viewSub = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_item, parent, false);
-                        return new ViewHolderSubChat(viewSub);
-                    }
-                };
-
-                LinearLayoutManager mSubLinearLManager = new LinearLayoutManager(getApplicationContext());
-                viewHolderChat.recyclerView_Sub.setLayoutManager(mSubLinearLManager);
-                viewHolderChat.recyclerView_Sub.setNestedScrollingEnabled(false);
-                adapter2.startListening();
-                viewHolderChat.recyclerView_Sub.setAdapter(adapter2);
+                        }
+                    });
+                }
             }
 
-        };
-        LinearLayoutManager mLinearLManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLinearLManager);
-        adapter1.startListening();
-        recyclerView.setAdapter(adapter1);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        recyclerView.setAdapter(chat_adp);
     }
 }
