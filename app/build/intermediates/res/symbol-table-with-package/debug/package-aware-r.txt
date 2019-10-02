@@ -1353,8 +1353,6 @@ id adulto
 id alertTitle
 id all
 id always
-id an_dig_raca
-id an_dig_uid
 id anchored
 id ani_adot
 id ani_perdido
@@ -1635,7 +1633,6 @@ id right_overlay
 id right_side
 id rotate_scroll_wheel
 id rvAnimal
-id rvChat
 id rvChatHeader
 id rvPerdidos
 id rvPerdidos2
@@ -1842,7 +1839,6 @@ layout cad_layout
 layout cad_se_layout
 layout cad_su_layout
 layout chat_conversa
-layout chat_global_item
 layout chat_item
 layout chat_layout
 layout custom_dialog

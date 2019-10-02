@@ -13,17 +13,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.bento.a.MainActivity;
+import com.bento.a.Classes.Animal;
 import com.bento.a.PopUpMain;
 import com.bento.a.R;
-import com.bento.a.Classes.Animal;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class arrayAdapter extends ArrayAdapter<Animal> {
+public class main_AAdapter extends ArrayAdapter<Animal> {
 
-    public arrayAdapter(@NonNull Context context, int resource, List<Animal> rowItems) {
+    public main_AAdapter(@NonNull Context context, int resource, List<Animal> rowItems) {
         super(context, resource, rowItems);
     }
 

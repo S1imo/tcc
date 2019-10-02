@@ -8,13 +8,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bento.a.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ViewHolderChat extends RecyclerView.ViewHolder {
-    public TextView an_raca, an_uid;
-    public RecyclerView recyclerView_Sub;
+    public CircleImageView image_perf;
+    public TextView text_nome, text_status;
+
     public ViewHolderChat(@NonNull View itemView) {
         super(itemView);
-        an_raca = itemView.findViewById(R.id.an_dig_raca);
-        an_uid = itemView.findViewById(R.id.an_dig_uid);
-        recyclerView_Sub = itemView.findViewById(R.id.rvChat);
+        image_perf = itemView.findViewById(R.id.img_us);
+        text_nome = itemView.findViewById(R.id.text_us_nom);
+        text_status = itemView.findViewById(R.id.text_us_status);
     }
 }
