@@ -53,7 +53,7 @@ public class ChatConversaActivity extends AppCompatActivity {
         InpToVar();
         ButtonVoltar();
         ButtonEnviarMsgm();
-        DisplayMsg();
+        //DisplayMsg();
 
     }
 
@@ -90,7 +90,7 @@ public class ChatConversaActivity extends AppCompatActivity {
             }
         });
     }
-
+/*
     private void DisplayMsg() {
         RecyclerView recyclerViewMessages = findViewById(R.id.recyclerMessages);
         //TODO: criar referencia que verifique se um dos ids é do usuário e outro do other_uid
@@ -135,5 +135,5 @@ public class ChatConversaActivity extends AppCompatActivity {
         recyclerViewMessages.setLayoutManager(mLinearLayoutM);
         adapter.startListening();
         recyclerViewMessages.setAdapter(adapter);
-    }
+    }*/
 }

@@ -1425,6 +1425,7 @@ id call_chat
 id cancel_action
 id cardView
 id cardView2
+id cardView3
 id castrado_animal
 id castrado_animal_main
 id castrado_nao
@@ -1643,6 +1644,7 @@ id right_side
 id rotate_scroll_wheel
 id rvAnimal
 id rvChatHeader
+id rvInteressados
 id rvPerdidos
 id rvPerdidos2
 id save_image_matrix
