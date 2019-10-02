@@ -48,9 +48,9 @@ public class EditPerfEActivity extends AppCompatActivity {
     private MaskEditText novo_cep_inp, novo_cnpj_inp, novo_tel_inp;
     private EditText novo_nom_usu_inp, novo_nom_emp_inp;
     private String novo_nom_usu, tip_usu, novo_nom_emp, novo_cep, novo_cnpj, novo_tel, us_img;
-    private FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+    private FirebaseDatabase mFirebaseDatabase;
     private StorageReference folder;
-    private String user_id = mAuth.getUid();
+    private String user_id;
     private HashMap<String, Object> newPost = new HashMap<>();
 
     @Override
@@ -58,10 +58,14 @@ public class EditPerfEActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_perfe_layout);
 
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        user_id = mAuth.getUid();
+
         InputToVar();
         SetValues();
-        ProfilePic();
         ImagePerfUp();
+        ProfilePic();
         ButtonAplicar();
         ButtonVoltar();
     }
@@ -87,25 +91,21 @@ public class EditPerfEActivity extends AppCompatActivity {
         });
     }
 
-    private void permissionCheck()
-    {if (ContextCompat.checkSelfPermission(EditPerfEActivity.this, Manifest.permission.INTERNET)
-            != PackageManager.PERMISSION_GRANTED) {
-        Toast.makeText(this, "Permissão de internet não habilitada", Toast.LENGTH_SHORT).show();
+    private void permissionCheck() {
+        if (ContextCompat.checkSelfPermission(EditPerfEActivity.this, Manifest.permission.INTERNET)
+                != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permissão de internet não habilitada", Toast.LENGTH_SHORT).show();
+        } else if (ContextCompat.checkSelfPermission(EditPerfEActivity.this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permissão de câmera não habilitada", Toast.LENGTH_SHORT).show();
+        } else if (ContextCompat.checkSelfPermission(EditPerfEActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permissão de leitura não habilitada", Toast.LENGTH_SHORT).show();
+        } else if (ContextCompat.checkSelfPermission(EditPerfEActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permissão de gravação não habilitada", Toast.LENGTH_SHORT).show();
+        }
     }
-    else if(ContextCompat.checkSelfPermission(EditPerfEActivity.this, Manifest.permission.CAMERA)
-            != PackageManager.PERMISSION_GRANTED) {
-        Toast.makeText(this, "Permissão de câmera não habilitada", Toast.LENGTH_SHORT).show();
-    }
-    else if(ContextCompat.checkSelfPermission(EditPerfEActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED)
-    {
-        Toast.makeText(this, "Permissão de leitura não habilitada", Toast.LENGTH_SHORT).show();
-    }
-    else if(ContextCompat.checkSelfPermission(EditPerfEActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED)
-    {
-        Toast.makeText(this, "Permissão de gravação não habilitada", Toast.LENGTH_SHORT).show();
-    }}
 
     private void InputToVar() {
         folder = FirebaseStorage.getInstance().getReference().child("Users").child(user_id);
@@ -171,24 +171,6 @@ public class EditPerfEActivity extends AppCompatActivity {
         });
     }
 
-    private void ProfilePic() {
-        folder.child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-
-                imagemPerf.setImageBitmap(Bitmap.createScaledBitmap(bmp, imagemPerf.getWidth(),
-                        imagemPerf.getHeight(), false));
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Toast.makeText(EditPerfEActivity.this, exception.getMessage(), Toast.LENGTH_SHORT).show();
-                imagemPerf.setImageDrawable(getDrawable(R.drawable.profile_icon));
-            }
-        });
-    }
-
     private int verCampos() {
         if (novo_nom_usu.isEmpty() || novo_nom_emp.isEmpty() || novo_cep.isEmpty() || novo_cnpj.isEmpty() || novo_tel.isEmpty()) {
             return 1;
@@ -201,15 +183,29 @@ public class EditPerfEActivity extends AppCompatActivity {
         }
         if (!novo_tel.matches("^\\(\\d{2}\\)\\d{5}-?\\d{4}$")) {
             return 4;
-        }
-        else
-        {
+        } else {
             return 0;
         }
     }
 
-    private void ImagePerfUp()
-    {
+    private void ProfilePic() {
+        folder.child("imageUserProf.jpg").getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+                imagemPerf.setImageBitmap(Bitmap.createScaledBitmap(bmp, imagemPerf.getWidth(),
+                        imagemPerf.getHeight(), false));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                imagemPerf.setImageDrawable(getDrawable(R.drawable.bg_prof_all));
+            }
+        });
+    }
+
+    private void ImagePerfUp() {
         imagemPerf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -227,20 +223,15 @@ public class EditPerfEActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         imagemPerf.setImageURI(null);
-        if(requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null && data.getData() != null)
-        {
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri imageUri = data.getData();
-            if(imageUri != null)
-            {
+            if (imageUri != null) {
                 startCrop(imageUri);
             }
-        }
-        else if(requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK)
-        {
+        } else if (requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK) {
             assert data != null;
             Uri imageUriResultCrop = UCrop.getOutput(data);
-            if(imageUriResultCrop != null)
-            {
+            if (imageUriResultCrop != null) {
                 final StorageReference Imagename = folder.child(user_id).child("image" + imageUriResultCrop.getLastPathSegment());
                 Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -260,19 +251,18 @@ public class EditPerfEActivity extends AppCompatActivity {
 
     }
 
-    private void startCrop(@NonNull Uri uri)
-    {
+    private void startCrop(@NonNull Uri uri) {
         String SAMPLE_CROPPED_IMG_NAME = "UserProf";
         String destinationFileName = SAMPLE_CROPPED_IMG_NAME + ".jpg";
 
         UCrop uCrop = UCrop.of(uri, Uri.fromFile(new File(getCacheDir(), destinationFileName)));
         uCrop.withAspectRatio(2, 3);
-        uCrop.withMaxResultSize(450,450);
+        uCrop.withMaxResultSize(450, 450);
         uCrop.withOptions(getCropOptions());
         uCrop.start(EditPerfEActivity.this);
     }
 
-    private UCrop.Options getCropOptions(){
+    private UCrop.Options getCropOptions() {
         UCrop.Options options = new UCrop.Options();
         options.setCompressionQuality(70);
         options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
@@ -292,13 +282,10 @@ public class EditPerfEActivity extends AppCompatActivity {
         ref.updateChildren(newPost).addOnCompleteListener(EditPerfEActivity.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful())
-                {
+                if (task.isSuccessful()) {
                     Toast.makeText(EditPerfEActivity.this, "Mudanças aplicadas", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EditPerfEActivity.this, PerfilActivity.class));
-                }
-                else
-                {
+                } else {
                     String error = Objects.requireNonNull(task.getException()).toString();
                     Toast.makeText(EditPerfEActivity.this, "Não foi possível salvar: " + error, Toast.LENGTH_SHORT).show();
                 }

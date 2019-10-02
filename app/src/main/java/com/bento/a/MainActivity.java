@@ -1,15 +1,12 @@
 package com.bento.a;
 
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bento.a.Adapters.arrayAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
-import com.bento.a.Classes.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -107,19 +103,34 @@ public class MainActivity extends AppCompatActivity {
                         if (!animal.getUs_uid().equals(user_id)) {
                             rowItems.add(animal);
                             arr_Adapter.notifyDataSetChanged();
+                            mRefConnections.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot value_con: dataSnapshot.getChildren()) {
+                                        for(DataSnapshot value_con_in: value_con.getChildren())
+                                        {
+                                            Connections connections = value_con_in.getValue(Connections.class);
+                                            assert connections != null;
+                                            if (user_id.equals(connections.getUs_uid()) && animal.getAn_uid().equals(connections.getAn_uid())) {
+                                                rowItems.remove(animal);
+                                                arr_Adapter.notifyDataSetChanged();
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                             mRefConnections.addChildEventListener(new ChildEventListener() {
                                 @Override
                                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                                     for(DataSnapshot value_con: dataSnapshot.getChildren()) {
                                         if (Objects.equals(value_con.getKey(), animal.getAn_uid())) {
-                                            for (DataSnapshot value_con1 : value_con.getChildren()) {
-                                                Connections connections = value_con1.getValue(Connections.class);
-                                                assert connections != null;
-                                                if (connections.getUs_uid().equals(user_id)) {
-                                                    rowItems.remove(animal);
-                                                    arr_Adapter.notifyDataSetChanged();
-                                                }
-                                            }
+                                            rowItems.remove(animal);
+                                            arr_Adapter.notifyDataSetChanged();
                                         }
                                     }
                                 }
@@ -212,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(MainActivity.this, PerfilActivity.class));
+                startActivity(new Intent(MainActivity.this, PerfilActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
             }
@@ -232,11 +243,8 @@ public class MainActivity extends AppCompatActivity {
         but_perd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user = new User();
-                user.signUp();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                /*startActivity(new Intent(MainActivity.this, PerdidosActivity.class));
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);*/
+                startActivity(new Intent(MainActivity.this, PerdidosActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }
@@ -245,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, desespero.class));
+                startActivity(new Intent(MainActivity.this, desespero.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -255,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ChatActivity.class));
+                startActivity(new Intent(MainActivity.this, ChatActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -268,7 +276,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 animarFab(buttonDes);
                 flingContainer.getTopCardListener().selectLeft();
-                Toast.makeText(MainActivity.this, "Deslike", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -292,7 +299,6 @@ public class MainActivity extends AppCompatActivity {
 
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
-                Toast.makeText(MainActivity.this, "Like", Toast.LENGTH_SHORT).show();
             }
         });
     }

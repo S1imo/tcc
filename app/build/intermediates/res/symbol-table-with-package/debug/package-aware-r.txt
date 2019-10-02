@@ -1195,6 +1195,7 @@ drawable cad_dog_box
 drawable chat_icon
 drawable circle_bg_pop
 drawable circle_load
+drawable clip_icon
 drawable coin_icon
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
@@ -1224,6 +1225,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dmax_spots_spot
 drawable edit_icon
+drawable enviar_icon
 drawable exclamacao
 drawable filhote
 drawable googleg_disabled_color_18
@@ -1235,6 +1237,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable imageview_click
 drawable inp_prof_grad
+drawable interrogacao_icon
 drawable local_icon
 drawable logo
 drawable logo_1
@@ -1265,6 +1268,7 @@ drawable rec_plus_perf
 drawable superlike
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable trash_icon
 drawable ucrop_ic_angle
 drawable ucrop_ic_crop
 drawable ucrop_ic_cross
@@ -1428,11 +1432,13 @@ id center_horizontal
 id center_vertical
 id chains
 id chat_icon
+id chat_nome
 id checkbox
 id checked
 id chronometer
 id cidade_text
 id clamp
+id clip_chat
 id clip_horizontal
 id clip_vertical
 id coins
@@ -1481,6 +1487,7 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id enviar_msg
 id es_email_text1
 id es_nome_text
 id exitUntilCollapsed
@@ -1529,6 +1536,7 @@ id image_view_state_aspect_ratio
 id image_view_state_rotate
 id image_view_state_scale
 id imagelike
+id img_chat
 id img_us
 id info
 id info_btn_card
@@ -1552,6 +1560,8 @@ id linearLayout
 id linearLayout2
 id linearLayout3
 id linearLayout4
+id linearLayout5
+id linearLayout7
 id linearlayout3
 id listMode
 id list_item
@@ -1602,6 +1612,7 @@ id porte_animal_main
 id porte_grande
 id porte_medio
 id porte_pequeno
+id prof_item_perd
 id profile_icon
 id progress_circular
 id progress_horizontal
@@ -1618,6 +1629,7 @@ id radio_idade
 id radio_port
 id radio_stat
 id radio_vac
+id recyclerMessages
 id repeat
 id right
 id right_icon
@@ -1628,6 +1640,7 @@ id rvAnimal
 id rvChat
 id rvChatHeader
 id rvPerdidos
+id rvPerdidos2
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1678,11 +1691,8 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
-<<<<<<< Updated upstream
-id swipe_des
-=======
 id superlike_btn
->>>>>>> Stashed changes
+id swipe_des
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -1703,9 +1713,13 @@ id textView2
 id textView3
 id textView4
 id textView5
+id textView6
 id text_View_upload
+id text_current_time
 id text_idade_dog
 id text_input_password_toggle
+id text_messages
+id text_msg
 id text_raca_dog
 id text_us_nom
 id text_us_status
@@ -1731,6 +1745,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id trash_chat
 id txtLayout
 id txtclose
 id ucrop
@@ -1758,6 +1773,7 @@ id view_offset_helper
 id view_overlay
 id visible
 id voltarDButton
+id voltar_chat
 id wide
 id withText
 id wrap
@@ -1829,9 +1845,12 @@ layout cad_dog_layout
 layout cad_layout
 layout cad_se_layout
 layout cad_su_layout
+layout chat_conversa
 layout chat_global_item
 layout chat_item
 layout chat_layout
+layout chat_messages_item_l
+layout chat_messages_item_r
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1851,7 +1870,6 @@ layout dmax_spots_dialog
 layout edit_perfe_layout
 layout edit_perfu_layout
 layout esqueceu_senha_layout
-layout image_item
 layout login_layout
 layout loja_layout
 layout main_item
@@ -1878,6 +1896,7 @@ layout perdidos_item
 layout perdidos_layout
 layout popup_main
 layout popup_perfil
+layout profile_item
 layout profile_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material

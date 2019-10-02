@@ -1,9 +1,17 @@
 package com.bento.a;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +31,7 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static int PERMISSION_CODE_EX_ST = 1, PERMISSION_CODE_WR_ST = 1, PERMISSION_CODE_INTERNET = 1;
     private Button but_log_ent;
     private TextView log_cad, log_esq_senha;
     private EditText inp_email;
@@ -36,15 +45,55 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null)
-        {
-            Log.d("USRLOG","Usuário logado");
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        if (!(ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) || !(ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) || !(ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED)) {
+            requestStoragePermission();
+        } else {
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (currentUser != null) {
+                Log.d("USRLOG", "Usuário logado");
+                startActivity(new Intent(LoginActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            } else {
+                Log.d("ERRLOG", "Usuário não logado");
+            }
         }
-        else
-        {
-            Log.d("ERRLOG","Usuário não logado");
+    }
+
+    private void requestStoragePermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Permissão necessária")
+                    .setMessage("Estas permissões são necessárias para o funcionamento do aplicativo")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_CODE_EX_ST);
+                            ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE_WR_ST);
+                            ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.INTERNET}, PERMISSION_CODE_INTERNET);
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create()
+                    .show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_CODE_EX_ST);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE_WR_ST);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, PERMISSION_CODE_INTERNET);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_CODE_WR_ST && requestCode == PERMISSION_CODE_EX_ST && requestCode == PERMISSION_CODE_INTERNET) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d("PER20", "Permissão garantida");
+            } else {
+                Log.d("PER20", "Permissão não garantida");
+            }
         }
     }
 
@@ -61,8 +110,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void inputToVar()
-    {
+    private void inputToVar() {
         this.but_log_ent = findViewById(R.id.log_ent_but);
         this.log_cad = findViewById(R.id.log_cad);
         this.log_esq_senha = findViewById(R.id.log_esq_senha);
@@ -71,39 +119,35 @@ public class LoginActivity extends AppCompatActivity {
         this.progressBar = findViewById(R.id.load);
     }
 
-    private void inputToString()
-    {
-        email= inp_email.getText().toString().trim();
-        senha= Objects.requireNonNull(inp_senha.getText()).toString().trim();
+    private void inputToString() {
+        email = inp_email.getText().toString().trim();
+        senha = Objects.requireNonNull(inp_senha.getText()).toString().trim();
     }
 
-    private void textCad()
-    {
+    private void textCad() {
         log_cad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, CadActivity.class));
+                startActivity(new Intent(LoginActivity.this, CadActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });
     }
 
-    private void textEsqSenha()
-    {
+    private void textEsqSenha() {
         log_esq_senha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, EsqueceuSenhaActivity.class));
+                startActivity(new Intent(LoginActivity.this, EsqueceuSenhaActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });
     }
-    private void button_log()
-    {
+
+    private void button_log() {
         but_log_ent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 inputToString();
-                switch (verifyLogin())
-                {
+                switch (verifyLogin()) {
                     case 1:
                         //email vazio
                         Toast.makeText(LoginActivity.this, "Preencha o campo e-mail", Toast.LENGTH_SHORT).show();
@@ -132,37 +176,31 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private int verifyLogin() {
-        if(email.isEmpty())
-        {
+        if (email.isEmpty()) {
             return 1;
-        }
-        else if(senha.isEmpty())
-        {
+        } else if (senha.isEmpty()) {
             return 2;
-        }
-        else
-        {
+        } else {
             return 0;
         }
 
     }
 
-    private void logUser()
-    {
+    private void logUser() {
         mAuth.signInWithEmailAndPassword(email, senha)
-            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        // Sign in success, update UI with the signed-in user's information
-                        progressBar.setVisibility(View.VISIBLE);
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    } else {
-                        Toast.makeText(LoginActivity.this, "E-mail ou senha não registrados", Toast.LENGTH_SHORT).show();
-                        inp_email.requestFocus();
-                        progressBar.setVisibility(View.GONE);
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            progressBar.setVisibility(View.VISIBLE);
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                        } else {
+                            Toast.makeText(LoginActivity.this, "E-mail ou senha não registrados", Toast.LENGTH_SHORT).show();
+                            inp_email.requestFocus();
+                            progressBar.setVisibility(View.GONE);
+                        }
                     }
-                }
-            });
+                });
     }
 }

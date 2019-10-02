@@ -50,7 +50,8 @@ public class arrayAdapter extends ArrayAdapter<Animal> {
             public void onClick(View v) {
                 getContext().startActivity(new Intent(getContext(), PopUpMain.class)
                         .putExtra("an_uid", animal.getAn_uid())
-                        .putExtra("us_uid", animal.getUs_uid()));
+                        .putExtra("us_uid", animal.getUs_uid())
+                        .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });
         return convertView;
