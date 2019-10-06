@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bento.a.Adapters.Profile_AAdapter;
+import com.bento.a.Classes.Connections;
 import com.bento.a.ViewHolders.ViewHolderAnimal;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.User;
@@ -27,8 +29,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -44,7 +48,7 @@ public class PerfilActivity extends AppCompatActivity {
     private DatabaseReference myRef;
     private String user_id;
 
-    private RecyclerView recyclerView;
+    private RecyclerView recyclerViewMy, recyclerViewFav;
     private FirebaseRecyclerOptions<Animal> options;
     private FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter;
 
@@ -93,7 +97,8 @@ public class PerfilActivity extends AppCompatActivity {
         myRef = mFirebaseDatabase.getReference();
 
         ProfilePic();
-        ProfileAn();
+        RecyclerMyAn();
+        RecyclerFav();
     }
 
     private void Buttons() {
@@ -242,7 +247,7 @@ public class PerfilActivity extends AppCompatActivity {
                             .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 } else if (user.getUs_tip_usu().equals("Usuário")) {
                     startActivity(new Intent(PerfilActivity.this, EditPerfUActivity.class)
-                    .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                            .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 }
             }
 
@@ -263,12 +268,11 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ProfileAn() {
+    private void RecyclerMyAn() {
         assert user_id != null;
         final DatabaseReference ref = myRef.child("Animais").child(user_id);
-
-        recyclerView = findViewById(R.id.rvAnimal);
-        recyclerView.setHasFixedSize(true);
+        recyclerViewMy = findViewById(R.id.rvAnimal);
+        recyclerViewMy.setHasFixedSize(true);
 
         options = new FirebaseRecyclerOptions.Builder<Animal>()
                 .setQuery(ref, Animal.class).build();
@@ -281,7 +285,7 @@ public class PerfilActivity extends AppCompatActivity {
                 if (animal.getAn_status().equals("Perdido")) {
                     Picasso.get().load(R.drawable.interrogacao_icon).into(viewHolderAnimal.i2);
                     viewHolderAnimal.i2.setVisibility(View.VISIBLE);
-                } else if(!animal.getAn_status().equals("Perdido")){
+                } else if (!animal.getAn_status().equals("Perdido")) {
                     viewHolderAnimal.i2.setVisibility(View.INVISIBLE);
                 }
 
@@ -291,7 +295,7 @@ public class PerfilActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         String an_uid1 = animal.getAn_uid();
-                        startActivity(new Intent(PerfilActivity.this, PopUpPerfil.class)
+                        startActivity(new Intent(PerfilActivity.this, PopUpPerfilMy.class)
                                 .putExtra("an_uid", an_uid1)
                                 .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                     }
@@ -302,16 +306,68 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public ViewHolderAnimal onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.profile_item, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.profile_item_my, parent, false);
 
                 return new ViewHolderAnimal(view);
             }
         };
 
         LinearLayoutManager mLinearLManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(mLinearLManager);
+        recyclerViewMy.setLayoutManager(mLinearLManager);
         adapter.startListening();
-        recyclerView.setAdapter(adapter);
+        recyclerViewMy.setAdapter(adapter);
+    }
+
+    private void RecyclerFav() {
+        final ArrayList<Animal> mAnimais = new ArrayList<>();
+        final Profile_AAdapter profile_AAdapter = new Profile_AAdapter(getApplicationContext(), mAnimais);
+
+        recyclerViewFav = findViewById(R.id.rvInteressados);
+        recyclerViewFav.setHasFixedSize(true);
+
+        myRef.child("Connections").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                        final Connections connections = snapshot1.getValue(Connections.class);
+                        assert connections != null;
+                        if(!connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id) && Objects.requireNonNull(snapshot1.getKey()).contains("Yes"))
+                        {
+                            System.out.println("c");
+                            DatabaseReference reference = mFirebaseDatabase.getReference();
+                            reference.child("Animais").child(connections.getAn_us_uid()).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                                    for(DataSnapshot snapshot2: dataSnapshot1.getChildren())
+                                    {
+                                        Animal animal = snapshot2.getValue(Animal.class);
+                                        assert animal != null;
+                                        if(connections.getAn_uid().equals(animal.getAn_uid()))
+                                        {
+                                            mAnimais.add(animal);
+                                            profile_AAdapter.notifyDataSetChanged();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError1) {
+                                    System.out.println("f");
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        recyclerViewFav.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
+        recyclerViewFav.setAdapter(profile_AAdapter);
     }
 
 }

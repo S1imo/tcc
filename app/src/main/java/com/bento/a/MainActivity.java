@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bento.a.Adapters.main_AAdapter;
+import com.bento.a.Adapters.Main_AAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -32,7 +32,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private main_AAdapter arr_Adapter;
+    private Main_AAdapter arr_Adapter;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
     private DatabaseReference mRef, mRefAnimal, mRefConnections;
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        arr_Adapter = new main_AAdapter(this, R.layout.main_item, rowItems);
+        arr_Adapter = new Main_AAdapter(this, R.layout.main_item, rowItems);
         flingContainer.setAdapter(arr_Adapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override

@@ -118,6 +118,4 @@
         app:layout_constraintTop_toBottomOf="@+id/perdido_icon" />
 
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

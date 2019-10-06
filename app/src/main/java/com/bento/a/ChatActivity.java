@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bento.a.Adapters.chat_AAdapter;
+import com.bento.a.Adapters.Chat_AAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
 import com.bento.a.Classes.User;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class ChatActivity extends AppCompatActivity {
 
-    private chat_AAdapter chat_adp;
+    private Chat_AAdapter chat_adp;
     private ArrayList<User> mUsersList;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
@@ -132,51 +132,55 @@ public class ChatActivity extends AppCompatActivity {
     private void RecycleView() {
         mUsersList = new ArrayList<>();
 
-        chat_adp = new chat_AAdapter(getApplicationContext(), mUsersList);
+        chat_adp = new Chat_AAdapter(getApplicationContext(), mUsersList);
 
         mRef.child("Animais").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    final Animal animal = snapshot.getValue(Animal.class);
-                    assert animal != null;
-                    mRef.child("Connections").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
-                                final Connections connections = snapshot1.getValue(Connections.class);
-                                assert connections != null;
-                                //ver1
-                                if (connections.getAn_uid().equals(animal.getAn_uid())) {
-                                    mRef.child("Users").addValueEventListener(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
-                                                User user = snapshot2.getValue(User.class);
-                                                assert user != null;
-                                                //ver2
-                                                if(connections.getAn_us_uid().equals(user_id))
-                                                {
-                                                    mUsersList.add(user);
-                                                    chat_adp.notifyDataSetChanged();
+                for (DataSnapshot snapshot_An : dataSnapshot.getChildren()) {
+                    for(DataSnapshot snapshot_An_in: snapshot_An.getChildren())
+                    {
+                        final Animal animal = snapshot_An_in.getValue(Animal.class);
+                        assert animal != null;
+                        mRef.child("Connections").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
+                                    for (DataSnapshot value_in : snapshot1.getChildren()) {
+                                        final Connections connections = value_in.getValue(Connections.class);
+                                        assert connections != null;
+                                        //ver1
+                                        if (connections.getAn_uid().equals(animal.getAn_uid())) {
+                                            mRef.child("Users").addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                    for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
+                                                        User user = snapshot2.getValue(User.class);
+                                                        assert user != null;
+                                                        //ver2
+                                                        if (connections.getUs_uid().equals(user.getUs_uid()) && user_id.equals(connections.getAn_us_uid())) {
+                                                            mUsersList.add(user);
+                                                            chat_adp.notifyDataSetChanged();
+                                                        }
+                                                    }
                                                 }
-                                            }
-                                        }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                                                }
+                                            });
                                         }
-                                    });
+                                    }
                                 }
                             }
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                        }
-                    });
+                            }
+                        });
+                    }
                 }
             }
 
@@ -186,5 +190,50 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
         recyclerView.setAdapter(chat_adp);
+        /*mRef.child("Connections").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
+                                for (DataSnapshot value_in : snapshot1.getChildren()) {
+                                    final Connections connections = value_in.getValue(Connections.class);
+                                    assert connections != null;
+                                    System.out.println("2");
+                                    //ver1
+                                    if (connections.getAn_uid().equals(animal.getAn_uid())) {
+                                        System.out.println("3");
+                                        mRef.child("Users").addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
+                                                    User user = snapshot2.getValue(User.class);
+                                                    assert user != null;
+                                                    System.out.println("4");
+                                                    //ver2
+                                                    if (connections.getAn_us_uid().equals(user_id)) {
+
+                                                        if (connections.getUs_uid().equals(user.getUs_uid())) {
+                                                            System.out.println("5");
+                                                            mUsersList.add(user);
+                                                            chat_adp.notifyDataSetChanged();
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });*/
     }
 }

@@ -34,6 +34,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.bento.a.PopUpPerfilFav" />
         <activity android:name="com.bento.a.ChatPerfil" />
         <activity android:name="com.bento.a.LojaActivity" />
         <activity
@@ -85,7 +86,7 @@
         <activity android:name="com.bento.a.MainActivity" />
         <activity android:name="com.bento.a.desespero" />
         <activity
-            android:name="com.bento.a.PopUpPerfil"
+            android:name="com.bento.a.PopUpPerfilMy"
             android:theme="@style/AppTheme.Popup" />
         <activity
             android:name="com.bento.a.PopUpMain"
