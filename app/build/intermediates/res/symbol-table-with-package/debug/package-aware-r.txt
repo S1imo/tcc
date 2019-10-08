@@ -693,6 +693,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1505,6 +1506,7 @@ id exit_m
 id expand_activities_button
 id expanded
 id expanded_menu
+id fav_porte
 id filhote
 id fill
 id fill_horizontal
@@ -1535,11 +1537,14 @@ id image_View_upload
 id image_View_upload_fav
 id image_adp_dog
 id image_dog1
+id image_dog1_fav
 id image_dog1_main
 id image_dog2
+id image_dog2_fav
 id image_dog2_main
 id image_dog3
 id image_dog4
+id image_dog_fav
 id image_dog_main
 id image_perfil
 id image_view_crop
@@ -1751,6 +1756,7 @@ id textinput_error
 id textinput_helper_text
 id time
 id tipo_animal
+id tipo_animal_fav
 id tipo_animal_main
 id title
 id titleDividerNoCustom

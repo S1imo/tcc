@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,9 +10,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top"
-        android:orientation="horizontal">
+        android:layout_height="475dp"
+        android:layout_gravity="center"
+        android:background="@drawable/pop_bg"
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/txtclose"
@@ -31,21 +34,15 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/montserrat"
             android:layout_marginStart="10dp"
-            android:text="Descrição"
+            android:textColor="@color/popupBack"
+            android:text="Detalhes"
             android:textSize="25sp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:paddingTop="30dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="60dp">
+        android:paddingTop="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -59,7 +56,7 @@
                 android:layout_gravity="center"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog_main"
+                    android:id="@+id/image_dog_fav"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -67,7 +64,7 @@
                     android:background="@drawable/perfil_circle"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog1_main"
+                    android:id="@+id/image_dog1_fav"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -75,7 +72,7 @@
                     android:background="@drawable/perfil_circle"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog2_main"
+                    android:id="@+id/image_dog2_fav"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -85,17 +82,19 @@
             </LinearLayout>
         </LinearLayout>
         <TextView
-            android:id="@+id/tipo_animal_main"
+            android:id="@+id/tipo_animal_fav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/montserrat"
             android:layout_marginTop="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Cachorro"
             android:textStyle="bold"/>
 
 
         <LinearLayout
-            android:id="@+id/radbut_porte"
+            android:id="@+id/fav_porte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -106,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/cad_dog_box"
                 android:text=" Porte: "
+                android:textColor="@color/black"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold"
                 android:textSize="14sp" />
@@ -116,8 +116,8 @@
                 android:layout_height="wrap_content"
                 android:text="pequeno"
                 android:fontFamily="@font/montserrat"
+                android:textColor="@color/black"
                 android:textSize="14sp"
-                android:textStyle="bold"
                 android:visibility="visible"
                 android:layout_marginStart="10dp"/>
 
@@ -136,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/cad_dog_box"
                 android:text=" Idade: "
+                android:textColor="@color/black"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -146,8 +147,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Filhote"
+                android:textColor="@color/black"
                 android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
                 android:textSize="14sp"
                 android:layout_marginStart="10dp"
                 android:visibility="visible"/>
@@ -164,6 +165,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Castrado: "
+                android:textColor="@color/black"
                 android:background="@drawable/cad_dog_box"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold" />
@@ -173,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:text="Sim"/>
         </LinearLayout>
 
@@ -187,16 +189,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Vacinado: "
+                android:textColor="@color/black"
                 android:background="@drawable/cad_dog_box"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold" />
             <TextView
                 android:fontFamily="@font/montserrat"
                 android:id="@+id/vacinado_animal_fav"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:textStyle="bold"
                 android:text="Sim"/>
 
         </LinearLayout>
@@ -211,6 +214,7 @@
                 android:layout_height="wrap_content"
                 android:text=" Raça: "
                 android:fontFamily="@font/montserrat"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:background="@drawable/cad_dog_box"/>
 
@@ -221,8 +225,8 @@
                 android:textSize="14sp"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/montserrat"
-                android:text="Pastor Alemão"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:text="Pastor Alemão" />
 
 
         </LinearLayout>
@@ -238,6 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Status: "
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:fontFamily="@font/montserrat"
                 android:background="@drawable/cad_dog_box"/>
@@ -248,7 +253,7 @@
                 android:layout_marginStart="10dp"
                 android:text="Adoção"
                 android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:visibility="visible"/>
 
         </LinearLayout>
@@ -263,6 +268,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Descrição "
+                android:textColor="@color/black"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold"
                 android:background="@drawable/cad_dog_box"/>
@@ -276,8 +282,26 @@
             android:enabled="false"
             android:fontFamily="@font/montserrat"
             android:text="aaaaaaaaaaaaaaaaaaaaaaaaa"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fav_chat"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/color_branco_menu"
+            android:tint="@color/colorPrimaryDark"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="centerCrop"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            android:src="@drawable/chat_icon"
+            app:maxImageSize="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="end"/>
 
     </LinearLayout>
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>
