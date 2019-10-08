@@ -17,12 +17,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Profile_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
+public class Perfil_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
 
     private Context mContext;
     private List<Animal> mAnimais;
 
-    public Profile_AAdapter(Context mContext, List<Animal> mAnimais) {
+    public Perfil_AAdapter(Context mContext, List<Animal> mAnimais) {
         this.mContext = mContext;
         this.mAnimais = mAnimais;
     }

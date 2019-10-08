@@ -1,260 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context="com.bento.a.PopUpMain">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top"
-        android:orientation="horizontal">
+        android:layout_width="350dp"
+        android:layout_height="475dp"
+        android:layout_gravity="center"
+        android:background="@drawable/pop_bg"
+        android:orientation="vertical"
+        android:padding="5dp"
+        tools:context="com.bento.a.PopUpPerfilMy">
 
         <TextView
-            android:id="@+id/txtclose"
+            android:id="@+id/exit_m"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:textColor="@color/popupBack"
-            android:layout_marginTop="10dp"
-            android:text="X"
-            android:textStyle="bold"
             android:layout_gravity="end"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:background="@drawable/circle_bg_pop" />
-
-        <TextView
-            android:id="@+id/desc_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginStart="10dp"
-            android:text="Descrição"
-            android:textSize="25sp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:paddingTop="30dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="60dp">
+            android:text="X"
+            android:textColor="@color/popupBack"
+            android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                >
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog_main"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/perfil_circle"/>
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog1_main"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/perfil_circle"/>
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog2_main"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/perfil_circle"/>
-
-            </LinearLayout>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/tipo_animal_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"/>
+            android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-        <LinearLayout
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_dog1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/perfil_circle" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_dog2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/perfil_circle" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_dog3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/perfil_circle" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_dog4"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/perfil_circle" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tipo_animal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Cachorro"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <RadioGroup
             android:id="@+id/radbut_porte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cad_dog_box"
-                android:text=" Porte: "
                 android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
-                android:textSize="14sp" />
+                android:text=" Porte: "
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/porte_animal_fav"
+                android:id="@+id/porte_animal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="pequeno"
+                android:layout_marginStart="10dp"
                 android:fontFamily="@font/montserrat"
+                android:text="pequeno"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:visibility="visible"
-                android:layout_marginStart="10dp"/>
+                android:visibility="visible" />
 
-        </LinearLayout>
+            <RadioButton
+                android:id="@+id/porte_grande"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grande"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
 
-        <LinearLayout
-            android:id="@+id/radbut_idade_fav"
+            <RadioButton
+                android:id="@+id/porte_medio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Médio"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/porte_pequeno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pequeno"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radbut_idade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView_fav"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cad_dog_box"
+                android:fontFamily="@font/montserrat"
                 android:text=" Idade: "
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
                 android:textAlignment="center"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/idade_ani_fav"
+                android:id="@+id/idade_ani"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/montserrat"
                 android:text="Filhote"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
                 android:textSize="14sp"
-                android:layout_marginStart="10dp"
-                android:visibility="visible"/>
+                android:textStyle="bold"
+                android:visibility="visible" />
 
-        </LinearLayout>
+            <RadioButton
+                android:id="@+id/filhote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1dp"
+                android:text="Filhote "
+                android:textAlignment="center"
+                android:textColor="#FF000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
 
-        <LinearLayout
-            android:id="@+id/radbut_castrado_fav"
+            <RadioButton
+                android:id="@+id/adulto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adulto "
+                android:textAlignment="center"
+                android:textColor="#FF000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radbut_castrado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/cad_dog_box"
+                android:fontFamily="@font/montserrat"
                 android:text=" Castrado: "
-                android:background="@drawable/cad_dog_box"
-                android:fontFamily="@font/montserrat"
                 android:textStyle="bold" />
+
             <TextView
-                android:fontFamily="@font/montserrat"
-                android:id="@+id/castrado_animal_fav"
+                android:id="@+id/castrado_animal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:textStyle="bold"
-                android:text="Sim"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radbut_vacina_fav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Vacinado: "
-                android:background="@drawable/cad_dog_box"
                 android:fontFamily="@font/montserrat"
+                android:text="Sim"
                 android:textStyle="bold" />
-            <TextView
-                android:fontFamily="@font/montserrat"
-                android:id="@+id/vacinado_animal_fav"
+
+            <RadioButton
+                android:id="@+id/castrado_sim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textStyle="bold"
-                android:text="Sim"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Raça: "
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
-                android:background="@drawable/cad_dog_box"/>
-
-            <TextView
-                android:id="@+id/raca_animal_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="Sim"
+                android:textAlignment="center"
+                android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginStart="5dp"
-                android:fontFamily="@font/montserrat"
-                android:text="Pastor Alemão"
-                android:textStyle="bold" />
+                android:visibility="gone" />
 
+            <RadioButton
+                android:id="@+id/castrado_nao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </RadioGroup>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radbut_status_fav"
+        <RadioGroup
+            android:id="@+id/radbut_vacina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Status: "
-                android:textStyle="bold"
+                android:background="@drawable/cad_dog_box"
                 android:fontFamily="@font/montserrat"
-                android:background="@drawable/cad_dog_box"/>
+                android:text=" Vacinado: "
+                android:textStyle="bold" />
+
             <TextView
-                android:id="@+id/status_animal_fav"
+                android:id="@+id/vacinado_animal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Adoção"
                 android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
-                android:visibility="visible"/>
+                android:text="Sim"
+                android:textStyle="bold" />
 
-        </LinearLayout>
+            <RadioButton
+                android:id="@+id/vacinado_sim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="Sim"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/vacinado_nao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </RadioGroup>
 
         <LinearLayout
-            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -262,22 +292,104 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Descrição "
+                android:background="@drawable/cad_dog_box"
                 android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
-                android:background="@drawable/cad_dog_box"/>
+                android:text=" Raça: "
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/raca_animal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat"
+                android:text="Pastor Alemão"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/desc_animal_fav"
+        <RadioGroup
+            android:id="@+id/radbut_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cad_dog_box"
+                android:fontFamily="@font/montserrat"
+                android:text=" Status: "
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/status_animal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Adoção"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <RadioButton
+                android:id="@+id/ani_adot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1dp"
+                android:text="Adoção"
+                android:textAlignment="center"
+                android:textColor="#FF000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/ani_perdido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perdido"
+                android:textAlignment="center"
+                android:textColor="#FF000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cad_dog_box"
+                android:fontFamily="@font/montserrat"
+                android:text=" Descrição "
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/desc_animal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
             android:fontFamily="@font/montserrat"
-            android:text="aaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
             android:textSize="14sp"
             android:textStyle="bold" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/fav_chat_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/chat_icon"/>
+        </RelativeLayout>
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>
