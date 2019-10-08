@@ -2,10 +2,9 @@ package com.bento.a;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -14,30 +13,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bento.a.Adapters.ChatConv_AAdapter;
 import com.bento.a.Classes.Messages;
-import com.bento.a.ViewHolders.ViewHolderChatMessages;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ChatConversaActivity extends AppCompatActivity {
 
+    private ChatConv_AAdapter chatConv_aAdapter;
+    private ArrayList<Messages> mMessages;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
+    private RecyclerView recyclerView;
     private String user_id, other_us_id, messages_stg, idMessage;
     private DatabaseReference mRef;
     private FloatingActionButton but_enviar;
     private ImageView but_voltar;
     private EditText edit_chat;
-    private static int MSG_DIRECTION = 0;
-
-    private FirebaseRecyclerOptions<Messages> options;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +55,7 @@ public class ChatConversaActivity extends AppCompatActivity {
         InpToVar();
         ButtonVoltar();
         ButtonEnviarMsgm();
-        //DisplayMsg();
-
+        DisplayMsg();
     }
 
     private void InpToVar() {
@@ -80,60 +81,54 @@ public class ChatConversaActivity extends AppCompatActivity {
                 if (messages_stg.equals("") || messages_stg.equals(" ")) {
                     Log.d("MSGN", "mensagem vazia");
                 } else {
-                    idMessage = "IDChat"+System.currentTimeMillis();
+                    idMessage = "IDChat" + System.currentTimeMillis();
                     Messages messages = new Messages(idMessage, user_id, other_us_id, messages_stg);
                     Map<String, Object> valuesArr = new HashMap<>();
                     valuesArr.put("M" + (int) System.currentTimeMillis(), messages.toMap());
-                    mRef.child("Messages").child(user_id).updateChildren(valuesArr);
+                    mRef.child("Messages").push().setValue(valuesArr);
                     edit_chat.setText("");
                 }
             }
         });
     }
-/*
+
     private void DisplayMsg() {
-        RecyclerView recyclerViewMessages = findViewById(R.id.recyclerMessages);
-        //TODO: criar referencia que verifique se um dos ids é do usuário e outro do other_uid
+        mMessages = new ArrayList<>();
+        recyclerView = findViewById(R.id.rvChatConv);
+        chatConv_aAdapter = new ChatConv_AAdapter(getApplicationContext(), mMessages);
+        recyclerView.setHasFixedSize(true);
 
-        options = new FirebaseRecyclerOptions.Builder<Messages>()
-                .setQuery(mRef.child("Messages").child(user_id), Messages.class)
-                .build();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
-        FirebaseRecyclerAdapter<Messages, ViewHolderChatMessages> adapter = new FirebaseRecyclerAdapter<Messages, ViewHolderChatMessages>(options) {
+        mRef.child("Messages").addValueEventListener(new ValueEventListener() {
             @Override
-            protected void onBindViewHolder(@NonNull ViewHolderChatMessages viewHolderChatMessages, int i, @NonNull Messages messages) {
-                if (messages.getUs_uid().equals(user_id)) {
-                    //direita - cor branco, texto preto
-                    MSG_DIRECTION = 0;
-                    viewHolderChatMessages.itemView.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-                    viewHolderChatMessages.text_currentTime.setText(messages.getMessage());
-                    viewHolderChatMessages.text_messages.setText(messages.getMessage());
-                } else {
-                    //esquerda - cor verde, texto preto
-                    MSG_DIRECTION = 1;
-                    viewHolderChatMessages.itemView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-                    viewHolderChatMessages.text_currentTime.setText(messages.getMessage());
-                    viewHolderChatMessages.text_messages.setText(messages.getMessage());
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChildren()) {
+                    for (DataSnapshot value_in : dataSnapshot.getChildren()) {
+                        Messages messages = value_in.getValue(Messages.class);
+                        assert messages != null;
+                        System.out.println(value_in.getKey());
+                        /*if(value_in.getKey()){
+                            if(messages.getUs_uid().equals(user_id) && messages.getOther_us_uid().equals(other_us_id) || messages.getUs_uid().equals(other_us_id) && messages.getOther_us_uid().equals(user_id))
+                            {
+                                mMessages.add(messages);
+                                chatConv_aAdapter.notifyDataSetChanged();
+                            }
+                        }else{
+                            Log.d("CHAT2", "No messages send");
+                        }*/
+                    }
                 }
             }
 
-            @NonNull
             @Override
-            public ViewHolderChatMessages onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view;
-                if (MSG_DIRECTION == 0) {
-                    view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.chat_messages_item_l, parent, false);
-                } else {
-                    view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.chat_messages_item_r, parent, false);
-                }
-                return new ViewHolderChatMessages(view);
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
-        };
-        recyclerViewMessages.setHasFixedSize(true);
-        LinearLayoutManager mLinearLayoutM = new LinearLayoutManager(getApplicationContext());
-        mLinearLayoutM.setStackFromEnd(true);
-        recyclerViewMessages.setLayoutManager(mLinearLayoutM);
-        adapter.startListening();
-        recyclerViewMessages.setAdapter(adapter);
-    }*/
+        });
+
+        recyclerView.setAdapter(chatConv_aAdapter);
+    }
 }

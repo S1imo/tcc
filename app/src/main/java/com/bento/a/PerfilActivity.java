@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bento.a.Adapters.Profile_AAdapter;
+import com.bento.a.Adapters.Perfil_AAdapter;
 import com.bento.a.Classes.Connections;
 import com.bento.a.ViewHolders.ViewHolderAnimal;
 import com.bento.a.Classes.Animal;
@@ -320,7 +320,7 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void RecyclerFav() {
         final ArrayList<Animal> mAnimais = new ArrayList<>();
-        final Profile_AAdapter profile_AAdapter = new Profile_AAdapter(getApplicationContext(), mAnimais);
+        final Perfil_AAdapter perfil_AAdapter = new Perfil_AAdapter(getApplicationContext(), mAnimais);
 
         recyclerViewFav = findViewById(R.id.rvInteressados);
         recyclerViewFav.setHasFixedSize(true);
@@ -346,7 +346,7 @@ public class PerfilActivity extends AppCompatActivity {
                                         if(connections.getAn_uid().equals(animal.getAn_uid()))
                                         {
                                             mAnimais.add(animal);
-                                            profile_AAdapter.notifyDataSetChanged();
+                                            perfil_AAdapter.notifyDataSetChanged();
                                         }
                                     }
                                 }
@@ -367,7 +367,7 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
         recyclerViewFav.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
-        recyclerViewFav.setAdapter(profile_AAdapter);
+        recyclerViewFav.setAdapter(perfil_AAdapter);
     }
 
 }
