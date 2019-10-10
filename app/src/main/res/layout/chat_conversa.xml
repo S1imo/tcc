@@ -70,7 +70,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvChatConv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:stackFromEnd="true"
+            app:reverseLayout="true"/>
 
     </LinearLayout>
 

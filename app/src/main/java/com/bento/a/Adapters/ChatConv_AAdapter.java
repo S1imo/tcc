@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ChatConv_AAdapter extends RecyclerView.Adapter<ViewHolderChatMessages> {
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private String user_id;
     private Context mContext;
     private List<Messages> mMessages;
@@ -46,10 +46,8 @@ public class ChatConv_AAdapter extends RecyclerView.Adapter<ViewHolderChatMessag
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderChatMessages holder, int position) {
-        mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getUid();
         Messages messages = mMessages.get(position);
-
         holder.text_messages.setText(messages.getMessage());
         holder.text_currentTime.setText(messages.getCurrent_time());
 
@@ -62,15 +60,14 @@ public class ChatConv_AAdapter extends RecyclerView.Adapter<ViewHolderChatMessag
 
     @Override
     public int getItemViewType(int position) {
-        mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getUid();
         if(mMessages.get(position).getUs_sender().equals(user_id))
         {
-            return MSG_DIRECTION_R;
+            return MSG_DIRECTION_L;
         }
         else
         {
-            return MSG_DIRECTION_L;
+            return MSG_DIRECTION_R;
         }
     }
 }

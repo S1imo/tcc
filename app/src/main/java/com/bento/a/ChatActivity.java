@@ -168,7 +168,6 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(chat_adp);
