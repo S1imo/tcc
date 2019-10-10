@@ -51,7 +51,7 @@ public class ChatConv_AAdapter extends RecyclerView.Adapter<ViewHolderChatMessag
         Messages messages = mMessages.get(position);
 
         holder.text_messages.setText(messages.getMessage());
-        holder.text_currentTime.setText(messages.getMessage());
+        holder.text_currentTime.setText(messages.getCurrent_time());
 
     }
 
@@ -62,8 +62,9 @@ public class ChatConv_AAdapter extends RecyclerView.Adapter<ViewHolderChatMessag
 
     @Override
     public int getItemViewType(int position) {
+        mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getUid();
-        if(mMessages.get(position).getUs_uid().equals(user_id))
+        if(mMessages.get(position).getUs_sender().equals(user_id))
         {
             return MSG_DIRECTION_R;
         }

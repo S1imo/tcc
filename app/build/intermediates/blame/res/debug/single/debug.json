@@ -2476,12 +2476,16 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\f8ccfb448ba3545203b2c9319e236e39\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
-        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\f8ccfb448ba3545203b2c9319e236e39\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_chat_fav.png.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable\\image_chat_fav.png"
     },
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout_profile_item_my.xml.flat",
         "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\layout\\profile_item_my.xml"
+    },
+    {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\f8ccfb448ba3545203b2c9319e236e39\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_dark.xml.flat",
@@ -2756,12 +2760,12 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\3df2fd68af0236fb7b1a24eeed8b503b\\material-1.0.0\\res\\layout\\design_bottom_navigation_item.xml"
     },
     {
-        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_trash_icon.png.flat",
-        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable-v24\\trash_icon.png"
-    },
-    {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\56b6cdfbd80af409835a31a4470c49f0\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_trash_icon.png.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable-v24\\trash_icon.png"
     },
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",

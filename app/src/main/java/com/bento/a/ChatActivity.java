@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bento.a.Adapters.Chat_AAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
+import com.bento.a.Classes.Messages;
 import com.bento.a.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -69,8 +71,6 @@ public class ChatActivity extends AppCompatActivity {
         but_perd = findViewById(R.id.perdido_icon);
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
-
-        recyclerView = findViewById(R.id.rvChatHeader);
 
 
         anim_fade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
@@ -131,11 +131,46 @@ public class ChatActivity extends AppCompatActivity {
 
     private void RecycleView() {
         mUsersList = new ArrayList<>();
-
+        recyclerView = findViewById(R.id.rvChatHeader);
         chat_adp = new Chat_AAdapter(getApplicationContext(), mUsersList);
 
+        mRef.child("Conversas").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    final Messages messages = snapshot.getValue(Messages.class);
+                    assert messages != null;
+                    if(!messages.getUs_receiver().equals(user_id)){
+                        mRef.child("Users").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                                for(DataSnapshot snapshot1: dataSnapshot1.getChildren()){
+                                    if(Objects.equals(dataSnapshot1.getKey(), messages.getUs_receiver())){
+                                        User user = snapshot1.getValue(User.class);
+                                        mUsersList.add(user);
+                                        chat_adp.notifyDataSetChanged();
+                                    }
+                                }
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                            }
+                        });
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(chat_adp);
     }
 }

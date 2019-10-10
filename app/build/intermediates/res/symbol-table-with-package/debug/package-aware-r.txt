@@ -693,6 +693,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1235,6 +1236,7 @@ drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable image_chat_fav
 drawable image_fav
 drawable imageview_click
 drawable inp_prof_grad
@@ -1429,6 +1431,7 @@ id cardView
 id cardView2
 id cardView3
 id castrado_animal
+id castrado_animal_fav
 id castrado_animal_main
 id castrado_nao
 id castrado_sim
@@ -1462,6 +1465,7 @@ id dark
 id decor_content_parent
 id default_activity_button
 id desc_animal
+id desc_animal_fav
 id desc_animal_main
 id desc_text
 id design_bottom_sheet
@@ -1503,7 +1507,8 @@ id exit_m
 id expand_activities_button
 id expanded
 id expanded_menu
-id fav_chat_icon
+id fav_chat
+id fav_porte
 id filhote
 id fill
 id fill_horizontal
@@ -1523,6 +1528,7 @@ id icon
 id icon_group
 id icon_only
 id idade_ani
+id idade_ani_fav
 id idade_ani_main
 id ifRoom
 id image
@@ -1533,11 +1539,15 @@ id image_View_upload
 id image_View_upload_fav
 id image_adp_dog
 id image_dog1
+id image_dog1_fav
 id image_dog1_main
 id image_dog2
+id image_dog2_fav
 id image_dog2_main
 id image_dog3
+id image_dog3_fav
 id image_dog4
+id image_dog_fav
 id image_dog_main
 id image_perfil
 id image_view_crop
@@ -1621,6 +1631,7 @@ id perdido_icon
 id perfil_chat
 id pin
 id porte_animal
+id porte_animal_fav
 id porte_animal_main
 id porte_grande
 id porte_medio
@@ -1630,12 +1641,17 @@ id profile_icon
 id progress_circular
 id progress_horizontal
 id raca_animal
+id raca_animal_fav
 id raca_animal_main
 id radbut_castrado
+id radbut_castrado_fav
 id radbut_idade
+id radbut_idade_fav
 id radbut_porte
 id radbut_status
+id radbut_status_fav
 id radbut_vacina
+id radbut_vacina_fav
 id radio
 id radio_castrado
 id radio_idade
@@ -1699,6 +1715,7 @@ id state_aspect_ratio
 id state_rotate
 id state_scale
 id status_animal
+id status_animal_fav
 id status_animal_main
 id status_bar_latest_event_content
 id stretch
@@ -1726,6 +1743,7 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView_fav
 id text_View_upload
 id text_View_upload_fav
 id text_current_time
@@ -1743,6 +1761,7 @@ id textinput_error
 id textinput_helper_text
 id time
 id tipo_animal
+id tipo_animal_fav
 id tipo_animal_main
 id title
 id titleDividerNoCustom
@@ -1770,6 +1789,7 @@ id unlabeled
 id up
 id useLogo
 id vacinado_animal
+id vacinado_animal_fav
 id vacinado_animal_main
 id vacinado_nao
 id vacinado_sim

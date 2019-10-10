@@ -4,40 +4,32 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Messages {
-    private String idMessage, us_uid, other_us_uid, message;
+    private String us_sender, us_receiver, message, current_time;
 
     public Messages() {
     }
 
-    public Messages(String idMessage, String us_uid, String other_us_uid, String message) {
-        this.idMessage = idMessage;
-        this.us_uid = us_uid;
-        this.other_us_uid = other_us_uid;
+    public Messages(String us_sender, String us_receiver, String message, String current_time) {
+        this.us_sender = us_sender;
+        this.us_receiver = us_receiver;
         this.message = message;
+        this.current_time = current_time;
     }
 
-    public String getIdMessage() {
-        return idMessage;
+    public String getUs_sender() {
+        return us_sender;
     }
 
-    public void setIdMessage(String idMessage) {
-        this.idMessage = idMessage;
+    public void setUs_sender(String us_sender) {
+        this.us_sender = us_sender;
     }
 
-    public String getUs_uid() {
-        return us_uid;
+    public String getUs_receiver() {
+        return us_receiver;
     }
 
-    public void setUs_uid(String us_uid) {
-        this.us_uid = us_uid;
-    }
-
-    public String getOther_us_uid() {
-        return other_us_uid;
-    }
-
-    public void setOther_us_uid(String other_us_uid) {
-        this.other_us_uid = other_us_uid;
+    public void setUs_receiver(String us_receiver) {
+        this.us_receiver = us_receiver;
     }
 
     public String getMessage() {
@@ -48,12 +40,20 @@ public class Messages {
         this.message = message;
     }
 
+    public String getCurrent_time() {
+        return current_time;
+    }
+
+    public void setCurrent_time(String current_time) {
+        this.current_time = current_time;
+    }
+
     public Map<String, Object> toMap() {
         HashMap<String, Object> dataInfo = new HashMap<>();
-        dataInfo.put("idMessage", idMessage);
-        dataInfo.put("us_uid", us_uid);
-        dataInfo.put("other_us_uid", other_us_uid);
+        dataInfo.put("us_sender", us_sender);
+        dataInfo.put("us_receiver", us_receiver);
         dataInfo.put("message", message);
+        dataInfo.put("current_time", current_time);
         return dataInfo;
     }
 }

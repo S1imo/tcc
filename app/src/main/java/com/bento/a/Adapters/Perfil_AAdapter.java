@@ -37,7 +37,7 @@ public class Perfil_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPerfFav holder, int position) {
 
-        Animal animal = mAnimais.get(position);
+        final Animal animal = mAnimais.get(position);
         Picasso.get().load(animal.getAn_prof_img1()).into(holder.an_img);
         holder.an_nome.setText(animal.getAn_raca());
 
@@ -46,7 +46,8 @@ public class Perfil_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
             public void onClick(View v) {
                 mContext.startActivity(new Intent(mContext, PopUpPerfilFav.class)
                         .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("other_us_uid", animal.getUs_uid()));
             }
         });
 

@@ -2,7 +2,6 @@ package com.bento.a;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -24,9 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class ChatConversaActivity extends AppCompatActivity {
 
@@ -35,7 +34,7 @@ public class ChatConversaActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
     private RecyclerView recyclerView;
-    private String user_id, other_us_id, messages_stg, idMessage;
+    private String user_id, other_us_id, messages_stg, currentTime;
     private DatabaseReference mRef;
     private FloatingActionButton but_enviar;
     private ImageView but_voltar;
@@ -77,15 +76,17 @@ public class ChatConversaActivity extends AppCompatActivity {
         but_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Calendar rightNow = Calendar.getInstance();
+                currentTime = ""+rightNow.get(Calendar.HOUR_OF_DAY);
                 messages_stg = edit_chat.getText().toString();
                 if (messages_stg.equals("") || messages_stg.equals(" ")) {
                     Log.d("MSGN", "mensagem vazia");
                 } else {
-                    idMessage = "IDChat" + System.currentTimeMillis();
-                    Messages messages = new Messages(idMessage, user_id, other_us_id, messages_stg);
+                    Messages messages = new Messages(user_id, other_us_id, messages_stg, currentTime);
                     Map<String, Object> valuesArr = new HashMap<>();
-                    valuesArr.put("M" + (int) System.currentTimeMillis(), messages.toMap());
-                    mRef.child("Messages").push().setValue(valuesArr);
+                    String var = "M"+System.currentTimeMillis();
+                    valuesArr.put(var, messages.toMap());
+                    mRef.child("Messages").updateChildren(valuesArr);
                     edit_chat.setText("");
                 }
             }
@@ -98,11 +99,7 @@ public class ChatConversaActivity extends AppCompatActivity {
         chatConv_aAdapter = new ChatConv_AAdapter(getApplicationContext(), mMessages);
         recyclerView.setHasFixedSize(true);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-
-        mRef.child("Messages").addValueEventListener(new ValueEventListener() {
+        mRef.child("Messages").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
@@ -110,15 +107,11 @@ public class ChatConversaActivity extends AppCompatActivity {
                         Messages messages = value_in.getValue(Messages.class);
                         assert messages != null;
                         System.out.println(value_in.getKey());
-                        /*if(value_in.getKey()){
-                            if(messages.getUs_uid().equals(user_id) && messages.getOther_us_uid().equals(other_us_id) || messages.getUs_uid().equals(other_us_id) && messages.getOther_us_uid().equals(user_id))
-                            {
-                                mMessages.add(messages);
-                                chatConv_aAdapter.notifyDataSetChanged();
-                            }
-                        }else{
-                            Log.d("CHAT2", "No messages send");
-                        }*/
+                        if(messages.getUs_sender().equals(user_id) && messages.getUs_receiver().equals(other_us_id) || messages.getUs_sender().equals(other_us_id) && messages.getUs_receiver().equals(user_id))
+                        {
+                            mMessages.add(messages);
+                            chatConv_aAdapter.notifyDataSetChanged();
+                        }
                     }
                 }
             }
@@ -129,6 +122,9 @@ public class ChatConversaActivity extends AppCompatActivity {
             }
         });
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(chatConv_aAdapter);
     }
 }

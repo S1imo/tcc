@@ -20,288 +20,304 @@
             android:id="@+id/txtclose"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:textColor="@color/popupBack"
-            android:layout_marginTop="10dp"
-            android:text="X"
-            android:textStyle="bold"
             android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circle_bg_pop"
             android:gravity="center"
-            android:background="@drawable/circle_bg_pop" />
+            android:text="X"
+            android:textColor="@color/popupBack"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/desc_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/montserrat"
             android:layout_marginStart="10dp"
-            android:textColor="@color/popupBack"
+            android:fontFamily="@font/montserrat"
             android:text="Detalhes"
+            android:textColor="@color/popupBack"
             android:textSize="25sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="10dp">
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_gravity="center">
+            android:paddingTop="10dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="center"
-                >
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog_fav"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/perfil_circle"/>
+                android:orientation="vertical">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog1_fav"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/perfil_circle"/>
+                    android:orientation="horizontal">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_dog2_fav"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image_dog_fav"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/perfil_circle" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image_dog1_fav"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/perfil_circle" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image_dog2_fav"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/perfil_circle" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image_dog3_fav"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/perfil_circle" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tipo_animal_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Cachorro"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:id="@+id/fav_porte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cad_dog_box"
+                    android:fontFamily="@font/montserrat"
+                    android:text=" Porte: "
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/porte_animal_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/perfil_circle"/>
+                    android:fontFamily="@font/montserrat"
+                    android:text="pequeno"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:visibility="visible" />
 
             </LinearLayout>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/tipo_animal_fav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="Cachorro"
-            android:textStyle="bold"/>
 
-
-        <LinearLayout
-            android:id="@+id/fav_porte"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/radbut_idade_fav"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cad_dog_box"
-                android:text=" Porte: "
-                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cad_dog_box"
+                    android:fontFamily="@font/montserrat"
+                    android:text=" Idade: "
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/idade_ani_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Filhote"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/radbut_castrado_fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cad_dog_box"
+                    android:fontFamily="@font/montserrat"
+                    android:text=" Castrado: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/castrado_animal_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Sim"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/radbut_vacina_fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cad_dog_box"
+                    android:fontFamily="@font/montserrat"
+                    android:text=" Vacinado: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/vacinado_animal_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Sim"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cad_dog_box"
+                    android:fontFamily="@font/montserrat"
+                    android:text=" Raça: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/raca_animal_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Pastor Alemão"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/radbut_status_fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cad_dog_box"
+                    android:fontFamily="@font/montserrat"
+                    android:text=" Status: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/status_animal_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Adoção"
+                    android:textColor="@color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cad_dog_box"
+                    android:fontFamily="@font/montserrat"
+                    android:text=" Descrição "
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/desc_animal_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
                 android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
+                android:text="aaaaaaaaaaaaaaaaaaaaaaaaa"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/porte_animal_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="pequeno"
-                android:fontFamily="@font/montserrat"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:visibility="visible"
-                android:layout_marginStart="10dp"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fav_chat"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="@color/color_branco_menu"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_chat_fav"
+                android:tint="@color/colorPrimaryDark"
+                app:borderWidth="0dp"
+                app:elevation="6dp"
+                app:maxImageSize="35dp" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radbut_idade_fav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/textView_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/cad_dog_box"
-                android:text=" Idade: "
-                android:textColor="@color/black"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/idade_ani_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Filhote"
-                android:textColor="@color/black"
-                android:fontFamily="@font/montserrat"
-                android:textSize="14sp"
-                android:layout_marginStart="10dp"
-                android:visibility="visible"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radbut_castrado_fav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Castrado: "
-                android:textColor="@color/black"
-                android:background="@drawable/cad_dog_box"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold" />
-            <TextView
-                android:fontFamily="@font/montserrat"
-                android:id="@+id/castrado_animal_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                android:text="Sim"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radbut_vacina_fav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Vacinado: "
-                android:textColor="@color/black"
-                android:background="@drawable/cad_dog_box"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold" />
-            <TextView
-                android:fontFamily="@font/montserrat"
-                android:id="@+id/vacinado_animal_fav"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Sim"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Raça: "
-                android:fontFamily="@font/montserrat"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:background="@drawable/cad_dog_box"/>
-
-            <TextView
-                android:id="@+id/raca_animal_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:layout_marginStart="5dp"
-                android:fontFamily="@font/montserrat"
-                android:textColor="@color/black"
-                android:text="Pastor Alemão" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radbut_status_fav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Status: "
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/montserrat"
-                android:background="@drawable/cad_dog_box"/>
-            <TextView
-                android:id="@+id/status_animal_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Adoção"
-                android:fontFamily="@font/montserrat"
-                android:textColor="@color/black"
-                android:visibility="visible"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Descrição "
-                android:textColor="@color/black"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
-                android:background="@drawable/cad_dog_box"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/desc_animal_fav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:fontFamily="@font/montserrat"
-            android:text="aaaaaaaaaaaaaaaaaaaaaaaaa"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fav_chat"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/color_branco_menu"
-            android:tint="@color/colorPrimaryDark"
-            android:clickable="true"
-            android:focusable="true"
-            android:scaleType="centerCrop"
-            app:borderWidth="0dp"
-            app:elevation="6dp"
-            android:src="@drawable/chat_icon"
-            app:maxImageSize="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_gravity="end"/>
-
-    </LinearLayout>
     </LinearLayout>
 </ScrollView>

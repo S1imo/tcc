@@ -23,15 +23,19 @@ public class PopUpPerfilFav extends AppCompatActivity {
 
     private void InpToVar() {
 
-        but_chat = findViewById(R.id.fav_chat_icon);
+        but_chat = findViewById(R.id.fav_chat);
 
     }
 
     private void ButtonChat() {
+
+        final String other_us_uid = getIntent().getStringExtra("other_us_uid");
+
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PopUpPerfilFav.this, ChatConversaActivity.class));
+                startActivity(new Intent(PopUpPerfilFav.this, ChatConversaActivity.class)
+                        .putExtra("other_us_uid", other_us_uid));
             }
         });
     }
