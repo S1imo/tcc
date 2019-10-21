@@ -43,7 +43,7 @@ public class PerdidosActivity extends AppCompatActivity {
         InpToVar(); //input para variaveis
         Buttons(); //função dos botoes
 
-        PerdidoAn();
+        //PerdidoAn();
     }
 
     private void Buttons(){
@@ -108,7 +108,7 @@ public class PerdidosActivity extends AppCompatActivity {
         });
     }
 
-    private void PerdidoAn(){
+    /*private void PerdidoAn(){
         regiaoRView = findViewById(R.id.rvPerdidos);
         todosRView = findViewById(R.id.rvPerdidos2);
 
@@ -159,5 +159,5 @@ public class PerdidosActivity extends AppCompatActivity {
         todosRView.setLayoutManager(mLinearManager2);
         regiaoRView.setAdapter(adapter1);
         regiaoRView.setAdapter(adapter2);
-    }
+    }*/
 }

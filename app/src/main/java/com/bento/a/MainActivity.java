@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         final Animal animal = value_in.getValue(Animal.class);
                         assert animal != null;
                         //verificação - ver se o animal é do user que está
-                        if (!animal.getUs_uid().equals(user_id)) {
+                        if (!animal.getUs_uid().equals(user_id) && !animal.getAn_status().equals("Perdido")) {
                             rowItems.add(animal);
                             arr_Adapter.notifyDataSetChanged();
                             mRefConnections.addValueEventListener(new ValueEventListener() {
@@ -137,17 +137,32 @@ public class MainActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                                    for(DataSnapshot value_con: dataSnapshot.getChildren()) {
+                                        if (Objects.equals(value_con.getKey(), animal.getAn_uid())) {
+                                            rowItems.remove(animal);
+                                            arr_Adapter.notifyDataSetChanged();
+                                        }
+                                    }
                                 }
 
                                 @Override
                                 public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
+                                    for(DataSnapshot value_con: dataSnapshot.getChildren()) {
+                                        if (Objects.equals(value_con.getKey(), animal.getAn_uid())) {
+                                            rowItems.remove(animal);
+                                            arr_Adapter.notifyDataSetChanged();
+                                        }
+                                    }
                                 }
 
                                 @Override
                                 public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                                    for(DataSnapshot value_con: dataSnapshot.getChildren()) {
+                                        if (Objects.equals(value_con.getKey(), animal.getAn_uid())) {
+                                            rowItems.remove(animal);
+                                            arr_Adapter.notifyDataSetChanged();
+                                        }
+                                    }
                                 }
 
                                 @Override

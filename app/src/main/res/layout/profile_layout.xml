@@ -235,7 +235,8 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
 
                         <ImageView
                             android:id="@+id/coins"
@@ -249,7 +250,7 @@
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="5dp"
+                            android:layout_marginEnd="10dp"
                             android:tint="#88008577"
                             app:srcCompat="@drawable/prof_plus_icon" />
 

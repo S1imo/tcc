@@ -719,6 +719,8 @@ color color_branco_menu
 color color_brancofundo_log
 color color_brancotext_log
 color color_cinza_menu
+color color_green
+color color_greyish
 color color_preto_bg_fundo
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default

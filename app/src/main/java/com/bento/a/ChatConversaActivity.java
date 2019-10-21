@@ -78,7 +78,7 @@ public class ChatConversaActivity extends AppCompatActivity {
         but_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChatConversaActivity.this, PerfilActivity.class));
+                startActivity(new Intent(ChatConversaActivity.this, ChatActivity.class));
             }
         });
     }
@@ -147,6 +147,7 @@ public class ChatConversaActivity extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(chatConv_aAdapter);
+        recyclerView.scrollToPosition(chatConv_aAdapter.getItemCount());
     }
 
     private void DisplayUser() {

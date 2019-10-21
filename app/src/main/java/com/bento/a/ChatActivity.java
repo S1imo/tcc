@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.bento.a.Classes.Connections;
 import com.bento.a.Classes.Messages;
 import com.bento.a.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,8 +52,6 @@ public class ChatActivity extends AppCompatActivity {
         mRef = mFire.getReference();
 
         InpToVar();
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         RecycleView();
         Buttons();
     }
@@ -130,27 +130,72 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void RecycleView() {
+
         mUsersList = new ArrayList<>();
         recyclerView = findViewById(R.id.rvChatHeader);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         chat_adp = new Chat_AAdapter(getApplicationContext(), mUsersList);
 
-        mRef.child("Conversas").addValueEventListener(new ValueEventListener() {
+        mRef.child("Messages").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                     final Messages messages = snapshot.getValue(Messages.class);
                     assert messages != null;
-                    if(!messages.getUs_receiver().equals(user_id)){
+                    if(!messages.getUs_receiver().equals(user_id) && messages.getUs_sender().equals(user_id)){
                         mRef.child("Users").addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
                                 for(DataSnapshot snapshot1: dataSnapshot1.getChildren()){
-                                    if(Objects.equals(dataSnapshot1.getKey(), messages.getUs_receiver())){
-                                        User user = snapshot1.getValue(User.class);
+                                    User user = snapshot1.getValue(User.class);
+                                    assert user != null;
+                                    if(Objects.equals(user.getUs_uid(), messages.getUs_receiver())){
                                         mUsersList.add(user);
                                         chat_adp.notifyDataSetChanged();
                                     }
                                 }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                        mRef.child("Users").addChildEventListener(new ChildEventListener() {
+                            @Override
+                            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                User user = dataSnapshot.getValue(User.class);
+                                assert user != null;
+                                if(Objects.equals(user.getUs_uid(), messages.getUs_receiver())){
+                                    mUsersList.remove(user);
+                                    chat_adp.notifyDataSetChanged();
+                                }
+                            }
+
+                            @Override
+                            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                User user = dataSnapshot.getValue(User.class);
+                                assert user != null;
+                                if(Objects.equals(user.getUs_uid(), messages.getUs_receiver())){
+                                    mUsersList.remove(user);
+                                    chat_adp.notifyDataSetChanged();
+                                }
+                            }
+
+                            @Override
+                            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                                User user = dataSnapshot.getValue(User.class);
+                                assert user != null;
+                                if(Objects.equals(user.getUs_uid(), messages.getUs_receiver())){
+                                    mUsersList.remove(user);
+                                    chat_adp.notifyDataSetChanged();
+                                }
+                            }
+
+                            @Override
+                            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
                             }
 
                             @Override

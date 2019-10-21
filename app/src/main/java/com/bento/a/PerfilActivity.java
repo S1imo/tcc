@@ -334,7 +334,6 @@ public class PerfilActivity extends AppCompatActivity {
                         assert connections != null;
                         if(!connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id) && Objects.requireNonNull(snapshot1.getKey()).contains("Yes"))
                         {
-                            System.out.println("c");
                             DatabaseReference reference = mFirebaseDatabase.getReference();
                             reference.child("Animais").child(connections.getAn_us_uid()).addValueEventListener(new ValueEventListener() {
                                 @Override
@@ -353,7 +352,6 @@ public class PerfilActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError1) {
-                                    System.out.println("f");
                                 }
                             });
                         }

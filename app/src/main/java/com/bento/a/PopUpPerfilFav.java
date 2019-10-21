@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PopUpPerfilFav extends AppCompatActivity {
 
     ImageView but_chat;
+    TextView but_exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,7 @@ public class PopUpPerfilFav extends AppCompatActivity {
         setContentView(R.layout.popup_perfil_fav);
 
         InpToVar();
+        ButtonExit();
         ButtonChat();
 
     }
@@ -24,7 +27,17 @@ public class PopUpPerfilFav extends AppCompatActivity {
     private void InpToVar() {
 
         but_chat = findViewById(R.id.fav_chat);
+        but_exit = findViewById(R.id.txtclose);
 
+    }
+
+    private void ButtonExit(){
+        but_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PopUpPerfilFav.this, PerfilActivity.class));
+            }
+        });
     }
 
     private void ButtonChat() {
