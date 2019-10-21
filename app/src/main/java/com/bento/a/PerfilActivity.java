@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +23,7 @@ import com.bento.a.Classes.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -329,10 +331,11 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    for (final DataSnapshot snapshot1 : snapshot.getChildren()) {
                         final Connections connections = snapshot1.getValue(Connections.class);
                         assert connections != null;
-                        if(!connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id) && Objects.requireNonNull(snapshot1.getKey()).contains("Yes"))
+                        System.out.println(connections.getAn_us_uid());
+                        if(!connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id))
                         {
                             DatabaseReference reference = mFirebaseDatabase.getReference();
                             reference.child("Animais").child(connections.getAn_us_uid()).addValueEventListener(new ValueEventListener() {

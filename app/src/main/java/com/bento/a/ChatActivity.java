@@ -137,75 +137,29 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         chat_adp = new Chat_AAdapter(getApplicationContext(), mUsersList);
 
-        mRef.child("Messages").addValueEventListener(new ValueEventListener() {
+        mRef.child("ChatList").child(user_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    final Messages messages = snapshot.getValue(Messages.class);
-                    assert messages != null;
-                    if(!messages.getUs_receiver().equals(user_id) && messages.getUs_sender().equals(user_id)){
-                        mRef.child("Users").addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                                for(DataSnapshot snapshot1: dataSnapshot1.getChildren()){
-                                    User user = snapshot1.getValue(User.class);
-                                    assert user != null;
-                                    if(Objects.equals(user.getUs_uid(), messages.getUs_receiver())){
-                                        mUsersList.add(user);
-                                        chat_adp.notifyDataSetChanged();
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-                        mRef.child("Users").addChildEventListener(new ChildEventListener() {
-                            @Override
-                            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                User user = dataSnapshot.getValue(User.class);
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    mRef.child("Users").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot snapshot1: dataSnapshot.getChildren()){
+                                User user = snapshot1.getValue(User.class);
                                 assert user != null;
-                                if(Objects.equals(user.getUs_uid(), messages.getUs_receiver())){
-                                    mUsersList.remove(user);
+                                if(user.getUs_uid().equals(snapshot.getKey())){
+                                    mUsersList.add(user);
                                     chat_adp.notifyDataSetChanged();
                                 }
                             }
+                        }
 
-                            @Override
-                            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                User user = dataSnapshot.getValue(User.class);
-                                assert user != null;
-                                if(Objects.equals(user.getUs_uid(), messages.getUs_receiver())){
-                                    mUsersList.remove(user);
-                                    chat_adp.notifyDataSetChanged();
-                                }
-                            }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                            @Override
-                            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                                User user = dataSnapshot.getValue(User.class);
-                                assert user != null;
-                                if(Objects.equals(user.getUs_uid(), messages.getUs_receiver())){
-                                    mUsersList.remove(user);
-                                    chat_adp.notifyDataSetChanged();
-                                }
-                            }
-
-                            @Override
-                            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-                    }
+                        }
+                    });
                 }
-
             }
 
             @Override

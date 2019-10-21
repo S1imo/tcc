@@ -98,6 +98,8 @@ public class ChatConversaActivity extends AppCompatActivity {
                     String var = "M" + System.currentTimeMillis();
                     valuesArr.put(var, messages.toMap());
                     mRef.child("Messages").updateChildren(valuesArr);
+                    mRef.child("ChatList").child(user_id).child(other_us_id).setValue(true);
+                    mRef.child("ChatList").child(other_us_id).child(user_id).setValue(true);
                     edit_chat.setText("");
                 }
             }
