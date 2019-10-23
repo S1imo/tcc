@@ -1,4 +1,4 @@
-#Mon Oct 21 20:28:22 BRT 2019
+#Wed Oct 23 14:46:42 BRT 2019
 base.0=C\:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

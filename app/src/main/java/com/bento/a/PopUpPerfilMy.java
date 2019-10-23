@@ -36,7 +36,7 @@ public class PopUpPerfilMy extends AppCompatActivity {
     private DatabaseReference mRef;
     private FirebaseAuth mAuth;
     private String user_id;
-    private Button but_editar;
+    private Button but_editar, but_aplicar, but_voltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +50,6 @@ public class PopUpPerfilMy extends AppCompatActivity {
         mRef = mFire.getReference();
 
         InpToVar();
-
-        View exit = findViewById(R.id.exit_m);
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
         getIntentExtra();
         SetValues();
         ButtonEditar();
@@ -89,6 +80,8 @@ public class PopUpPerfilMy extends AppCompatActivity {
         //parte edição
 
         but_editar = findViewById(R.id.but_editar);
+        but_aplicar = findViewById(R.id.but_aplicar);
+        but_voltar = findViewById(R.id.but_back);
 
         sel_inp_idade = findViewById(R.id.radbut_idade);
         sel_inp_porte = findViewById(R.id.radbut_porte);
@@ -137,7 +130,13 @@ public class PopUpPerfilMy extends AppCompatActivity {
     }
 
     private void ButtonBack() {
-
+        View exit = findViewById(R.id.exit_m);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void ButtonEditar(){
@@ -145,6 +144,19 @@ public class PopUpPerfilMy extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(PopUpPerfilMy.this, "AAAAAAAAAAA", Toast.LENGTH_SHORT).show();
+                text_porte.setVisibility(View.GONE);
+                text_idade.setVisibility(View.GONE);
+                text_cast.setVisibility(View.GONE);
+                text_stat.setVisibility(View.GONE);
+                but_editar.setVisibility(View.GONE);
+
+                //clickable
+                text_raca.setClickable(true);
+                text_desc.setClickable(true);
+
+                //visivel
+                but_aplicar.setVisibility(View.VISIBLE);
+                but_voltar.setVisibility(View.VISIBLE);
             }
         });
     }
