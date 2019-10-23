@@ -333,31 +333,26 @@ public class PerfilActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     for (final DataSnapshot snapshot1 : snapshot.getChildren()) {
                         final Connections connections = snapshot1.getValue(Connections.class);
+                        DatabaseReference reference = mFirebaseDatabase.getReference();
                         assert connections != null;
-                        System.out.println(connections.getAn_us_uid());
-                        if(!connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id))
-                        {
-                            DatabaseReference reference = mFirebaseDatabase.getReference();
-                            reference.child("Animais").child(connections.getAn_us_uid()).addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                                    for(DataSnapshot snapshot2: dataSnapshot1.getChildren())
-                                    {
-                                        Animal animal = snapshot2.getValue(Animal.class);
-                                        assert animal != null;
-                                        if(connections.getAn_uid().equals(animal.getAn_uid()))
-                                        {
-                                            mAnimais.add(animal);
-                                            perfil_AAdapter.notifyDataSetChanged();
-                                        }
+                        reference.child("Animais").child(connections.getAn_us_uid()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                                for (DataSnapshot snapshot2 : dataSnapshot1.getChildren()) {
+                                    Animal animal = snapshot2.getValue(Animal.class);
+                                    assert animal != null;
+                                    if (connections.getAn_uid().equals(animal.getAn_uid()) && !connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id)) {
+                                        mAnimais.add(animal);
+                                        perfil_AAdapter.notifyDataSetChanged();
                                     }
                                 }
+                            }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError1) {
-                                }
-                            });
-                        }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError1) {
+                            }
+                        });
+
                     }
                 }
             }

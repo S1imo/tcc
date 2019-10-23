@@ -2,10 +2,12 @@ package com.bento.a;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +36,7 @@ public class PopUpPerfilMy extends AppCompatActivity {
     private DatabaseReference mRef;
     private FirebaseAuth mAuth;
     private String user_id;
+    private Button but_editar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,6 @@ public class PopUpPerfilMy extends AppCompatActivity {
         user_id = mAuth.getUid();
         mFire = FirebaseDatabase.getInstance();
         mRef = mFire.getReference();
-
 
         InpToVar();
 
@@ -59,6 +61,7 @@ public class PopUpPerfilMy extends AppCompatActivity {
 
         getIntentExtra();
         SetValues();
+        ButtonEditar();
         ButtonBack();
 
     }
@@ -84,6 +87,9 @@ public class PopUpPerfilMy extends AppCompatActivity {
         text_cast = findViewById(R.id.castrado_animal);
 
         //parte edição
+
+        but_editar = findViewById(R.id.but_editar);
+
         sel_inp_idade = findViewById(R.id.radbut_idade);
         sel_inp_porte = findViewById(R.id.radbut_porte);
         sel_inp_stat = findViewById(R.id.radbut_status);
@@ -132,5 +138,14 @@ public class PopUpPerfilMy extends AppCompatActivity {
 
     private void ButtonBack() {
 
+    }
+
+    private void ButtonEditar(){
+        but_editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PopUpPerfilMy.this, "AAAAAAAAAAA", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
