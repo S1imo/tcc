@@ -1,4 +1,5 @@
 package com.bento.a.Classes;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.HashMap;
@@ -8,9 +9,10 @@ public class User {
 
     private String us_uid, us_nome, us_status, us_tip_usu, us_nome_comp, us_cpf, us_cnpj, us_cep, us_tel, us_dat_nasc, us_rg, us_img;
 
-    public User(){}
+    public User() {
+    }
 
-    public User(String us_uid,String nome, String tip_usu, String nome_comp, String cpf, String cep, String tel, String dat_nasc, String rg, String us_img) {
+    public User(String us_uid, String nome, String tip_usu, String nome_comp, String cpf, String cep, String tel, String dat_nasc, String rg, String us_img) {
         this.us_uid = us_uid;
         this.us_nome = nome;
         this.us_tip_usu = tip_usu;
@@ -70,7 +72,9 @@ public class User {
         return this.us_rg;
     }
 
-    public String getUs_img(){return this.us_img;}
+    public String getUs_img() {
+        return this.us_img;
+    }
 
     public String getUs_status() {
         return us_status;
@@ -124,14 +128,15 @@ public class User {
         this.us_rg = us_rg;
     }
 
-    public void setUs_img(String us_img){this.us_img = us_img;}
+    public void setUs_img(String us_img) {
+        this.us_img = us_img;
+    }
 
-    public Map<String, Object> toMap()
-    {
+    public Map<String, Object> toMap() {
         HashMap<String, Object> dataInfo = new HashMap<>();
-        if(us_tip_usu.equals("Usuário")){
-            dataInfo.put("us_uid",us_uid);
-            dataInfo.put("us_nome",us_nome);
+        if (us_tip_usu.equals("Usuário")) {
+            dataInfo.put("us_uid", us_uid);
+            dataInfo.put("us_nome", us_nome);
             dataInfo.put("us_nome_comp", us_nome_comp);
             dataInfo.put("us_tip_usu", us_tip_usu);
             dataInfo.put("us_cep", us_cep);
@@ -142,8 +147,7 @@ public class User {
             dataInfo.put("us_img", us_img);
 
             return dataInfo;
-        }
-        else if(us_tip_usu.equals("Organização")) {
+        } else if (us_tip_usu.equals("Organização")) {
             dataInfo.put("us_uid", us_uid);
             dataInfo.put("us_nome", us_nome);
             dataInfo.put("us_nome_comp", us_nome_comp);

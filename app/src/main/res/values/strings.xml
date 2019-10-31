@@ -10,5 +10,8 @@
         <item>Gato</item>
         <item>Outro</item>
     </string-array>
+    <string name="map_key" translatable="false">
+        AIzaSyCbYHv_Ciqc__V2wTq_PwNf9_vWNuq5tH0
+    </string>
 
 </resources>
