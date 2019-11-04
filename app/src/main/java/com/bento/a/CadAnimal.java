@@ -2,11 +2,15 @@ package com.bento.a;
 
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,10 +24,16 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.bento.a.Classes.Animal;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,6 +44,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
@@ -53,21 +69,23 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     private RadioButton but_rad_port, but_rad_vac, but_rad_stat, but_rad_idade, but_rad_cast;
     private Spinner inp_tip_animal;
     private CircleImageView inp_img1, inp_img2, inp_img3, inp_img4, img;
-    private String an_idade, tip_animal, an_port, an_vac, an_stat, an_desc, an_raca, an_cast;
+    private String an_id, an_idade, tip_animal, an_port, an_vac, an_stat, an_desc, an_raca, an_cast;
     private String[] an_prof_img = new String[5];
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private StorageReference folder;
-    private String currentIdAn;
     private static int idImgCount = 0;
     private static boolean isUploaded = false;
-    private String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-    private HashMap<String, Object> newPost = new HashMap<>();
+    private String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid(), currentIdAn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cad_dog_layout);
         folder = FirebaseStorage.getInstance().getReference();
+
+        if (ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            PermissionsMaps();
+        }
 
         currentIdAn = CreateIdAn();
 
@@ -132,9 +150,6 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
         } else if (ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "Permissão de leitura não habilitada", Toast.LENGTH_SHORT).show();
-        } else if (ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permissão de gravação não habilitada", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -185,6 +200,40 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
                 }
             }
         });
+    }
+
+    private void PermissionsMaps() {
+        Dexter.withActivity(CadAnimal.this)
+                .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                        Log.d("PMS", "Permissão habilitada");
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(CadAnimal.this);
+                        builder.setTitle("Permissão negada")
+                                .setMessage("Sua permissão foi permanentemente negada. Caso queira ativa-la, verifique estas nas configurações.")
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent();
+                                        intent.setAction(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                                        intent.setData(Uri.fromParts("package", getPackageName(), null));
+                                        startActivity(intent);
+                                    }
+                                })
+                                .show();
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+
+                    }
+                })
+                .check();
     }
 
     //Colocando dados FB - Storage
@@ -276,26 +325,22 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
-
     //Colocando dados FB - DB
     private void CreateAn() {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Animais").child(user_id);
-        Animal an = new Animal(user_id, currentIdAn, tip_animal, an_cast, an_idade, an_port, an_vac, an_raca, an_stat, an_desc, new String[]{an_prof_img[0], an_prof_img[1], an_prof_img[2], an_prof_img[3], an_prof_img[4]});
-        newPost.put(currentIdAn, an.toMap());
-        ref.updateChildren(newPost)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(CadAnimal.this, "Cadastro efetuado", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(CadAnimal.this, PerfilActivity.class));
-                        idImgCount = 0;
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(CadAnimal.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        idImgCount = 0;
+        startActivity(new Intent(CadAnimal.this, MapActivity.class)
+                .putExtra("an_id", CreateIdAn())
+                .putExtra("user_id", user_id)
+                .putExtra("currentIdAn", currentIdAn)
+                .putExtra("tip_animal", tip_animal)
+                .putExtra("an_cast", an_cast)
+                .putExtra("an_idade", an_idade)
+                .putExtra("an_port", an_port)
+                .putExtra("an_vac", an_vac)
+                .putExtra("an_raca", an_raca)
+                .putExtra("an_stat", an_stat)
+                .putExtra("an_desc", an_desc)
+                .putExtra("an_prof_img", new String[]{an_prof_img[0], an_prof_img[1], an_prof_img[2], an_prof_img[3], an_prof_img[4]}));
     }
 
     private String CreateIdAn() {

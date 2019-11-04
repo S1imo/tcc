@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Animal {
-    private String us_uid, an_uid, tip_an, an_cast, an_idade, an_porte, an_vacinado, an_raca, an_status, an_descricao, an_prof_img1, an_prof_img2, an_prof_img3, an_prof_img4;
+    private String us_uid, an_uid, tip_an, an_cast, an_idade, an_porte, an_vacinado, an_raca, an_status, an_descricao, an_prof_img1, an_prof_img2, an_prof_img3, an_prof_img4, an_lat, an_long;
     private String[] an_prof_img;
 
     public Animal() {
     }
 
-    public Animal(String us_uid, String an_uid, String tip_an, String an_cast, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String[] an_prof_img) {
+    public Animal(String us_uid, String an_uid, String tip_an, String an_cast, String an_idade, String an_porte, String an_vacinado, String an_raca, String an_status, String an_descricao, String an_prof_img1, String an_prof_img2, String an_prof_img3, String an_prof_img4, String an_lat, String an_long) {
         this.us_uid = us_uid;
         this.an_uid = an_uid;
         this.tip_an = tip_an;
@@ -21,7 +21,12 @@ public class Animal {
         this.an_raca = an_raca;
         this.an_status = an_status;
         this.an_descricao = an_descricao;
-        this.an_prof_img = an_prof_img;
+        this.an_prof_img1 = an_prof_img1;
+        this.an_prof_img2 = an_prof_img2;
+        this.an_prof_img3 = an_prof_img3;
+        this.an_prof_img4 = an_prof_img4;
+        this.an_lat = an_lat;
+        this.an_long = an_long;
     }
 
 
@@ -145,6 +150,22 @@ public class Animal {
         this.an_prof_img4 = an_prof_img4;
     }
 
+    public String getAn_lat() {
+        return an_lat;
+    }
+
+    public void setAn_lat(String an_lat) {
+        this.an_lat = an_lat;
+    }
+
+    public String getAn_long() {
+        return an_long;
+    }
+
+    public void setAn_long(String an_long) {
+        this.an_long = an_long;
+    }
+
     public Map<String, Object> toMap() {
         HashMap<String, Object> dataInfo = new HashMap<>();
         dataInfo.put("us_uid", us_uid);
@@ -156,10 +177,12 @@ public class Animal {
         dataInfo.put("an_raca", an_raca);
         dataInfo.put("an_status", an_status);
         dataInfo.put("an_descricao", an_descricao);
-        dataInfo.put("an_prof_img1", an_prof_img[1]);
-        dataInfo.put("an_prof_img2", an_prof_img[2]);
-        dataInfo.put("an_prof_img3", an_prof_img[3]);
-        dataInfo.put("an_prof_img4", an_prof_img[4]);
+        dataInfo.put("an_prof_img1", an_prof_img1);
+        dataInfo.put("an_prof_img2", an_prof_img2);
+        dataInfo.put("an_prof_img3", an_prof_img3);
+        dataInfo.put("an_prof_img4", an_prof_img4);
+        dataInfo.put("an_lat", an_lat);
+        dataInfo.put("an_long", an_long);
         return dataInfo;
     }
 }
