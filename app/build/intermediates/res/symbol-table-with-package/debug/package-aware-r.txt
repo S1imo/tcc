@@ -1365,6 +1365,7 @@ id anchored
 id ani_adot
 id ani_perdido
 id async
+id att_local
 id auto
 id backgroud
 id barrier
@@ -1458,6 +1459,7 @@ id coins
 id collapseActionView
 id collapsed
 id container
+id contato
 id content
 id contentPanel
 id coordinator
@@ -1561,6 +1563,7 @@ id imagelike
 id img_chat
 id img_us
 id info
+id info_btn
 id info_btn_card
 id invisible
 id italic
@@ -1583,7 +1586,10 @@ id linearLayout2
 id linearLayout3
 id linearLayout4
 id linearLayout5
+id linearLayout6
 id linearLayout7
+id linearLayout8
+id linearLayout9
 id linearlayout3
 id listMode
 id list_item
@@ -1609,6 +1615,8 @@ id mirror
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id myImageView
+id myViewPager
 id navigation_header_container
 id never
 id nome_chat
@@ -1629,7 +1637,10 @@ id parent_matrix
 id percent
 id perdido_bairro
 id perdido_cid
+id perdido_cidade
 id perdido_icon
+id perdido_info
+id perdido_nome
 id perfil_chat
 id pin
 id porte_animal
@@ -1808,6 +1819,7 @@ id view_overlay
 id visible
 id voltarDButton
 id voltar_chat
+id voltar_perdidos
 id wide
 id withText
 id wrap
@@ -1873,6 +1885,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_desespero
+layout activity_pop_up_perdidos
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cad_dog_layout
@@ -1945,6 +1958,8 @@ layout ucrop_fragment_photobox
 layout ucrop_layout_rotate_wheel
 layout ucrop_layout_scale_wheel
 layout ucrop_view
+layout viewpager_custom
+menu popup_perdido
 menu ucrop_menu_activity
 mipmap exit_icon
 mipmap ic_adot_round

@@ -2,10 +2,12 @@ package com.bento.a;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,12 +30,13 @@ public class PopUpPerfilMy extends AppCompatActivity {
     private EditText text_raca, text_desc;
     private RadioGroup sel_inp_porte, sel_inp_idade, sel_inp_vac, sel_inp_stat, sel_inp_cast;
     private String an_porte, an_tip, an_idade, an_vac, an_raca, an_stat, an_desc, an_uid;
-    private RadioButton but_sel_porte, but_sel_idade, but_sel_vac, but_sel_stat;
+    private RadioButton but_sel_porte, but_sel_idade, but_sel_vac, but_sel_stat, porte_g, porte_p, porte_m, idade_f, idade_a, cas_s, cas_n, vac_s, vac_n, stat_adt, stat_perd;
     private CircleImageView image1, image2, image3, image4;
     private FirebaseDatabase mFire;
     private DatabaseReference mRef;
     private FirebaseAuth mAuth;
     private String user_id;
+    private Button but_editar, but_voltar, but_aplicar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +51,11 @@ public class PopUpPerfilMy extends AppCompatActivity {
 
 
         InpToVar();
-
-        View exit = findViewById(R.id.exit_m);
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
         getIntentExtra();
         SetValues();
+        ButtonEditar();
         ButtonBack();
+        ButtonVoltar();
 
     }
 
@@ -82,6 +78,25 @@ public class PopUpPerfilMy extends AppCompatActivity {
         text_stat = findViewById(R.id.status_animal);
         text_desc = findViewById(R.id.desc_animal); //edit
         text_cast = findViewById(R.id.castrado_animal);
+
+
+        //RadioButtons
+        porte_g = findViewById(R.id.porte_grande);
+        porte_m = findViewById(R.id.porte_medio);
+        porte_p = findViewById(R.id.porte_pequeno);
+        idade_a = findViewById(R.id.adulto);
+        idade_f = findViewById(R.id.filhote);
+        cas_n = findViewById(R.id.castrado_nao);
+        cas_s = findViewById(R.id.castrado_sim);
+        vac_n = findViewById(R.id.vacinado_nao);
+        vac_s = findViewById(R.id.castrado_sim);
+        stat_adt = findViewById(R.id.ani_adot);
+        stat_perd = findViewById(R.id.ani_perdido);
+
+        //Buttons
+        but_aplicar = findViewById(R.id.but_aplicar);
+        but_voltar = findViewById(R.id.but_back);
+
 
         //parte edição
         sel_inp_idade = findViewById(R.id.radbut_idade);
@@ -131,6 +146,84 @@ public class PopUpPerfilMy extends AppCompatActivity {
     }
 
     private void ButtonBack() {
+        View exit = findViewById(R.id.exit_m);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
+    }
+
+    private void ButtonEditar(){
+        but_editar = findViewById(R.id.but_editar);
+
+        but_editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //INVISIVEL
+                text_porte.setVisibility(View.GONE);
+                text_desc.setEnabled(true);
+                text_raca.setEnabled(true);
+                text_stat.setVisibility(View.GONE);
+                text_cast.setVisibility(View.GONE);
+                text_idade.setVisibility(View.GONE);
+                text_tip.setVisibility(View.GONE);
+                text_vac.setVisibility(View.GONE);
+                but_editar.setVisibility(View.GONE);
+
+                //VISIVEL
+                porte_g.setVisibility(View.VISIBLE);
+                porte_p.setVisibility(View.VISIBLE);
+                porte_m.setVisibility(View.VISIBLE);
+                idade_a.setVisibility(View.VISIBLE);
+                idade_f.setVisibility(View.VISIBLE);
+                cas_n.setVisibility(View.VISIBLE);
+                cas_n.setVisibility(View.VISIBLE);
+                vac_n.setVisibility(View.VISIBLE);
+                vac_s.setVisibility(View.VISIBLE);
+                stat_adt.setVisibility(View.VISIBLE);
+                stat_perd.setVisibility(View.VISIBLE);
+                but_voltar.setVisibility(View.VISIBLE);
+                but_aplicar.setVisibility(View.VISIBLE);
+                text_raca.setVisibility(View.VISIBLE);
+
+            }
+        });
+    }
+
+    private void ButtonVoltar(){
+        but_voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Visivel
+                text_porte.setVisibility(View.VISIBLE);
+                text_desc.setEnabled(false);
+                text_raca.setEnabled(false);
+                text_stat.setVisibility(View.VISIBLE);
+                text_cast.setVisibility(View.VISIBLE);
+                text_idade.setVisibility(View.VISIBLE);
+                text_tip.setVisibility(View.VISIBLE);
+                text_vac.setVisibility(View.VISIBLE);
+                but_editar.setVisibility(View.VISIBLE);
+
+                //Invisivel
+                porte_g.setVisibility(View.GONE);
+                porte_p.setVisibility(View.GONE);
+                porte_m.setVisibility(View.GONE);
+                idade_a.setVisibility(View.GONE);
+                idade_f.setVisibility(View.GONE);
+                cas_n.setVisibility(View.GONE);
+                cas_n.setVisibility(View.GONE);
+                vac_n.setVisibility(View.GONE);
+                vac_s.setVisibility(View.GONE);
+                stat_adt.setVisibility(View.GONE);
+                stat_perd.setVisibility(View.GONE);
+                but_voltar.setVisibility(View.GONE);
+                but_aplicar.setVisibility(View.GONE);
+                text_raca.setVisibility(View.GONE);
+            }
+        });
     }
 }

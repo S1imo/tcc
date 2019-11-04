@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_adot_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopUpPerfilFav"></activity>
+        <activity android:name=".PopUpPerdidos"></activity>
+        <activity android:name=".PopUpPerfilFav" />
         <activity android:name=".ChatPerfil" />
         <activity android:name=".LojaActivity" />
         <activity

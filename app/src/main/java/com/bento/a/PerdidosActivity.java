@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bento.a.Classes.Animal;
 import com.bento.a.ViewHolders.ViewHolderAnimal;
@@ -26,6 +27,7 @@ public class PerdidosActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
     private String user_id;
+    private TextView testpop;
     private ImageView but_profile, but_adot, but_loja, but_chat;
     private RecyclerView regiaoRView, todosRView;
     private FirebaseRecyclerOptions<Animal> options1;
@@ -52,6 +54,7 @@ public class PerdidosActivity extends AppCompatActivity {
         ButtonAdote();
         ButtonLoja();
         ButtonChat();
+        PopUp();
     }
 
     private void InpToVar(){
@@ -60,6 +63,17 @@ public class PerdidosActivity extends AppCompatActivity {
         but_adot = findViewById(R.id.adot_icon);
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
+
+        testpop = findViewById(R.id.textView5);
+    }
+
+    private void PopUp(){
+        testpop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerdidosActivity.this, PopUpPerdidos.class));
+            }
+        });
     }
 
     private void ButtonPerfil()

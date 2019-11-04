@@ -39,13 +39,13 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int dmax_spots_progress = 0x7f0a00c2;
-        public static final int dmax_spots_title = 0x7f0a00c3;
+        public static final int dmax_spots_progress = 0x7f0a00c4;
+        public static final int dmax_spots_title = 0x7f0a00c5;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int dmax_spots_dialog = 0x7f0d0038;
+        public static final int dmax_spots_dialog = 0x7f0d0039;
     }
     public static final class style {
         private style() {}
