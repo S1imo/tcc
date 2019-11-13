@@ -334,24 +334,32 @@ public class PerfilActivity extends AppCompatActivity {
                     for (final DataSnapshot snapshot1 : snapshot.getChildren()) {
                         final Connections connections = snapshot1.getValue(Connections.class);
                         DatabaseReference reference = mFirebaseDatabase.getReference();
-                        assert connections != null;
-                        reference.child("Animais").child(connections.getAn_us_uid()).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                                for (DataSnapshot snapshot2 : dataSnapshot1.getChildren()) {
-                                    Animal animal = snapshot2.getValue(Animal.class);
-                                    assert animal != null;
-                                    if (connections.getAn_uid().equals(animal.getAn_uid()) && !connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id)) {
-                                        mAnimais.add(animal);
-                                        perfil_AAdapter.notifyDataSetChanged();
+                        if (snapshot1.hasChildren() && connections != null) {
+                            reference.child("Animais").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                                    for (DataSnapshot snapshot2 : dataSnapshot1.getChildren()) {
+                                        if (snapshot2.getKey().equals(connections.getAn_us_uid())) {
+                                            for (DataSnapshot snapshot3 : snapshot2.getChildren()) {
+                                                Animal animal = snapshot3.getValue(Animal.class);
+                                                assert animal != null;
+                                                if (connections.getAn_uid().equals(animal.getAn_uid()) && !connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id) && !Objects.requireNonNull(snapshot1.getKey()).contains("No")) {
+                                                    mAnimais.add(animal);
+                                                    perfil_AAdapter.notifyDataSetChanged();
+                                                }
+                                            }
+                                        }
                                     }
                                 }
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError1) {
-                            }
-                        });
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError1) {
+                                }
+                            });
+
+                        } else {
+                            Toast.makeText(PerfilActivity.this, "aaaa", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 }

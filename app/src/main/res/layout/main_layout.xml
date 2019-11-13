@@ -31,6 +31,14 @@
         app:rotation_degrees="15.5"
         tools:context=".MyActivity" />
 
+    <fragment
+        android:id="@+id/mapAPIdes"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/frame"
+        app:layout_constraintEnd_toEndOf="@+id/image" />
+
     <View
         android:id="@+id/view6"
         android:layout_width="0dp"
