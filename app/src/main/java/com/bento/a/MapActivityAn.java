@@ -43,7 +43,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapActivityAn extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
@@ -62,13 +62,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private DatabaseReference mRef;
     private String an_id, user_id, currentIdAn, tip_animal, an_cast, an_idade, an_port, an_vac, an_raca, an_stat, an_des;
     private String[] an_prof_img;
-    private AlertDialog alerta;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.map_layout);
+        setContentView(R.layout.mapan_layout);
 
         mAuth = FirebaseAuth.getInstance();
         mFire = FirebaseDatabase.getInstance();
@@ -81,8 +80,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         mapView = mapFragment.getView();
 
-        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapActivity.this);
-        Places.initialize(MapActivity.this, "AIzaSyCbYHv_Ciqc__V2wTq_PwNf9_vWNuq5tH0");
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapActivityAn.this);
+        Places.initialize(MapActivityAn.this, "AIzaSyCbYHv_Ciqc__V2wTq_PwNf9_vWNuq5tH0");
         placesClient = Places.createClient(this);
 
         btnFind.setOnClickListener(new View.OnClickListener() {
@@ -120,22 +119,22 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
             LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);
 
-            SettingsClient settingsClient = LocationServices.getSettingsClient(MapActivity.this);
+            SettingsClient settingsClient = LocationServices.getSettingsClient(MapActivityAn.this);
             Task<LocationSettingsResponse> task = settingsClient.checkLocationSettings(builder.build());
 
-            task.addOnSuccessListener(MapActivity.this, new OnSuccessListener<LocationSettingsResponse>() {
+            task.addOnSuccessListener(MapActivityAn.this, new OnSuccessListener<LocationSettingsResponse>() {
                 @Override
                 public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
                     getDeviceLocation();
                 }
             });
-            task.addOnFailureListener(MapActivity.this, new OnFailureListener() {
+            task.addOnFailureListener(MapActivityAn.this, new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     if (e instanceof ResolvableApiException) {
                         ResolvableApiException resolvable = (ResolvableApiException) e;
                         try {
-                            resolvable.startResolutionForResult(MapActivity.this, 51);
+                            resolvable.startResolutionForResult(MapActivityAn.this, 51);
                         } catch (IntentSender.SendIntentException ex) {
                             ex.printStackTrace();
                         }
@@ -184,7 +183,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                 mFusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, null);
                             }
                         } else {
-                            Toast.makeText(MapActivity.this, "Unable to get last location", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MapActivityAn.this, "Unable to get last location", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -202,7 +201,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         builder.setNegativeButton("Voltar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(MapActivity.this, CadAnimal.class));
+                startActivity(new Intent(MapActivityAn.this, CadAnimal.class));
                 finish();
             }
         });
@@ -218,7 +217,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mRef.updateChildren(valuesArr).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                startActivity(new Intent(MapActivity.this, PerfilActivity.class));
+                startActivity(new Intent(MapActivityAn.this, PerfilActivity.class));
             }
         });
     }

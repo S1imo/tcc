@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -26,21 +25,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.bento.a.Classes.Animal;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -53,7 +43,6 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -328,7 +317,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     //Colocando dados FB - DB
     private void CreateAn() {
         idImgCount = 0;
-        startActivity(new Intent(CadAnimal.this, MapActivity.class)
+        startActivity(new Intent(CadAnimal.this, MapActivityAn.class)
                 .putExtra("an_id", CreateIdAn())
                 .putExtra("user_id", user_id)
                 .putExtra("currentIdAn", currentIdAn)

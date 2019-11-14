@@ -40,7 +40,7 @@
 22-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:16:5-81
 22-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:16:22-78
 23    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-23-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:17:5-84
+23-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:17:5-85
 23-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:17:22-82
 24    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 24-->[com.google.android.libraries.places:places:2.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\e17cc28e187edf31aca99fbcf8b0ea86\places-2.0.0\AndroidManifest.xml:10:5-76
@@ -58,191 +58,191 @@
 30-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\10496f710d269c4bbf750af6c3496e37\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 31
 32    <application
-32-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:20:5-110:19
+32-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:19:5-109:19
 33        android:allowBackup="true"
-33-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:21:9-35
+33-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:20:9-35
 34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 34-->[androidx.core:core:1.1.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\3bcafbc2e95e113b9db4402c8bff255d\core-1.1.0\AndroidManifest.xml:24:18-86
 35        android:debuggable="true"
 36        android:icon="@mipmap/ic_adot_round"
-36-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:22:9-45
+36-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:21:9-45
 37        android:label="@string/app_name"
-37-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:23:9-41
+37-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:22:9-41
 38        android:launchMode="singleTop"
-38-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:24:9-39
+38-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:23:9-39
 39        android:roundIcon="@mipmap/ic_adot_round"
-39-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:25:9-50
+39-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:24:9-50
 40        android:supportsRtl="true"
-40-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:26:9-35
+40-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:25:9-35
 41        android:testOnly="true"
 42        android:theme="@style/AppTheme" >
-42-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:27:9-40
-43        <activity android:name="com.bento.a.MapActivity" />
-43-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:28:9-58
-43-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:28:19-46
+42-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:26:9-40
+43        <activity android:name="com.bento.a.MapActivityAn" />
+43-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:27:9-51
+43-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:27:19-48
 44        <activity android:name="com.bento.a.PopUpPerfilFav" />
-44-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:29:9-52
-44-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:29:19-49
+44-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:28:9-52
+44-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:28:19-49
 45        <activity android:name="com.bento.a.ChatPerfil" />
-45-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:30:9-48
-45-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:30:19-45
+45-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:29:9-48
+45-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:29:19-45
 46        <activity android:name="com.bento.a.LojaActivity" />
-46-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:31:9-50
-46-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:31:19-47
+46-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:30:9-50
+46-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:30:19-47
 47        <activity
-47-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:32:9-35:52
+47-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:31:9-34:52
 48            android:name="com.bento.a.PerdidosActivity"
-48-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:33:13-45
+48-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:32:13-45
 49            android:configChanges="orientation"
-49-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:34:13-48
+49-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:33:13-48
 50            android:screenOrientation="portrait" />
-50-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:35:13-49
+50-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:34:13-49
 51        <activity
-51-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:36:9-39:52
+51-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:35:9-38:52
 52            android:name="com.bento.a.EditPerfEActivity"
-52-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:37:13-46
+52-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:36:13-46
 53            android:configChanges="orientation"
-53-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:38:13-48
+53-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:37:13-48
 54            android:screenOrientation="portrait" />
-54-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:39:13-49
+54-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:38:13-49
 55        <activity
-55-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:40:9-43:52
+55-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:39:9-42:52
 56            android:name="com.bento.a.ChatConversaActivity"
-56-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:41:13-49
+56-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:40:13-49
 57            android:configChanges="orientation"
-57-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:42:13-48
+57-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:41:13-48
 58            android:screenOrientation="portrait" />
-58-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:43:13-49
+58-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:42:13-49
 59        <activity
-59-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:44:9-47:52
+59-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:43:9-46:52
 60            android:name="com.bento.a.CadAnimal"
-60-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:45:13-38
+60-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:44:13-38
 61            android:configChanges="orientation"
-61-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:46:13-48
+61-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:45:13-48
 62            android:screenOrientation="portrait" />
-62-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:47:13-49
+62-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:46:13-49
 63        <activity
-63-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:48:9-51:52
+63-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:47:9-50:52
 64            android:name="com.bento.a.EditPerfUActivity"
-64-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:49:13-46
+64-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:48:13-46
 65            android:configChanges="orientation"
-65-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:50:13-48
+65-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:49:13-48
 66            android:screenOrientation="portrait" />
-66-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:51:13-49
+66-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:50:13-49
 67        <activity
-67-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:52:9-55:52
+67-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:51:9-54:52
 68            android:name="com.bento.a.CadSEActivity"
-68-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:53:13-42
+68-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:52:13-42
 69            android:configChanges="orientation"
-69-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:54:13-48
+69-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:53:13-48
 70            android:screenOrientation="portrait" />
-70-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:55:13-49
+70-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:54:13-49
 71        <activity
-71-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:56:9-59:52
+71-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:55:9-58:52
 72            android:name="com.bento.a.EsqueceuSenhaActivity"
-72-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:57:13-50
+72-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:56:13-50
 73            android:configChanges="orientation"
-73-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:58:13-48
+73-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:57:13-48
 74            android:screenOrientation="portrait" />
-74-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:59:13-49
+74-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:58:13-49
 75        <activity
-75-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:60:9-63:52
+75-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:59:9-62:52
 76            android:name="com.bento.a.PerfilActivity"
-76-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:61:13-43
+76-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:60:13-43
 77            android:configChanges="orientation"
-77-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:62:13-48
+77-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:61:13-48
 78            android:screenOrientation="portrait" />
-78-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:63:13-49
+78-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:62:13-49
 79        <activity
-79-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:64:9-67:52
+79-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:63:9-66:52
 80            android:name="com.bento.a.CadSUActivity"
-80-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:65:13-42
+80-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:64:13-42
 81            android:configChanges="orientation"
-81-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:66:13-48
+81-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:65:13-48
 82            android:screenOrientation="portrait" />
-82-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:67:13-49
+82-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:66:13-49
 83        <activity
-83-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:68:9-77:20
+83-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:67:9-76:20
 84            android:name="com.bento.a.LoginActivity"
-84-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:69:13-42
+84-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:68:13-42
 85            android:configChanges="orientation"
-85-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:70:13-48
+85-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:69:13-48
 86            android:screenOrientation="portrait" >
-86-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:71:13-49
+86-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:70:13-49
 87            <intent-filter>
-87-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:72:13-76:29
+87-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:71:13-75:29
 88                <action android:name="android.intent.action.MAIN" />
-88-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:73:17-69
-88-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:73:25-66
+88-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:72:17-69
+88-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:72:25-66
 89
 90                <category android:name="android.intent.category.LAUNCHER" />
-90-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:75:17-77
-90-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:75:27-74
+90-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:74:17-77
+90-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:74:27-74
 91            </intent-filter>
 92        </activity>
 93        <activity android:name="com.bento.a.MainActivity" />
-93-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:78:9-50
-93-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:78:19-47
+93-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:77:9-50
+93-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:77:19-47
 94        <activity android:name="com.bento.a.desespero" />
-94-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:79:9-47
-94-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:79:19-44
+94-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:78:9-47
+94-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:78:19-44
 95        <activity
-95-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:80:9-82:53
+95-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:79:9-81:53
 96            android:name="com.bento.a.PopUpPerfilMy"
-96-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:81:13-42
+96-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:80:13-42
 97            android:theme="@style/AppTheme.Popup" />
-97-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:82:13-50
+97-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:81:13-50
 98        <activity
-98-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:83:9-85:56
+98-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:82:9-84:56
 99            android:name="com.bento.a.PopUpMain"
-99-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:84:13-38
+99-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:83:13-38
 100            android:theme="@style/Theme.Transparent" />
-100-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:85:13-53
+100-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:84:13-53
 101        <activity android:name="com.bento.a.CadActivity" />
-101-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:86:9-49
-101-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:86:19-46
+101-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:85:9-49
+101-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:85:19-46
 102        <activity android:name="com.bento.a.ChatActivity" />
-102-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:87:9-50
-102-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:87:19-47
+102-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:86:9-50
+102-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:86:19-47
 103        <activity
-103-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:88:9-91:72
+103-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:87:9-90:72
 104            android:name="com.yalantis.ucrop.UCropActivity"
-104-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:89:13-60
+104-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:88:13-60
 105            android:screenOrientation="portrait"
-105-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:90:13-49
+105-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:89:13-49
 106            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-106-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:91:13-69
+106-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:90:13-69
 107
 108        <meta-data
-108-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:93:9-95:57
+108-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:92:9-94:57
 109            android:name="preloaded_fonts"
-109-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:94:13-43
+109-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:93:13-43
 110            android:resource="@array/preloaded_fonts" />
-110-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:95:13-54
+110-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:94:13-54
 111
 112        <provider
 113            android:name="androidx.core.content.FileProvider"
-113-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:98:13-62
+113-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:97:13-62
 114            android:authorities="com.bento.a.provider"
-114-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:99:13-60
+114-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:98:13-60
 115            android:exported="false"
-115-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:100:13-37
+115-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:99:13-37
 116            android:grantUriPermissions="true" >
-116-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:101:13-47
+116-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:100:13-47
 117            <meta-data
-117-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:102:13-104:54
+117-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:101:13-103:54
 118                android:name="android.support.FILE_PROVIDER_PATHS"
-118-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:103:17-67
+118-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:102:17-67
 119                android:resource="@xml/file_paths" />
-119-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:104:17-51
+119-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:103:17-51
 120        </provider>
 121
 122        <meta-data
-122-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:107:9-109:47
+122-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:106:9-108:47
 123            android:name="com.google.android.geo.API_KEY"
-123-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:108:13-58
+123-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:107:13-58
 124            android:value="@string/map_key" />
-124-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:109:13-44
+124-->C:\Users\joaog\AndroidStudioProjects\tcc\app\src\main\AndroidManifest.xml:108:13-44
 125
 126        <activity
 126-->[com.karumi:dexter:6.0.0] C:\Users\joaog\.gradle\caches\transforms-2\files-2.1\c576b59e6b2322c88799bd291e6a7451\dexter-6.0.0\AndroidManifest.xml:27:9-29:72

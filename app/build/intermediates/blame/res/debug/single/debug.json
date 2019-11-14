@@ -1084,10 +1084,6 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\3bcafbc2e95e113b9db4402c8bff255d\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout_map_layout.xml.flat",
-        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\layout\\map_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
     },
@@ -1638,6 +1634,10 @@
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_design_ic_visibility_off.png.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\9d6f0c6ce1072e080bd324ee1d6f3685\\material-1.0.0\\res\\drawable-xhdpi-v4\\design_ic_visibility_off.png"
+    },
+    {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout_mapan_layout.xml.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\layout\\mapan_layout.xml"
     },
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",

@@ -328,16 +328,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 deslikee = findViewById(R.id.deslike_anim);
                 deslikee.setAnimation(deslikeanim);
                 deslikeanim.start();
-
-                an_uid = ((Animal) dataObject).getAn_uid();
-                DatabaseReference refNew = mFire.getReference();
-                int rand_num = (int) System.currentTimeMillis();
-                //o uid do usuario conectado
-                refNew.child("Connections").child(an_uid).child("No" + rand_num).child("us_uid").setValue(user_id);
-                //uid do animal
-                refNew.child("Connections").child(an_uid).child("No" + rand_num).child("an_uid").setValue(((Animal) dataObject).getAn_uid());
-                //uid da pessoa que colocou o cachorro para adoção
-                refNew.child("Connections").child(an_uid).child("No" + rand_num).child("an_us_uid").setValue(((Animal) dataObject).getUs_uid());
+                if(dataObject != null){
+                    an_uid = ((Animal) dataObject).getAn_uid();
+                    DatabaseReference refNew = mFire.getReference();
+                    int rand_num = (int) System.currentTimeMillis();
+                    //o uid do usuario conectado
+                    refNew.child("Connections").child(an_uid).child("No" + rand_num).child("us_uid").setValue(user_id);
+                    //uid do animal
+                    refNew.child("Connections").child(an_uid).child("No" + rand_num).child("an_uid").setValue(((Animal) dataObject).getAn_uid());
+                    //uid da pessoa que colocou o cachorro para adoção
+                    refNew.child("Connections").child(an_uid).child("No" + rand_num).child("an_us_uid").setValue(((Animal) dataObject).getUs_uid());
+                }
             }
 
             @Override
@@ -345,13 +346,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 likee = findViewById(R.id.like_anim);
                 likee.setAnimation(likeanim);
                 likeanim.start();
+                if(dataObject != null){
+                    an_uid = ((Animal) dataObject).getAn_uid();
+                    DatabaseReference refNew = mFire.getReference();
+                    int rand_num = (int) System.currentTimeMillis();
+                    refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("us_uid").setValue(user_id);
+                    refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("an_uid").setValue(((Animal) dataObject).getAn_uid());
+                    refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("an_us_uid").setValue(((Animal) dataObject).getUs_uid());
+                }
 
-                an_uid = ((Animal) dataObject).getAn_uid();
-                DatabaseReference refNew = mFire.getReference();
-                int rand_num = (int) System.currentTimeMillis();
-                refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("us_uid").setValue(user_id);
-                refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("an_uid").setValue(((Animal) dataObject).getAn_uid());
-                refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("an_us_uid").setValue(((Animal) dataObject).getUs_uid());
             }
 
             @Override
