@@ -278,7 +278,6 @@ public class EditPerfUActivity extends AppCompatActivity {
         }
         else if(requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK)
         {
-            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
             assert data != null;
             Uri imageUriResultCrop = UCrop.getOutput(data);
             if(imageUriResultCrop != null)

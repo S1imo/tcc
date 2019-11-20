@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +24,8 @@
         android:roundIcon="@mipmap/ic_adot_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".MapActivityChat"></activity>
+        <activity android:name=".MapActivityAn" />
         <activity android:name=".PopUpPerfilFav" />
         <activity android:name=".ChatPerfil" />
         <activity android:name=".LojaActivity" />
@@ -58,7 +60,8 @@
         <activity
             android:name=".PerfilActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name=".CadSUActivity"
             android:configChanges="orientation"

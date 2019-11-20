@@ -14,7 +14,7 @@
         android:background="@drawable/pop_bg"
         android:orientation="vertical"
         android:padding="5dp"
-        tools:context="com.bento.a.PopUpPerfilFav">
+        tools:context="com.bento.a.PerfilActivity">
 
         <TextView
             android:id="@+id/txtclose"

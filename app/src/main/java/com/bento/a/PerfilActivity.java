@@ -1,7 +1,11 @@
 package com.bento.a;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,20 +14,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bento.a.Adapters.Perfil_AAdapter;
-import com.bento.a.Classes.Connections;
-import com.bento.a.ViewHolders.ViewHolderAnimal;
 import com.bento.a.Classes.Animal;
+import com.bento.a.Classes.Connections;
 import com.bento.a.Classes.User;
+import com.bento.a.ViewHolders.ViewHolderAnimal;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +35,15 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -42,14 +53,14 @@ public class PerfilActivity extends AppCompatActivity {
 
     private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
     private CircleImageView perf_img;
-    private TextView nome_text;
+    private TextView nome_text, cidade_text;
     private FirebaseStorage mStorage;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFirebaseDatabase;
     private StorageReference myStoreRef;
     private DatabaseReference myRef;
     private String user_id;
-
+    private Dialog mDialog;
     private RecyclerView recyclerViewMy, recyclerViewFav;
     private FirebaseRecyclerOptions<Animal> options;
     private FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter;
@@ -66,28 +77,7 @@ public class PerfilActivity extends AppCompatActivity {
         InpToVar();
         PerfilTexts();
         Buttons();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (adapter != null)
-            adapter.startListening();
-    }
-
-    @Override
-    protected void onStop() {
-        if (adapter != null)
-            adapter.stopListening();
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (adapter != null)
-            adapter.startListening();
+        PopUpFav();
     }
 
     private void SettingFire() {
@@ -127,9 +117,12 @@ public class PerfilActivity extends AppCompatActivity {
         but_logout = findViewById(R.id.but_config);
 
         nome_text = findViewById(R.id.nome_text);
+        cidade_text = findViewById(R.id.cidade_text);
 
         perf_img = findViewById(R.id.image_perfil);
     }
+
+
 
     private void PerfilTexts() {
         myRef = mFirebaseDatabase.getReference("Users/" + user_id);
@@ -139,6 +132,7 @@ public class PerfilActivity extends AppCompatActivity {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 nome_text.setText(user.getUs_nome());
+                new JsonTask().execute("https://viacep.com.br/ws/"+user.getUs_cep()+"/json/");
             }
 
             @Override
@@ -320,6 +314,46 @@ public class PerfilActivity extends AppCompatActivity {
         recyclerViewMy.setAdapter(adapter);
     }
 
+    private void PopUpFav(){
+        mDialog = new Dialog(this);
+
+        recyclerViewFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+    }
+
+    private void showDialog(){
+        mDialog.setContentView(R.layout.popup_perfil_fav);
+
+        ImageView but_chat;
+        TextView but_exit;
+
+        //botao para o chat
+        but_chat = findViewById(R.id.fav_chat);
+        final String other_us_uid = getIntent().getStringExtra("other_us_uid");
+
+        but_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerfilActivity.this, ChatConversaActivity.class)
+                        .putExtra("other_us_uid", other_us_uid));
+            }
+        });
+
+        //botao fechar
+        but_exit = findViewById(R.id.txtclose);
+        but_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog.dismiss();
+            }
+        });
+        mDialog.show();
+    }
+
     private void RecyclerFav() {
         final ArrayList<Animal> mAnimais = new ArrayList<>();
         final Perfil_AAdapter perfil_AAdapter = new Perfil_AAdapter(getApplicationContext(), mAnimais);
@@ -334,24 +368,32 @@ public class PerfilActivity extends AppCompatActivity {
                     for (final DataSnapshot snapshot1 : snapshot.getChildren()) {
                         final Connections connections = snapshot1.getValue(Connections.class);
                         DatabaseReference reference = mFirebaseDatabase.getReference();
-                        assert connections != null;
-                        reference.child("Animais").child(connections.getAn_us_uid()).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                                for (DataSnapshot snapshot2 : dataSnapshot1.getChildren()) {
-                                    Animal animal = snapshot2.getValue(Animal.class);
-                                    assert animal != null;
-                                    if (connections.getAn_uid().equals(animal.getAn_uid()) && !connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id)) {
-                                        mAnimais.add(animal);
-                                        perfil_AAdapter.notifyDataSetChanged();
+                        if (snapshot1.hasChildren() && connections != null) {
+                            reference.child("Animais").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                                    for (DataSnapshot snapshot2 : dataSnapshot1.getChildren()) {
+                                        if (Objects.equals(snapshot2.getKey(), connections.getAn_us_uid())) {
+                                            for (DataSnapshot snapshot3 : snapshot2.getChildren()) {
+                                                Animal animal = snapshot3.getValue(Animal.class);
+                                                assert animal != null;
+                                                if (connections.getAn_uid().equals(animal.getAn_uid()) && !connections.getAn_us_uid().equals(user_id) && connections.getUs_uid().equals(user_id) && !Objects.requireNonNull(snapshot1.getKey()).contains("No")) {
+                                                    mAnimais.add(animal);
+                                                    perfil_AAdapter.notifyDataSetChanged();
+                                                }
+                                            }
+                                        }
                                     }
                                 }
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError1) {
-                            }
-                        });
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError1) {
+                                }
+                            });
+
+                        } else {
+                            Toast.makeText(PerfilActivity.this, "aaaa", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 }
@@ -366,4 +408,59 @@ public class PerfilActivity extends AppCompatActivity {
         recyclerViewFav.setAdapter(perfil_AAdapter);
     }
 
+    private class JsonTask extends AsyncTask<String, String, JSONObject> {
+        protected JSONObject doInBackground(String... params) {
+
+            HttpURLConnection connection = null;
+            BufferedReader reader = null;
+
+            try {
+                URL url = new URL(params[0]);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.connect();
+
+
+                InputStream stream = connection.getInputStream();
+
+                reader = new BufferedReader(new InputStreamReader(stream));
+
+                StringBuilder buffer = new StringBuilder();
+                String line = "";
+
+                while ((line = reader.readLine()) != null) {
+                    buffer.append(line).append("\n");
+                    Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
+
+                }
+
+                return new JSONObject(buffer.toString());
+
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            } finally {
+                if (connection != null) {
+                    connection.disconnect();
+                }
+                try {
+                    if (reader != null) {
+                        reader.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject result) {
+            super.onPostExecute(result);
+            try {
+                cidade_text.setText(result.getString("localidade"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+                cidade_text.setText("");
+            }
+        }
+    }
 }

@@ -23,19 +23,19 @@ public final class R {
     public static final class color {
         private color() {}
 
-        public static final int rippelColor = 0x7f0601f8;
+        public static final int rippelColor = 0x7f0601f9;
     }
     public static final class dimen {
         private dimen() {}
 
-        public static final int rippleRadius = 0x7f0700e6;
-        public static final int rippleStrokeWidth = 0x7f0700e7;
+        public static final int rippleRadius = 0x7f0700e9;
+        public static final int rippleStrokeWidth = 0x7f0700ea;
     }
     public static final class id {
         private id() {}
 
-        public static final int fillRipple = 0x7f0a00e4;
-        public static final int strokeRipple = 0x7f0a01d3;
+        public static final int fillRipple = 0x7f0a00e5;
+        public static final int strokeRipple = 0x7f0a01e2;
     }
     public static final class styleable {
         private styleable() {}

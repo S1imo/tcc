@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginStart="10dp"
-    android:orientation="vertical"
-    android:padding="5dp"
-    android:background="@color/color_green">
+    android:padding="5dp">
 
-        <TextView
-            android:id="@+id/text_messages"
+    <RelativeLayout
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_chat_r">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Text"/>
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_messages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Text"/>
 
-        <TextView
-            android:id="@+id/text_current_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:alpha="0.5"
-            android:text="time"/>
+            <ImageView
+                android:id="@+id/image_chat_conv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxHeight="350dp"
+                android:maxWidth="350dp"/>
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/text_current_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:alpha="0.5"
+                android:text="time"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
