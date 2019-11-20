@@ -2,17 +2,28 @@ package com.bento.a;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bento.a.Adapters.ViewPagerAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.ViewHolders.ViewHolderAnimal;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -26,10 +37,14 @@ public class PerdidosActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
     private String user_id;
-    private ImageView but_profile, but_adot, but_loja, but_chat;
+    private TextView testpop;
+    private Dialog mDialog;
+    private ImageView but_profile, but_adot, but_loja, but_chat, seta_voltar;
     private RecyclerView regiaoRView, todosRView;
     private FirebaseRecyclerOptions<Animal> options1;
     private FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter2;
+    private ImageButton btn_menu;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +67,7 @@ public class PerdidosActivity extends AppCompatActivity {
         ButtonAdote();
         ButtonLoja();
         ButtonChat();
+        PopUp();
     }
 
     private void InpToVar(){
@@ -60,7 +76,65 @@ public class PerdidosActivity extends AppCompatActivity {
         but_adot = findViewById(R.id.adot_icon);
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
+
+
     }
+
+    private void PopUp(){
+        testpop = findViewById(R.id.textView5);
+        mDialog = new Dialog(this);
+
+        testpop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+    }
+
+    private void showDialog(){
+
+        mDialog.setContentView(R.layout.activity_pop_up_perdidos);
+
+        //imagens em carrossel
+        viewPager = (ViewPager)mDialog.findViewById(R.id.myViewPager);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+
+        viewPager.setAdapter(viewPagerAdapter);
+
+        //botao info para contato/localizacao
+        btn_menu = mDialog.findViewById(R.id.info_btn);
+        btn_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(PerdidosActivity.this, btn_menu);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_perdido, popupMenu.getMenu());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(PerdidosActivity.this,"" + item.getTitle(),Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+
+            }
+        });
+
+        //voltar
+        seta_voltar = mDialog.findViewById(R.id.voltar_perdidos);
+        seta_voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog.dismiss();
+            }
+        });
+        mDialog.show();
+    }
+
+
+
 
     private void ButtonPerfil()
     {

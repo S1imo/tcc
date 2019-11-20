@@ -60,7 +60,8 @@
         <activity
             android:name=".PerfilActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name=".CadSUActivity"
             android:configChanges="orientation"

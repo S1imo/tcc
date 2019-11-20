@@ -25,7 +25,7 @@ public final class R {
     public static final class style {
         private style() {}
 
-        public static final int SwipeFling = 0x7f1200ed;
+        public static final int SwipeFling = 0x7f1200f0;
     }
     public static final class styleable {
         private styleable() {}

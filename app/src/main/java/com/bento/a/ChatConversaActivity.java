@@ -1,11 +1,14 @@
 package com.bento.a;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -97,6 +100,7 @@ public class ChatConversaActivity extends AppCompatActivity {
         edit_chat = findViewById(R.id.text_msg);
 
         constraintLayout = findViewById(R.id.constraint_chatconv);
+
     }
 
     private void ButtonExclude() {
@@ -104,27 +108,29 @@ public class ChatConversaActivity extends AppCompatActivity {
     }
 
     private void ButtonClip() {
-        but_clip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (constraintLayout.getAlpha() == 1) {
-                    constraintLayout.animate().translationY(0);
-                    constraintLayout.animate().alpha(0).setDuration(2000);
-                    constraintLayout.setVisibility(View.INVISIBLE);
+                but_clip.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (constraintLayout.getAlpha()!= 0){
 
-                } else {
-                    constraintLayout.animate().translationY(100);
-                    constraintLayout.animate().alpha(1).setDuration(600);
+                            constraintLayout.animate().translationY(0);
+                            constraintLayout.animate().alpha(0).setDuration(2000);
 
-                    but_map = findViewById(R.id.imageButton);
-                    but_foto = findViewById(R.id.imageButton2);
 
-                    ButtonFoto();
-                    ButtonMap();
-                }
+                        }else{
+                            constraintLayout.animate().translationY(100);
+                            constraintLayout.animate().alpha(1).setDuration(600);
+
+                            but_map = findViewById(R.id.imageButton);
+                            but_foto = findViewById(R.id.imageButton2);
+
+                            ButtonFoto();
+                            ButtonMap();
+                        }
+
+                    }
+                });
             }
-        });
-    }
 
     private void ButtonFoto() {
         but_foto.setOnClickListener(new View.OnClickListener() {

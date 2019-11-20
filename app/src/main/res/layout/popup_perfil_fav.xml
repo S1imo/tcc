@@ -4,9 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context="com.bento.a.PopUpMain">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +13,8 @@
         android:layout_gravity="center"
         android:background="@drawable/pop_bg"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="5dp"
+        tools:context="com.bento.a.PerfilActivity">
 
         <TextView
             android:id="@+id/txtclose"

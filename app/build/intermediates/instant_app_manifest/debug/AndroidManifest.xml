@@ -77,7 +77,8 @@
         <activity
             android:name="com.bento.a.PerfilActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.bento.a.CadSUActivity"
             android:configChanges="orientation"
@@ -127,14 +128,13 @@
 
         <activity
             android:name="com.karumi.dexter.DexterActivity"
-            android:theme="@style/Dexter.Internal.Theme.Transparent" /> <!-- Autocomplete -->
+            android:theme="@style/Dexter.Internal.Theme.Transparent" />
         <activity
             android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
             android:exported="false"
-            android:hardwareAccelerated="true"
             android:label="@string/places_autocomplete_label"
-            android:theme="@style/PlacesAutocompleteThemeOverlay"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" >
+            android:theme="@style/PlacesAutocompleteOverlay"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
 
         <provider
@@ -182,6 +182,12 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.bento.a.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
     </application>
 
 </manifest>

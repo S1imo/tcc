@@ -28,9 +28,9 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int clamp = 0x7f0a00a3;
-        public static final int mirror = 0x7f0a0148;
-        public static final int repeat = 0x7f0a0191;
+        public static final int clamp = 0x7f0a00a4;
+        public static final int mirror = 0x7f0a014f;
+        public static final int repeat = 0x7f0a01a4;
     }
     public static final class string {
         private string() {}
