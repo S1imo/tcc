@@ -1,22 +1,30 @@
 package com.bento.a;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bento.a.Adapters.ChatConv_AAdapter;
 import com.bento.a.Classes.Messages;
 import com.bento.a.Classes.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -25,12 +33,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+import com.yalantis.ucrop.UCrop;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ChatConversaActivity extends AppCompatActivity {
 
@@ -38,13 +52,17 @@ public class ChatConversaActivity extends AppCompatActivity {
     private ArrayList<Messages> mMessages;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
+    private StorageReference folder;
     private RecyclerView recyclerView;
-    private String user_id, other_us_id, messages_stg, currentTime;
+    private String user_id, other_us_id, messages_stg, currentTime, us_lat, us_long;
     private DatabaseReference mRef;
     private TextView other_us_nome;
     private FloatingActionButton but_enviar;
-    private ImageView but_voltar, other_us_img;
+    private ImageButton but_map, but_foto;
+    private ImageView but_voltar, other_us_img, but_clip, but_exclude;
     private EditText edit_chat;
+    private ConstraintLayout constraintLayout;
+    private static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +78,9 @@ public class ChatConversaActivity extends AppCompatActivity {
         InpToVar();
         ButtonVoltar();
         ButtonEnviarMsgm();
+        ButtonClip();
+        ButtonExclude();
+        SendMap();
         DisplayUser();
         DisplayMsg();
     }
@@ -69,9 +90,138 @@ public class ChatConversaActivity extends AppCompatActivity {
         other_us_img = findViewById(R.id.img_chat);
         other_us_nome = findViewById(R.id.chat_nome);
 
+        but_clip = findViewById(R.id.clip_chat);
+        but_exclude = findViewById(R.id.trash_chat);
         but_enviar = findViewById(R.id.enviar_msg);
         but_voltar = findViewById(R.id.voltar_chat);
         edit_chat = findViewById(R.id.text_msg);
+
+        constraintLayout = findViewById(R.id.constraint_chatconv);
+    }
+
+    private void ButtonExclude() {
+        //
+    }
+
+    private void ButtonClip() {
+        but_clip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (constraintLayout.getAlpha() == 1) {
+                    constraintLayout.animate().translationY(0);
+                    constraintLayout.animate().alpha(0).setDuration(2000);
+                    constraintLayout.setVisibility(View.INVISIBLE);
+
+                } else {
+                    constraintLayout.animate().translationY(100);
+                    constraintLayout.animate().alpha(1).setDuration(600);
+
+                    but_map = findViewById(R.id.imageButton);
+                    but_foto = findViewById(R.id.imageButton2);
+
+                    ButtonFoto();
+                    ButtonMap();
+                }
+            }
+        });
+    }
+
+    private void ButtonFoto() {
+        but_foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri imageUri = data.getData();
+            if (imageUri != null) {
+                startCrop(imageUri);
+            }
+        } else if (requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK) {
+            folder = FirebaseStorage.getInstance().getReference().child("Messages");
+            assert data != null;
+            Uri imageUriResultCrop = UCrop.getOutput(data);
+            if (imageUriResultCrop != null) {
+                final StorageReference Imagename = folder.child(user_id).child("M" + System.currentTimeMillis() + imageUriResultCrop.getLastPathSegment());
+                Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(ChatConversaActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        Imagename.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Uri> task) {
+                                currentTime = Calendar.getInstance().get(Calendar.HOUR) +":"+ Calendar.getInstance().get(Calendar.MINUTE);
+                                Messages messages = new Messages(user_id, other_us_id, Objects.requireNonNull(task.getResult()).toString(), currentTime);
+                                Map<String, Object> valuesArr = new HashMap<>();
+                                String var = "M" + System.currentTimeMillis();
+                                valuesArr.put(var, messages.toMap());
+                                mRef.child("Messages").updateChildren(valuesArr);
+                                mRef.child("ChatList").child(user_id).child(other_us_id).setValue(true);
+                                mRef.child("ChatList").child(other_us_id).child(user_id).setValue(true);
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    }
+
+    private void startCrop(@NonNull Uri uri) {
+        String SAMPLE_CROPPED_IMG_NAME = "UserProf";
+        String destinationFileName = SAMPLE_CROPPED_IMG_NAME + ".jpg";
+
+        UCrop uCrop = UCrop.of(uri, Uri.fromFile(new File(getCacheDir(), destinationFileName)));
+        uCrop.withAspectRatio(2, 3);
+        uCrop.withMaxResultSize(450, 450);
+        uCrop.withOptions(getCropOptions());
+        uCrop.start(ChatConversaActivity.this);
+    }
+
+    private UCrop.Options getCropOptions() {
+        UCrop.Options options = new UCrop.Options();
+        options.setCompressionQuality(70);
+        options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        options.setHideBottomControls(false);
+        options.setFreeStyleCropEnabled(true);
+        options.setStatusBarColor(getResources().getColor(R.color.color_branco_menu));
+        options.setToolbarColor(getResources().getColor(R.color.color_cinza_menu));
+        options.setToolbarTitle("Recortar imagem");
+        return options;
+    }
+
+    private void ButtonMap() {
+        but_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ChatConversaActivity.this, MapActivityChat.class));
+            }
+        });
+    }
+
+    private void SendMap() {
+        us_lat = getIntent().getStringExtra("latitude");
+        us_long = getIntent().getStringExtra("longitude");
+
+        if (us_lat != null && us_long != null) {
+            currentTime = Calendar.getInstance().get(Calendar.HOUR) +":"+ Calendar.getInstance().get(Calendar.MINUTE);
+            Messages messages = new Messages(user_id, other_us_id, us_lat+"-"+us_long, currentTime);
+            Map<String, Object> valuesArr = new HashMap<>();
+            String var = "M" + System.currentTimeMillis();
+            valuesArr.put(var, messages.toMap());
+            mRef.child("Messages").updateChildren(valuesArr);
+            mRef.child("ChatList").child(user_id).child(other_us_id).setValue(true);
+            mRef.child("ChatList").child(other_us_id).child(user_id).setValue(true);
+        }
     }
 
     private void ButtonVoltar() {
@@ -87,8 +237,7 @@ public class ChatConversaActivity extends AppCompatActivity {
         but_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar rightNow = Calendar.getInstance();
-                currentTime = "" + rightNow.get(Calendar.HOUR_OF_DAY);
+                currentTime = Calendar.getInstance().get(Calendar.HOUR) +":"+ Calendar.getInstance().get(Calendar.MINUTE);
                 messages_stg = edit_chat.getText().toString();
                 if (messages_stg.equals("") || messages_stg.equals(" ")) {
                     Log.d("MSGN", "mensagem vazia");

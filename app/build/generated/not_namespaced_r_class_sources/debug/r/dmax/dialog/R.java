@@ -34,7 +34,7 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int dmax_spots_spot = 0x7f080093;
+        public static final int dmax_spots_spot = 0x7f080097;
     }
     public static final class id {
         private id() {}

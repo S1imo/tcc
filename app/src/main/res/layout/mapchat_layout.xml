@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapActivityChat">
+
+    <fragment
+        android:id="@+id/mapAPIC"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        />
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerInParent="true"
+        android:translationY="-18dp"
+        android:elevation="3dp"
+        android:src="@drawable/local_icon"/>
+
+    <Button
+        android:id="@+id/mapButAPIC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="Escolha o lugar do animal"
+        android:textColor="#B7FFFFFF"
+        android:fontFamily="@font/montserrat"
+        android:background="@drawable/cad_dog_box"
+        />
+
+</RelativeLayout>

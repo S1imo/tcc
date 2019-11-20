@@ -189,7 +189,7 @@ public class MapActivityAn extends AppCompatActivity implements OnMapReadyCallba
                 });
     }
 
-    private void AlertMessage(){
+    private void AlertMessage() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Explicação");
         builder.setMessage("Escolha um lugar do mapa para ser a localização de seu animal");

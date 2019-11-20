@@ -56,6 +56,10 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_chat_l.xml.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable\\bg_chat_l.xml"
+    },
+    {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_go_search_api_material.xml.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
@@ -302,6 +306,10 @@
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_image_icon.png.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable-v24\\image_icon.png"
     },
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_check_material_anim.xml.flat",
@@ -842,6 +850,10 @@
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_default_mtrl_shape.xml.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_chat_r.xml.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable\\bg_chat_r.xml"
     },
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
@@ -1420,6 +1432,10 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button_chatconv_all.xml.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable\\button_chatconv_all.xml"
+    },
+    {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\3bcafbc2e95e113b9db4402c8bff255d\\core-1.1.0\\res\\layout-v21\\notification_action_tombstone.xml"
     },
@@ -1496,6 +1512,10 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_map_icon.png.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable-v24\\map_icon.png"
+    },
+    {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout_chat_conversa.xml.flat",
         "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\layout\\chat_conversa.xml"
     },
@@ -1550,6 +1570,10 @@
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_menu_item_action_area.xml.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\9d6f0c6ce1072e080bd324ee1d6f3685\\material-1.0.0\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button_chatconv.xml.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable\\button_chatconv.xml"
     },
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml.flat",
@@ -1898,6 +1922,10 @@
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout_map_chat_layout.xml.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\layout\\map_chat_layout.xml"
     },
     {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_out_top.xml.flat",

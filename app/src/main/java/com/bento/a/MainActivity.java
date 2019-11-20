@@ -203,7 +203,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         final Animal animal = snapshot1.getValue(Animal.class);
                         if(animal.getAn_uid().equals(an_id) && !animal.getUs_uid().equals(user_id) && !animal.getAn_status().equals("Perdido")){
                             rowItems.add(animal);
-                            System.out.println(an_id);
                             arr_Adapter.notifyDataSetChanged();
                             mRefConnections.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -214,7 +213,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                                 for(DataSnapshot snapshot3: snapshot2.getChildren()){
                                                     Connections connections = snapshot3.getValue(Connections.class);
                                                     if(connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid())|| connections.getAn_us_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid())){
-                                                        System.out.println(connections.getAn_us_uid());
                                                         rowItems.remove(animal);
                                                         arr_Adapter.notifyDataSetChanged();
                                                     }

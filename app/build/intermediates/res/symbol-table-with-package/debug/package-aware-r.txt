@@ -1590,6 +1590,8 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable below_shadow
 drawable bg_1_pg
+drawable bg_chat_l
+drawable bg_chat_r
 drawable bg_prof_all
 drawable bone_icon
 drawable botao_deslike
@@ -1602,6 +1604,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable button_chatconv
+drawable button_chatconv_all
 drawable button_file
 drawable button_log_gradient
 drawable cad_dog_box
@@ -1650,6 +1654,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable image_chat_fav
 drawable image_fav
+drawable image_icon
 drawable imageview_click
 drawable inp_prof_grad
 drawable interrogacao_icon
@@ -1657,6 +1662,7 @@ drawable local_icon
 drawable logo
 drawable logo_1
 drawable loja_icon
+drawable map_icon
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1710,7 +1716,6 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
-id aaaa
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1875,6 +1880,7 @@ id clip_vertical
 id coins
 id collapseActionView
 id collapsed
+id constraint_chatconv
 id container
 id content
 id contentPanel
@@ -1954,12 +1960,16 @@ id idade_ani_fav
 id idade_ani_main
 id ifRoom
 id image
+id imageButton
+id imageButton2
 id imageView
 id imageView2
+id imageView3
 id imageView4
 id image_View_upload
 id image_View_upload_fav
 id image_adp_dog
+id image_chat_conv
 id image_dog1
 id image_dog1_fav
 id image_dog1_main
@@ -2003,6 +2013,7 @@ id linearLayout2
 id linearLayout3
 id linearLayout4
 id linearLayout5
+id linearLayout6
 id linearLayout7
 id linearlayout3
 id listMode
@@ -2351,6 +2362,7 @@ layout login_layout
 layout loja_layout
 layout main_item
 layout main_layout
+layout map_chat_layout
 layout mapan_layout
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include

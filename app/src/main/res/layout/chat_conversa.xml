@@ -32,6 +32,7 @@
             android:layout_height="60dp"
             android:layout_marginLeft="10sp"
             android:background="@drawable/perfil_circle" />
+
         <TextView
             android:id="@+id/chat_nome"
             android:layout_width="wrap_content"
@@ -58,7 +59,76 @@
             android:src="@drawable/trash_icon" />
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_chatconv"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:alpha="0"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.2"
+            android:src="@drawable/button_chatconv_all"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/button_chatconv"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/button_chatconv"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/map_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintStart_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/image_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+            app:layout_constraintStart_toStartOf="@+id/imageButton2"
+            app:layout_constraintTop_toTopOf="@+id/imageButton2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -71,21 +141,23 @@
             android:id="@+id/rvChatConv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:stackFromEnd="true"
-            app:reverseLayout="true"/>
+            app:reverseLayout="true"
+            app:stackFromEnd="true" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <EditText
             android:id="@+id/text_msg"
-            android:layout_width="350dp"
+            android:layout_width="335dp"
             android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_gravity="center"
             android:background="@drawable/cad_dog_box" />
 
@@ -94,7 +166,9 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="3dp"
             android:scaleType="centerCrop"
             android:src="@drawable/enviar_icon"
             app:backgroundTint="@color/color_branco_menu" />
