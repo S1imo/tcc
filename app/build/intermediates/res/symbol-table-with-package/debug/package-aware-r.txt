@@ -1667,6 +1667,7 @@ drawable logo
 drawable logo_1
 drawable loja_icon
 drawable map_icon
+drawable msg_chat_box
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1779,7 +1780,6 @@ id addImage2
 id addImage3
 id addImage4
 id add_animal
-id add_chat
 id adjust_height
 id adjust_width
 id adot_icon
@@ -1869,7 +1869,6 @@ id center
 id center_horizontal
 id center_vertical
 id chains
-id chat_email
 id chat_icon
 id chat_nome
 id chat_tel
@@ -2285,6 +2284,8 @@ id view_overlay
 id visible
 id voltarDButton
 id voltar_chat
+id voltar_chat1
+id voltar_chat2
 id voltar_perdidos
 id wide
 id withText
@@ -2351,7 +2352,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_desespero
-layout activity_pop_up_perdidos
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cad_dog_layout
@@ -2389,6 +2389,7 @@ layout main_item
 layout main_layout
 layout mapan_layout
 layout mapchat_layout
+layout mapcomp_chat
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -2425,6 +2426,7 @@ layout places_autocomplete_prediction
 layout places_autocomplete_progress
 layout places_autocomplete_search_bar
 layout popup_main
+layout popup_perdidos
 layout popup_perfil_fav
 layout popup_perfil_my
 layout profile_item_fav

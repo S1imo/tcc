@@ -10,6 +10,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class MapActivityChat extends AppCompatActivity implements OnMapReadyCall
 
     private View mapView;
     private Button btnFind;
+    private ImageView buttonV;
 
     private final float DEFAULT_ZOOM = 18;
 
@@ -73,6 +75,19 @@ public class MapActivityChat extends AppCompatActivity implements OnMapReadyCall
             }
         });
 
+        ButtonVoltar();
+
+    }
+
+    private void ButtonVoltar() {
+        buttonV = findViewById(R.id.voltar_chat1);
+        buttonV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapActivityChat.this, ChatConversaActivity.class)
+                        .putExtra("other_us_uid", getIntent().getStringExtra("other_us_uid")));
+            }
+        });
     }
 
     private void InputToVar() {

@@ -4,16 +4,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Messages {
-    private String us_sender, us_receiver, message, current_time;
+    private String ms_id, us_sender, us_receiver, message, current_time;
 
     public Messages() {
     }
 
-    public Messages(String us_sender, String us_receiver, String message, String current_time) {
+    public Messages(String us_sender, String us_receiver, String message, String current_time, String ms_id) {
+        this.ms_id = ms_id;
         this.us_sender = us_sender;
         this.us_receiver = us_receiver;
         this.message = message;
         this.current_time = current_time;
+    }
+
+    public String getMs_id() {
+        return ms_id;
+    }
+
+    public void setMs_id(String ms_id) {
+        this.ms_id = ms_id;
     }
 
     public String getUs_sender() {
@@ -54,6 +63,7 @@ public class Messages {
         dataInfo.put("us_receiver", us_receiver);
         dataInfo.put("message", message);
         dataInfo.put("current_time", current_time);
+        dataInfo.put("ms_id", ms_id);
         return dataInfo;
     }
 }

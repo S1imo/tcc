@@ -1,6 +1,7 @@
 package com.bento.a;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -82,11 +84,18 @@ public class ChatConversaActivity extends AppCompatActivity {
         ButtonVoltar();
         ButtonEnviarMsgm();
         ButtonClip();
-        ButtonExclude();
+        ButtonPerfil();
+        but_exclude.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ButtonExclude();
+            }
+        });
         SendMap();
         DisplayUser();
         DisplayMsg();
     }
+
 
     private void InpToVar() {
 
@@ -103,34 +112,107 @@ public class ChatConversaActivity extends AppCompatActivity {
 
     }
 
+    private void ButtonPerfil() {
+        other_us_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ChatConversaActivity.this, ChatPerfil.class)
+                        .putExtra("other_us_uid", other_us_id));
+            }
+        });
+    }
+
     private void ButtonExclude() {
-        //
+        //alertDialog - perguntando se quer excluir só as mensagens ou da listagem
+        final CharSequence[] charSequences = new CharSequence[]{"Excluir da lista do chat"};
+        final boolean[] checkItem = new boolean[]{false};
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        mRef.child("Users").child(other_us_id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                assert user != null;
+                alertDialog.setTitle("Apagar conversa com " + user.getUs_nome());
+                alertDialog.setMultiChoiceItems(charSequences, checkItem, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        checkItem[0] = isChecked;
+                    }
+                });
+                alertDialog.setPositiveButton("Apagar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(final DialogInterface dialog, int which) {
+                        if (!checkItem[0]) {
+                            mRef.child("ChatList").child(user_id).child(other_us_id).removeValue();
+                            startActivity(new Intent(ChatConversaActivity.this, ChatActivity.class));
+                            dialog.dismiss();
+                        } else {
+                            mRef.child("ChatList").child(user_id).child(other_us_id).removeValue();
+                            mRef.child("Messages").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                        Messages messages = snapshot.getValue(Messages.class);
+                                        assert messages != null;
+                                        if (messages.getUs_sender().equals(user_id) && messages.getUs_receiver().equals(other_us_id) || messages.getUs_sender().equals(other_us_id) && messages.getUs_receiver().equals(user_id)) {
+                                            mRef.child("Messages").child(messages.getMs_id()).removeValue();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                            startActivity(new Intent(ChatConversaActivity.this, ChatActivity.class));
+                            dialog.dismiss();
+                        }
+                    }
+                })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //só voltar para activity
+                                dialog.dismiss();
+                            }
+                        });
+                AlertDialog alerta = alertDialog.create();
+                alerta.show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
     private void ButtonClip() {
-                but_clip.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (constraintLayout.getAlpha()!= 0){
+        but_clip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (constraintLayout.getAlpha() != 0) {
 
-                            constraintLayout.animate().translationY(0);
-                            constraintLayout.animate().alpha(0).setDuration(2000);
+                    constraintLayout.animate().translationY(0);
+                    constraintLayout.animate().alpha(0).setDuration(2000);
 
 
-                        }else{
-                            constraintLayout.animate().translationY(100);
-                            constraintLayout.animate().alpha(1).setDuration(600);
+                } else {
+                    constraintLayout.animate().translationY(100);
+                    constraintLayout.animate().alpha(1).setDuration(600);
 
-                            but_map = findViewById(R.id.imageButton);
-                            but_foto = findViewById(R.id.imageButton2);
+                    but_map = findViewById(R.id.imageButton);
+                    but_foto = findViewById(R.id.imageButton2);
 
-                            ButtonFoto();
-                            ButtonMap();
-                        }
-
-                    }
-                });
+                    ButtonFoto();
+                    ButtonMap();
+                }
             }
+        });
+    }
 
     private void ButtonFoto() {
         but_foto.setOnClickListener(new View.OnClickListener() {
@@ -166,10 +248,10 @@ public class ChatConversaActivity extends AppCompatActivity {
                         Imagename.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                             @Override
                             public void onComplete(@NonNull Task<Uri> task) {
-                                currentTime = Calendar.getInstance().get(Calendar.HOUR) +":"+ Calendar.getInstance().get(Calendar.MINUTE);
-                                Messages messages = new Messages(user_id, other_us_id, Objects.requireNonNull(task.getResult()).toString(), currentTime);
-                                Map<String, Object> valuesArr = new HashMap<>();
                                 String var = "M" + System.currentTimeMillis();
+                                currentTime = Calendar.getInstance().get(Calendar.HOUR) + ":" + Calendar.getInstance().get(Calendar.MINUTE);
+                                Messages messages = new Messages(user_id, other_us_id, Objects.requireNonNull(task.getResult()).toString(), currentTime, var);
+                                Map<String, Object> valuesArr = new HashMap<>();
                                 valuesArr.put(var, messages.toMap());
                                 mRef.child("Messages").updateChildren(valuesArr);
                                 mRef.child("ChatList").child(user_id).child(other_us_id).setValue(true);
@@ -209,7 +291,8 @@ public class ChatConversaActivity extends AppCompatActivity {
         but_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChatConversaActivity.this, MapActivityChat.class));
+                startActivity(new Intent(ChatConversaActivity.this, MapActivityChat.class)
+                        .putExtra("other_us_uid", other_us_id));
             }
         });
     }
@@ -219,10 +302,10 @@ public class ChatConversaActivity extends AppCompatActivity {
         us_long = getIntent().getStringExtra("longitude");
 
         if (us_lat != null && us_long != null) {
-            currentTime = Calendar.getInstance().get(Calendar.HOUR) +":"+ Calendar.getInstance().get(Calendar.MINUTE);
-            Messages messages = new Messages(user_id, other_us_id, us_lat+"-"+us_long, currentTime);
-            Map<String, Object> valuesArr = new HashMap<>();
+            currentTime = Calendar.getInstance().get(Calendar.HOUR) + ":" + Calendar.getInstance().get(Calendar.MINUTE);
             String var = "M" + System.currentTimeMillis();
+            Messages messages = new Messages(user_id, other_us_id, us_lat + "-" + us_long, currentTime, var);
+            Map<String, Object> valuesArr = new HashMap<>();
             valuesArr.put(var, messages.toMap());
             mRef.child("Messages").updateChildren(valuesArr);
             mRef.child("ChatList").child(user_id).child(other_us_id).setValue(true);
@@ -243,14 +326,14 @@ public class ChatConversaActivity extends AppCompatActivity {
         but_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentTime = Calendar.getInstance().get(Calendar.HOUR) +":"+ Calendar.getInstance().get(Calendar.MINUTE);
+                currentTime = Calendar.getInstance().get(Calendar.HOUR) + ":" + Calendar.getInstance().get(Calendar.MINUTE);
                 messages_stg = edit_chat.getText().toString();
                 if (messages_stg.equals("") || messages_stg.equals(" ")) {
                     Log.d("MSGN", "mensagem vazia");
                 } else {
-                    Messages messages = new Messages(user_id, other_us_id, messages_stg, currentTime);
-                    Map<String, Object> valuesArr = new HashMap<>();
                     String var = "M" + System.currentTimeMillis();
+                    Messages messages = new Messages(user_id, other_us_id, messages_stg, currentTime, var);
+                    Map<String, Object> valuesArr = new HashMap<>();
                     valuesArr.put(var, messages.toMap());
                     mRef.child("Messages").updateChildren(valuesArr);
                     mRef.child("ChatList").child(user_id).child(other_us_id).setValue(true);

@@ -63,11 +63,9 @@ public class PopUpMain extends AppCompatActivity {
 
     private void SetTextViews()
     {
-        an_uid = Objects.requireNonNull(getIntent().getExtras()).getString("an_uid");
-        user_id = Objects.requireNonNull(getIntent().getExtras().getString("us_uid"));
-        mRef = mFire.getReference().child("Animais").child(user_id).child(an_uid);
+        mRef = mFire.getReference();
 
-        mRef.addValueEventListener(new ValueEventListener() {
+        mRef.child("Animais").child(getIntent().getStringExtra("us_uid")).child(getIntent().getStringExtra("an_uid")).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Animal animal = dataSnapshot.getValue(Animal.class);

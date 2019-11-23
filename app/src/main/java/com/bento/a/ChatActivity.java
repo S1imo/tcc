@@ -145,12 +145,39 @@ public class ChatActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             for(DataSnapshot snapshot1: dataSnapshot.getChildren()){
-                                User user = snapshot1.getValue(User.class);
+                                final User user = snapshot1.getValue(User.class);
                                 assert user != null;
                                 if(user.getUs_uid().equals(snapshot.getKey())){
                                     mUsersList.add(user);
                                     chat_adp.notifyDataSetChanged();
                                 }
+                                mRef.child("ChatList").child(user_id).addChildEventListener(new ChildEventListener() {
+                                    @Override
+                                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                    }
+
+                                    @Override
+                                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                    }
+
+                                    @Override
+                                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                                        mUsersList.remove(user);
+                                        chat_adp.notifyDataSetChanged();
+                                    }
+
+                                    @Override
+                                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
                         }
 
@@ -167,6 +194,8 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
+
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(chat_adp);

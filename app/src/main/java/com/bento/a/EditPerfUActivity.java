@@ -110,10 +110,6 @@ public class EditPerfUActivity extends AppCompatActivity {
             != PackageManager.PERMISSION_GRANTED) {
         Toast.makeText(this, "Permissão de internet não habilitada", Toast.LENGTH_SHORT).show();
     }
-    else if(ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.CAMERA)
-            != PackageManager.PERMISSION_GRANTED) {
-        Toast.makeText(this, "Permissão de câmera não habilitada", Toast.LENGTH_SHORT).show();
-    }
     else if(ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED)
     {

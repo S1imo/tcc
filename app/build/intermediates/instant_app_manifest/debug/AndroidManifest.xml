@@ -22,6 +22,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permision.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
     <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -41,6 +42,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.bento.a.MapCompChat" />
         <activity android:name="com.bento.a.MapActivityChat" />
         <activity android:name="com.bento.a.MapActivityAn" />
         <activity android:name="com.bento.a.PopUpPerfilFav" />
@@ -77,8 +79,7 @@
         <activity
             android:name="com.bento.a.PerfilActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.bento.a.CadSUActivity"
             android:configChanges="orientation"

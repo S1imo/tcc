@@ -30,7 +30,8 @@
             android:id="@+id/img_chat"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="10sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/perfil_circle" />
 
         <TextView
@@ -38,7 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="10sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:text="Nome"
             android:textSize="24sp" />
 
@@ -47,20 +49,16 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="100dp"
-            android:clickable="true"
-            android:src="@drawable/clip_icon"
-            android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            android:layout_marginStart="120dp"
+            android:src="@drawable/clip_icon"/>
 
         <ImageView
             android:id="@+id/trash_chat"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:clickable="true"
-            android:src="@drawable/trash_icon"
-            android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/trash_icon"/>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -158,24 +156,30 @@
 
         <EditText
             android:id="@+id/text_msg"
-            android:layout_width="300dp"
+            android:layout_width="340dp"
             android:layout_height="35dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:layout_gravity="center"
-            android:background="@drawable/cad_dog_box" />
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:background="@drawable/msg_chat_box" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/enviar_msg"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="3dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/enviar_icon"
-            app:backgroundTint="@color/color_branco_menu" />
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@android:color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="fitCenter"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:maxImageSize="35dp"
+            app:rippleColor="@null"
+            app:srcCompat="@drawable/enviar_icon" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

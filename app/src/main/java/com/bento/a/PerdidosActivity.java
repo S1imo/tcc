@@ -1,35 +1,21 @@
 package com.bento.a;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
-
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.viewpager.widget.ViewPager;
+
 import com.bento.a.Adapters.ViewPagerAdapter;
-import com.bento.a.Classes.Animal;
-import com.bento.a.ViewHolders.ViewHolderAnimal;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class PerdidosActivity extends AppCompatActivity {
@@ -40,9 +26,6 @@ public class PerdidosActivity extends AppCompatActivity {
     private TextView testpop;
     private Dialog mDialog;
     private ImageView but_profile, but_adot, but_loja, but_chat, seta_voltar;
-    private RecyclerView regiaoRView, todosRView;
-    private FirebaseRecyclerOptions<Animal> options1;
-    private FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter2;
     private ImageButton btn_menu;
     private ViewPager viewPager;
 
@@ -94,7 +77,7 @@ public class PerdidosActivity extends AppCompatActivity {
 
     private void showDialog(){
 
-        mDialog.setContentView(R.layout.activity_pop_up_perdidos);
+        mDialog.setContentView(R.layout.popup_perdidos);
 
         //imagens em carrossel
         viewPager = (ViewPager)mDialog.findViewById(R.id.myViewPager);
