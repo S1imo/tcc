@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LocationCallback mLocationCallback;
     private FusedLocationProviderClient mFusedLocation;
     private Circle circle;
+    private boolean isSuper = false;
     private float[] distance = new float[2];
 
     @Override
@@ -199,28 +201,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mRefAnimal.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                         final Animal animal = snapshot1.getValue(Animal.class);
                         assert animal != null;
                         if (!animal.getAn_uid().equals(an_id) && !animal.getUs_uid().equals(user_id) && !animal.getAn_status().equals("Perdido")) {
                             rowItems.add(animal);
                             arr_Adapter.notifyDataSetChanged();
-                            mRefBanned.addChildEventListener(new ChildEventListener() {
+                            mRefBanned.child(user_id).addChildEventListener(new ChildEventListener() {
                                 @Override
                                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                    for(DataSnapshot snapshot2: dataSnapshot.getChildren()){
-                                        if(Objects.equals(dataSnapshot.getKey(), user_id) && Objects.equals(snapshot2.getKey(), animal.getUs_uid()) || Objects.equals(dataSnapshot.getKey(), animal.getUs_uid()) && Objects.equals(snapshot2.getKey(), user_id)){
-                                            rowItems.remove(animal);
-                                            arr_Adapter.notifyDataSetChanged();
-                                        }
+                                    if (Objects.equals(dataSnapshot.getKey(), animal.getUs_uid())) {
+                                        rowItems.remove(animal);
+                                        arr_Adapter.notifyDataSetChanged();
                                     }
                                 }
 
                                 @Override
                                 public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                    for(DataSnapshot snapshot2: dataSnapshot.getChildren()){
-                                        if(Objects.equals(dataSnapshot.getKey(), user_id) && Objects.equals(snapshot2.getKey(), animal.getUs_uid()) || Objects.equals(dataSnapshot.getKey(), animal.getUs_uid()) && Objects.equals(snapshot2.getKey(), user_id)){
+                                    for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
+                                        if (Objects.equals(dataSnapshot.getKey(), user_id) && Objects.equals(snapshot2.getKey(), animal.getUs_uid()) || Objects.equals(dataSnapshot.getKey(), animal.getUs_uid()) && Objects.equals(snapshot2.getKey(), user_id)) {
                                             rowItems.remove(animal);
                                             arr_Adapter.notifyDataSetChanged();
                                         }
@@ -229,8 +229,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                                 @Override
                                 public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                                    for(DataSnapshot snapshot2: dataSnapshot.getChildren()){
-                                        if(Objects.equals(dataSnapshot.getKey(), user_id) && Objects.equals(snapshot2.getKey(), animal.getUs_uid()) || Objects.equals(dataSnapshot.getKey(), animal.getUs_uid()) && Objects.equals(snapshot2.getKey(), user_id)){
+                                    for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
+                                        if (Objects.equals(dataSnapshot.getKey(), user_id) && Objects.equals(snapshot2.getKey(), animal.getUs_uid()) || Objects.equals(dataSnapshot.getKey(), animal.getUs_uid()) && Objects.equals(snapshot2.getKey(), user_id)) {
                                             rowItems.remove(animal);
                                             arr_Adapter.notifyDataSetChanged();
                                         }
@@ -399,6 +399,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("us_uid").setValue(user_id);
                     refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("an_uid").setValue(((Animal) dataObject).getAn_uid());
                     refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("an_us_uid").setValue(((Animal) dataObject).getUs_uid());
+                    if (isSuper) {
+                        refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("an_fav").setValue("verd");
+                    } else {
+                        refNew.child("Connections").child(an_uid).child("Yes" + rand_num).child("an_fav").setValue("falso");
+                    }
+                    isSuper = false;
                 }
 
             }
@@ -472,6 +478,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 animarFab(buttonDes);
+                isSuper = false;
                 flingContainer.getTopCardListener().selectLeft();
             }
         });
@@ -482,6 +489,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 animarFab(buttonSuper);
+                isSuper = true;
                 flingContainer.getTopCardListener().selectRight();
                 likeanim.cancel();
             }
@@ -493,7 +501,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                isSuper = false;
                 animarFab(buttonLike);
                 flingContainer.getTopCardListener().selectRight();
             }

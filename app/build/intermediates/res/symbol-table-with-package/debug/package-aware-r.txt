@@ -2111,6 +2111,7 @@ id porte_animal_main
 id porte_grande
 id porte_medio
 id porte_pequeno
+id prof_item_fav
 id prof_item_perd
 id profile_icon
 id progress_circular

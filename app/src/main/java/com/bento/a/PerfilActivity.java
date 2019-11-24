@@ -149,12 +149,11 @@ public class PerfilActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
-                Picasso.get().load(user.getUs_img()).into(perf_img);
+                Picasso.get().load(user.getUs_img()).placeholder(R.drawable.bg_prof_all).into(perf_img);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Picasso.get().load(R.drawable.bg_prof_all).into(perf_img);
             }
         });
     }
@@ -356,7 +355,7 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void RecyclerFav() {
         final ArrayList<Animal> mAnimais = new ArrayList<>();
-        final Perfil_AAdapter perfil_AAdapter = new Perfil_AAdapter(getApplicationContext(), mAnimais);
+        final Perfil_AAdapter perfil_AAdapter = new Perfil_AAdapter(PerfilActivity.this, mAnimais);
 
         recyclerViewFav = findViewById(R.id.rvInteressados);
         recyclerViewFav.setHasFixedSize(true);
@@ -429,7 +428,7 @@ public class PerfilActivity extends AppCompatActivity {
 
                 while ((line = reader.readLine()) != null) {
                     buffer.append(line).append("\n");
-                    Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
+                    //Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
 
                 }
 
