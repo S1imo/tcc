@@ -89,7 +89,7 @@ public class PopUpPerfilMy extends AppCompatActivity {
         cas_n = findViewById(R.id.castrado_nao);
         cas_s = findViewById(R.id.castrado_sim);
         vac_n = findViewById(R.id.vacinado_nao);
-        vac_s = findViewById(R.id.castrado_sim);
+        vac_s = findViewById(R.id.vacinado_sim);
         stat_adt = findViewById(R.id.ani_adot);
         stat_perd = findViewById(R.id.ani_perdido);
 
@@ -108,26 +108,30 @@ public class PopUpPerfilMy extends AppCompatActivity {
     }
 
     private void SetValues() {
-        mRef.child("Animais").child(user_id).child(an_uid).addValueEventListener(new ValueEventListener() {
+        System.out.println(user_id);
+        System.out.println(an_uid);
+        mRef.child("Animais").child(user_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Animal animal = dataSnapshot.getValue(Animal.class);
-                assert animal != null;
-                text_tip.setText(animal.getTip_an());
-                text_desc.setText(animal.getAn_descricao());
-                text_idade.setText(animal.getAn_idade());
-                text_porte.setText(animal.getAn_porte());
-                text_raca.setText(animal.getAn_raca());
-                text_stat.setText(animal.getAn_status());
-                text_vac.setText(animal.getAn_vacinado());
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    Animal animal = snapshot.getValue(Animal.class);
+                    assert animal != null;
+                    if(animal.getAn_uid().equals(an_uid)){
+                        text_tip.setText(animal.getTip_an());
+                        text_desc.setText(animal.getAn_descricao());
+                        text_idade.setText(animal.getAn_idade());
+                        text_porte.setText(animal.getAn_porte());
+                        text_raca.setText(animal.getAn_raca());
+                        text_stat.setText(animal.getAn_status());
+                        text_vac.setText(animal.getAn_vacinado());
 
-                Picasso.get().load(animal.getAn_prof_img1()).into(image1);
-                Picasso.get().load(animal.getAn_prof_img2()).into(image2);
-                Picasso.get().load(animal.getAn_prof_img3()).into(image3);
-                Picasso.get().load(animal.getAn_prof_img4()).into(image4);
-
+                        Picasso.get().load(animal.getAn_prof_img1()).into(image1);
+                        Picasso.get().load(animal.getAn_prof_img2()).into(image2);
+                        Picasso.get().load(animal.getAn_prof_img3()).into(image3);
+                        Picasso.get().load(animal.getAn_prof_img4()).into(image4);
+                    }
+                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }

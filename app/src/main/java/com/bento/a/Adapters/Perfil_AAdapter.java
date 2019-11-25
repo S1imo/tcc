@@ -63,10 +63,8 @@ public class Perfil_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
                     for(DataSnapshot snapshot1: snapshot.getChildren()){
                         Connections connections = snapshot1.getValue(Connections.class);
                         assert connections != null;
-                        System.out.println(connections.getAn_fav());
                         if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) && connections.getAn_fav().equals("verd")) {
                             Picasso.get().load(R.drawable.image_fav).into(holder.an_fav);
-                            System.out.println(connections.getAn_uid());
                         }
                     }
                 }

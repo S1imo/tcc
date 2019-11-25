@@ -40,8 +40,15 @@ public class PerdidosActivity extends AppCompatActivity {
 
         InpToVar(); //input para variaveis
         Buttons(); //função dos botoes
+        PerdidosAdapterTodos();
+    }
+    
+    private void PerdidosAdapterRegion(){
+        
+    }
 
-        //PerdidoAn();
+    private void PerdidosAdapterTodos() {
+
     }
 
     private void Buttons(){
@@ -80,7 +87,7 @@ public class PerdidosActivity extends AppCompatActivity {
         mDialog.setContentView(R.layout.popup_perdidos);
 
         //imagens em carrossel
-        viewPager = (ViewPager)mDialog.findViewById(R.id.myViewPager);
+        viewPager = mDialog.findViewById(R.id.myViewPager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
 
         viewPager.setAdapter(viewPagerAdapter);
@@ -164,57 +171,4 @@ public class PerdidosActivity extends AppCompatActivity {
             }
         });
     }
-
-    /*private void PerdidoAn(){
-        regiaoRView = findViewById(R.id.rvPerdidos);
-        todosRView = findViewById(R.id.rvPerdidos2);
-
-        regiaoRView.setHasFixedSize(true);
-        todosRView.setHasFixedSize(true);
-
-        DatabaseReference mRef = mFire.getReference().child("Animais");
-
-        options1 = new FirebaseRecyclerOptions.Builder<Animal>()
-                .setQuery(mRef, Animal.class)
-                .build();
-
-        //animais da regiao -- fazer com google
-        FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter1 = new FirebaseRecyclerAdapter<Animal, ViewHolderAnimal>(options1) {
-            @Override
-            protected void onBindViewHolder(@NonNull ViewHolderAnimal viewHolderAnimal, int i, @NonNull Animal animal) {
-
-            }
-
-            @NonNull
-            @Override
-            public ViewHolderAnimal onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view1 = LayoutInflater.from(getApplicationContext()).inflate(R.layout.chat_item, parent, false);
-                return null;
-            }
-        };
-
-        //todos os animais
-        FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter2 = new FirebaseRecyclerAdapter<Animal, ViewHolderAnimal>(options1) {
-            @Override
-            protected void onBindViewHolder(@NonNull ViewHolderAnimal viewHolderAnimal, int i, @NonNull Animal animal) {
-
-            }
-
-            @NonNull
-            @Override
-            public ViewHolderAnimal onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-                return null;
-            }
-        };
-
-        LinearLayoutManager mLinearManager1 = new LinearLayoutManager(getApplicationContext());
-        LinearLayoutManager mLinearManager2 = new LinearLayoutManager(getApplicationContext());
-        adapter1.startListening();
-        adapter2.startListening();
-        regiaoRView.setLayoutManager(mLinearManager1);
-        todosRView.setLayoutManager(mLinearManager2);
-        regiaoRView.setAdapter(adapter1);
-        regiaoRView.setAdapter(adapter2);
-    }*/
 }

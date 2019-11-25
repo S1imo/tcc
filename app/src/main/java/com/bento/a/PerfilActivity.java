@@ -389,11 +389,7 @@ public class PerfilActivity extends AppCompatActivity {
                                 public void onCancelled(@NonNull DatabaseError databaseError1) {
                                 }
                             });
-
-                        } else {
-                            Toast.makeText(PerfilActivity.this, "aaaa", Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 }
             }
