@@ -49,6 +49,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -202,7 +203,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                         Animal animal = snapshot1.getValue(Animal.class);
                         assert animal != null;
-                        System.out.println(animal.getAn_uid());
                         if (animal.getAn_uid().equals(an_id) && !animal.getUs_uid().equals(user_id)) {
                             rowItems.add(animal);
                             arr_Adapter.notifyDataSetChanged();
@@ -218,6 +218,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
+        Collections.shuffle(rowItems);
         arr_Adapter = new Main_AAdapter(this, R.layout.main_item, rowItems);
         flingContainer.setAdapter(arr_Adapter);
 
@@ -284,7 +285,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void ExceptionsFireCon(final Animal animal) {
         mRef = mFire.getReference().child("Connections");
-        mRef.addValueEventListener(new ValueEventListener() {
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
@@ -311,7 +312,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Connections connections = snapshot.getValue(Connections.class);
                         assert connections != null;
-                        System.out.println(connections.getAn_uid());
                         if (connections.getUs_uid().equals(animal.getUs_uid())) {
                             rowItems.remove(animal);
                             arr_Adapter.notifyDataSetChanged();
@@ -322,47 +322,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.hasChildren()) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Connections connections = snapshot.getValue(Connections.class);
-                        assert connections != null;
-                        System.out.println(connections.getAn_uid());
-                        if (connections.getUs_uid().equals(animal.getUs_uid())) {
-                            rowItems.remove(animal);
-                            arr_Adapter.notifyDataSetChanged();
-                        }
-                    }
-                }
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChildren()) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Connections connections = snapshot.getValue(Connections.class);
-                        assert connections != null;
-                        System.out.println(connections.getAn_uid());
-                        if (connections.getUs_uid().equals(animal.getUs_uid())) {
-                            rowItems.remove(animal);
-                            arr_Adapter.notifyDataSetChanged();
-                        }
-                    }
-                }
             }
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.hasChildren()) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Connections connections = snapshot.getValue(Connections.class);
-                        assert connections != null;
-                        System.out.println(connections.getAn_uid());
-                        if (connections.getUs_uid().equals(animal.getUs_uid())) {
-                            rowItems.remove(animal);
-                            arr_Adapter.notifyDataSetChanged();
-                        }
-                    }
-                }
             }
 
             @Override
@@ -387,22 +354,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
-                        rowItems.remove(animal);
-                        arr_Adapter.notifyDataSetChanged();
-                    }
-                }
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
-                        rowItems.remove(animal);
-                        arr_Adapter.notifyDataSetChanged();
-                    }
-                }
             }
 
             @Override

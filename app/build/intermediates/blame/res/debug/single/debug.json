@@ -1284,6 +1284,10 @@
         "source": "C:\\Users\\joaog\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
+        "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_trash_icon_perf.png.flat",
+        "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\drawable-v24\\trash_icon_perf.png"
+    },
+    {
         "merged": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\res\\merged\\debug\\layout_chat_perfil_layout.xml.flat",
         "source": "C:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\src\\main\\res\\layout\\chat_perfil_layout.xml"
     },

@@ -26,8 +26,8 @@ import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PopUpPerfilMy extends AppCompatActivity {
-    private TextView exitText, text_tip, text_porte, text_idade, text_vac, text_stat, text_cast;
-    private EditText text_raca, text_desc;
+    private TextView exitText, text_tip, text_porte, text_idade, text_vac, text_stat, text_cast, text_raca, text_desc;
+    private EditText editText_raca, editText_desc;
     private RadioGroup sel_inp_porte, sel_inp_idade, sel_inp_vac, sel_inp_stat, sel_inp_cast;
     private String an_porte, an_tip, an_idade, an_vac, an_raca, an_stat, an_desc, an_uid;
     private RadioButton but_sel_porte, but_sel_idade, but_sel_vac, but_sel_stat, porte_g, porte_p, porte_m, idade_f, idade_a, cas_s, cas_n, vac_s, vac_n, stat_adt, stat_perd;
@@ -74,11 +74,13 @@ public class PopUpPerfilMy extends AppCompatActivity {
         text_porte = findViewById(R.id.porte_animal);
         text_idade = findViewById(R.id.idade_ani);
         text_vac = findViewById(R.id.vacinado_animal);
-        text_raca = findViewById(R.id.raca_animal); //edit
+        text_raca = findViewById(R.id.text_raca_perf); //edit
         text_stat = findViewById(R.id.status_animal);
-        text_desc = findViewById(R.id.desc_animal); //edit
+        text_desc = findViewById(R.id.text_desc_an); //edit
         text_cast = findViewById(R.id.castrado_animal);
 
+        editText_desc = findViewById(R.id.desc_animal);
+        editText_raca = findViewById(R.id.raca_animal);
 
         //RadioButtons
         porte_g = findViewById(R.id.porte_grande);

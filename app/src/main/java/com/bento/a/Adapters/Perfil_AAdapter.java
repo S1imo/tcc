@@ -80,7 +80,8 @@ public class Perfil_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
             @Override
             public void onClick(View v) {
                 mContext.startActivity(new Intent(mContext, PopUpPerfilFav.class)
-                        .putExtra("other_us_uid", animal.getUs_uid()));
+                        .putExtra("other_us_uid", animal.getUs_uid())
+                        .putExtra("an_uid", animal.getAn_uid()));
             }
         });
 

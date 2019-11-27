@@ -1702,6 +1702,7 @@ drawable superlike
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable trash_icon
+drawable trash_icon_perf
 drawable ucrop_ic_angle
 drawable ucrop_ic_crop
 drawable ucrop_ic_cross
@@ -1933,6 +1934,7 @@ id enterAlwaysCollapsed
 id enviar_msg
 id es_email_text1
 id es_nome_text
+id ex_chat_fav
 id exitUntilCollapsed
 id exit_m
 id expand_activities_button
@@ -2226,11 +2228,13 @@ id textView_fav
 id text_View_upload
 id text_View_upload_fav
 id text_current_time
+id text_desc_an
 id text_idade_dog
 id text_input_password_toggle
 id text_messages
 id text_msg
 id text_raca_dog
+id text_raca_perf
 id text_us_nom
 id text_us_status
 id text_view_rotate
