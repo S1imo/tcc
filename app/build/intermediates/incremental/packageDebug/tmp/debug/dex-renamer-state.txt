@@ -1,7 +1,13 @@
-#Sun Nov 24 22:47:08 BRST 2019
-base.0=C\:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+#Wed Nov 27 15:54:19 BRST 2019
+path.3=classes.dex
+path.2=classes.dex
 path.1=classes.dex
-renamed.1=classes2.dex
 path.0=classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
+base.3=C\:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.2=C\:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 base.1=C\:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.0=C\:\\Users\\joaog\\AndroidStudioProjects\\tcc\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex

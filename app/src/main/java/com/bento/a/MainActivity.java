@@ -568,4 +568,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         };
         mFusedLocation.requestLocationUpdates(mLocationRequest, mLocationCallback, null);
     }
+
+
 }

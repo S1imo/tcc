@@ -1871,6 +1871,7 @@ id center_vertical
 id chains
 id chat_icon
 id chat_nome
+id chat_perdidos
 id chat_tel
 id checkbox
 id checked
@@ -1996,7 +1997,6 @@ id imagelike
 id img_chat
 id img_us
 id info
-id info_btn
 id info_btn_card
 id invisible
 id italic

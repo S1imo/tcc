@@ -26,7 +26,7 @@ public class PerdidosActivity extends AppCompatActivity {
     private TextView testpop;
     private Dialog mDialog;
     private ImageView but_profile, but_adot, but_loja, but_chat, seta_voltar;
-    private ImageButton btn_menu;
+    private ImageButton chat_perdidos;
     private ViewPager viewPager;
 
     @Override
@@ -92,25 +92,18 @@ public class PerdidosActivity extends AppCompatActivity {
 
         viewPager.setAdapter(viewPagerAdapter);
 
-        //botao info para contato/localizacao
-        btn_menu = mDialog.findViewById(R.id.info_btn);
-        btn_menu.setOnClickListener(new View.OnClickListener() {
+        //botao chat para contato
+        chat_perdidos = findViewById(R.id.chat_perdidos);
+        final String other_us_uid = getIntent().getStringExtra("other_us_uid");
+
+        chat_perdidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(PerdidosActivity.this, btn_menu);
-                popupMenu.getMenuInflater().inflate(R.menu.popup_perdido, popupMenu.getMenu());
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(PerdidosActivity.this,"" + item.getTitle(),Toast.LENGTH_SHORT).show();
-                        return true;
-                    }
-                });
-                popupMenu.show();
-
+                startActivity(new Intent(PerdidosActivity.this, ChatConversaActivity.class)
+                        .putExtra("other_us_uid", other_us_uid));
             }
         });
+
 
         //voltar
         seta_voltar = mDialog.findViewById(R.id.voltar_perdidos);
