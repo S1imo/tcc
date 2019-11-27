@@ -49,6 +49,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Main_AAdapter arr_Adapter;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFire;
-    private DatabaseReference mRefAnimal, mRefBanned, mRefConnections, mRef;
+    private DatabaseReference mRef;
     private String user_id, an_uid;
     private ImageView but_profile, but_adot, but_perd, but_loja, but_chat, likee, deslikee;
     private FloatingActionButton buttonDes, buttonLike, buttonSuper;
@@ -193,162 +194,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void SwipeCard(final String an_id) {
         rowItems = new ArrayList<>();
-        mRefAnimal = mFire.getReference().child("Animais");
-        mRefConnections = mFire.getReference().child("Connections");
-        mRefBanned = mFire.getReference().child("BloqueadosList");
-        /*rowItems.remove(animal);
-        arr_Adapter.notifyDataSetChanged();*/
-        mRefAnimal.addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef = mFire.getReference();
+
+        mRef.child("Animais").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                        final Animal animal = snapshot1.getValue(Animal.class);
+                        Animal animal = snapshot1.getValue(Animal.class);
                         assert animal != null;
-                        if (!animal.getAn_uid().equals(an_id) && !animal.getUs_uid().equals(user_id) && !animal.getAn_status().equals("Perdido")) {
+                        if (animal.getAn_uid().equals(an_id) && !animal.getUs_uid().equals(user_id)) {
                             rowItems.add(animal);
                             arr_Adapter.notifyDataSetChanged();
-                            mRefBanned.child(user_id).addChildEventListener(new ChildEventListener() {
-                                @Override
-                                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                    if (Objects.equals(dataSnapshot.getKey(), animal.getUs_uid())) {
-                                        rowItems.remove(animal);
-                                        arr_Adapter.notifyDataSetChanged();
-                                    }
-                                }
-
-                                @Override
-                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                    for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
-                                        if (Objects.equals(dataSnapshot.getKey(), user_id) && Objects.equals(snapshot2.getKey(), animal.getUs_uid()) || Objects.equals(dataSnapshot.getKey(), animal.getUs_uid()) && Objects.equals(snapshot2.getKey(), user_id)) {
-                                            rowItems.remove(animal);
-                                            arr_Adapter.notifyDataSetChanged();
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                                    for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
-                                        if (Objects.equals(dataSnapshot.getKey(), user_id) && Objects.equals(snapshot2.getKey(), animal.getUs_uid()) || Objects.equals(dataSnapshot.getKey(), animal.getUs_uid()) && Objects.equals(snapshot2.getKey(), user_id)) {
-                                            rowItems.remove(animal);
-                                            arr_Adapter.notifyDataSetChanged();
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-                            mRefConnections.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    if (dataSnapshot.hasChildren()) {
-                                        for (DataSnapshot snapshot3 : dataSnapshot.getChildren()) {
-                                            if (Objects.equals(snapshot3.getKey(), animal.getAn_uid())) {
-                                                for (DataSnapshot snapshot4 : snapshot3.getChildren()) {
-                                                    Connections connections = snapshot4.getValue(Connections.class);
-                                                    assert connections != null;
-                                                    if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) || connections.getAn_us_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid())) {
-                                                        rowItems.remove(animal);
-                                                        arr_Adapter.notifyDataSetChanged();
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-                            mRefConnections.addChildEventListener(new ChildEventListener() {
-                                @Override
-                                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                    if (dataSnapshot.hasChildren()) {
-                                        for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
-                                            if (Objects.equals(snapshot2.getKey(), animal.getAn_uid())) {
-                                                for (DataSnapshot snapshot3 : snapshot2.getChildren()) {
-                                                    Connections connections = snapshot3.getValue(Connections.class);
-                                                    assert connections != null;
-                                                    if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) || connections.getAn_us_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid())) {
-                                                        rowItems.remove(animal);
-                                                        arr_Adapter.notifyDataSetChanged();
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                    if (dataSnapshot.hasChildren()) {
-                                        for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
-                                            if (Objects.equals(snapshot2.getKey(), animal.getAn_uid())) {
-                                                for (DataSnapshot snapshot3 : snapshot2.getChildren()) {
-                                                    Connections connections = snapshot3.getValue(Connections.class);
-                                                    assert connections != null;
-                                                    if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) || connections.getAn_us_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid())) {
-                                                        rowItems.remove(animal);
-                                                        arr_Adapter.notifyDataSetChanged();
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                                    if (dataSnapshot.hasChildren()) {
-                                        for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
-                                            if (Objects.equals(snapshot2.getKey(), animal.getAn_uid())) {
-                                                for (DataSnapshot snapshot3 : snapshot2.getChildren()) {
-                                                    Connections connections = snapshot3.getValue(Connections.class);
-                                                    assert connections != null;
-                                                    if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) || connections.getAn_us_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid())) {
-                                                        rowItems.remove(animal);
-                                                        arr_Adapter.notifyDataSetChanged();
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                    if (dataSnapshot.hasChildren()) {
-                                        for (DataSnapshot snapshot2 : dataSnapshot.getChildren()) {
-                                            if (Objects.equals(snapshot2.getKey(), animal.getAn_uid())) {
-                                                for (DataSnapshot snapshot3 : snapshot2.getChildren()) {
-                                                    Connections connections = snapshot3.getValue(Connections.class);
-                                                    assert connections != null;
-                                                    if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) || connections.getAn_us_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid())) {
-                                                        rowItems.remove(animal);
-                                                        arr_Adapter.notifyDataSetChanged();
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
+                            ExceptionsFireCon(animal);
+                            ExceptionsFireBloq(animal);
                         }
                     }
                 }
@@ -359,9 +218,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
+        Collections.shuffle(rowItems);
         arr_Adapter = new Main_AAdapter(this, R.layout.main_item, rowItems);
         flingContainer.setAdapter(arr_Adapter);
+
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+
             @Override
             public void removeFirstObjectInAdapter() {
                 Log.d("LIST", "removed object!");
@@ -416,6 +278,111 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onScroll(float scrollProgressPercent) {
+
+            }
+        });
+    }
+
+    private void ExceptionsFireCon(final Animal animal) {
+        mRef = mFire.getReference().child("Connections");
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChildren()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                            Connections connections = snapshot1.getValue(Connections.class);
+                            assert connections != null;
+                            if (!connections.getUs_uid().equals(animal.getUs_uid())) {
+                                rowItems.remove(animal);
+                                arr_Adapter.notifyDataSetChanged();
+                            }
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+        mRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                if (dataSnapshot.hasChildren()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Connections connections = snapshot.getValue(Connections.class);
+                        assert connections != null;
+                        if (connections.getUs_uid().equals(animal.getUs_uid())) {
+                            rowItems.remove(animal);
+                            arr_Adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void ExceptionsFireBloq(final Animal animal) {
+        mRef = mFire.getReference().child("BloqueadosList");
+        mRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
+                        rowItems.remove(animal);
+                        arr_Adapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
+                        rowItems.remove(animal);
+                        arr_Adapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });

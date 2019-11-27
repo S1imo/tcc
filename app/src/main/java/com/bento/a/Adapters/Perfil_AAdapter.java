@@ -56,7 +56,7 @@ public class Perfil_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
         Picasso.get().load(animal.getAn_prof_img1()).into(holder.an_img);
         holder.an_nome.setText(animal.getAn_raca());
 
-        mRef.child("Connections").addValueEventListener(new ValueEventListener() {
+        mRef.child("Connections").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -80,7 +80,8 @@ public class Perfil_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
             @Override
             public void onClick(View v) {
                 mContext.startActivity(new Intent(mContext, PopUpPerfilFav.class)
-                        .putExtra("other_us_uid", animal.getUs_uid()));
+                        .putExtra("other_us_uid", animal.getUs_uid())
+                        .putExtra("an_uid", animal.getAn_uid()));
             }
         });
 
