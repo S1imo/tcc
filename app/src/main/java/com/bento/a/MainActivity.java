@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
-        Collections.shuffle(rowItems);
+
         arr_Adapter = new Main_AAdapter(this, R.layout.main_item, rowItems);
         flingContainer.setAdapter(arr_Adapter);
 
