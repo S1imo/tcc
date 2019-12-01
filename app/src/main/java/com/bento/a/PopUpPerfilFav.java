@@ -44,25 +44,29 @@ public class PopUpPerfilFav extends AppCompatActivity {
     }
 
     private void DisplayData() {
-        mRef.child("Animais").child(other_us_uid).addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef.child("Animais").child(other_us_uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Animal animal = dataSnapshot.getValue(Animal.class);
-                assert animal != null;
-                if (animal.getAn_uid().equals(an_uid)) {
-                    Picasso.get().load(animal.getAn_prof_img1()).into(image1);
-                    Picasso.get().load(animal.getAn_prof_img2()).into(image2);
-                    Picasso.get().load(animal.getAn_prof_img3()).into(image3);
-                    Picasso.get().load(animal.getAn_prof_img4()).into(image4);
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    Animal animal = snapshot.getValue(Animal.class);
+                    assert animal != null;
+                    System.out.println(an_uid);
+                    System.out.println(animal.getAn_uid());
+                    if (animal.getAn_uid().equals(an_uid)) {
+                        Picasso.get().load(animal.getAn_prof_img1()).into(image1);
+                        Picasso.get().load(animal.getAn_prof_img2()).into(image2);
+                        Picasso.get().load(animal.getAn_prof_img3()).into(image3);
+                        Picasso.get().load(animal.getAn_prof_img4()).into(image4);
 
-                    text_tip.setText(animal.getTip_an());
-                    textext_port.setText(animal.getAn_porte());
-                    text_id.setText(animal.getAn_idade());
-                    text_cast.setText(animal.getAn_cast());
-                    text_vac.setText(animal.getAn_vacinado());
-                    text_raca.setText(animal.getAn_raca());
-                    text_status.setText(animal.getAn_status());
-                    text_desc.setText(animal.getAn_descricao());
+                        text_tip.setText(animal.getTip_an());
+                        textext_port.setText(animal.getAn_porte());
+                        text_id.setText(animal.getAn_idade());
+                        text_cast.setText(animal.getAn_cast());
+                        text_vac.setText(animal.getAn_vacinado());
+                        text_raca.setText(animal.getAn_raca());
+                        text_status.setText(animal.getAn_status());
+                        text_desc.setText(animal.getAn_descricao());
+                    }
                 }
             }
 

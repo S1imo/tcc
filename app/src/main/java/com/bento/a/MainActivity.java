@@ -3,20 +3,21 @@ package com.bento.a;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.PointF;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bento.a.Adapters.Main_AAdapter;
 import com.bento.a.Classes.Animal;
@@ -49,7 +50,6 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LocationCallback mLocationCallback;
     private FusedLocationProviderClient mFusedLocation;
     private Circle circle;
+    private Parcelable recyclerViewState;
     private boolean isSuper = false;
     private float[] distance = new float[2];
 
@@ -128,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void onPermissionGranted(PermissionGrantedResponse response) {
                         mFusedLocation = LocationServices.getFusedLocationProviderClient(MainActivity.this);
                         fragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAPIdes);
+                        assert fragment != null;
                         fragment.getMapAsync(MainActivity.this);
                     }
 
@@ -196,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         rowItems = new ArrayList<>();
         mRef = mFire.getReference();
 
-        mRef.child("Animais").addValueEventListener(new ValueEventListener() {
+        mRef.child("Animais").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -218,15 +220,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
-        Collections.shuffle(rowItems);
         arr_Adapter = new Main_AAdapter(this, R.layout.main_item, rowItems);
         flingContainer.setAdapter(arr_Adapter);
-
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
 
             @Override
             public void removeFirstObjectInAdapter() {
-                Log.d("LIST", "removed object!");
                 rowItems.remove(0);
                 arr_Adapter.notifyDataSetChanged();
             }
@@ -273,19 +272,56 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                Log.d("LIST", "Empty");
             }
 
             @Override
-            public void onScroll(float scrollProgressPercent) {
-
+            public void onScroll(float v) {
             }
         });
     }
 
     private void ExceptionsFireCon(final Animal animal) {
-        mRef = mFire.getReference().child("Connections");
-        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef.child("Connecions").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
+                    Connections connections = snapshot1.getValue(Connections.class);
+                    assert connections != null;
+                    if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) && connections.getAn_us_uid().equals(animal.getUs_uid())) {
+                        rowItems.remove(animal);
+                        arr_Adapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
+                    Connections connections = snapshot1.getValue(Connections.class);
+                    assert connections != null;
+                    if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) && connections.getAn_us_uid().equals(animal.getUs_uid())) {
+                        rowItems.remove(animal);
+                        arr_Adapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        mRef.child("Connections").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
@@ -293,7 +329,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                             Connections connections = snapshot1.getValue(Connections.class);
                             assert connections != null;
-                            if (!connections.getUs_uid().equals(animal.getUs_uid())) {
+                            if (connections.getUs_uid().equals(user_id) && connections.getAn_uid().equals(animal.getAn_uid()) && connections.getAn_us_uid().equals(animal.getUs_uid())) {
                                 rowItems.remove(animal);
                                 arr_Adapter.notifyDataSetChanged();
                             }
@@ -301,18 +337,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        mRef.addChildEventListener(new ChildEventListener() {
+    }
+
+    private void ExceptionsFireBloq(final Animal animal) {
+        mRef.child("BloqueadosList").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.hasChildren()) {
+                if(dataSnapshot.hasChildren()){
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Connections connections = snapshot.getValue(Connections.class);
-                        assert connections != null;
-                        if (connections.getUs_uid().equals(animal.getUs_uid())) {
+                        if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
                             rowItems.remove(animal);
                             arr_Adapter.notifyDataSetChanged();
                         }
@@ -322,41 +360,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private void ExceptionsFireBloq(final Animal animal) {
-        mRef = mFire.getReference().child("BloqueadosList");
-        mRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
-                        rowItems.remove(animal);
-                        arr_Adapter.notifyDataSetChanged();
+                if(dataSnapshot.hasChildren()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
+                            rowItems.remove(animal);
+                            arr_Adapter.notifyDataSetChanged();
+                        }
                     }
                 }
             }
 
             @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-            }
-
-            @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
             }
 
@@ -370,13 +384,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
-        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef.child("BloqueadosList").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
-                        rowItems.remove(animal);
-                        arr_Adapter.notifyDataSetChanged();
+                if(dataSnapshot.hasChildren()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        if (Objects.equals(snapshot.getKey(), animal.getUs_uid())) {
+                            rowItems.remove(animal);
+                            arr_Adapter.notifyDataSetChanged();
+                        }
                     }
                 }
             }

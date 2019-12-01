@@ -58,7 +58,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     private RadioButton but_rad_port, but_rad_vac, but_rad_stat, but_rad_idade, but_rad_cast;
     private Spinner inp_tip_animal;
     private CircleImageView inp_img1, inp_img2, inp_img3, inp_img4, img;
-    private String an_id, an_idade, tip_animal, an_port, an_vac, an_stat, an_desc, an_raca, an_cast;
+    private String an_idade, tip_animal, an_port, an_vac, an_stat, an_desc, an_raca, an_cast;
     private String[] an_prof_img = new String[5];
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private StorageReference folder;
@@ -318,7 +318,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     private void CreateAn() {
         idImgCount = 0;
         startActivity(new Intent(CadAnimal.this, MapActivityAn.class)
-                .putExtra("an_id", CreateIdAn())
+                .putExtra("an_id", currentIdAn)
                 .putExtra("user_id", user_id)
                 .putExtra("currentIdAn", currentIdAn)
                 .putExtra("tip_animal", tip_animal)

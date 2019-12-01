@@ -12,10 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.bento.a.Classes.Animal;
 import com.bento.a.PopUpMain;
 import com.bento.a.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -33,11 +35,11 @@ public class Main_AAdapter extends ArrayAdapter<Animal> {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent, false);
         }
 
-
         ImageView imagem_dog = convertView.findViewById(R.id.image_adp_dog);
         ImageButton img_but_det = convertView.findViewById(R.id.info_btn_card);
         TextView text_raca_dog = convertView.findViewById(R.id.text_raca_dog);
         TextView text_idade_dog = convertView.findViewById(R.id.text_idade_dog);
+
         assert animal != null;
         Picasso.get().load(animal.getAn_prof_img1()).into(imagem_dog);
         text_raca_dog.setText(animal.getAn_raca() + ", ");
