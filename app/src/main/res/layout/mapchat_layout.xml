@@ -34,7 +34,6 @@
         />
 
 
-
     <ImageView
         android:id="@+id/voltar_chat1"
         android:layout_width="45dp"

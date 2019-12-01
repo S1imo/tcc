@@ -92,6 +92,7 @@ public class MapActivityChat extends AppCompatActivity implements OnMapReadyCall
 
     private void InputToVar() {
         btnFind = findViewById(R.id.mapButAPIC);
+        buttonV = findViewById(R.id.voltar_chat1);
     }
 
     @Override

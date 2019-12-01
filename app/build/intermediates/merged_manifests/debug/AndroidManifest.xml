@@ -41,10 +41,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.bento.a.MapActivityMy" />
         <activity android:name="com.bento.a.MapCompChat" />
         <activity android:name="com.bento.a.MapActivityChat" />
         <activity android:name="com.bento.a.MapActivityAn" />
-        <activity android:name="com.bento.a.PopUpPerfilFav" />
+        <activity
+            android:name="com.bento.a.PopUpPerfilFav"
+            android:theme="@style/AppTheme.Popup" />
         <activity android:name="com.bento.a.ChatPerfil" />
         <activity android:name="com.bento.a.LojaActivity" />
         <activity

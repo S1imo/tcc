@@ -1810,12 +1810,13 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
-id but_aplicar
 id but_back
 id but_config
 id but_edit_prof
 id but_editar
 id but_env_es
+id but_exc
+id but_mapa
 id but_vol_es
 id buttonAplicar
 id buttonPanel
@@ -2040,9 +2041,11 @@ id logo
 id logo_adot
 id mapAPI
 id mapAPIC
+id mapAPIMy
 id mapAPIdes
 id mapButAPI
 id mapButAPIC
+id mapButAPIMy
 id masked
 id media_actions
 id menu_crop
@@ -2288,6 +2291,7 @@ id view_offset_helper
 id view_overlay
 id visible
 id voltarDButton
+id voltar_My1
 id voltar_chat
 id voltar_chat1
 id voltar_chat2
@@ -2395,6 +2399,7 @@ layout main_layout
 layout mapan_layout
 layout mapchat_layout
 layout mapcomp_chat
+layout mapmy_layout
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

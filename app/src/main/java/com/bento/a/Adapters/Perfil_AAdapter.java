@@ -1,5 +1,6 @@
 package com.bento.a.Adapters;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -80,6 +81,7 @@ public class Perfil_AAdapter extends RecyclerView.Adapter<ViewHolderPerfFav> {
             @Override
             public void onClick(View v) {
                 mContext.startActivity(new Intent(mContext, PopUpPerfilFav.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                         .putExtra("other_us_uid", animal.getUs_uid())
                         .putExtra("an_uid", animal.getAn_uid()));
             }

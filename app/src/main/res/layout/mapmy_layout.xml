@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapActivityMy">
+
+    <fragment
+        android:id="@+id/mapAPIMy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        />
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerInParent="true"
+        android:translationY="-18dp"
+        android:elevation="3dp"
+        android:src="@drawable/local_icon"/>
+
+    <Button
+        android:id="@+id/mapButAPIMy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="Escolha o lugar do animal"
+        android:textColor="#B7FFFFFF"
+        android:fontFamily="@font/montserrat"
+        android:background="@drawable/cad_dog_box"
+        />
+
+
+    <ImageView
+        android:id="@+id/voltar_My1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="356dp"
+        android:layout_marginBottom="614dp"
+        android:tint="@color/color_green"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

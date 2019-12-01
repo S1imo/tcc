@@ -25,10 +25,13 @@
         android:roundIcon="@mipmap/ic_adot_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MapActivityMy" />
         <activity android:name=".MapCompChat" />
         <activity android:name=".MapActivityChat" />
         <activity android:name=".MapActivityAn" />
-        <activity android:name=".PopUpPerfilFav" />
+        <activity
+            android:name=".PopUpPerfilFav"
+            android:theme="@style/AppTheme.Popup" />
         <activity android:name=".ChatPerfil" />
         <activity android:name=".LojaActivity" />
         <activity
@@ -62,7 +65,7 @@
         <activity
             android:name=".PerfilActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CadSUActivity"
             android:configChanges="orientation"

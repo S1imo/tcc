@@ -300,9 +300,9 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     private void setTipAnimal() {
-        ArrayAdapter<CharSequence> adapterw = ArrayAdapter.createFromResource(this, R.array.tip_animal, android.R.layout.simple_spinner_item);
-        adapterw.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        inp_tip_animal.setAdapter(adapterw);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tip_animal, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        inp_tip_animal.setAdapter(adapter);
         inp_tip_animal.setOnItemSelectedListener(this);
     }
 
