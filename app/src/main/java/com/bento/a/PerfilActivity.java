@@ -77,7 +77,7 @@ public class PerfilActivity extends AppCompatActivity {
         InpToVar();
         PerfilTexts();
         Buttons();
-        PopUpFav();
+
     }
 
     private void SettingFire() {
@@ -313,45 +313,6 @@ public class PerfilActivity extends AppCompatActivity {
         recyclerViewMy.setAdapter(adapter);
     }
 
-    private void PopUpFav(){
-        mDialog = new Dialog(this);
-
-        recyclerViewFav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog();
-            }
-        });
-    }
-
-    private void showDialog(){
-        mDialog.setContentView(R.layout.popup_perfil_fav);
-
-        ImageView but_chat;
-        TextView but_exit;
-
-        //botao para o chat
-        but_chat = findViewById(R.id.fav_chat);
-        final String other_us_uid = getIntent().getStringExtra("other_us_uid");
-
-        but_chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PerfilActivity.this, ChatConversaActivity.class)
-                        .putExtra("other_us_uid", other_us_uid));
-            }
-        });
-
-        //botao fechar
-        but_exit = findViewById(R.id.txtclose);
-        but_exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDialog.dismiss();
-            }
-        });
-        mDialog.show();
-    }
 
     private void RecyclerFav() {
         final ArrayList<Animal> mAnimais = new ArrayList<>();
