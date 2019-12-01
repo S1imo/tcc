@@ -792,12 +792,12 @@ public final class R {
         public static final int ucrop_photobox = 0x7f0a0228;
         public static final int uniform = 0x7f0a022a;
         public static final int up = 0x7f0a022c;
-        public static final int view_overlay = 0x7f0a023c;
-        public static final int wrap_content = 0x7f0a0247;
-        public static final int wrapper_controls = 0x7f0a0248;
-        public static final int wrapper_reset_rotate = 0x7f0a0249;
-        public static final int wrapper_rotate_by_angle = 0x7f0a024a;
-        public static final int wrapper_states = 0x7f0a024b;
+        public static final int view_overlay = 0x7f0a023d;
+        public static final int wrap_content = 0x7f0a0248;
+        public static final int wrapper_controls = 0x7f0a0249;
+        public static final int wrapper_reset_rotate = 0x7f0a024a;
+        public static final int wrapper_rotate_by_angle = 0x7f0a024b;
+        public static final int wrapper_states = 0x7f0a024c;
     }
     public static final class integer {
         private integer() {}

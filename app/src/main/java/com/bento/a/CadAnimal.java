@@ -35,14 +35,17 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
+import java.util.List;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -83,10 +86,6 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     private void Buttons() {
-        ImagePerfUp(inp_img1);
-        ImagePerfUp(inp_img2);
-        ImagePerfUp(inp_img3);
-        ImagePerfUp(inp_img4);
         setTipAnimal();
         ButtonAplicar();
         ButtonVoltar();
@@ -130,16 +129,56 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     private void permissionCheck() {
-        if (ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.INTERNET)
-                != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permissão de internet não habilitada", Toast.LENGTH_SHORT).show();
-        } else if (ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permissão de câmera não habilitada", Toast.LENGTH_SHORT).show();
-        } else if (ContextCompat.checkSelfPermission(CadAnimal.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permissão de leitura não habilitada", Toast.LENGTH_SHORT).show();
-        }
+        Dexter.withActivity(this)
+                .withPermissions(Manifest.permission.INTERNET, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if (report.areAllPermissionsGranted()) {
+                            ImagePerfUp(inp_img1);
+                            ImagePerfUp(inp_img2);
+                            ImagePerfUp(inp_img3);
+                            ImagePerfUp(inp_img4);
+                        }
+
+                        if (report.isAnyPermissionPermanentlyDenied()) {
+                            ShowSettingsDialog();
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                })
+                .check();
+    }
+
+    private void ShowSettingsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CadAnimal.this);
+        builder.setTitle("Permissões");
+        builder.setMessage("Esse aplicativo precisa de certas permissões para ser utilizado.");
+        builder.setPositiveButton("Configurações", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                openSettings();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(CadAnimal.this, PerfilActivity.class));
+            }
+        });
+        builder.show();
+    }
+
+    private void openSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        intent.setData(uri);
+        startActivityForResult(intent, 101);
     }
 
     private void InpToVar() {
@@ -178,13 +217,9 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
                 RadioTxtToStg();
                 if (VerificaCad() == 1) {
                     Toast.makeText(CadAnimal.this, "Selecione todas as opções", Toast.LENGTH_SHORT).show();
-                }
-                else if(VerificaCad() == 2)
-                {
+                } else if (VerificaCad() == 2) {
                     Toast.makeText(CadAnimal.this, "Selecione ao menos uma imagem", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     CreateAn();
                 }
             }
@@ -262,16 +297,11 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     private int VerificaCad() {
-        if (an_desc.isEmpty() || an_port.isEmpty() || an_raca.isEmpty() || an_stat.isEmpty() || an_vac.isEmpty() || inp_sel_port.getCheckedRadioButtonId() == -1 || inp_sel_idade.getCheckedRadioButtonId() == -1 || inp_sel_stat.getCheckedRadioButtonId() == -1 || inp_sel_vac.getCheckedRadioButtonId() == -1 )
-        {
+        if (an_desc.isEmpty() || an_port.isEmpty() || an_raca.isEmpty() || an_stat.isEmpty() || an_vac.isEmpty() || inp_sel_port.getCheckedRadioButtonId() == -1 || inp_sel_idade.getCheckedRadioButtonId() == -1 || inp_sel_stat.getCheckedRadioButtonId() == -1 || inp_sel_vac.getCheckedRadioButtonId() == -1) {
             return 1;
-        }
-        else if(!isUploaded)
-        {
+        } else if (!isUploaded) {
             return 2;
-        }
-        else
-        {
+        } else {
             return 0;
         }
     }
@@ -314,6 +344,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
+
     //Colocando dados FB - DB
     private void CreateAn() {
         idImgCount = 0;
@@ -333,7 +364,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     private String CreateIdAn() {
-        return String.valueOf(System.currentTimeMillis()*100);
+        return String.valueOf(System.currentTimeMillis() * 100);
     }
 
     private static String CreateIdImg() {

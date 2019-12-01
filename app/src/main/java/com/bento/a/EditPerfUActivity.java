@@ -1,12 +1,14 @@
 package com.bento.a;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -32,11 +35,17 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.santalu.maskedittext.MaskEditText;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -105,21 +114,55 @@ public class EditPerfUActivity extends AppCompatActivity {
         });
     }
 
-    private void permissionCheck()
-    {if (ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.INTERNET)
-            != PackageManager.PERMISSION_GRANTED) {
-        Toast.makeText(this, "Permissão de internet não habilitada", Toast.LENGTH_SHORT).show();
+    private void permissionCheck() {
+        Dexter.withActivity(this)
+                .withPermissions(Manifest.permission.INTERNET, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if (report.areAllPermissionsGranted()) {
+                            ImagePerfUp();
+                        }
+
+                        if (report.isAnyPermissionPermanentlyDenied()) {
+                            ShowSettingsDialog();
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                })
+                .check();
     }
-    else if(ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED)
-    {
-        Toast.makeText(this, "Permissão de leitura não habilitada", Toast.LENGTH_SHORT).show();
+
+    private void ShowSettingsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(EditPerfUActivity.this);
+        builder.setTitle("Permissões");
+        builder.setMessage("Esse aplicativo precisa de certas permissões para ser utilizado.");
+        builder.setPositiveButton("Configurações", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                openSettings();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(EditPerfUActivity.this, PerfilActivity.class));
+            }
+        });
+        builder.show();
     }
-    else if(ContextCompat.checkSelfPermission(EditPerfUActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED)
-    {
-        Toast.makeText(this, "Permissão de gravação não habilitada", Toast.LENGTH_SHORT).show();
-    }}
+
+    private void openSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        intent.setData(uri);
+        startActivityForResult(intent, 101);
+    }
 
     private void InputToVar()
     {

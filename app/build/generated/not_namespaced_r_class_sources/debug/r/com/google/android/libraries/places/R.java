@@ -599,9 +599,9 @@ public final class R {
         public static final int unchecked = 0x7f0a0229;
         public static final int uniform = 0x7f0a022a;
         public static final int up = 0x7f0a022c;
-        public static final int useLogo = 0x7f0a022d;
-        public static final int withText = 0x7f0a0245;
-        public static final int wrap_content = 0x7f0a0247;
+        public static final int useLogo = 0x7f0a022e;
+        public static final int withText = 0x7f0a0246;
+        public static final int wrap_content = 0x7f0a0248;
     }
     public static final class layout {
         private layout() {}
