@@ -11,22 +11,21 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bento.a.R;
+import com.squareup.picasso.Picasso;
 
 public class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
-    private LayoutInflater layoutInflater;
+    private String[] imageUrls;
 
-    //Pegar Imagens ->
-    private Integer[] images = {R.drawable.filhote,R.drawable.adot_icon};
-
-    public ViewPagerAdapter(Context context) {
+    public ViewPagerAdapter(Context context, String[] imageUrls) {
         this.context = context;
+        this.imageUrls = imageUrls;
     }
 
     @Override
     public int getCount() {
-        return images.length;
+        return imageUrls.length;
     }
 
     @Override
@@ -37,22 +36,14 @@ public class ViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.viewpager_custom, null);
-
-        ImageView imageView = view.findViewById(R.id.myImageView);
-        imageView.setImageResource(images[position]);
-
-        ViewPager viewPager = (ViewPager)container;
-        viewPager.addView(view);
-        return view;
+        ImageView imageView = new ImageView(context);
+        Picasso.get().load(imageUrls[position]).fit().centerCrop().into(imageView);
+        container.addView(imageView);
+        return imageView;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-
-        ViewPager viewPager = (ViewPager)container;
-        View view = (View)object;
-        viewPager.removeView(view);
+        container.removeView((View)object);
     }
 }

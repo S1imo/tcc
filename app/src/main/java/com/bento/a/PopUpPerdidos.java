@@ -26,9 +26,6 @@ public class PopUpPerdidos extends AppCompatActivity {
     private FirebaseDatabase mFire;
     private DatabaseReference mRef;
     private TextView text_raca, text_status, text_idade, text_desc;
-    private ViewPager viewPager;
-    private ViewPagerAdapter viewPagerAdapter;
-    private Dialog mDialog;
     private ImageView but_voltar;
     private FloatingActionButton but_chat;
     private String other_us_id, an_id;
@@ -68,9 +65,6 @@ public class PopUpPerdidos extends AppCompatActivity {
     }
 
     private void DisplayInfo() {
-        /*viewPagerAdapter = new ViewPagerAdapter(this);
-        viewPager.setAdapter(viewPagerAdapter);*/
-
         mRef.child("Animais").child(other_us_id).child(an_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -80,6 +74,12 @@ public class PopUpPerdidos extends AppCompatActivity {
                 text_idade.setText(animal.getAn_idade());
                 text_raca.setText(animal.getAn_raca());
                 text_desc.setText(animal.getAn_descricao());
+
+                String[] imageUrls = new String[]{animal.getAn_prof_img1(), animal.getAn_prof_img2(), animal.getAn_prof_img3(), animal.getAn_prof_img4()};
+
+                ViewPager viewPager = findViewById(R.id.myViewPager);
+                ViewPagerAdapter adapter = new ViewPagerAdapter(PopUpPerdidos.this, imageUrls);
+                viewPager.setAdapter(adapter);
             }
 
             @Override
@@ -90,7 +90,7 @@ public class PopUpPerdidos extends AppCompatActivity {
     }
 
     private void ButtonMap(){
-        
+
     }
 
     private void ButtonChat(){
