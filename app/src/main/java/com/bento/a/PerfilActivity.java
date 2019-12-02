@@ -51,7 +51,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof;
+    private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof, but_cad_prod, popshop;
     private CircleImageView perf_img;
     private TextView nome_text, cidade_text;
     private FirebaseStorage mStorage;
@@ -78,6 +78,7 @@ public class PerfilActivity extends AppCompatActivity {
         PerfilTexts();
         Buttons();
 
+        RecyclerProd();
     }
 
     private void SettingFire() {
@@ -91,6 +92,7 @@ public class PerfilActivity extends AppCompatActivity {
         ProfilePic();
         RecyclerMyAn();
         RecyclerFav();
+
     }
 
     private void Buttons() {
@@ -113,8 +115,11 @@ public class PerfilActivity extends AppCompatActivity {
         but_loja = findViewById(R.id.shop_icon);
         but_chat = findViewById(R.id.chat_icon);
         but_cad_dog = findViewById(R.id.add_animal);
+        but_cad_prod = findViewById(R.id.add_shop);
         but_edit_prof = findViewById(R.id.but_edit_prof);
         but_logout = findViewById(R.id.but_config);
+
+        popshop = findViewById(R.id.shop);
 
         nome_text = findViewById(R.id.nome_text);
         cidade_text = findViewById(R.id.cidade_text);
@@ -261,6 +266,14 @@ public class PerfilActivity extends AppCompatActivity {
                 startActivity(new Intent(PerfilActivity.this, CadAnimal.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });
+
+        but_cad_prod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerfilActivity.this, CadLoja.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            }
+        });
+
     }
 
     private void RecyclerMyAn() {
@@ -419,4 +432,15 @@ public class PerfilActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void RecyclerProd(){
+        popshop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerfilActivity.this,PopUpShopPerfil.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            }
+        });
+    }
+
 }

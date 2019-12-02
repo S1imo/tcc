@@ -17,4 +17,5 @@
     <color name="buttonNotPressed">#ffffff</color>
     <color name="transparent">#dc000000</color>
     <color name="black">#000000</color>
+    <color name = "verdao">#2EB42B</color>
 </resources>

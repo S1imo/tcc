@@ -1,15 +1,19 @@
 package com.bento.a;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class LojaActivity extends AppCompatActivity {
 
     private ImageView but_profile, but_adot, but_perdidos, but_chat;
+    private RecyclerView recyclerView1, recyclerView2;
+    private TextView testAcitivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +22,9 @@ public class LojaActivity extends AppCompatActivity {
 
         InpToVar(); //input para variaveis
         Buttons(); //função dos botoes
+
+        RecyclerProdAn();
+        RecyclerProdB();
     }
 
     private void Buttons() {
@@ -34,7 +41,28 @@ public class LojaActivity extends AppCompatActivity {
         but_adot = findViewById(R.id.adot_icon);
         but_perdidos = findViewById(R.id.perdido_icon);
         but_chat = findViewById(R.id.chat_icon);
+
+        testAcitivity = findViewById(R.id.test_prod);
     }
+    //ReViews
+        private void RecyclerProdAn(){
+            recyclerView1 = findViewById(R.id.rvProds1);
+
+            //testando
+            testAcitivity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(LojaActivity.this, ProdutoActivity.class));
+                }
+            });
+
+        }
+
+        private void RecyclerProdB(){
+            recyclerView2 = findViewById(R.id.rvProds2);
+
+        }
+
 
     private void ButtonPerfil() {
         but_profile.setOnClickListener(new View.OnClickListener() {

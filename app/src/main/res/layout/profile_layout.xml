@@ -275,6 +275,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
+                android:id="@+id/cardView4"
                 android:layout_height="0dp"
                 android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -298,6 +299,8 @@
                             android:tint="#88008577"
                             app:srcCompat="@drawable/image_fav" />
 
+
+
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -314,6 +317,61 @@
                     </RelativeLayout>
 
                 </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:id="@+id/cardView5"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/shop"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:tint="#88008577"
+                            app:srcCompat="@drawable/coin_icon" />
+
+                        <ImageView
+                            android:id="@+id/add_shop"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:tint="#88008577"
+                            app:srcCompat="@drawable/prof_plus_icon" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvShop"
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp"
+                            android:layout_marginTop="2dp"
+                            android:scrollbars="horizontal" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
 
             </androidx.cardview.widget.CardView>
 

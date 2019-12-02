@@ -434,7 +434,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         but_loja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, desespero.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                startActivity(new Intent(MainActivity.this, LojaActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });

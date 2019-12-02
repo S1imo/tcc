@@ -34,18 +34,18 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int dmax_spots_spot = 0x7f080097;
+        public static final int dmax_spots_spot = 0x7f080098;
     }
     public static final class id {
         private id() {}
 
-        public static final int dmax_spots_progress = 0x7f0a00c5;
-        public static final int dmax_spots_title = 0x7f0a00c6;
+        public static final int dmax_spots_progress = 0x7f0a00d2;
+        public static final int dmax_spots_title = 0x7f0a00d3;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int dmax_spots_dialog = 0x7f0d0038;
+        public static final int dmax_spots_dialog = 0x7f0d003c;
     }
     public static final class style {
         private style() {}

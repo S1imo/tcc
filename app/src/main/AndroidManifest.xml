@@ -29,6 +29,13 @@
         <activity
             android:name=".PopUpPerdidos"
             android:theme="@style/AppTheme.Popup" />
+        <activity android:name=".PopUpComprar"
+            android:theme="@style/AppTheme.Popup"></activity>
+        <activity android:name=".ProdutoActivity" />
+        <activity
+            android:name=".PopUpShopPerfil"
+            android:theme="@style/AppTheme.Popup" />
+        <activity android:name=".CadLoja" />
         <activity android:name=".MapActivityMy" />
         <activity android:name=".MapCompChat" />
         <activity android:name=".MapActivityChat" />
