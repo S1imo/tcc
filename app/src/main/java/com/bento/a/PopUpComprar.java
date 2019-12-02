@@ -13,7 +13,7 @@ public class PopUpComprar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_up_comprar);
+        setContentView(R.layout.popup_comprar_layout);
 
         volta_pop = findViewById(R.id.volt_pag);
         volta_pop.setOnClickListener(new View.OnClickListener() {

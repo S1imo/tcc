@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class Animal {
     private String us_uid, an_uid, tip_an, an_cast, an_idade, an_porte, an_vacinado, an_raca, an_status, an_descricao, an_prof_img1, an_prof_img2, an_prof_img3, an_prof_img4, an_lat, an_long;
-    private String[] an_prof_img;
 
     public Animal() {
     }

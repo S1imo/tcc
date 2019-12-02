@@ -18,9 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bento.a.Adapters.Lojas_AAdapterP;
 import com.bento.a.Adapters.Perfil_AAdapter;
 import com.bento.a.Classes.Animal;
 import com.bento.a.Classes.Connections;
+import com.bento.a.Classes.Loja;
 import com.bento.a.Classes.User;
 import com.bento.a.ViewHolders.ViewHolderAnimal;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -54,14 +56,12 @@ public class PerfilActivity extends AppCompatActivity {
     private ImageView but_profile, but_cad_dog, but_logout, but_adot, but_perd, but_loja, but_chat, but_edit_prof, but_cad_prod, popshop;
     private CircleImageView perf_img;
     private TextView nome_text, cidade_text;
-    private FirebaseStorage mStorage;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFirebaseDatabase;
-    private StorageReference myStoreRef;
     private DatabaseReference myRef;
     private String user_id;
     private Dialog mDialog;
-    private RecyclerView recyclerViewMy, recyclerViewFav;
+    private RecyclerView recyclerViewMy, recyclerViewFav, recyclerViewLoja;
     private FirebaseRecyclerOptions<Animal> options;
     private FirebaseRecyclerAdapter<Animal, ViewHolderAnimal> adapter;
 
@@ -82,16 +82,13 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void SettingFire() {
-
-        mStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-
-        myStoreRef = mStorage.getReference();
         myRef = mFirebaseDatabase.getReference();
 
         ProfilePic();
         RecyclerMyAn();
         RecyclerFav();
+        RecyclerLoja();
 
     }
 
@@ -105,6 +102,7 @@ public class PerfilActivity extends AppCompatActivity {
 
         ButtonEdit();
         ButtonCad();
+        ButtonCadLoja();
         ButtoLogOut();
     }
 
@@ -236,6 +234,24 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
+    private void ButtonCad() {
+        but_cad_dog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerfilActivity.this, CadAnimal.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            }
+        });
+    }
+
+    private void ButtonCadLoja(){
+        but_cad_prod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerfilActivity.this, CadLoja.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            }
+        });
+    }
+
     private void editUser() {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -257,23 +273,6 @@ public class PerfilActivity extends AppCompatActivity {
                 Toast.makeText(PerfilActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void ButtonCad() {
-        but_cad_dog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PerfilActivity.this, CadAnimal.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
-            }
-        });
-
-        but_cad_prod.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PerfilActivity.this, CadLoja.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
-            }
-        });
-
     }
 
     private void RecyclerMyAn() {
@@ -375,6 +374,31 @@ public class PerfilActivity extends AppCompatActivity {
         });
         recyclerViewFav.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
         recyclerViewFav.setAdapter(perfil_AAdapter);
+    }
+
+    private void RecyclerLoja(){
+        final ArrayList<Loja> mLojas = new ArrayList<>();
+        final Lojas_AAdapterP loja_AAdapter = new Lojas_AAdapterP(PerfilActivity.this, mLojas);
+
+        recyclerViewLoja = findViewById(R.id.rvShop);
+        recyclerViewLoja.hasFixedSize();
+
+        myRef.child("Produto").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Loja loja = dataSnapshot.getValue(Loja.class);
+                mLojas.add(loja);
+                loja_AAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        recyclerViewLoja.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
+        recyclerViewLoja.setAdapter(loja_AAdapter);
     }
 
     private class JsonTask extends AsyncTask<String, String, JSONObject> {
