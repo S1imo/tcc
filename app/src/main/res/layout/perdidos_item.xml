@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="100dp"
-    android:layout_height="130dp">
+    android:layout_height="150dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -9,22 +11,29 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"/>
+            android:id="@+id/img_item_perd"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:scaleType="centerCrop"/>
 
         <TextView
             android:id="@+id/perdido_cid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cidade"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"
             android:fontFamily="@font/montserrat"
-            android:textSize="12sp"/>
+            android:textSize="16sp"/>
+
         <TextView
             android:id="@+id/perdido_bairro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bairro"
-            android:textSize="10sp"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"
             android:fontFamily="@font/montserrat"/>
     </LinearLayout>
 

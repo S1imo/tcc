@@ -1998,6 +1998,7 @@ id image_view_state_rotate
 id image_view_state_scale
 id imagelike
 id img_chat
+id img_item_perd
 id img_us
 id info
 id info_btn_card
@@ -2043,9 +2044,11 @@ id mapAPI
 id mapAPIC
 id mapAPIMy
 id mapAPIdes
+id mapAPIperd
 id mapButAPI
 id mapButAPIC
 id mapButAPIMy
+id mapa_perd
 id masked
 id media_actions
 id menu_crop
@@ -2079,10 +2082,11 @@ id parent_matrix
 id percent
 id perdido_bairro
 id perdido_cid
-id perdido_cidade
 id perdido_icon
+id perdido_idade
 id perdido_info
 id perdido_nome
+id perdido_status
 id perfil_chat
 id pin
 id places_autocomplete_action_bar

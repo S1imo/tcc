@@ -42,6 +42,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.bento.a.PopUpPerdidos"
+            android:theme="@style/AppTheme.Popup" />
         <activity android:name="com.bento.a.MapActivityMy" />
         <activity android:name="com.bento.a.MapCompChat" />
         <activity android:name="com.bento.a.MapActivityChat" />

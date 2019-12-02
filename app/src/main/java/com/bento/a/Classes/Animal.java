@@ -102,14 +102,6 @@ public class Animal {
         this.an_descricao = an_descricao;
     }
 
-    public String[] getAn_prof_img() {
-        return an_prof_img;
-    }
-
-    public void setAn_prof_img(String[] an_prof_img) {
-        this.an_prof_img = an_prof_img;
-    }
-
     public String getAn_idade() {
         return an_idade;
     }
