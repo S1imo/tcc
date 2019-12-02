@@ -61,7 +61,7 @@ public class ChatConversaActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private String user_id, other_us_id, messages_stg, currentTime, us_lat, us_long;
     private DatabaseReference mRef;
-    private TextView other_us_nome;
+    private TextView other_us_nome, us_status;
     private FloatingActionButton but_enviar;
     private ImageButton but_map, but_foto;
     private ImageView but_voltar, other_us_img, but_clip, but_exclude;
@@ -85,12 +85,7 @@ public class ChatConversaActivity extends AppCompatActivity {
         ButtonEnviarMsgm();
         ButtonClip();
         ButtonPerfil();
-        but_exclude.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ButtonExclude();
-            }
-        });
+        ButtonExclude();
         SendMap();
         DisplayUser();
         DisplayMsg();
@@ -101,6 +96,7 @@ public class ChatConversaActivity extends AppCompatActivity {
 
         other_us_img = findViewById(R.id.img_chat);
         other_us_nome = findViewById(R.id.chat_nome);
+        us_status = findViewById(R.id.us_stat_CConv);
 
         but_clip = findViewById(R.id.clip_chat);
         but_exclude = findViewById(R.id.trash_chat);
@@ -123,71 +119,74 @@ public class ChatConversaActivity extends AppCompatActivity {
     }
 
     private void ButtonExclude() {
-        //alertDialog - perguntando se quer excluir só as mensagens ou da listagem
-        final CharSequence[] charSequences = new CharSequence[]{"Excluir da lista do chat"};
-        final boolean[] checkItem = new boolean[]{false};
-        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        mRef.child("Users").child(other_us_id).addValueEventListener(new ValueEventListener() {
+        but_exclude.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                assert user != null;
-                alertDialog.setTitle("Apagar conversa com " + user.getUs_nome());
-                alertDialog.setMultiChoiceItems(charSequences, checkItem, new DialogInterface.OnMultiChoiceClickListener() {
+            public void onClick(View v) {
+                //alertDialog - perguntando se quer excluir só as mensagens ou da listagem
+                final CharSequence[] charSequences = new CharSequence[]{"Excluir da lista do chat"};
+                final boolean[] checkItem = new boolean[]{false};
+                final AlertDialog.Builder alertDialog = new AlertDialog.Builder(ChatConversaActivity.this);
+                mRef.child("Users").child(other_us_id).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                        checkItem[0] = isChecked;
-                    }
-                });
-                alertDialog.setPositiveButton("Apagar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(final DialogInterface dialog, int which) {
-                        if (!checkItem[0]) {
-                            mRef.child("ChatList").child(user_id).child(other_us_id).removeValue();
-                            startActivity(new Intent(ChatConversaActivity.this, ChatActivity.class));
-                            dialog.dismiss();
-                        } else {
-                            mRef.child("ChatList").child(user_id).child(other_us_id).removeValue();
-                            mRef.child("Messages").addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                        Messages messages = snapshot.getValue(Messages.class);
-                                        assert messages != null;
-                                        if (messages.getUs_sender().equals(user_id) && messages.getUs_receiver().equals(other_us_id) || messages.getUs_sender().equals(other_us_id) && messages.getUs_receiver().equals(user_id)) {
-                                            mRef.child("Messages").child(messages.getMs_id()).removeValue();
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-                            startActivity(new Intent(ChatConversaActivity.this, ChatActivity.class));
-                            dialog.dismiss();
-                        }
-                    }
-                })
-                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        User user = dataSnapshot.getValue(User.class);
+                        assert user != null;
+                        alertDialog.setTitle("Apagar conversa com " + user.getUs_nome());
+                        alertDialog.setMultiChoiceItems(charSequences, checkItem, new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //só voltar para activity
-                                dialog.dismiss();
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                checkItem[0] = isChecked;
                             }
                         });
-                AlertDialog alerta = alertDialog.create();
-                alerta.show();
-            }
+                        alertDialog.setPositiveButton("Apagar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(final DialogInterface dialog, int which) {
+                                if (!checkItem[0]) {
+                                    mRef.child("ChatList").child(user_id).child(other_us_id).removeValue();
+                                    startActivity(new Intent(ChatConversaActivity.this, ChatActivity.class));
+                                    dialog.dismiss();
+                                } else {
+                                    mRef.child("ChatList").child(user_id).child(other_us_id).removeValue();
+                                    mRef.child("Messages").addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                                Messages messages = snapshot.getValue(Messages.class);
+                                                assert messages != null;
+                                                if (messages.getUs_sender().equals(user_id) && messages.getUs_receiver().equals(other_us_id) || messages.getUs_sender().equals(other_us_id) && messages.getUs_receiver().equals(user_id)) {
+                                                    mRef.child("Messages").child(messages.getMs_id()).removeValue();
+                                                }
+                                            }
+                                        }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                                        }
+                                    });
+                                    startActivity(new Intent(ChatConversaActivity.this, ChatActivity.class));
+                                    dialog.dismiss();
+                                }
+                            }
+                        })
+                                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //só voltar para activity
+                                        dialog.dismiss();
+                                    }
+                                });
+                        AlertDialog alerta = alertDialog.create();
+                        alerta.show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
-
-
     }
 
     private void ButtonClip() {
@@ -405,6 +404,35 @@ public class ChatConversaActivity extends AppCompatActivity {
 
             }
         });
+        mRef.child("@linker").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("true")){
+                    us_status.setText("Online");
+                } else if(dataSnapshot.getKey().equals("false")){
+                    us_status.setText("Offline");
+                } else if(!dataSnapshot.hasChildren()){
+                    us_status.setText("Offline");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mRef.child("@linker").child(user_id).setValue(true);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mRef.child("@linker").child(user_id).setValue(false);
     }
 
 }

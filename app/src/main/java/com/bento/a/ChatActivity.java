@@ -200,4 +200,16 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(chat_adp);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mRef.child("@linker").child(user_id).setValue(true);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mRef.child("@linker").child(user_id).setValue(false);
+    }
 }

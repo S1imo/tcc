@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,10 +35,16 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.squareup.picasso.Picasso;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
+import java.util.List;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -82,10 +89,6 @@ public class PopUpPerfilMy extends AppCompatActivity {
 
     private void Buttons() {
         ButtonEditar();
-        ButtonImage(image1);
-        ButtonImage(image2);
-        ButtonImage(image3);
-        ButtonImage(image4);
         ButtonAplicar();
         ButtonExcluir();
         ButtonBack();
@@ -333,16 +336,56 @@ public class PopUpPerfilMy extends AppCompatActivity {
     }
 
     private void permissionCheck() {
-        if (ContextCompat.checkSelfPermission(PopUpPerfilMy.this, Manifest.permission.INTERNET)
-                != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permissão de internet não habilitada", Toast.LENGTH_SHORT).show();
-        } else if (ContextCompat.checkSelfPermission(PopUpPerfilMy.this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permissão de câmera não habilitada", Toast.LENGTH_SHORT).show();
-        } else if (ContextCompat.checkSelfPermission(PopUpPerfilMy.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permissão de leitura não habilitada", Toast.LENGTH_SHORT).show();
-        }
+        Dexter.withActivity(this)
+                .withPermissions(Manifest.permission.INTERNET, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if (report.areAllPermissionsGranted()) {
+                            ButtonImage(image1);
+                            ButtonImage(image2);
+                            ButtonImage(image3);
+                            ButtonImage(image4);
+                        }
+
+                        if (report.isAnyPermissionPermanentlyDenied()) {
+                            ShowSettingsDialog();
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                })
+                .check();
+    }
+
+    private void ShowSettingsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(PopUpPerfilMy.this);
+        builder.setTitle("Permissões");
+        builder.setMessage("Esse aplicativo precisa de certas permissões para ser utilizado.");
+        builder.setPositiveButton("Configurações", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                openSettings();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(PopUpPerfilMy.this, PerfilActivity.class));
+            }
+        });
+        builder.show();
+    }
+
+    private void openSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        intent.setData(uri);
+        startActivityForResult(intent, 101);
     }
 
     private void SetRadioText() {

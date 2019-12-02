@@ -20,15 +20,15 @@ public class LojaActivity extends AppCompatActivity {
         Buttons(); //função dos botoes
     }
 
-    private void Buttons(){
-            //MENU
-            ButtonPerfil();
-            ButtonAdote();
-            ButtonPerdido();
-            ButtonChat();
-        }
+    private void Buttons() {
+        //MENU
+        ButtonPerfil();
+        ButtonAdote();
+        ButtonPerdido();
+        ButtonChat();
+    }
 
-    private void InpToVar(){
+    private void InpToVar() {
 
         but_profile = findViewById(R.id.profile_icon);
         but_adot = findViewById(R.id.adot_icon);
@@ -36,8 +36,7 @@ public class LojaActivity extends AppCompatActivity {
         but_chat = findViewById(R.id.chat_icon);
     }
 
-    private void ButtonPerfil()
-    {
+    private void ButtonPerfil() {
         but_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,8 +48,7 @@ public class LojaActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonAdote()
-    {
+    private void ButtonAdote() {
         but_adot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,8 +58,7 @@ public class LojaActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonPerdido()
-    {
+    private void ButtonPerdido() {
         but_perdidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,8 +68,7 @@ public class LojaActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonChat()
-    {
+    private void ButtonChat() {
         but_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,5 +77,4 @@ public class LojaActivity extends AppCompatActivity {
             }
         });
     }
-
 }
