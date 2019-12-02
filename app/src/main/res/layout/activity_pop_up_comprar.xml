@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="275dp"
+    android:layout_height="240dp"
+    android:layout_gravity="center"
+    tools:context=".PopUpComprar"
+    android:orientation="vertical"
+    android:background="@drawable/pop_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/coin_icon"
+            android:tint="@color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginLeft="2dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="Forma de pagamento"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/pag_boleto"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:text="Boleto"
+        android:background="@color/color_branco_menu"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+        android:elevation="5dp"/>
+
+    <Button
+        android:id="@+id/pag_playstore"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:text="Créditos da play store"
+        android:background="@color/color_branco_menu"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+        android:elevation="5dp"/>
+
+    <Button
+        android:id="@+id/pag_cartao"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+        android:text="Cartão de crédito"
+        android:background="@color/color_branco_menu"
+        android:elevation="5dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        
+        <Button
+            android:id="@+id/volt_pag"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="voltar"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/comprar_buttons"
+            android:textColor="@color/color_branco_menu"/>
+
+        <Button
+            android:id="@+id/but_pagar"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Comprar"
+            android:layout_marginRight="2dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/comprar_buttons"
+            android:textColor="@color/color_branco_menu"/>
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

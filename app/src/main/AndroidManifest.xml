@@ -25,8 +25,12 @@
         android:roundIcon="@mipmap/ic_adot_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopUpShopPerfil"
+        <activity android:name=".PopUpComprar"
             android:theme="@style/AppTheme.Popup"></activity>
+        <activity android:name=".ProdutoActivity" />
+        <activity
+            android:name=".PopUpShopPerfil"
+            android:theme="@style/AppTheme.Popup" />
         <activity android:name=".CadLoja" />
         <activity android:name=".MapActivityMy" />
         <activity android:name=".MapCompChat" />

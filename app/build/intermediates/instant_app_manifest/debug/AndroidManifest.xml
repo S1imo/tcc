@@ -43,6 +43,10 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.bento.a.PopUpComprar"
+            android:theme="@style/AppTheme.Popup" />
+        <activity android:name="com.bento.a.ProdutoActivity" />
+        <activity
             android:name="com.bento.a.PopUpShopPerfil"
             android:theme="@style/AppTheme.Popup" />
         <activity android:name="com.bento.a.CadLoja" />

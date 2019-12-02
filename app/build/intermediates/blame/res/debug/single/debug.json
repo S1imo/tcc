@@ -452,6 +452,10 @@
         "source": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\src\\main\\res\\layout\\main_layout.xml"
     },
     {
+        "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_pop_up_comprar.xml.flat",
+        "source": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\src\\main\\res\\layout\\activity_pop_up_comprar.xml"
+    },
+    {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\vitor\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
@@ -968,6 +972,10 @@
         "source": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\src\\main\\res\\drawable-v24\\enviar_icon.png"
     },
     {
+        "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\layout_loja_item.xml.flat",
+        "source": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\src\\main\\res\\layout\\loja_item.xml"
+    },
+    {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
         "source": "C:\\Users\\vitor\\.gradle\\caches\\transforms-2\\files-2.1\\cfafb781a345d3f54848aefef9b2f0c0\\play-services-base-17.1.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
@@ -1270,6 +1278,10 @@
     {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
         "source": "C:\\Users\\vitor\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_produto.xml.flat",
+        "source": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\src\\main\\res\\layout\\activity_produto.xml"
     },
     {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_snackbar.xml.flat",
@@ -1646,6 +1658,10 @@
     {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_checkbox_unchecked_mtrl.xml.flat",
         "source": "C:\\Users\\vitor\\.gradle\\caches\\transforms-2\\files-2.1\\8b7b145040f80622d5d2271a1f9fca83\\appcompat-1.1.0\\res\\drawable\\btn_checkbox_unchecked_mtrl.xml"
+    },
+    {
+        "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_comprar_buttons.xml.flat",
+        "source": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\src\\main\\res\\drawable\\comprar_buttons.xml"
     },
     {
         "merged": "C:\\Users\\vitor\\AndroidStudioProjects\\tcc2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
