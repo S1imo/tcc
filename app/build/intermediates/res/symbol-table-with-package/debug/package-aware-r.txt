@@ -1997,8 +1997,8 @@ id imageView2
 id imageView3
 id imageView4
 id imageView6
-id image_View1
-id image_View2
+id image_View1_loja
+id image_View2_loja
 id image_View_loja
 id image_View_upload
 id image_View_upload_fav
@@ -2013,6 +2013,7 @@ id image_dog2_fav
 id image_dog2_main
 id image_dog3
 id image_dog3_fav
+id image_dog3_main
 id image_dog4
 id image_dog_fav
 id image_dog_main
@@ -2118,7 +2119,7 @@ id perdido_bairro
 id perdido_cid
 id perdido_icon
 id perdido_idade
-id perdido_info
+id perdido_info_
 id perdido_nome
 id perdido_status
 id perfil_chat
@@ -2416,15 +2417,12 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_cad_loja
 layout activity_desespero
-layout activity_pop_up_comprar
-layout activity_pop_up_shop_perfil
-layout activity_produto
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cad_dog_layout
 layout cad_layout
+layout cad_loja_layout
 layout cad_se_layout
 layout cad_su_layout
 layout chat_conversa
@@ -2497,10 +2495,13 @@ layout places_autocomplete_main_overlay
 layout places_autocomplete_prediction
 layout places_autocomplete_progress
 layout places_autocomplete_search_bar
+layout popup_comprar_layout
 layout popup_main
 layout popup_perdidos
 layout popup_perfil_fav
 layout popup_perfil_my
+layout popup_shop_perfil_layout
+layout produto_layout
 layout profile_item_fav
 layout profile_item_my
 layout profile_item_shop
@@ -2516,7 +2517,7 @@ layout ucrop_fragment_photobox
 layout ucrop_layout_rotate_wheel
 layout ucrop_layout_scale_wheel
 layout ucrop_view
-layout viewpager_custom
+layout viewpager_layout
 menu popup_perdido
 menu ucrop_menu_activity
 mipmap exit_icon

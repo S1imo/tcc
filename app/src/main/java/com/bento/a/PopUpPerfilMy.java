@@ -64,9 +64,7 @@ public class PopUpPerfilMy extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String user_id;
     private Button but_editar, but_voltar, but_mapa, but_excluir;
-    private boolean image_IsClick = false;
     private static int idImgCount = 0;
-    private static boolean isUploaded = false;
     private String[] an_prof_img = new String[5];
 
     @Override
@@ -315,7 +313,6 @@ public class PopUpPerfilMy extends AppCompatActivity {
                         });
                         Toast.makeText(PopUpPerfilMy.this, "Uploaded", Toast.LENGTH_SHORT).show();
                         idImgCount++;
-                        isUploaded = true;
                     }
                 });
                 img.setImageURI(imageUriResultCrop);
@@ -440,9 +437,6 @@ public class PopUpPerfilMy extends AppCompatActivity {
                     case 6:
                         Toast.makeText(PopUpPerfilMy.this, "Escreva uma descrição", Toast.LENGTH_SHORT).show();
                         break;
-                    case 7:
-                        Toast.makeText(PopUpPerfilMy.this, "Selecione ao menos uma imagem", Toast.LENGTH_SHORT).show();
-                        break;
                     default:
                         Toast.makeText(PopUpPerfilMy.this, "Houve um problema", Toast.LENGTH_SHORT).show();
                         finish();
@@ -453,7 +447,7 @@ public class PopUpPerfilMy extends AppCompatActivity {
     }
 
     private int VerifyText() {
-        int constant;
+        int constant = 0;
         if (but_sel_porte == null) {
             constant = 1;
         } else if (but_sel_vac == null) {
@@ -466,10 +460,6 @@ public class PopUpPerfilMy extends AppCompatActivity {
             constant = 5;
         } else if (editText_desc.getText() == null || editText_desc.getText().equals("") || editText_desc.getText().equals(" ")) {
             constant = 6;
-        } else if (!isUploaded) {
-            constant = 7;
-        } else {
-            constant = 0;
         }
         return constant;
     }

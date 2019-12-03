@@ -12,7 +12,6 @@
     android:paddingBottom="80dp">
 
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
@@ -79,6 +78,8 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:background="@drawable/button_file"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginEnd="10dp"
                         android:elevation="10dp"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/exclamacao" />

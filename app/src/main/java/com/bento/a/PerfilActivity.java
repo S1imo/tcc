@@ -126,7 +126,6 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
 
-
     private void PerfilTexts() {
         myRef = mFirebaseDatabase.getReference("Users/" + user_id);
         myRef.addValueEventListener(new ValueEventListener() {
@@ -135,7 +134,7 @@ public class PerfilActivity extends AppCompatActivity {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 nome_text.setText(user.getUs_nome());
-                new JsonTask().execute("https://viacep.com.br/ws/"+user.getUs_cep()+"/json/");
+                new JsonTask().execute("https://viacep.com.br/ws/" + user.getUs_cep() + "/json/");
             }
 
             @Override
@@ -243,7 +242,7 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void ButtonCadLoja(){
+    private void ButtonCadLoja() {
         but_cad_prod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -376,19 +375,23 @@ public class PerfilActivity extends AppCompatActivity {
         recyclerViewFav.setAdapter(perfil_AAdapter);
     }
 
-    private void RecyclerLoja(){
+    private void RecyclerLoja() {
         final ArrayList<Loja> mLojas = new ArrayList<>();
         final Lojas_AAdapterP loja_AAdapter = new Lojas_AAdapterP(PerfilActivity.this, mLojas);
 
         recyclerViewLoja = findViewById(R.id.rvShop);
         recyclerViewLoja.hasFixedSize();
 
-        myRef.child("Produto").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child("Produto").child(user_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Loja loja = dataSnapshot.getValue(Loja.class);
-                mLojas.add(loja);
-                loja_AAdapter.notifyDataSetChanged();
+                if (dataSnapshot.hasChildren()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Loja loja = snapshot.getValue(Loja.class);
+                        mLojas.add(loja);
+                        loja_AAdapter.notifyDataSetChanged();
+                    }
+                }
             }
 
             @Override
@@ -457,11 +460,11 @@ public class PerfilActivity extends AppCompatActivity {
         }
     }
 
-    private void RecyclerProd(){
+    private void RecyclerProd() {
         popshop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PerfilActivity.this,PopUpShopPerfil.class)
+                startActivity(new Intent(PerfilActivity.this, PopUpShopPerfil.class)
                         .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });

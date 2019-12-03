@@ -27,7 +27,7 @@ public class PopUpPerdidos extends AppCompatActivity {
     private DatabaseReference mRef;
     private TextView text_raca, text_status, text_idade, text_desc;
     private ImageView but_voltar;
-    private FloatingActionButton but_chat;
+    private FloatingActionButton but_chat, but_map;
     private String other_us_id, an_id;
 
     @Override
@@ -52,9 +52,10 @@ public class PopUpPerdidos extends AppCompatActivity {
         text_idade = findViewById(R.id.perdido_idade);
         text_raca = findViewById(R.id.perdido_nome);
         text_status = findViewById(R.id.perdido_status);
-        text_desc = findViewById(R.id.perdido_info);
+        text_desc = findViewById(R.id.perdido_info_);
 
         but_chat = findViewById(R.id.chat_perdidos);
+        but_map = findViewById(R.id.mapa_perd);
         but_voltar = findViewById(R.id.voltar_perdidos);
     }
 
@@ -90,7 +91,27 @@ public class PopUpPerdidos extends AppCompatActivity {
     }
 
     private void ButtonMap(){
+        but_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mRef.child("Animais").child(other_us_id).child(an_id).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Animal animal = dataSnapshot.getValue(Animal.class);
+                        startActivity(new Intent(PopUpPerdidos.this, MapActivityPerdido.class)
+                                .putExtra("an_id", an_id)
+                                .putExtra("other_us_id", other_us_id)
+                                .putExtra("lat", animal.getAn_lat())
+                                .putExtra("lng", animal.getAn_long()));
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
     }
 
     private void ButtonChat(){

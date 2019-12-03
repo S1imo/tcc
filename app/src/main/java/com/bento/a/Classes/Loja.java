@@ -87,6 +87,8 @@ public class Loja {
 
     public Map<String, Object> toMap() {
         HashMap<String, Object> dataInfo = new HashMap<>();
+        dataInfo.put("l_id", l_id);
+        dataInfo.put("l_us_uid", l_us_uid);
         dataInfo.put("l_nome", l_nome);
         dataInfo.put("l_qtd", l_qtd);
         dataInfo.put("l_val", l_val);

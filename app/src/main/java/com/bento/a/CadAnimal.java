@@ -82,6 +82,7 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
         currentIdAn = CreateIdAn();
 
         InpToVar();
+        permissionCheck();
         Buttons();
     }
 
@@ -118,7 +119,6 @@ public class CadAnimal extends AppCompatActivity implements AdapterView.OnItemSe
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                permissionCheck();
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");

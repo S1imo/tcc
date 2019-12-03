@@ -45,7 +45,7 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int dmax_spots_dialog = 0x7f0d003c;
+        public static final int dmax_spots_dialog = 0x7f0d0039;
     }
     public static final class style {
         private style() {}

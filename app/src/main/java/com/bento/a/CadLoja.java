@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bento.a.Classes.Loja;
@@ -50,9 +51,10 @@ public class CadLoja extends AppCompatActivity {
     private ImageButton but_voltar;
     private Button but_cad;
     private String l_nome, l_qtd, l_valor, l_desc, us_uid;
-    private String[] l_img = new String[1];
-    private CircleImageView img, img1, img2;
+    private String[] l_img = new String[3];
+    private ImageView img, img1, img2;
     private EditText cad_nome, cad_qtd, cad_valor, cad_desc;
+    private boolean isUpdated = false;
 
     private StorageReference mSRef;
     private FirebaseDatabase mFire;
@@ -63,8 +65,9 @@ public class CadLoja extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cad_loja_layout);
-        permissionCheck();
+
         InpToVar();
+        permissionCheck();
         Buttons();
     }
 
@@ -80,8 +83,8 @@ public class CadLoja extends AppCompatActivity {
         mSRef = FirebaseStorage.getInstance().getReference();
         us_uid = mAuth.getUid();
 
-        img1 = findViewById(R.id.image_View1);
-        img2 = findViewById(R.id.image_View2);
+        img1 = findViewById(R.id.image_View1_loja);
+        img2 = findViewById(R.id.image_View2_loja);
 
         but_voltar = findViewById(R.id.voltarLButton);
         but_cad = findViewById(R.id.but_cad_prod);
@@ -143,11 +146,10 @@ public class CadLoja extends AppCompatActivity {
         startActivityForResult(intent, 101);
     }
 
-    private void ImageProd(final CircleImageView image) {
+    private void ImageProd(final ImageView image) {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                permissionCheck();
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
@@ -184,9 +186,11 @@ public class CadLoja extends AppCompatActivity {
                         });
                         Toast.makeText(CadLoja.this, "Uploaded", Toast.LENGTH_SHORT).show();
                         idImgCount++;
+                        isUpdated = true;
                     }
                 });
                 img.setImageURI(imageUriResultCrop);
+                img.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
     }
@@ -235,7 +239,7 @@ public class CadLoja extends AppCompatActivity {
             return 3;
         } else if (l_desc == null) {
             return 4;
-        } else if (l_img[0] == null) {
+        } else if (!isUpdated) {
             return 5;
         }
         return 0;
@@ -273,11 +277,10 @@ public class CadLoja extends AppCompatActivity {
     }
 
     private void ButtonCad() {
-        idImgCount = 0;
-        ShowErrors();
         but_cad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                idImgCount = 0;
                 GetEditToString();
                 ShowErrors();
             }
@@ -286,11 +289,12 @@ public class CadLoja extends AppCompatActivity {
 
     private void CadProd(){
         String l_id = "P"+System.currentTimeMillis() * 100;
-        Loja loja = new Loja(l_id, us_uid, l_nome, l_qtd, l_valor, l_desc, l_img[0], l_img[1]);
+        Loja loja = new Loja(l_id, us_uid, l_nome, l_qtd, l_valor, l_desc, l_img[1], l_img[2]);
         Map<String, Object> valuesArr = new HashMap<>();
         valuesArr.put(l_id, loja.toMap());
         mRef.child("Produto").child(us_uid).setValue(valuesArr);
         startActivity(new Intent(CadLoja.this, PerfilActivity.class));
+        isUpdated = false;
     }
 
     private void ButtonVoltar() {

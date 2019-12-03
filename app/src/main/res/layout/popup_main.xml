@@ -84,6 +84,14 @@
                     android:layout_marginStart="10dp"
                     android:background="@drawable/perfil_circle" />
 
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_dog3_main"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/perfil_circle" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -282,8 +290,9 @@
             android:id="@+id/desc_animal_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:fontFamily="@font/montserrat"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
             android:text="aaaaaaaaaaaaaaaaaaaaaaaaa"
             android:textSize="14sp"
             android:textStyle="bold" />

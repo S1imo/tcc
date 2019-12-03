@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     tools:context=".PopUpShopPerfil">
 
@@ -36,17 +37,22 @@
                         android:id="@+id/image_prod1"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="false"
+                        android:focusable="true"
                         android:scaleType="centerCrop"/>
                     <ImageView
                         android:id="@+id/image_prod2"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:clickable="false"
+                        android:focusable="true"
+                        android:layout_marginStart="8dp"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:scaleType="centerCrop"/>
 
             </LinearLayout>
 
-            //nome
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
@@ -56,7 +62,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Produto: "
+                    android:text="Produto:"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:background="@drawable/cad_dog_box"
                     android:fontFamily="@font/montserrat"
                     android:textStyle="bold"/>
@@ -67,6 +75,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="aaaaa"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:visibility="visible"/>
@@ -91,7 +101,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Quantidade: "
+                android:text="Quantidade:"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
                 android:background="@drawable/cad_dog_box"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold"/>
@@ -102,6 +114,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="aaaaa"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
                 android:visibility="visible"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
@@ -127,7 +141,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Valor: "
+                android:text="Valor:"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
                 android:background="@drawable/cad_dog_box"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold"/>
@@ -138,22 +154,24 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="aaaaa"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
                 android:visibility="visible"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
 
-            <EditText
+            <com.santalu.maskedittext.MaskEditText
                 android:id="@+id/edit_prod_valor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:inputType="numberDecimal"
                 android:fontFamily="@font/montserrat"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                app:met_mask="R$##,##"/>
 
         </LinearLayout>
 
-        //Descrição
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
@@ -163,7 +181,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Descrição: "
+                android:text="Descrição:"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
                 android:background="@drawable/cad_dog_box"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold"/>
@@ -174,6 +194,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="aaaaa"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
                 android:visibility="visible"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
