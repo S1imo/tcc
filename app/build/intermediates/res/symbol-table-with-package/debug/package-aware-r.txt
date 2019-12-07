@@ -2348,6 +2348,7 @@ id volt_pag
 id voltarDButton
 id voltarLButton
 id voltar_My1
+id voltar_adm
 id voltar_chat
 id voltar_chat1
 id voltar_chat2
@@ -2418,6 +2419,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_desespero
+layout admin_layout
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cad_dog_layout

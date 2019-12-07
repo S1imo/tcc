@@ -167,7 +167,7 @@ public final class R {
         public static final int time = 0x7f0a0242;
         public static final int title = 0x7f0a0246;
         public static final int top = 0x7f0a024b;
-        public static final int wide = 0x7f0a027b;
+        public static final int wide = 0x7f0a027c;
     }
     public static final class integer {
         private integer() {}
@@ -178,12 +178,12 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int notification_action = 0x7f0d0049;
-        public static final int notification_action_tombstone = 0x7f0d004a;
-        public static final int notification_template_custom_big = 0x7f0d0051;
-        public static final int notification_template_icon_group = 0x7f0d0052;
-        public static final int notification_template_part_chronometer = 0x7f0d0056;
-        public static final int notification_template_part_time = 0x7f0d0057;
+        public static final int notification_action = 0x7f0d004a;
+        public static final int notification_action_tombstone = 0x7f0d004b;
+        public static final int notification_template_custom_big = 0x7f0d0052;
+        public static final int notification_template_icon_group = 0x7f0d0053;
+        public static final int notification_template_part_chronometer = 0x7f0d0057;
+        public static final int notification_template_part_time = 0x7f0d0058;
     }
     public static final class string {
         private string() {}

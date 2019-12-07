@@ -23,19 +23,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PopUpMain extends AppCompatActivity {
 
     private TextView exitText, text_tip_main, text_cast_main, text_porte_main, text_idade_main, text_vac_main, text_raca_main, text_stat_main, text_desc_main;
-    private String an_uid, user_id;
-    private CircleImageView image1, image2, image3;
+    private CircleImageView image1, image2, image3, image4;
     private FirebaseDatabase mFire;
     private DatabaseReference mRef;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_main);
-        mFire = FirebaseDatabase.getInstance();
-
-        mAuth = FirebaseAuth.getInstance();
         mFire = FirebaseDatabase.getInstance();
         InpToVar();
         SetTextViews();
@@ -47,6 +42,7 @@ public class PopUpMain extends AppCompatActivity {
         image1 = findViewById(R.id.image_dog_main);
         image2 = findViewById(R.id.image_dog1_main);
         image3 = findViewById(R.id.image_dog2_main);
+        image4 = findViewById(R.id.image_dog3_main);
 
         text_tip_main = findViewById(R.id.tipo_animal_main);
         text_cast_main = findViewById(R.id.castrado_animal_main);
@@ -73,6 +69,7 @@ public class PopUpMain extends AppCompatActivity {
                 text_desc_main.setText(animal.getAn_descricao());
                 text_idade_main.setText(animal.getAn_idade());
                 text_porte_main.setText(animal.getAn_porte());
+                text_tip_main.setText(animal.getTip_an());
                 text_raca_main.setText(animal.getAn_raca());
                 text_stat_main.setText(animal.getAn_status());
                 text_vac_main.setText(animal.getAn_vacinado());
@@ -80,6 +77,7 @@ public class PopUpMain extends AppCompatActivity {
                 Picasso.get().load(animal.getAn_prof_img1()).into(image1);
                 Picasso.get().load(animal.getAn_prof_img2()).into(image2);
                 Picasso.get().load(animal.getAn_prof_img3()).into(image3);
+                Picasso.get().load(animal.getAn_prof_img4()).into(image4);
 
             }
 

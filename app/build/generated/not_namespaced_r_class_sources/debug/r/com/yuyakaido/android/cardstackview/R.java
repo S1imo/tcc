@@ -151,13 +151,13 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int notification_action = 0x7f0d0049;
-        public static final int notification_action_tombstone = 0x7f0d004a;
-        public static final int notification_template_custom_big = 0x7f0d0051;
-        public static final int notification_template_icon_group = 0x7f0d0052;
-        public static final int notification_template_part_chronometer = 0x7f0d0056;
-        public static final int notification_template_part_time = 0x7f0d0057;
-        public static final int overlay = 0x7f0d0058;
+        public static final int notification_action = 0x7f0d004a;
+        public static final int notification_action_tombstone = 0x7f0d004b;
+        public static final int notification_template_custom_big = 0x7f0d0052;
+        public static final int notification_template_icon_group = 0x7f0d0053;
+        public static final int notification_template_part_chronometer = 0x7f0d0057;
+        public static final int notification_template_part_time = 0x7f0d0058;
+        public static final int overlay = 0x7f0d0059;
     }
     public static final class string {
         private string() {}

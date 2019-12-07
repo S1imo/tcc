@@ -203,7 +203,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         //botao voltar do celular desabilitado
     }
 

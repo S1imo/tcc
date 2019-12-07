@@ -173,7 +173,7 @@ public class CadLoja extends AppCompatActivity {
             assert data != null;
             final Uri imageUriResultCrop = UCrop.getOutput(data);
             if (imageUriResultCrop != null) {
-                final StorageReference Imagename = mSRef.child("image" + imageUriResultCrop.getLastPathSegment());
+                final StorageReference Imagename = mSRef.child("Produto").child(us_uid).child("image" + imageUriResultCrop.getLastPathSegment());
                 Imagename.putFile(imageUriResultCrop).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
